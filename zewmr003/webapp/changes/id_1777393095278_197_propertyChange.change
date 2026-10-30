@@ -1,0 +1,41 @@
+{
+    "fileName": "id_1777393095278_197_propertyChange",
+    "fileType": "change",
+    "changeType": "propertyChange",
+    "moduleName": "",
+    "reference": "com.cathaydining.zewmr003",
+    "packageName": "",
+    "content": {
+        "property": "showLegendButton",
+        "newValue": true
+    },
+    "selector": {
+        "id": "com.cathaydining.zewmr003::sap.suite.ui.generic.template.AnalyticalListPage.view.AnalyticalListPage::ZI_EWM_PHY_STOCK--chart",
+        "idIsLocal": false,
+        "type": "sap.ui.comp.smartchart.SmartChart"
+    },
+    "layer": "CUSTOMER_BASE",
+    "texts": {},
+    "namespace": "apps/com.cathaydining.zewmr003/changes/",
+    "projectId": "",
+    "creation": 1777393095278,
+    "originalLanguage": "",
+    "support": {
+        "generator": "changeUtils: SAPFioriTools",
+        "service": "",
+        "user": "",
+        "sapui5Version": "1.136.0",
+        "sourceChangeFileName": "",
+        "compositeCommand": ""
+    },
+    "oDataInformation": {},
+    "dependentSelector": {},
+    "validAppVersions": {
+        "from": "0.0.1",
+        "to": "0.0.1",
+        "creation": "0.0.1"
+    },
+    "jsOnly": false,
+    "variantReference": "",
+    "appDescriptorChange": false
+}

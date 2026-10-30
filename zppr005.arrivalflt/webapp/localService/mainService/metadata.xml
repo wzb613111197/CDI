@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="SAP__aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="SAP__capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HIERARCHY',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="SAP__hierarchy"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="SAP__HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="SAP__measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ODM',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.ODM.v1" Alias="SAP__ODM"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SESSION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="SAP__session"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="SAP__UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="SAP__validation"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="com.sap.gateway.srvd.zsd_pp_outbound_dashboard.v0001" Alias="SAP__self">
+            <Annotation Term="SAP__core.SchemaVersion" String="1.0.0"/>
+            <EntityType Name="ZC_PP_ARRIVAL_FLTType">
+                <Key>
+                    <PropertyRef Name="StdDate"/>
+                    <PropertyRef Name="AirlineCode"/>
+                    <PropertyRef Name="FlightNum"/>
+                </Key>
+                <Property Name="StdDate" Type="Edm.Date" Nullable="false"/>
+                <Property Name="AirlineCode" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="FlightNum" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="FlightNumber" Type="Edm.String" Nullable="false" MaxLength="7"/>
+                <Property Name="TailNumber" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="ParkingBay" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="InbEtaDate" Type="Edm.Date"/>
+                <Property Name="InbEtaTime" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="InbEtaStamp" Type="Edm.Decimal" Nullable="false" Precision="15"/>
+                <Property Name="Version" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="RowCriticality" Type="Edm.Byte" Nullable="false"/>
+                <Property Name="AirlineGrp" Type="Edm.String" Nullable="false" MaxLength="2"/>
+            </EntityType>
+            <EntityType Name="ZC_PP_DEPARTURE_FLTType">
+                <Key>
+                    <PropertyRef Name="StdDate"/>
+                    <PropertyRef Name="AirlineCode"/>
+                    <PropertyRef Name="FlightNum"/>
+                </Key>
+                <Property Name="StdDate" Type="Edm.Date" Nullable="false"/>
+                <Property Name="AirlineCode" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="FlightNum" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="FlightNumber" Type="Edm.String" Nullable="false" MaxLength="7"/>
+                <Property Name="AircraftType" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="TailNumber" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="ParkingBay" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="ETATime" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="ETDTime" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="Destination" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="OpsStatus" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="RowCriticality" Type="Edm.Byte" Nullable="false"/>
+                <Property Name="StatusCriticality" Type="Edm.Byte" Nullable="false"/>
+                <Property Name="Version" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="ETDTimestamp" Type="Edm.Decimal" Nullable="false" Precision="15"/>
+                <Property Name="ETDRaw" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="ETDDate" Type="Edm.Date"/>
+                <Property Name="STDRaw" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="ServiceType" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="DelayReason" Type="Edm.String" Nullable="false" MaxLength="40"/>
+            </EntityType>
+            <EntityType Name="ZI_PP_AIRLINE_GRP_VHType">
+                <Key>
+                    <PropertyRef Name="AirlineGrp"/>
+                </Key>
+                <Property Name="AirlineGrp" Type="Edm.String" Nullable="false" MaxLength="2"/>
+            </EntityType>
+            <EntityContainer Name="Container">
+                <EntitySet Name="ZC_PP_ARRIVAL_FLT" EntityType="com.sap.gateway.srvd.zsd_pp_outbound_dashboard.v0001.ZC_PP_ARRIVAL_FLTType"/>
+                <EntitySet Name="ZC_PP_DEPARTURE_FLT" EntityType="com.sap.gateway.srvd.zsd_pp_outbound_dashboard.v0001.ZC_PP_DEPARTURE_FLTType"/>
+                <EntitySet Name="ZI_PP_AIRLINE_GRP_VH" EntityType="com.sap.gateway.srvd.zsd_pp_outbound_dashboard.v0001.ZI_PP_AIRLINE_GRP_VHType"/>
+            </EntityContainer>
+            <Annotations Target="SAP__self.ZC_PP_ARRIVAL_FLTType/AirlineCode">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Airline Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_ARRIVAL_FLTType/FlightNum">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Flight Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_ARRIVAL_FLTType/TailNumber">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Tail Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_ARRIVAL_FLTType/ParkingBay">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Parking Bay"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_ARRIVAL_FLTType/Version">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Version"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_ARRIVAL_FLTType/AirlineGrp">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Airline group"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_ARRIVAL_FLTType">
+                <Annotation Term="SAP__common.Label" String="Flight Departure Board"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZC_PP_ARRIVAL_FLT">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_DEPARTURE_FLTType/AirlineCode">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Airline Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_DEPARTURE_FLTType/FlightNum">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Flight Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_DEPARTURE_FLTType/FlightNumber">
+                <Annotation Term="SAP__common.Label" String="航班編號"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_DEPARTURE_FLTType/AircraftType">
+                <Annotation Term="SAP__common.Label" String="航機型號"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Aircraft Type"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Aircraft Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_DEPARTURE_FLTType/TailNumber">
+                <Annotation Term="SAP__common.Label" String="機身編號"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Tail Number"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Tail Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_DEPARTURE_FLTType/ParkingBay">
+                <Annotation Term="SAP__common.Label" String="停泊位"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Parking Bay"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Parking Bay"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_DEPARTURE_FLTType/ETATime">
+                <Annotation Term="SAP__common.Label" String="預計抵達"/>
+                <Annotation Term="SAP__common.Heading" String="Inbound Scheduled Arrival Time"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Inbound Scheduled Arrival Time"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_DEPARTURE_FLTType/ETDTime">
+                <Annotation Term="SAP__common.Label" String="預計出發"/>
+                <Annotation Term="SAP__common.Heading" String="Estimated Departure Time"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Estimated Departure Time"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_DEPARTURE_FLTType/Destination">
+                <Annotation Term="SAP__common.Label" String="航線"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Destination"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Destination"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_DEPARTURE_FLTType/OpsStatus">
+                <Annotation Term="SAP__common.Label" String="狀態"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Operational Flight Status"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Operational Flight Status"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_DEPARTURE_FLTType/Version">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Version"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_DEPARTURE_FLTType/ServiceType">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Service Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_DEPARTURE_FLTType/DelayReason">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Delay Reason"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_DEPARTURE_FLTType">
+                <Annotation Term="SAP__common.Label" String="Flight Departure Board"/>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="航班編號"/>
+                            <PropertyValue Property="Criticality" Path="RowCriticality"/>
+                            <PropertyValue Property="CriticalityRepresentation" EnumMember="SAP__UI.CriticalityRepresentationType/WithoutIcon"/>
+                            <PropertyValue Property="Value" Path="FlightNumber"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="航機型號"/>
+                            <PropertyValue Property="Value" Path="AircraftType"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="機身編號"/>
+                            <PropertyValue Property="Value" Path="TailNumber"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="停泊位"/>
+                            <PropertyValue Property="Value" Path="ParkingBay"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="預計抵達"/>
+                            <PropertyValue Property="Value" Path="ETATime"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="預計出發"/>
+                            <PropertyValue Property="Value" Path="ETDTime"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="航線"/>
+                            <PropertyValue Property="Value" Path="Destination"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="狀態"/>
+                            <PropertyValue Property="Criticality" Path="StatusCriticality"/>
+                            <PropertyValue Property="CriticalityRepresentation" EnumMember="SAP__UI.CriticalityRepresentationType/WithoutIcon"/>
+                            <PropertyValue Property="Value" Path="OpsStatus"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="StdDate"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="AirlineCode"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="FlightNum"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>StdDate</PropertyPath>
+                        <PropertyPath>AirlineCode</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZC_PP_DEPARTURE_FLT">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_AIRLINE_GRP_VHType/AirlineGrp">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Airline group"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_AIRLINE_GRP_VHType">
+                <Annotation Term="SAP__common.Label" String="Airline Group SearchHelp"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZI_PP_AIRLINE_GRP_VH">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container">
+                <Annotation Term="SAP__common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="SAP__capabilities.FilterFunctions">
+                    <Collection>
+                        <String>eq</String>
+                        <String>ne</String>
+                        <String>gt</String>
+                        <String>ge</String>
+                        <String>lt</String>
+                        <String>le</String>
+                        <String>and</String>
+                        <String>or</String>
+                        <String>contains</String>
+                        <String>startswith</String>
+                        <String>endswith</String>
+                        <String>any</String>
+                        <String>all</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SupportedFormats">
+                    <Collection>
+                        <String>application/json</String>
+                        <String>application/pdf</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="Border" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="FitToPage" Bool="true"/>
+                        <PropertyValue Property="FontName" Bool="true"/>
+                        <PropertyValue Property="FontSize" Bool="true"/>
+                        <PropertyValue Property="HeaderFooter" Bool="true"/>
+                        <PropertyValue Property="IANATimezoneFormat" Bool="true"/>
+                        <PropertyValue Property="Margin" Bool="true"/>
+                        <PropertyValue Property="Padding" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="20000"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="TextDirectionLayout" Bool="true"/>
+                        <PropertyValue Property="Treeview" Bool="true"/>
+                        <PropertyValue Property="UploadToFileShare" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.KeyAsSegmentSupported"/>
+                <Annotation Term="SAP__capabilities.AsynchronousRequestsSupported"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_ARRIVAL_FLTType/StdDate">
+                <Annotation Term="SAP__common.Label" String="Sched. Dep. Date"/>
+                <Annotation Term="SAP__common.Heading" String="Scheduled Departure Date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Scheduled Departure Date"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_ARRIVAL_FLTType/InbEtaDate">
+                <Annotation Term="SAP__common.Label" String="Ested. Arrival Date"/>
+                <Annotation Term="SAP__common.Heading" String="Inbound Estimated Arrival Date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Inbound Estimated Arrival Date"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_ARRIVAL_FLTType/InbEtaTime">
+                <Annotation Term="SAP__common.Label" String="Ested. Arrival Time"/>
+                <Annotation Term="SAP__common.Heading" String="Inbound Estimated Arrival Time"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Inbound Estimated Arrival Time"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_DEPARTURE_FLTType/StdDate">
+                <Annotation Term="SAP__common.Label" String="Sched. Dep. Date"/>
+                <Annotation Term="SAP__common.Heading" String="Scheduled Departure Date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Scheduled Departure Date"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_DEPARTURE_FLTType/ETDRaw">
+                <Annotation Term="SAP__common.Label" String="Departure Time"/>
+                <Annotation Term="SAP__common.Heading" String="Estimated Departure Time"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Estimated Departure Time"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_DEPARTURE_FLTType/ETDDate">
+                <Annotation Term="SAP__common.Label" String="Departure Date"/>
+                <Annotation Term="SAP__common.Heading" String="Estimated Departure Date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Estimated Departure Date"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_DEPARTURE_FLTType/STDRaw">
+                <Annotation Term="SAP__common.Label" String="Sched. Dep. Time"/>
+                <Annotation Term="SAP__common.Heading" String="Scheduled Departure Time"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Scheduled Departure Time"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

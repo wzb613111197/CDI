@@ -1,0 +1,23 @@
+{
+  "generationParameters": {
+    "generationDate": "Wed Apr 08 2026 11:48:26 GMT+0800 (China Standard Time)",
+    "generatorPlatform": "Visual Studio Code",
+    "serviceType": "SAP System (ABAP On-Premise)",
+    "metadataFilename": "",
+    "serviceUrl": "https://vhcwawd1wd01.sap.fmsete.cpafms.com:44380/sap/opu/odata4/sap/zui_sd_send_specification_o4/srvd/sap/zsd_sd_send_specification/0001/",
+    "appName": "zsdi001",
+    "appTitle": "Send Specification",
+    "appDescription": "Send Specification",
+    "appNamespace": "com.cathaydining",
+    "ui5Theme": "sap_horizon",
+    "ui5Version": "1.136.0",
+    "enableEslint": false,
+    "enableTypeScript": false,
+    "showMockDataInfo": true,
+    "generatorVersion": "1.21.0",
+    "template": "Basic V4",
+    "generatorName": "SAP Fiori Application Generator",
+    "entityRelatedConfig": [],
+    "launchText": "To launch the generated application, run the following from the generated application root folder:\n\n```\n    npm start\n```"
+  }
+}

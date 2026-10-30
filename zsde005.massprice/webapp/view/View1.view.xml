@@ -1,0 +1,116 @@
+<mvc:View controllerName="com.cathaydining.zsde005.massprice.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:u="sap.ui.unified">
+
+    <Page id="page" title="{i18n>pageTitle}" showHeader="true">
+        <content>
+                    <f:SimpleForm id="selectionForm"
+                        editable="true"
+                        layout="ResponsiveGridLayout"
+                        labelSpanXL="2" labelSpanL="2" labelSpanM="2" labelSpanS="4"
+                        emptySpanXL="6" emptySpanL="6" emptySpanM="4" emptySpanS="0"
+                        columnsXL="1" columnsL="1" columnsM="1"
+                        class="sapUiSmallMarginTop sapUiSmallMarginBottom">
+                        <f:content>
+                            <Label text="{i18n>labelSelectFile}" required="true"/>
+                            <HBox alignItems="Center">
+                                <u:FileUploader id="fileUploader"
+                                    width="22rem"
+                                    fileType="xlsx,xls"
+                                    placeholder="{i18n>labelSelectFile}"
+                                    change="onFileChange"
+                                    typeMissmatch="onTypeMismatch"/>
+                                <Button id="btnGo"
+                                    text="{i18n>btnGo}"
+                                    type="Emphasized"
+                                    press="onGo"
+                                    class="sapUiSmallMarginBegin"/>
+                            </HBox>
+
+                            <Label text="{i18n>labelReadFromRow}"/>
+                            <Input id="readFromRowInput"
+                                value="2"
+                                width="6rem"
+                                type="Number"
+                                editable="false"/>
+
+                            <Label text=""/>
+                            <RadioButtonGroup id="uploadTypeGroup" selectedIndex="0" columns="2">
+                                <buttons>
+                                    <RadioButton id="rbSalesPrice" text="{i18n>rbSalesPrice}"/>
+                                    <RadioButton id="rbMarkup" text="{i18n>rbMarkup}"/>
+                                </buttons>
+                            </RadioButtonGroup>
+                        </f:content>
+                    </f:SimpleForm>
+            <Table id="previewTable"
+                class="sapUiMediumMarginBeginEnd"
+                noDataText="{i18n>tableNoData}"
+                items="{previewModel>/items}"
+                alternateRowColors="true"
+                sticky="ColumnHeaders,HeaderToolbar">
+                <headerToolbar>
+                    <OverflowToolbar>
+                        <Title text="{= ${i18n>tableTitle} + ' (' + ${previewModel>/items/length} + ')'}" level="H4"/>
+                        <ToolbarSpacer/>
+                    </OverflowToolbar>
+                </headerToolbar>
+                <columns>
+                <Column width="14rem" demandPopin="true"><Text text="{i18n>colStatus}"/></Column>
+                    <Column><Text text="{i18n>colConditionType}"/></Column>
+                    <Column><Text text="{i18n>colCustomer}"/></Column>
+                    <Column><Text text="{i18n>colSalesOrg}"/></Column>
+                    <Column><Text text="{i18n>colDistributionChannel}"/></Column>
+                    <Column><Text text="{i18n>colDivision}"/></Column>
+                    <Column><Text text="{i18n>colMaterial}"/></Column>
+                    <Column hAlign="End"><Text text="{i18n>colAmount}"/></Column>
+                    <Column><Text text="{i18n>colUM}"/></Column>
+                    <Column><Text text="{i18n>colValidFrom}"/></Column>
+                    <Column><Text text="{i18n>colValidTo}"/></Column>
+
+
+
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                        <ObjectStatus
+                                state="{= ${previewModel>Type} === 'E' ? 'Error' : ${previewModel>Type} === 'S' ? 'Success' : ${previewModel>Type} === 'I' ? 'Warning' : 'Information'}"
+                                text="{= ${previewModel>Type} === 'E' ? ${i18n>statusError} : ${previewModel>Type} === 'S' ? ${i18n>statusSuccess} : ${previewModel>Type} === 'I' ? ${i18n>statusWarning} : ${i18n>statusOK}}"
+                                tooltip="{previewModel>Message}"
+                                inverted="false"/>
+                            <Text text="{previewModel>ConditionType}"/>
+                            <Text text="{previewModel>Customer}"/>
+                            <Text text="{previewModel>SalesOrg}"/>
+                            <Text text="{previewModel>DistributionChannel}"/>
+                            <Text text="{previewModel>Division}"/>
+                            <Text text="{previewModel>Material}"/>
+                            <Text text="{previewModel>Amount}"/>
+                            <Text text="{previewModel>UM}"/>
+                            <Text text="{path:'previewModel>ValidFrom',type:'sap.ui.model.type.Date',formatOptions:{UTC:'true'}}"/>
+                            <Text text="{path:'previewModel>ValidTo',type:'sap.ui.model.type.Date',formatOptions:{UTC:'true'}}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+
+        <footer>
+            <OverflowToolbar id="footerBar">
+                <ToolbarSpacer/>
+                <Button id="btnDownloadTemplate"
+                    text="{i18n>btnDownloadTemplate}"
+                    icon="sap-icon://download"
+                    press="onDownloadTemplate"/>
+                <Button id="btnUpload"
+                    text="{i18n>btnUpload}"
+                    type="Emphasized"
+                    press="onUpload"
+                    enabled="{previewModel>/uploadEnabled}"/>
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

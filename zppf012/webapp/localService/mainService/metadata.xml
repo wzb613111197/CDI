@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="SAP__aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="SAP__capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HIERARCHY',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="SAP__hierarchy"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="SAP__HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="SAP__measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ODM',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.ODM.v1" Alias="SAP__ODM"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SESSION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="SAP__session"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="SAP__UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="SAP__validation"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="com.sap.gateway.srvd.zsd_pp_dish_label_form_print.v0001" Alias="SAP__self">
+            <Annotation Term="SAP__core.SchemaVersion" String="1.0.0"/>
+            <EntityType Name="ZI_EWM_PRINTER_VHType">
+                <Key>
+                    <PropertyRef Name="Printer"/>
+                </Key>
+                <Property Name="Printer" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="DeviceTypName" Type="Edm.String" Nullable="false" MaxLength="8"/>
+                <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="64"/>
+            </EntityType>
+            <EntityType Name="ZI_PP_DISH_LABEL_FORM_PRINTType">
+                <Key>
+                    <PropertyRef Name="ProductionOrder"/>
+                    <PropertyRef Name="Numberoflabels"/>
+                    <PropertyRef Name="ZDishLabelPrint"/>
+                </Key>
+                <Property Name="ProductionOrder" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="Numberoflabels" Type="Edm.Int64" Nullable="false"/>
+                <Property Name="ZDishLabelPrint" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="MaterialCode" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="MaterialDescription" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="MaterialDescription_ZF" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="ProdOrderBasedQuantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="ProdOrderUnit" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="SAP__Messages" Type="Collection(com.sap.gateway.srvd.zsd_pp_dish_label_form_print.v0001.SAP__Message)" Nullable="false"/>
+            </EntityType>
+            <ComplexType Name="ZA_PP_DISH_LABEL_PARAM_ITEM">
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="Numberoflabels" Type="Edm.Int64" Nullable="false"/>
+                <Property Name="ZDishLabelPrint" Type="Edm.String" Nullable="false"/>
+            </ComplexType>
+            <ComplexType Name="SAP__Message">
+                <Property Name="code" Type="Edm.String" Nullable="false"/>
+                <Property Name="message" Type="Edm.String" Nullable="false"/>
+                <Property Name="target" Type="Edm.String"/>
+                <Property Name="additionalTargets" Type="Collection(Edm.String)" Nullable="false"/>
+                <Property Name="transition" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="numericSeverity" Type="Edm.Byte" Nullable="false"/>
+                <Property Name="longtextUrl" Type="Edm.String"/>
+            </ComplexType>
+            <Action Name="print" EntitySetPath="_it" IsBound="true">
+                <Parameter Name="_it" Type="Collection(com.sap.gateway.srvd.zsd_pp_dish_label_form_print.v0001.ZI_PP_DISH_LABEL_FORM_PRINTType)" Nullable="false"/>
+                <Parameter Name="Printer" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Parameter Name="Items" Type="Collection(com.sap.gateway.srvd.zsd_pp_dish_label_form_print.v0001.ZA_PP_DISH_LABEL_PARAM_ITEM)" Nullable="false"/>
+                <ReturnType Type="Collection(com.sap.gateway.srvd.zsd_pp_dish_label_form_print.v0001.ZI_PP_DISH_LABEL_FORM_PRINTType)" Nullable="false"/>
+            </Action>
+            <EntityContainer Name="Container">
+                <EntitySet Name="ZI_EWM_PRINTER_VH" EntityType="com.sap.gateway.srvd.zsd_pp_dish_label_form_print.v0001.ZI_EWM_PRINTER_VHType"/>
+                <EntitySet Name="ZI_PP_DISH_LABEL_FORM_PRINT" EntityType="com.sap.gateway.srvd.zsd_pp_dish_label_form_print.v0001.ZI_PP_DISH_LABEL_FORM_PRINTType"/>
+            </EntityContainer>
+            <Annotations Target="SAP__self.ZA_PP_DISH_LABEL_PARAM_ITEM/Material">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Material"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_PRINTER_VHType/Printer">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Short Name"/>
+                <Annotation Term="SAP__common.Heading" String="Short"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Spool: short name for output device"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=RSPOPSHORT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_PRINTER_VHType/DeviceTypName">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Device type"/>
+                <Annotation Term="SAP__common.Heading" String="Dev.type"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Spool: Device type name"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=RSPOPTYPE"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_PRINTER_VHType">
+                <Annotation Term="SAP__common.Label" String="Search Help for Printer"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZI_EWM_PRINTER_VH">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_DISH_LABEL_FORM_PRINTType/ProductionOrder">
+                <Annotation Term="SAP__common.Label" String="Production Order"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_pp_production_order_vh/0001;ps='srvd-zsd_pp_dish_label_form_print-0001';va='com.sap.gateway.srvd.zsd_pp_dish_label_form_print.v0001.et-zi_pp_dish_label_form_print.productionorder'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="Order"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Order Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=AUFNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_DISH_LABEL_FORM_PRINTType/Numberoflabels">
+                <Annotation Term="SAP__common.Label" String="Number of labels"/>
+                <Annotation Term="SAP__core.Computed"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_DISH_LABEL_FORM_PRINTType/ZDishLabelPrint">
+                <Annotation Term="SAP__common.Label" String="Printer"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_DISH_LABEL_FORM_PRINTType/MaterialCode">
+                <Annotation Term="SAP__common.Label" String="Material Code"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Material"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_DISH_LABEL_FORM_PRINTType/MaterialDescription">
+                <Annotation Term="SAP__common.Label" String="Material Description"/>
+                <Annotation Term="SAP__common.Heading" String="Material Description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Description"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MAKTX"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_DISH_LABEL_FORM_PRINTType/ProdOrderBasedQuantity">
+                <Annotation Term="SAP__common.Label" String="Prod Order Based Quantity"/>
+                <Annotation Term="SAP__measures.Unit" Path="ProdOrderUnit"/>
+                <Annotation Term="SAP__common.Heading" String="Total Order Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Total Order Quantity"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=GAMNG"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_DISH_LABEL_FORM_PRINTType/ProdOrderUnit">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__common.Label" String="Base Unit of Measure"/>
+                <Annotation Term="SAP__common.Heading" String="BUn"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MEINS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.print(Collection(SAP__self.ZI_PP_DISH_LABEL_FORM_PRINTType))/Printer">
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_ewm_printer_vh/0001;ps='srvd-zsd_pp_dish_label_form_print-0001';va='com.sap.gateway.srvd.zsd_pp_dish_label_form_print.v0001.ae-zi_pp_dish_label_form_print.print.printer.ZI_PP_DISH_LABEL_FORM_PRINTType.X'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+                <Annotation Term="SAP__UI.ParameterDefaultValue" String="LP01"/>
+                <Annotation Term="SAP__common.Label" String="Output Device"/>
+                <Annotation Term="SAP__common.Heading" String="ODev"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Spool: Output device"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=RSPOPNAME"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_DISH_LABEL_FORM_PRINTType">
+                <Annotation Term="SAP__common.Label" String="Custom View for Dish Label Form"/>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="Manage Dish Label Printing"/>
+                        <PropertyValue Property="TypeNamePlural" String="Manage Dish Label Printing"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" String="">
+                                    <Annotation Term="SAP__core.Messages">
+                                        <Collection>
+                                            <Record>
+                                                <PropertyValue Property="code" String="SADL_GW_EXP_VOCAN-001"/>
+                                                <PropertyValue Property="message" String="Property 'ProductionOrder_SUM' of annotation 'UI.HEADERINFO.TITLE' in proj./view 'ZI_PP_DISH_LABEL_FORM_PRINT' not found"/>
+                                                <PropertyValue Property="severity" String="error"/>
+                                            </Record>
+                                        </Collection>
+                                    </Annotation>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProductionOrder"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MaterialCode"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MaterialDescription"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProdOrderBasedQuantity"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Numberoflabels"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ZDishLabelPrint"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MaterialDescription_ZF"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProdOrderUnit"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>ProductionOrder</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Messages" Path="SAP__Messages"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZI_PP_DISH_LABEL_FORM_PRINT">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="RequiredProperties">
+                            <Collection>
+                                <PropertyPath>ProductionOrder</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container">
+                <Annotation Term="SAP__CodeList.UnitsOfMeasure">
+                    <Record>
+                        <PropertyValue Property="Url" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="UnitsOfMeasure"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="SAP__capabilities.FilterFunctions">
+                    <Collection>
+                        <String>eq</String>
+                        <String>ne</String>
+                        <String>gt</String>
+                        <String>ge</String>
+                        <String>lt</String>
+                        <String>le</String>
+                        <String>and</String>
+                        <String>or</String>
+                        <String>contains</String>
+                        <String>startswith</String>
+                        <String>endswith</String>
+                        <String>any</String>
+                        <String>all</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SupportedFormats">
+                    <Collection>
+                        <String>application/json</String>
+                        <String>application/pdf</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="Border" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="FitToPage" Bool="true"/>
+                        <PropertyValue Property="FontName" Bool="true"/>
+                        <PropertyValue Property="FontSize" Bool="true"/>
+                        <PropertyValue Property="HeaderFooter" Bool="true"/>
+                        <PropertyValue Property="IANATimezoneFormat" Bool="true"/>
+                        <PropertyValue Property="Margin" Bool="true"/>
+                        <PropertyValue Property="Padding" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="20000"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="TextDirectionLayout" Bool="true"/>
+                        <PropertyValue Property="Treeview" Bool="true"/>
+                        <PropertyValue Property="UploadToFileShare" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.KeyAsSegmentSupported"/>
+                <Annotation Term="SAP__capabilities.AsynchronousRequestsSupported"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_DISH_LABEL_FORM_PRINTType/MaterialDescription_ZF">
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__common.Label" String="Material Description"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MAKTX"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_PRINTER_VHType/Name">
+                <Annotation Term="SAP__common.Label" String="Location"/>
+                <Annotation Term="SAP__common.Heading" String="Location and naming"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Spool: Location and naming of an output device"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=RSPOPLOCAT"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

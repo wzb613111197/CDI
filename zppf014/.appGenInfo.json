@@ -1,0 +1,29 @@
+{
+  "generationParameters": {
+    "generationDate": "Fri Aug 14 2026 15:33:26 GMT+0800 (China Standard Time)",
+    "generatorPlatform": "Visual Studio Code",
+    "serviceType": "SAP System (ABAP On-Premise)",
+    "metadataFilename": "",
+    "serviceUrl": "https://vhcwawd1wd01.sap.fmsete.cpafms.com:44380/sap/opu/odata4/sap/zui_pp_manage_shopfloor_o4/srvd/sap/zsd_pp_manage_shopfloor_label/0001/",
+    "appName": "zppf014",
+    "appTitle": "Manage Shopfloor Label",
+    "appDescription": "Manage Shopfloor Label",
+    "appNamespace": "com.cathaydining",
+    "ui5Theme": "sap_horizon",
+    "ui5Version": "1.136.10",
+    "enableEslint": false,
+    "enableTypeScript": false,
+    "showMockDataInfo": true,
+    "generatorVersion": "1.21.0",
+    "template": "List Report Page V4",
+    "generatorName": "SAP Fiori Application Generator",
+    "entityRelatedConfig": [
+      {
+        "type": "Main Entity",
+        "value": "MANAGESHOPFLOORLABEL"
+      }
+    ],
+    "launchText": "To launch the generated application, run the following from the generated application root folder:\n\n```\n    npm start\n```",
+    "valueHelpDownloaded": true
+  }
+}

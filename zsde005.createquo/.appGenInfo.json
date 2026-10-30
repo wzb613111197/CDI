@@ -1,0 +1,29 @@
+{
+  "generationParameters": {
+    "generationDate": "Mon Aug 03 2026 10:36:16 GMT+0800 (China Standard Time)",
+    "generatorPlatform": "Visual Studio Code",
+    "serviceType": "SAP System (ABAP On-Premise)",
+    "metadataFilename": "",
+    "serviceUrl": "https://vhcwawd1wd01.sap.fmsete.cpafms.com:44380/sap/opu/odata4/sap/zui_sd_qt_load_temp_o4/srvd/sap/zsd_sd_qt_load_temp/0001/",
+    "appName": "zsde005.createquo",
+    "appTitle": "New Quotation",
+    "appDescription": "New Quotation",
+    "appNamespace": "com.cathaydining",
+    "ui5Theme": "sap_horizon",
+    "ui5Version": "1.136.10",
+    "enableEslint": false,
+    "enableTypeScript": false,
+    "showMockDataInfo": true,
+    "generatorVersion": "1.21.0",
+    "template": "List Report Page V4",
+    "generatorName": "SAP Fiori Application Generator",
+    "entityRelatedConfig": [
+      {
+        "type": "Main Entity",
+        "value": "ZI_SD_QT_MATERIAL"
+      }
+    ],
+    "launchText": "To launch the generated application, run the following from the generated application root folder:\n\n```\n    npm start\n```",
+    "valueHelpDownloaded": true
+  }
+}

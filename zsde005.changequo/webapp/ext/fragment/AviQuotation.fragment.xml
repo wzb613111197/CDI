@@ -1,0 +1,149 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+>
+    <Dialog
+        id="AviQuotationDialog"
+        title="{i18n>AviQuotationDialogTitle}"
+        stretch="true"
+        contentWidth="55rem"
+        draggable="true"
+        resizable="true"
+        verticalScrolling="true"
+    >
+        <content>
+            <VBox
+                id="AviQuotationContentBox"
+                class="sapUiSmallMargin"
+            >
+                <Panel
+                    id="AviQuotationHeaderPanel"
+                    headerText="{i18n>AviQuotationDialogTitle}"
+                    expandable="false"
+                    class="sapUiSmallMarginBottom"
+                >
+                    <f:SimpleForm
+                        id="AviQuotationHeaderForm"
+                        editable="true"
+                        layout="ResponsiveGridLayout"
+                        labelSpanXL="3" labelSpanL="3" labelSpanM="4" labelSpanS="12"
+                        columnsXL="2" columnsL="2" columnsM="1"
+                    >
+                        <f:content>
+                            <Label id="AviQuotationNameLabel" text="{i18n>AviQuotationName}"/>
+                            <Input
+                                id="AviQuotationNameInput"
+                                value="{ui>/AviQuotation/Zname}"
+                                showValueHelp="true"
+                                valueHelpRequest=".onAviTemplateVH"
+                            />
+
+                            <Label id="AviQuotationCabinClassLabel" text="{i18n>AviQuotationCabinClass}"/>
+                            <MultiComboBox
+                                id="AviQuotationCabinClassMCB"
+                                selectedKeys="{ui>/AviQuotation/SelectedCabinClasses}"
+                                items="{ui>/AviQuotation/CabinClassItems}"
+                                width="100%"
+                            >
+                                <core:Item id="AviQuotationCabinClassItem" key="{ui>CabinClass}" text="{ui>CabinClass}" />
+                            </MultiComboBox>
+
+                            <Label id="AviQuotationCycleLabel" text="{i18n>AviQuotationCycle}"/>
+                            <MultiComboBox
+                                id="AviQuotationCycleMCB"
+                                selectedKeys="{ui>/AviQuotation/SelectedCycles}"
+                                items="{ui>/AviQuotation/CycleItems}"
+                                width="100%"
+                            >
+                                <core:Item id="AviQuotationCycleItem" key="{ui>Cycle}" text="{ui>Cycle}" />
+                            </MultiComboBox>
+                        </f:content>
+                    </f:SimpleForm>
+                </Panel>
+
+                <Panel
+                    id="AviQuotationFieldsPanel"
+                    headerText="{i18n>AviQuotationFieldSelection}"
+                    expandable="false"
+                    class="sapUiSmallMarginBottom"
+                >
+                    <l:Grid
+                        id="AviQuotationFieldsGrid"
+                        defaultSpan="L3 M4 S6"
+                        class="sapUiSmallMargin"
+                    >
+                        <l:content>
+                            <CheckBox id="AviQuotationChkMaterialCode" text="{i18n>AviQuotationMaterialCode}" selected="{ui>/AviQuotation/fields/Zmatnr}"/>
+                            <CheckBox id="AviQuotationChkUpliftType" text="{i18n>AviQuotationUpliftType}" selected="{ui>/AviQuotation/fields/Zuplift}"/>
+                            <CheckBox id="AviQuotationChkDescriptionEN" text="{i18n>AviQuotationDescriptionEN}" selected="{ui>/AviQuotation/fields/ZdescEn}"/>
+                            <CheckBox id="AviQuotationChkQuantity" text="{i18n>AviQuotationQuantity}" selected="{ui>/AviQuotation/fields/Zqty}"/>
+                            <CheckBox id="AviQuotationChkUnit" text="{i18n>AviQuotationUnit}" selected="{ui>/AviQuotation/fields/Zuom}"/>
+                            <CheckBox id="AviQuotationChkRatioCode" text="{i18n>AviQuotationRatioCode}" selected="{ui>/AviQuotation/fields/Zratio}"/>
+                            <CheckBox id="AviQuotationChkPrice" text="{i18n>AviQuotationPrice}" selected="{ui>/AviQuotation/fields/Zprice}"/>
+                            <CheckBox id="AviQuotationChkRevisedPrice" text="{i18n>AviQuotationRevisedPrice}" selected="{ui>/AviQuotation/fields/ZrevisedPirce}"/>
+                            <CheckBox id="AviQuotationChkPhoto" text="{i18n>AviQuotationPhoto}" selected="{ui>/AviQuotation/fields/Zphoto}"/>
+                            <CheckBox id="AviQuotationChkAllergenList" text="{i18n>AviQuotationAllergenList}" selected="{ui>/AviQuotation/fields/Zallergen}"/>
+                            <CheckBox id="AviQuotationChkShowComponent" text="{i18n>AviQuotationShowComponent}" selected="{ui>/AviQuotation/fields/ZshowComp}"/>
+                            <CheckBox id="AviQuotationChkStandardFoodCost" text="{i18n>AviQuotationStandardFoodCost}" selected="{ui>/AviQuotation/fields/ZcostFood}"/>
+                            <CheckBox id="AviQuotationChkLabourMM" text="{i18n>AviQuotationLabourMM}" selected="{ui>/AviQuotation/fields/ZcostLabmm}"/>
+                            <CheckBox id="AviQuotationChkLabourSellRate" text="{i18n>AviQuotationLabourSellRate}" selected="{ui>/AviQuotation/fields/ZcostLabsell}"/>
+                            <CheckBox id="AviQuotationChkAdjustedOverhead" text="{i18n>AviQuotationAdjustedOverhead}" selected="{ui>/AviQuotation/fields/ZcostOvhd}"/>
+                            <CheckBox id="AviQuotationChkOtherAdjustment" text="{i18n>AviQuotationOtherAdjustment}" selected="{ui>/AviQuotation/fields/ZcostOther}"/>
+                        </l:content>
+                    </l:Grid>
+                </Panel>
+
+                <Panel
+                    id="AviQuotationRemarkPanel"
+                    headerText="{i18n>AviQuotationRemark}"
+                    expandable="false"
+                >
+                    <VBox id="AviQuotationRemarkBox" class="sapUiSmallMargin">
+                        <Label id="AviQuotationRemarkLabel" text="{i18n>AviQuotationRemark}"/>
+                        <TextArea
+                            id="AviQuotationRemarkTA"
+                            value="{ui>/AviQuotation/Zremark}"
+                            rows="4"
+                            width="100%"
+                            class="sapUiSmallMarginBottom"
+                        />
+                        <Label id="AviQuotationTermsLabel" text="{i18n>AviQuotationTermsAndConditions}"/>
+                        <TextArea
+                            id="AviQuotationTermsTA"
+                            value="{ui>/AviQuotation/Zterms}"
+                            rows="4"
+                            width="100%"
+                        />
+                    </VBox>
+                </Panel>
+            </VBox>
+        </content>
+        <buttons>
+            <Button
+                id="AviQuotationPreviewBtn"
+                text="{i18n>AviQuotationPreview}"
+                type="Emphasized"
+                press=".onAviQuotationPreview"
+            />
+            <!-- <Button
+                id="AviQuotationExportPdfBtn"
+                text="{i18n>AviQuotationExportPdf}"
+                type="Emphasized"
+                press=".onAviQuotationExportPdf"
+            /> -->
+            <Button
+                id="AviQuotationExportExcelBtn"
+                text="{i18n>AviQuotationExportExcel}"
+                type="Emphasized"
+                press=".onAviQuotationExportExcel"
+            />
+            <Button
+                id="AviQuotationCloseBtn"
+                text="{i18n>AviQuotationClose}"
+                press=".onCloseAviQuotationDialog"
+            />
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

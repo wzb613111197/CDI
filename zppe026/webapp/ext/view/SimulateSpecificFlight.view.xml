@@ -1,0 +1,121 @@
+<mvc:View
+	controllerName="com.cathaydining.zppe026.ext.controller.SimulateSpecificFlight"
+	xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:f="sap.f"
+	xmlns:table="sap.ui.table"
+	xmlns:rowmodes="sap.ui.table.rowmodes"
+	xmlns:core="sap.ui.core">
+	<f:DynamicPage
+		id="simulateSpecificFlightPage"
+		fitContent="true"
+		showFooter="true"
+		toggleHeaderOnTitleClick="true"
+		class="simulateSpecificFlightPage">
+		<f:title>
+			<f:DynamicPageTitle>
+				<f:heading>
+					<Title text="{@i18n>Simulate}" level="H4"/>
+				</f:heading>
+				<f:snappedContent>
+					<Text text="{ui>/paramSummary}"/>
+				</f:snappedContent>
+				<f:expandedContent>
+					<Text text="{ui>/paramSummary}"/>
+				</f:expandedContent>
+			</f:DynamicPageTitle>
+		</f:title>
+		<f:content>
+			<VBox id="simulatePageContent" height="100%" width="100%" renderType="Bare" class="simulatePageContent">
+				<table:Table
+					id="simulateResultTable"
+					rows="{ui>/results}"
+					selectionMode="MultiToggle"
+					enableSelectAll="true"
+					width="100%"
+					rowHeight="33"
+					columnHeaderHeight="36"
+					class="simulateResultTable"
+					noData="{@i18n>msgNoSimulateData}"
+					ariaLabelledBy="simulateResultTitle">
+					<table:extension>
+						<OverflowToolbar style="Clear">
+							<Title id="simulateResultTitle" text="{@i18n>MasterDataRetrieval}" level="H5"/>
+							<ToolbarSpacer/>
+						</OverflowToolbar>
+					</table:extension>
+					<table:rowMode>
+						<rowmodes:Fixed rowCount="20" fixedTopRowCount="0"/>
+					</table:rowMode>
+					<table:columns>
+						<table:Column width="7rem" sortProperty="AirlineCode">
+							<Label text="{@i18n>AirlineCode}"/>
+							<table:template>
+								<Text text="{ui>AirlineCode}" wrapping="false"/>
+							</table:template>
+						</table:Column>
+						<table:Column width="11rem" sortProperty="LoadingTemplateCode">
+							<Label text="{@i18n>LoadingTemplateCode}"/>
+							<table:template>
+								<Text text="{ui>LoadingTemplateCode}" wrapping="false"/>
+							</table:template>
+						</table:Column>
+						<table:Column width="14rem" sortProperty="LoadingTemplateName">
+							<Label text="{@i18n>LoadingTemplateName}"/>
+							<table:template>
+								<Text text="{ui>LoadingTemplateName}" wrapping="false"/>
+							</table:template>
+						</table:Column>
+						<table:Column width="11rem" sortProperty="LoadingTemplateValidFrom">
+							<Label text="{@i18n>LoadingTemplateValidFrom}"/>
+							<table:template>
+								<Text text="{ui>LoadingTemplateValidFrom}" wrapping="false"/>
+							</table:template>
+						</table:Column>
+						<table:Column width="11rem" sortProperty="LoadingTemplateValidTo">
+							<Label text="{@i18n>LoadingTemplateValidTo}"/>
+							<table:template>
+								<Text text="{ui>LoadingTemplateValidTo}" wrapping="false"/>
+							</table:template>
+						</table:Column>
+						<table:Column width="11rem" sortProperty="LoadingDefinitionCode">
+							<Label text="{@i18n>LoadingDefinitionCode}"/>
+							<table:template>
+								<Text text="{ui>LoadingDefinitionCode}" wrapping="false"/>
+							</table:template>
+						</table:Column>
+						<table:Column width="14rem" sortProperty="LoadingDefinitionName">
+							<Label text="{@i18n>LoadingDefinitionName}"/>
+							<table:template>
+								<Text text="{ui>LoadingDefinitionName}" wrapping="false"/>
+							</table:template>
+						</table:Column>
+						<table:Column width="11rem" sortProperty="LoadingDefinitionValidFrom">
+							<Label text="{@i18n>LoadingDefinitionValidFrom}"/>
+							<table:template>
+								<Text text="{ui>LoadingDefinitionValidFrom}" wrapping="false"/>
+							</table:template>
+						</table:Column>
+						<table:Column width="11rem" sortProperty="LoadingDefinitionValidTo">
+							<Label text="{@i18n>LoadingDefinitionValidTo}"/>
+							<table:template>
+								<Text text="{ui>LoadingDefinitionValidTo}" wrapping="false"/>
+							</table:template>
+						</table:Column>
+					</table:columns>
+				</table:Table>
+			</VBox>
+		</f:content>
+		<f:footer>
+			<OverflowToolbar>
+				<ToolbarSpacer/>
+				<Button
+					id="simulateConfirmButton"
+					text="{@i18n>SimuFlordConfirm}"
+					type="Emphasized"
+					press=".onConfirm"
+					enabled="{= !${ui>/busy} &amp;&amp; ${ui>/hasResults} }"/>
+			</OverflowToolbar>
+		</f:footer>
+	</f:DynamicPage>
+</mvc:View>

@@ -1,0 +1,13 @@
+.sampleBarcodeScannerButtonWithZebraEB {
+	position: absolute !important;
+	margin-top: auto;
+	margin-right: -2rem;
+	z-index: 2;
+	right: 2rem;
+}
+
+.sampleBarcodeScannerButtonWithZebraEB .sapMBtnInner {
+	background-image: none;
+	background-color: transparent;
+	border-color: transparent;
+}

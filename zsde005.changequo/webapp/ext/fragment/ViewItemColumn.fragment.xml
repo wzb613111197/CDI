@@ -1,0 +1,11 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <Button
+        text="{@i18n>qdColView}"
+        press=".extension.com.cathaydining.zsde005.changequo.ext.controller.ObjectPageExtension.onQDViewItem"
+        tooltip="{i18n>qdColView}"
+        type="Transparent"
+    />
+</core:FragmentDefinition>

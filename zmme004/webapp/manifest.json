@@ -1,0 +1,161 @@
+{
+  "_version": "1.73.1",
+  "sap.app": {
+    "id": "com.cathaydining.zmme004",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.21.0",
+      "toolsId": "4b175808-2d1b-4d84-8202-658eab8b4e89"
+    },
+    "dataSources": {
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      },
+      "mainService": {
+        "uri": "/sap/opu/odata4/sap/zui_mm_rebound_o4/srvd/sap/zsd_mm_rebound/0001/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation"
+          ],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.136.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.cathaydining.zmme004.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "ZC_MM_REBOUNDList",
+          "target": "ZC_MM_REBOUNDList"
+        }
+      ],
+      "targets": {
+        "ZC_MM_REBOUNDList": {
+          "type": "Component",
+          "id": "ZC_MM_REBOUNDList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/ZC_MM_REBOUND",
+              "variantManagement": "Page",
+              "navigation": {},
+              "views": {
+                "paths": [
+                  {
+                    "key": "Create",
+                    "annotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#Create",
+                    "entitySet": "ZC_MM_REBOUND",
+                    "keepPreviousPersonalization": true
+                  },
+                  {
+                    "key": "Query",
+                    "annotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#Query",
+                    "entitySet": "ZC_MM_REBOND_QUERY"
+                  }
+                ],
+                "showCounts": false
+              },
+              "controlConfiguration": {
+                "/ZC_MM_REBOND_QUERY/@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "selectAll": true,
+                    "selectionMode": "Multi",
+                    "type": "GridTable"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "extends": {
+      "extensions": {
+        "sap.ui.controllerExtensions": {
+          "sap.fe.templates.ListReport.ListReportController": {
+            "controllerName": "com.cathaydining.zmme004.ext.controller.ListReportExtension"
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  },
+  "sap.fe": {
+    "app": {
+      "enableLazyLoading": true
+    }
+  }
+}

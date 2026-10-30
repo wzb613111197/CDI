@@ -1,0 +1,6 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+    <!-- Read-only Seq display; value is updated via drag-and-drop, not inline edit -->
+    <Text text="{Seq}" wrapping="false" />
+</core:FragmentDefinition>

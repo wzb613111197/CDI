@@ -1,0 +1,190 @@
+{
+  "_version": "1.73.1",
+  "sap.app": {
+    "id": "com.cathaydining.zppf001",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.19.1",
+      "toolsId": "2857a7cc-fbcc-437c-80b8-bff237123a0f"
+    },
+    "dataSources": {
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      },
+      "mainService": {
+        "uri": "/sap/opu/odata4/sap/zui_pp_production_labels_o4/srvd/sap/zsd_pp_production_label_form/0001/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation"
+          ],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.136.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.cathaydining.zppf001.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "updateGroupId": "myAppUpdateGroup",
+          "synchronizationMode": "None",
+          "groupProperties": {
+            "myAppUpdateGroup": {
+              "submit": "API"
+            }
+          },
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "PRODUCTIONLABELFORMList",
+          "target": "PRODUCTIONLABELFORMList"
+        },
+        {
+          "pattern": "PRODUCTIONLABELFORM({key}):?query:",
+          "name": "PRODUCTIONLABELFORMObjectPage",
+          "target": "PRODUCTIONLABELFORMObjectPage"
+        }
+      ],
+      "targets": {
+        "PRODUCTIONLABELFORMList": {
+          "type": "Component",
+          "id": "PRODUCTIONLABELFORMList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/PRODUCTIONLABELFORM",
+              "variantManagement": "Page",
+              "navigation": {
+                "PRODUCTIONLABELFORM": {
+                  "detail": {
+                    "route": "PRODUCTIONLABELFORMObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "updateGroupId": "API",
+                  "submitMode": "API",
+                  "tableSettings": {
+                    "type": "GridTable",
+                    "enableMassEdit": false,
+                    "selectAll": true
+                  },
+                  "columns": {
+                    "AddColumn": {
+                      "header": "{i18n>numberOfLabels}",
+                      "position": {
+                        "anchor": "DataField::ExpiredDate",
+                        "placement": "After"
+                      },
+                      "template": "com.cathaydining.zppf001.ext.fragment.AddColumn"
+                    }
+                  },
+                  "actions": {
+                    "print": {
+                      "press": ".extension.com.cathaydining.zppf001.ext.controller.ListReportExtension.onPrintPress",
+                      "visible": true,
+                      "enabled": true,
+                      "requiresSelection": true,
+                      "text": "Print"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "PRODUCTIONLABELFORMObjectPage": {
+          "type": "Component",
+          "id": "PRODUCTIONLABELFORMObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/PRODUCTIONLABELFORM"
+            }
+          }
+        }
+      }
+    },
+    "extends": {
+      "extensions": {
+        "sap.ui.controllerExtensions": {
+          "sap.fe.templates.ListReport.ListReportController": {
+            "controllerName": "com.cathaydining.zppf001.ext.controller.ListReportExtension"
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  }
+}

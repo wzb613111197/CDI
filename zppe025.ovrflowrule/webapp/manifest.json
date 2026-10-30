@@ -1,0 +1,164 @@
+{
+  "_version": "1.73.1",
+  "sap.app": {
+    "id": "com.cathaydining.zppe025.ovrflowrule",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.21.0",
+      "toolsId": "6ff22c44-d635-4f1e-b2a7-a9755d8948ba"
+    },
+    "dataSources": {
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      },
+      "mainService": {
+        "uri": "/sap/opu/odata4/sap/zui_pp_ldgtemp_hdr_o4/srvd/sap/zsd_pp_ldgtemp_hdr/0001/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation"
+          ],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.136.10",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.cathaydining.zppe025.ovrflowrule.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "ZC_PP_OVRFLOW_RULEList",
+          "target": "ZC_PP_OVRFLOW_RULEList"
+        },
+        {
+          "name": "ZC_PP_OVRFLOW_RULEObjectPage",
+          "pattern": "ZC_PP_OVRFLOW_RULE({ZC_PP_OVRFLOW_RULEKey}):?query:",
+          "target": "ZC_PP_OVRFLOW_RULEObjectPage"
+        }
+      ],
+      "targets": {
+        "ZC_PP_OVRFLOW_RULEList": {
+          "type": "Component",
+          "id": "ZC_PP_OVRFLOW_RULEList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/ZC_PP_OVRFLOW_RULE",
+              "variantManagement": "Page",
+              "navigation": {
+                "ZC_PP_OVRFLOW_RULE": {
+                  "detail": {
+                    "route": "ZC_PP_OVRFLOW_RULEObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "GridTable",
+                    "enableExport": true,
+                    "enableMassEdit": false,
+                    "personalization": {
+                      "filter": true
+                    },
+                    "selectAll": true,
+                    "selectionMode": "Multi",
+                    "widthIncludingColumnHeader": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "ZC_PP_OVRFLOW_RULEObjectPage": {
+          "type": "Component",
+          "id": "ZC_PP_OVRFLOW_RULEObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "navigation": {},
+              "contextPath": "/ZC_PP_OVRFLOW_RULE"
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  },
+  "sap.fe": {
+    "app": {
+      "enableLazyLoading": true
+    }
+  }
+}

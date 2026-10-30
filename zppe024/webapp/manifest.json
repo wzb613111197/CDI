@@ -1,0 +1,409 @@
+{
+  "_version": "1.73.1",
+  "sap.app": {
+    "id": "com.cathaydining.zppe024",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.21.0",
+      "toolsId": "67fff049-7c69-4b2c-b4b0-671465b84c87"
+    },
+    "dataSources": {
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      },
+      "mainService": {
+        "uri": "/sap/opu/odata4/sap/zui_pp_ldgdef_hdr_o4/srvd/sap/zsd_pp_ldgdef_hdr/0001/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation"
+          ],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "extends": {
+      "extensions": {
+        "sap.ui.controllerExtensions": {
+          "sap.fe.templates.ListReport.ListReportController": {
+            "controllerName": "com.cathaydining.zppe024.ext.controller.ListReportExtension"
+          },
+          "sap.fe.templates.ObjectPage.ObjectPageController": {
+            "controllerName": "com.cathaydining.zppe024.ext.controller.ObjectPageExtension"
+          }
+        }
+      }
+    },
+    "dependencies": {
+      "minUI5Version": "1.136.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.cathaydining.zppe024.i18n.i18n",
+          "supportedLocales": [
+            "",
+            "zh_CN",
+            "zh_TW"
+          ]
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "ZC_PP_LDGDEF_HDRList",
+          "target": "ZC_PP_LDGDEF_HDRList"
+        },
+        {
+          "pattern": "ZC_PP_LDGDEF_HDR({key}):?query:",
+          "name": "ZC_PP_LDGDEF_HDRObjectPage",
+          "target": "ZC_PP_LDGDEF_HDRObjectPage"
+        }
+      ],
+      "targets": {
+        "ZC_PP_LDGDEF_HDRList": {
+          "type": "Component",
+          "id": "ZC_PP_LDGDEF_HDRList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/ZC_PP_LDGDEF_HDR",
+              "variantManagement": "Page",
+              "navigation": {
+                "ZC_PP_LDGDEF_HDR": {
+                  "detail": {
+                    "route": "ZC_PP_LDGDEF_HDRObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable",
+                    "selectAll": true,
+                    "selectionMode": "Multi",
+                    "widthIncludingColumnHeader": true,
+                    "personalization": {
+                      "filter": true,
+                      "sort": true,
+                      "column": true,
+                      "group": true
+                    },
+                    "enableMassEdit": false
+                  },
+                  "actions": {
+                    "ExportCpaSpmlAssignmentRule": {
+                      "press": ".extension.com.cathaydining.zppe024.ext.controller.ListReportExtension.onExportCpaSpmlAssignmentRule",
+                      "enabled": true,
+                      "visible": true,
+                      "requiresSelection": false,
+                      "text": "{i18n>ExportCpaSpmlAssignmentRule}"
+                    }
+                  }
+                }
+              },
+              "defaultTemplateAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#table"
+            }
+          }
+        },
+        "ZC_PP_LDGDEF_HDRObjectPage": {
+          "type": "Component",
+          "id": "ZC_PP_LDGDEF_HDRObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/ZC_PP_LDGDEF_HDR",
+              "controlConfiguration": {
+                "_Template/@com.sap.vocabularies.UI.v1.SelectionPresentationVariant#table": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable",
+                    "selectionMode": "Multi",
+                    "selectAll": true,
+                    "enableFullScreen": true,
+                    "enableExport": true,
+                    "header": "{@i18n>LoadingTemplateAssignment}",
+                    "headerVisible": true,
+                    "creationMode": {
+                      "name": "Inline",
+                      "creationFields": "com.sap.vocabularies.UI.v1.FieldGroup#Group1"
+                    },
+                    "personalization": {
+                      "sort": true,
+                      "filter": true,
+                      "column": false
+                    },
+                    "widthIncludingColumnHeader": true
+                  },
+                  "columns": {
+                    "CustomSequenceColumn": {
+                      "header": "{@i18n>Sequence}",
+                      "template": "com.cathaydining.zppe024.ext.fragment.TemplateSequenceColumn",
+                      "importance": "High",
+                      "width": "6rem",
+                      "availability": "Default",
+                      "properties": [
+                        "Sequence"
+                      ],
+                      "position": {
+                        "placement": "Before",
+                        "anchor": "DataField::Sector"
+                      }
+                    },
+                    "DataField::Sequence": {
+                      "availability": "Hidden"
+                    },
+                    "DataField::Sector": {
+                      "width": "10rem"
+                    },
+                    "DataField::ServSeq": {
+                      "width": "10rem"
+                    },
+                    "DataFieldWithIntentBasedNavigation::LoadingTemplateCode": {
+                      "width": "12rem",
+                      "required": true
+                    }
+                  }
+                },
+                "_Con/@com.sap.vocabularies.UI.v1.LineItem": {
+                  "columns": {
+                    "CustomConNumColumn": {
+                      "header": "{@i18n>Condition}",
+                      "template": "com.cathaydining.zppe024.ext.fragment.ConNumColumn",
+                      "importance": "High",
+                      "width": "8rem",
+                      "availability": "Default",
+                      "properties": [
+                        "ConNum"
+                      ],
+                      "position": {
+                        "placement": "Before",
+                        "anchor": "DataField::ConType"
+                      }
+                    },
+                    "DataField::ConNum": {
+                      "availability": "Hidden"
+                    },
+                    "CustomConTypeColumn": {
+                      "header": "{@i18n>ConditionType}",
+                      "required": true,
+                      "template": "com.cathaydining.zppe024.ext.fragment.ConTypeColumn",
+                      "importance": "High",
+                      "width": "10rem",
+                      "availability": "Default",
+                      "properties": [
+                        "ConType"
+                      ],
+                      "position": {
+                        "placement": "After",
+                        "anchor": "CustomConNumColumn"
+                      }
+                    },
+                    "DataField::ConType": {
+                      "availability": "Hidden"
+                    },
+                    "CustomConOptColumn": {
+                      "header": "{@i18n>ConditionOption}",
+                      "required": true,
+                      "template": "com.cathaydining.zppe024.ext.fragment.ConOptColumn",
+                      "importance": "High",
+                      "width": "10rem",
+                      "availability": "Default",
+                      "properties": [
+                        "ConOpt"
+                      ],
+                      "position": {
+                        "placement": "After",
+                        "anchor": "CustomConTypeColumn"
+                      }
+                    },
+                    "DataField::ConOpt": {
+                      "availability": "Hidden"
+                    },
+                    "CustomValueColumn": {
+                      "header": "{@i18n>Value}",
+                      "required": true,
+                      "template": "com.cathaydining.zppe024.ext.fragment.ConTableExtensionColumn",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "CustomConOptColumn"
+                      },
+                      "width": "50rem",
+                      "availability": "Default"
+                    }
+                  },
+                  "personalization": {
+                    "sort": true,
+                    "filter": true,
+                    "column": false
+                  },
+                  "tableSettings": {
+                    "quickVariantSelection": {
+                      "paths": [
+                        {
+                          "annotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#Sector1",
+                          "keepPreviousPersonalization": true
+                        },
+                        {
+                          "annotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#Sector2",
+                          "keepPreviousPersonalization": true
+                        },
+                        {
+                          "annotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#Sector3",
+                          "keepPreviousPersonalization": true
+                        }
+                      ],
+                      "hideTableTitle": true,
+                      "showCounts": true
+                    },
+                    "type": "ResponsiveTable",
+                    "selectionMode": "Multi",
+                    "selectAll": true,
+                    "enableFullScreen": true,
+                    "enableExport": true,
+                    "creationMode": {
+                      "name": "Inline"
+                    },
+                    "widthIncludingColumnHeader": true
+                  }
+                },
+                "_Exr/@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable",
+                    "selectionMode": "Multi",
+                    "selectAll": true,
+                    "enableFullScreen": true,
+                    "enableExport": true,
+                    "creationMode": {
+                      "name": "Inline"
+                    },
+                    "widthIncludingColumnHeader": true,
+                    "quickVariantSelection": {
+                      "hideTableTitle": true
+                    }
+                  }
+                },
+                "_Template/@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "enableFullScreen": true,
+                    "enableExport": true,
+                    "header": "{@i18n>LoadingTemplateAssignment}",
+                    "headerVisible": true,
+                    "personalization": {
+                      "column": false,
+                      "sort": true,
+                      "filter": true,
+                      "group": true
+                    },
+                    "selectAll": true,
+                    "selectionMode": "Multi",
+                    "type": "ResponsiveTable",
+                    "creationMode": {
+                      "name": "Inline",
+                      "creationFields": "com.sap.vocabularies.UI.v1.FieldGroup#Group1"
+                    },
+                    "widthIncludingColumnHeader": true
+                  },
+                  "columns": {
+                    "CustomSequenceColumn": {
+                      "header": "{@i18n>Sequence}",
+                      "template": "com.cathaydining.zppe024.ext.fragment.TemplateSequenceColumn",
+                      "importance": "High",
+                      "width": "8rem",
+                      "availability": "Default",
+                      "properties": [
+                        "Sequence"
+                      ],
+                      "position": {
+                        "placement": "Before",
+                        "anchor": "DataField::Sector"
+                      }
+                    },
+                    "DataField::Sequence": {
+                      "availability": "Hidden"
+                    }
+                  }
+                }
+              },
+              "navigation": {}
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  },
+  "sap.fe": {
+    "app": {
+      "enableLazyLoading": true
+    }
+  }
+}

@@ -1,0 +1,1974 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="SAP__aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="SAP__capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HIERARCHY',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="SAP__hierarchy"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="SAP__HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="SAP__measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ODM',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.ODM.v1" Alias="SAP__ODM"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SESSION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="SAP__session"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="SAP__UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="SAP__validation"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="com.sap.gateway.srvd.zsd_sd_send_specification.v0001" Alias="SAP__self">
+            <Annotation Term="SAP__core.SchemaVersion" String="1.0.0"/>
+            <EntityType Name="MaterialStatusVHType">
+                <Key>
+                    <PropertyRef Name="mmsta"/>
+                </Key>
+                <Property Name="mmsta" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="mtstb" Type="Edm.String" Nullable="false" MaxLength="25"/>
+            </EntityType>
+            <EntityType Name="load_temp_apprstatusType">
+                <Key>
+                    <PropertyRef Name="ApprovalStatus"/>
+                </Key>
+                <Property Name="ApprovalStatus" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="Text" Type="Edm.String" Nullable="false" MaxLength="60"/>
+                <Property Name="color" Type="Edm.Byte" Nullable="false"/>
+            </EntityType>
+            <EntityType Name="load_temp_stypeType">
+                <Key>
+                    <PropertyRef Name="LdgTempType"/>
+                </Key>
+                <Property Name="LdgTempType" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="Text" Type="Edm.String" Nullable="false" MaxLength="60"/>
+            </EntityType>
+            <EntityType Name="load_temp_cabType">
+                <Key>
+                    <PropertyRef Name="LoadingTempKey"/>
+                    <PropertyRef Name="CabinClass"/>
+                </Key>
+                <Property Name="LoadingTempKey" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="CabinClass" Type="Edm.String" Nullable="false" MaxLength="2"/>
+            </EntityType>
+            <EntityType Name="SalesDivisionVHType">
+                <Key>
+                    <PropertyRef Name="SalesOrganization"/>
+                    <PropertyRef Name="DistributionChannel"/>
+                    <PropertyRef Name="SalesDocumentDivision"/>
+                </Key>
+                <Property Name="SalesOrganization" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="DistributionChannel" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="SalesDocumentDivision" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="DivisionName" Type="Edm.String" Nullable="false" MaxLength="20"/>
+            </EntityType>
+            <EntityType Name="MaterialVHType">
+                <Key>
+                    <PropertyRef Name="Material"/>
+                </Key>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="Material_Text" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="MaterialType" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="MaterialGroup" Type="Edm.String" Nullable="false" MaxLength="9"/>
+                <Property Name="MaterialBaseUnit" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="MaterialGrossWeight" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="MaterialNetWeight" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="MaterialWeightUnit" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="MaterialManufacturerNumber" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="MaterialManufacturerPartNumber" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="AuthorizationGroup" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="IsBatchManagementRequired" Type="Edm.Boolean" Nullable="false"/>
+            </EntityType>
+            <EntityType Name="materialType">
+                <Key>
+                    <PropertyRef Name="Material"/>
+                    <PropertyRef Name="SalesOrg"/>
+                    <PropertyRef Name="DistChannel"/>
+                    <PropertyRef Name="BillOfMaterial"/>
+                    <PropertyRef Name="AlternativeBOM"/>
+                    <PropertyRef Name="InternalCounter"/>
+                </Key>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="SalesOrg" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="DistChannel" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="BillOfMaterial" Type="Edm.String" Nullable="false" MaxLength="8"/>
+                <Property Name="AlternativeBOM" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="InternalCounter" Type="Edm.String" Nullable="false" MaxLength="8"/>
+                <Property Name="OldMaterial" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="MaterialType" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="MaterialStatus" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="CabinClass" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="BomStatus" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="CpStatus" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="BomEffectiveDate" Type="Edm.Date"/>
+                <Property Name="BomEndDate" Type="Edm.Date"/>
+                <Property Name="Resend" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="255"/>
+                <Property Name="AirlineCode" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="SpecType" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="ServiceType" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="AltDescription" Type="Edm.String" Nullable="false" MaxLength="255"/>
+                <Property Name="SpecTagCategory" Type="Edm.String" Nullable="false" MaxLength="255"/>
+                <Property Name="SendUser" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="SendDate" Type="Edm.Date"/>
+                <Property Name="SendTime" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="MaterialStatusDesc" Type="Edm.String" Nullable="false" MaxLength="25"/>
+                <Property Name="BomStatusDesc" Type="Edm.String" Nullable="false" MaxLength="60"/>
+            </EntityType>
+            <EntityType Name="SalesOrgVHType">
+                <Key>
+                    <PropertyRef Name="SalesOrganization"/>
+                </Key>
+                <Property Name="SalesOrganization" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="SalesOrganizationName" Type="Edm.String" Nullable="false" MaxLength="20"/>
+            </EntityType>
+            <EntityType Name="MaterialTypeVHType">
+                <Key>
+                    <PropertyRef Name="ProductType"/>
+                </Key>
+                <Property Name="ProductType" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="ProductTypeText" Type="Edm.String" Nullable="false" MaxLength="25"/>
+            </EntityType>
+            <EntityType Name="load_tempType">
+                <Key>
+                    <PropertyRef Name="LoadingTempKey"/>
+                </Key>
+                <Property Name="LoadingTempKey" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="LoadingTempCode" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="LoadingTempType" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="ValidFrom" Type="Edm.Date"/>
+                <Property Name="ValidTo" Type="Edm.Date"/>
+                <Property Name="AircraftType" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="LoadingTempName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="MealType" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="AirlineCode" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="ApprovalStatus" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="ApprovalStatusDesc" Type="Edm.String" Nullable="false" MaxLength="60"/>
+                <Property Name="SAP__Messages" Type="Collection(com.sap.gateway.srvd.zsd_sd_send_specification.v0001.SAP__Message)" Nullable="false"/>
+                <NavigationProperty Name="_ApprStatus" Type="com.sap.gateway.srvd.zsd_sd_send_specification.v0001.load_temp_apprstatusType"/>
+                <NavigationProperty Name="_Cab" Type="Collection(com.sap.gateway.srvd.zsd_sd_send_specification.v0001.load_temp_cabType)"/>
+                <NavigationProperty Name="_LdgTempType" Type="com.sap.gateway.srvd.zsd_sd_send_specification.v0001.load_temp_stypeType"/>
+                <NavigationProperty Name="_Smt" Type="Collection(com.sap.gateway.srvd.zsd_sd_send_specification.v0001.load_temp_smtType)"/>
+            </EntityType>
+            <EntityType Name="load_temp_smtType">
+                <Key>
+                    <PropertyRef Name="LoadingTempKey"/>
+                    <PropertyRef Name="SpecialMealType"/>
+                </Key>
+                <Property Name="LoadingTempKey" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="SpecialMealType" Type="Edm.String" Nullable="false" MaxLength="10"/>
+            </EntityType>
+            <EntityType Name="DistributionChannelVHType">
+                <Key>
+                    <PropertyRef Name="SalesOrganization"/>
+                    <PropertyRef Name="DistributionChannel"/>
+                </Key>
+                <Property Name="SalesOrganization" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="DistributionChannel" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="DistributionChannelText" Type="Edm.String" Nullable="false" MaxLength="20"/>
+            </EntityType>
+            <EntityType Name="CabClassVHType">
+                <Key>
+                    <PropertyRef Name="Airline"/>
+                    <PropertyRef Name="CabinClass"/>
+                </Key>
+                <Property Name="Airline" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="CabinClass" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="CabinName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+            </EntityType>
+            <EntityType Name="BomStatusVhType">
+                <Key>
+                    <PropertyRef Name="BOMStatus"/>
+                </Key>
+                <Property Name="BOMStatus" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="Valpos" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="60"/>
+            </EntityType>
+            <ComplexType Name="ZA_SD_LOADTMP">
+                <Property Name="LoadingTempCode" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="LoadingTempKey" Type="Edm.Guid"/>
+                <Property Name="CabinClass" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="AircraftType" Type="Edm.String" Nullable="false" MaxLength="10"/>
+            </ComplexType>
+            <ComplexType Name="ZA_SD_INT_MATERIAL">
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="SalesOrg" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="DistChannel" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="BillOfMaterial" Type="Edm.String" Nullable="false" MaxLength="8"/>
+                <Property Name="AlternativeBOM" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="InternalCounter" Type="Edm.String" Nullable="false" MaxLength="8"/>
+                <Property Name="OldMaterial" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="MaterialType" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="MaterialStatus" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="CabinClass" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="BomStatus" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="CpStatus" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="BomEffectiveDate" Type="Edm.Date"/>
+                <Property Name="BomEndDate" Type="Edm.Date"/>
+                <Property Name="Resend" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="255"/>
+                <Property Name="AirlineCode" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="SpecType" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="ServiceType" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="AltDescription" Type="Edm.String" Nullable="false" MaxLength="255"/>
+                <Property Name="SpecTagCategory" Type="Edm.String" Nullable="false" MaxLength="255"/>
+                <Property Name="SendUser" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="SendDate" Type="Edm.Date"/>
+                <Property Name="SendTime" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="Message" Type="Edm.String" Nullable="false" MaxLength="255"/>
+                <Property Name="MaterialStatusDesc" Type="Edm.String" Nullable="false" MaxLength="25"/>
+                <Property Name="BomStatusDesc" Type="Edm.String" Nullable="false" MaxLength="60"/>
+            </ComplexType>
+            <ComplexType Name="ZA_SD_INT_SEND">
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="SalesOrg" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="DistChannel" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="BillOfMaterial" Type="Edm.String" Nullable="false" MaxLength="8"/>
+                <Property Name="AlternativeBOM" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="InternalCounter" Type="Edm.String" Nullable="false" MaxLength="8"/>
+                <Property Name="MaterialType" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="MaterialStatus" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="CabinClass" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="BomStatus" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="CpStatus" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="BomEffectiveDate" Type="Edm.Date"/>
+                <Property Name="BomEndDate" Type="Edm.Date"/>
+                <Property Name="Resend" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="255"/>
+                <Property Name="AirlineCode" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="SpecType" Type="Edm.String" Nullable="false" MaxLength="255"/>
+                <Property Name="ServiceType" Type="Edm.String" Nullable="false" MaxLength="255"/>
+                <Property Name="AltDescription" Type="Edm.String" Nullable="false" MaxLength="255"/>
+                <Property Name="SpecTagCategory" Type="Edm.String" Nullable="false" MaxLength="255"/>
+            </ComplexType>
+            <ComplexType Name="ZA_SD_INT_MATERIAL_ROOT">
+                <Property Name="Type" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="Message" Type="Edm.String" Nullable="false" MaxLength="255"/>
+                <Property Name="_material" Type="Collection(com.sap.gateway.srvd.zsd_sd_send_specification.v0001.ZA_SD_INT_MATERIAL)" Nullable="false"/>
+            </ComplexType>
+            <ComplexType Name="SAP__Message">
+                <Property Name="code" Type="Edm.String" Nullable="false"/>
+                <Property Name="message" Type="Edm.String" Nullable="false"/>
+                <Property Name="target" Type="Edm.String"/>
+                <Property Name="additionalTargets" Type="Collection(Edm.String)" Nullable="false"/>
+                <Property Name="transition" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="numericSeverity" Type="Edm.Byte" Nullable="false"/>
+                <Property Name="longtextUrl" Type="Edm.String"/>
+            </ComplexType>
+            <Action Name="SendToCP" IsBound="true">
+                <Parameter Name="_it" Type="Collection(com.sap.gateway.srvd.zsd_sd_send_specification.v0001.load_tempType)" Nullable="false"/>
+                <Parameter Name="resend" Type="Edm.Boolean" Nullable="false"/>
+                <Parameter Name="_material" Type="Collection(com.sap.gateway.srvd.zsd_sd_send_specification.v0001.ZA_SD_INT_SEND)" Nullable="false"/>
+                <ReturnType Type="Collection(com.sap.gateway.srvd.zsd_sd_send_specification.v0001.ZA_SD_INT_MATERIAL_ROOT)" Nullable="false"/>
+            </Action>
+            <Action Name="GetMaterial" IsBound="true">
+                <Parameter Name="_it" Type="Collection(com.sap.gateway.srvd.zsd_sd_send_specification.v0001.load_tempType)" Nullable="false"/>
+                <Parameter Name="resend" Type="Edm.Boolean" Nullable="false"/>
+                <Parameter Name="cp" Type="Edm.Boolean" Nullable="false"/>
+                <Parameter Name="_loadTemp" Type="Collection(com.sap.gateway.srvd.zsd_sd_send_specification.v0001.ZA_SD_LOADTMP)" Nullable="false"/>
+                <ReturnType Type="Collection(com.sap.gateway.srvd.zsd_sd_send_specification.v0001.ZA_SD_INT_MATERIAL_ROOT)" Nullable="false"/>
+            </Action>
+            <EntityContainer Name="Container">
+                <EntitySet Name="BomStatusVh" EntityType="com.sap.gateway.srvd.zsd_sd_send_specification.v0001.BomStatusVhType"/>
+                <EntitySet Name="CabClassVH" EntityType="com.sap.gateway.srvd.zsd_sd_send_specification.v0001.CabClassVHType"/>
+                <EntitySet Name="DistributionChannelVH" EntityType="com.sap.gateway.srvd.zsd_sd_send_specification.v0001.DistributionChannelVHType"/>
+                <EntitySet Name="load_temp" EntityType="com.sap.gateway.srvd.zsd_sd_send_specification.v0001.load_tempType">
+                    <NavigationPropertyBinding Path="_ApprStatus" Target="load_temp_apprstatus"/>
+                    <NavigationPropertyBinding Path="_Cab" Target="load_temp_cab"/>
+                    <NavigationPropertyBinding Path="_LdgTempType" Target="load_temp_stype"/>
+                    <NavigationPropertyBinding Path="_Smt" Target="load_temp_smt"/>
+                </EntitySet>
+                <EntitySet Name="load_temp_apprstatus" EntityType="com.sap.gateway.srvd.zsd_sd_send_specification.v0001.load_temp_apprstatusType"/>
+                <EntitySet Name="load_temp_cab" EntityType="com.sap.gateway.srvd.zsd_sd_send_specification.v0001.load_temp_cabType"/>
+                <EntitySet Name="load_temp_smt" EntityType="com.sap.gateway.srvd.zsd_sd_send_specification.v0001.load_temp_smtType"/>
+                <EntitySet Name="load_temp_stype" EntityType="com.sap.gateway.srvd.zsd_sd_send_specification.v0001.load_temp_stypeType"/>
+                <EntitySet Name="material" EntityType="com.sap.gateway.srvd.zsd_sd_send_specification.v0001.materialType"/>
+                <EntitySet Name="MaterialStatusVH" EntityType="com.sap.gateway.srvd.zsd_sd_send_specification.v0001.MaterialStatusVHType"/>
+                <EntitySet Name="MaterialTypeVH" EntityType="com.sap.gateway.srvd.zsd_sd_send_specification.v0001.MaterialTypeVHType"/>
+                <EntitySet Name="MaterialVH" EntityType="com.sap.gateway.srvd.zsd_sd_send_specification.v0001.MaterialVHType"/>
+                <EntitySet Name="SalesDivisionVH" EntityType="com.sap.gateway.srvd.zsd_sd_send_specification.v0001.SalesDivisionVHType"/>
+                <EntitySet Name="SalesOrgVH" EntityType="com.sap.gateway.srvd.zsd_sd_send_specification.v0001.SalesOrgVHType"/>
+            </EntityContainer>
+            <Annotations Target="SAP__self.ZA_SD_LOADTMP/LoadingTempCode">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Loading Template Cod"/>
+                <Annotation Term="SAP__common.Heading" String="Loading Template Code"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Loading Template Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_LOADTMP/AircraftType">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Aircraft Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_MATERIAL/Material">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Material"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_MATERIAL/SalesOrg">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Sales Organization"/>
+                <Annotation Term="SAP__common.Heading" String="SOrg."/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VKORG"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_MATERIAL/DistChannel">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Distribution Channel"/>
+                <Annotation Term="SAP__common.Heading" String="DChl"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VTWEG"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_MATERIAL/BillOfMaterial">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="char8"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Character field, 8 characters long"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_MATERIAL/AlternativeBOM">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Alternative BOM"/>
+                <Annotation Term="SAP__common.Heading" String="AltBOM"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=STALT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_MATERIAL/OldMaterial">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Old material number"/>
+                <Annotation Term="SAP__common.Heading" String="Old material no."/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BISMT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_MATERIAL/MaterialType">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Material Type"/>
+                <Annotation Term="SAP__common.Heading" String="MTyp"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MTART"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_MATERIAL/MaterialStatus">
+                <Annotation Term="SAP__common.Label" String="Material Status"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Cross-Plant Material Status"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Cross-Plant Material Status"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MSTAE"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_MATERIAL/CabinClass">
+                <Annotation Term="SAP__common.Label" String="Cabin Class"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Char20"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Char 20"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_MATERIAL/BomStatus">
+                <Annotation Term="SAP__common.Label" String="BOM Status"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="BOM Manager Status"/>
+                <Annotation Term="SAP__common.QuickInfo" String="BOM Manager Status"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_MATERIAL/BomEffectiveDate">
+                <Annotation Term="SAP__common.Label" String="Valid From"/>
+                <Annotation Term="SAP__common.Heading" String="Valid From"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Valid-From Date"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=DATUV"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_MATERIAL/BomEndDate">
+                <Annotation Term="SAP__common.Label" String="Valid To"/>
+                <Annotation Term="SAP__common.Heading" String="Valid to"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Valid-to date"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=DATUB"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_MATERIAL/Resend">
+                <Annotation Term="SAP__common.Label" String="Resend"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Boolean Variable (X = True, - = False, Space = Unknown)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_MATERIAL/AirlineCode">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Airline Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_MATERIAL/SpecType">
+                <Annotation Term="SAP__common.Label" String="Spec Type"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Char. Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Characteristic Name"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ATNAM"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_MATERIAL/ServiceType">
+                <Annotation Term="SAP__common.Label" String="Service types"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Char. Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Characteristic Name"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ATNAM"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_MATERIAL/AltDescription">
+                <Annotation Term="SAP__common.Label" String="Alternative description from CPA"/>
+                <Annotation Term="SAP__common.Heading" String="Long Text"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Long Text"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_MATERIAL/SpecTagCategory">
+                <Annotation Term="SAP__common.Label" String="Specification Tag"/>
+                <Annotation Term="SAP__common.Heading" String="Long Text"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Long Text"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_MATERIAL/SendUser">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Created By"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Created By User"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ABP_CREATION_USER"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_MATERIAL/Type">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Single-Character Flag"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_SEND/Material">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Material"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_SEND/SalesOrg">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Sales Organization"/>
+                <Annotation Term="SAP__common.Heading" String="SOrg."/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VKORG"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_SEND/DistChannel">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Distribution Channel"/>
+                <Annotation Term="SAP__common.Heading" String="DChl"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VTWEG"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_SEND/BillOfMaterial">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="char8"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Character field, 8 characters long"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_SEND/AlternativeBOM">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Alternative BOM"/>
+                <Annotation Term="SAP__common.Heading" String="AltBOM"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=STALT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_SEND/MaterialType">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Material Type"/>
+                <Annotation Term="SAP__common.Heading" String="MTyp"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MTART"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_SEND/MaterialStatus">
+                <Annotation Term="SAP__common.Label" String="Material Status"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Cross-Plant Material Status"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Cross-Plant Material Status"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MSTAE"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_SEND/CabinClass">
+                <Annotation Term="SAP__common.Label" String="Cabin Class"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Char20"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Char 20"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_SEND/BomStatus">
+                <Annotation Term="SAP__common.Label" String="BOM Status"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="BOM Manager Status"/>
+                <Annotation Term="SAP__common.QuickInfo" String="BOM Manager Status"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_SEND/BomEffectiveDate">
+                <Annotation Term="SAP__common.Label" String="Valid From"/>
+                <Annotation Term="SAP__common.Heading" String="Valid From"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Valid-From Date"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=DATUV"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_SEND/BomEndDate">
+                <Annotation Term="SAP__common.Label" String="Valid To"/>
+                <Annotation Term="SAP__common.Heading" String="Valid to"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Valid-to date"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=DATUB"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_SEND/Resend">
+                <Annotation Term="SAP__common.Label" String="Resend"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Boolean Variable (X = True, - = False, Space = Unknown)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_SEND/Description">
+                <Annotation Term="SAP__common.Label" String="Resend"/>
+                <Annotation Term="SAP__common.Heading" String="Long Text"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Long Text"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_SEND/AirlineCode">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Airline Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_SEND/SpecType">
+                <Annotation Term="SAP__common.Label" String="Spec Type"/>
+                <Annotation Term="SAP__common.Heading" String="Long Text"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Long Text"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_SEND/ServiceType">
+                <Annotation Term="SAP__common.Label" String="Service types"/>
+                <Annotation Term="SAP__common.Heading" String="Long Text"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Long Text"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_SEND/AltDescription">
+                <Annotation Term="SAP__common.Label" String="Alternative description from CPA"/>
+                <Annotation Term="SAP__common.Heading" String="Long Text"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Long Text"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_SEND/SpecTagCategory">
+                <Annotation Term="SAP__common.Label" String="Specification Tag"/>
+                <Annotation Term="SAP__common.Heading" String="Long Text"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Long Text"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_MATERIAL_ROOT/Type">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Single-Character Flag"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaterialStatusVHType/mmsta">
+                <Annotation Term="SAP__common.Text" Path="mtstb">
+                    <Annotation Term="SAP__UI.TextArrangement" EnumMember="SAP__UI.TextArrangementType/TextLast"/>
+                </Annotation>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Material Status"/>
+                <Annotation Term="SAP__common.Heading" String="MS"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material status from MM/PP view"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATSTATUS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaterialStatusVHType">
+                <Annotation Term="SAP__common.Label" String="Search Help for MMSTA"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/MaterialStatusVH">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.load_temp_apprstatusType/ApprovalStatus">
+                <Annotation Term="SAP__common.Text" Path="Text">
+                    <Annotation Term="SAP__UI.TextArrangement" EnumMember="SAP__UI.TextArrangementType/TextOnly"/>
+                </Annotation>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Lower Value"/>
+                <Annotation Term="SAP__common.Heading" String="Fixed"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Values for Domains: Single Value/Lower Limit"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=DOMVALUE_L"/>
+            </Annotations>
+            <Annotations Target="SAP__self.load_temp_apprstatusType">
+                <Annotation Term="SAP__common.Label" String="Loading Template Appr Status Search Help"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/load_temp_apprstatus">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.load_temp_stypeType/LdgTempType">
+                <Annotation Term="SAP__common.Text" Path="Text">
+                    <Annotation Term="SAP__UI.TextArrangement" EnumMember="SAP__UI.TextArrangementType/TextOnly"/>
+                </Annotation>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Lower Value"/>
+                <Annotation Term="SAP__common.Heading" String="Fixed"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Values for Domains: Single Value/Lower Limit"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=DOMVALUE_L"/>
+            </Annotations>
+            <Annotations Target="SAP__self.load_temp_stypeType">
+                <Annotation Term="SAP__common.Label" String="Load Template Type Search Help"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/load_temp_stype">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.load_temp_cabType/CabinClass">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;CabinClass}"/>
+                <Annotation Term="SAP__common.Heading" String="Cabin Class"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Cabin class"/>
+            </Annotations>
+            <Annotations Target="SAP__self.load_temp_cabType">
+                <Annotation Term="SAP__common.Label" String="Interface View For Loading Template CabClass"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/load_temp_cab">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.SalesDivisionVHType/SalesOrganization">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Sales Organization"/>
+                <Annotation Term="SAP__common.Heading" String="SOrg."/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VKORG"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SalesDivisionVHType/DistributionChannel">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Distribution Channel"/>
+                <Annotation Term="SAP__common.Heading" String="DChl"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VTWEG"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SalesDivisionVHType/SalesDocumentDivision">
+                <Annotation Term="SAP__common.Text" Path="DivisionName"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Division"/>
+                <Annotation Term="SAP__common.Heading" String="Dv"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=SPART"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SalesDivisionVHType">
+                <Annotation Term="SAP__common.Label" String="Sales Division Value Help"/>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="SalesDocumentDivision"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="DivisionName"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="DistributionChannel"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="SalesOrganization"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>SalesDocumentDivision</PropertyPath>
+                        <PropertyPath>DivisionName</PropertyPath>
+                        <PropertyPath>DistributionChannel</PropertyPath>
+                        <PropertyPath>SalesOrganization</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/SalesDivisionVH">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.MaterialVHType/Material">
+                <Annotation Term="SAP__common.Text" Path="Material_Text"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Material"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaterialVHType/Material_Text">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Material Description"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MAKTX"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaterialVHType/MaterialType">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Material Type"/>
+                <Annotation Term="SAP__common.Heading" String="MTyp"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MTART"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaterialVHType/MaterialGroup">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Material Group"/>
+                <Annotation Term="SAP__common.Heading" String="Matl Group"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATKL"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaterialVHType/MaterialBaseUnit">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__common.Label" String="Base Unit of Measure"/>
+                <Annotation Term="SAP__common.Heading" String="BUn"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MEINS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaterialVHType/MaterialGrossWeight">
+                <Annotation Term="SAP__measures.Unit" Path="MaterialWeightUnit"/>
+                <Annotation Term="SAP__common.Label" String="Gross Weight"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BRGEW"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaterialVHType/MaterialNetWeight">
+                <Annotation Term="SAP__measures.Unit" Path="MaterialWeightUnit"/>
+                <Annotation Term="SAP__common.Label" String="Net Weight"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=NTGEW"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaterialVHType/MaterialWeightUnit">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__common.Label" String="Unit of Weight"/>
+                <Annotation Term="SAP__common.Heading" String="WUn"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=GEWEI"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaterialVHType/MaterialManufacturerNumber">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Manufacturer"/>
+                <Annotation Term="SAP__common.Heading" String="Manufact."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Number of a Manufacturer"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MFRNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaterialVHType/MaterialManufacturerPartNumber">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Mfr Part Number"/>
+                <Annotation Term="SAP__common.Heading" String="MPN"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Manufacturer Part Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MFRPN"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaterialVHType/AuthorizationGroup">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Authorization Group"/>
+                <Annotation Term="SAP__common.Heading" String="AGrp"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BEGRU"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaterialVHType">
+                <Annotation Term="SAP__common.Label" String="Material Value Help"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/MaterialVH">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="true"/>
+                        <PropertyValue Property="UnsupportedExpressions" EnumMember="SAP__capabilities.SearchExpressions/AND SAP__capabilities.SearchExpressions/NOT SAP__capabilities.SearchExpressions/group "/>
+                        <PropertyValue Property="SearchSyntax" String="https://url.sap/odata-search"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="MaterialGrossWeight"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="MaterialNetWeight"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container">
+                <Annotation Term="SAP__CodeList.UnitsOfMeasure">
+                    <Record>
+                        <PropertyValue Property="Url" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="UnitsOfMeasure"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="SAP__capabilities.FilterFunctions">
+                    <Collection>
+                        <String>eq</String>
+                        <String>ne</String>
+                        <String>gt</String>
+                        <String>ge</String>
+                        <String>lt</String>
+                        <String>le</String>
+                        <String>and</String>
+                        <String>or</String>
+                        <String>contains</String>
+                        <String>startswith</String>
+                        <String>endswith</String>
+                        <String>any</String>
+                        <String>all</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SupportedFormats">
+                    <Collection>
+                        <String>application/json</String>
+                        <String>application/pdf</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="Border" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="FitToPage" Bool="true"/>
+                        <PropertyValue Property="FontName" Bool="true"/>
+                        <PropertyValue Property="FontSize" Bool="true"/>
+                        <PropertyValue Property="HeaderFooter" Bool="true"/>
+                        <PropertyValue Property="IANATimezoneFormat" Bool="true"/>
+                        <PropertyValue Property="Margin" Bool="true"/>
+                        <PropertyValue Property="Padding" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="20000"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="TextDirectionLayout" Bool="true"/>
+                        <PropertyValue Property="Treeview" Bool="true"/>
+                        <PropertyValue Property="UploadToFileShare" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.KeyAsSegmentSupported"/>
+                <Annotation Term="SAP__capabilities.AsynchronousRequestsSupported"/>
+            </Annotations>
+            <Annotations Target="SAP__self.materialType/Material">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;Material}"/>
+                <Annotation Term="SAP__common.Text" Path="Description">
+                    <Annotation Term="SAP__UI.TextArrangement" EnumMember="SAP__UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_materialvh/0001;ps='srvd-zsd_sd_send_specification-0001';va='com.sap.gateway.srvd.zsd_sd_send_specification.v0001.et-zi_sd_int_material.material'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="Material"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.materialType/SalesOrg">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;SalesOrg}"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_acmtrdgcontrsalesorgvh/0001;ps='srvd-zsd_sd_send_specification-0001';va='com.sap.gateway.srvd.zsd_sd_send_specification.v0001.et-zi_sd_int_material.salesorg'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.FilterDefaultValue" String="CDI0"/>
+                <Annotation Term="SAP__common.Heading" String="SOrg."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Sales Organization"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VKORG"/>
+            </Annotations>
+            <Annotations Target="SAP__self.materialType/DistChannel">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;DistChannel}"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_sd_distributionchannel_vh/0001;ps='srvd-zsd_sd_send_specification-0001';va='com.sap.gateway.srvd.zsd_sd_send_specification.v0001.et-zi_sd_int_material.distchannel'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="DChl"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Distribution Channel"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VTWEG"/>
+            </Annotations>
+            <Annotations Target="SAP__self.materialType/BillOfMaterial">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;BillOfMaterial}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Heading" String="char8"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Character field, 8 characters long"/>
+            </Annotations>
+            <Annotations Target="SAP__self.materialType/AlternativeBOM">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;AlternativeBOM}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Heading" String="AltBOM"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Alternative BOM"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=STALT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.materialType/InternalCounter">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;InternalCounter}"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Heading" String="Counter"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Internal counter"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=CIM_COUNT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.materialType/OldMaterial">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;OldMaterial}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Old material no."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Old material number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BISMT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.materialType/MaterialType">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;MaterialType}"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_sd_mat_type_vh/0001;ps='srvd-zsd_sd_send_specification-0001';va='com.sap.gateway.srvd.zsd_sd_send_specification.v0001.et-zi_sd_int_material.materialtype'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+                <Annotation Term="SAP__common.Heading" String="MTyp"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Type"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MTART"/>
+            </Annotations>
+            <Annotations Target="SAP__self.materialType/MaterialStatus">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;MaterialStatus}"/>
+                <Annotation Term="SAP__common.Text" Path="MaterialStatusDesc"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_mm_mstae_vh/0001;ps='srvd-zsd_sd_send_specification-0001';va='com.sap.gateway.srvd.zsd_sd_send_specification.v0001.et-zi_sd_int_material.materialstatus'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+                <Annotation Term="SAP__common.Heading" String="Cross-Plant Material Status"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Cross-Plant Material Status"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MSTAE"/>
+            </Annotations>
+            <Annotations Target="SAP__self.materialType/CabinClass">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;CabinClass}"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_pp_cabinclass_vh/0001;ps='srvd-zsd_sd_send_specification-0001';va='com.sap.gateway.srvd.zsd_sd_send_specification.v0001.et-zi_sd_int_material.cabinclass'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="Char20"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Char 20"/>
+            </Annotations>
+            <Annotations Target="SAP__self.materialType/BomStatus">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;BomStatus}"/>
+                <Annotation Term="SAP__common.Text" Path="BomStatusDesc"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_pp_bommanagerstatusvh/0001;ps='srvd-zsd_sd_send_specification-0001';va='com.sap.gateway.srvd.zsd_sd_send_specification.v0001.et-zi_sd_int_material.bomstatus'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+                <Annotation Term="SAP__common.Heading" String="BOM Manager Status"/>
+                <Annotation Term="SAP__common.QuickInfo" String="BOM Manager Status"/>
+            </Annotations>
+            <Annotations Target="SAP__self.materialType/CpStatus">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;CpStatus}"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_sd_pc_status_vh/0001;ps='srvd-zsd_sd_send_specification-0001';va='com.sap.gateway.srvd.zsd_sd_send_specification.v0001.et-zi_sd_int_material.cpstatus'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+                <Annotation Term="SAP__common.Heading" String="CP Status"/>
+                <Annotation Term="SAP__common.QuickInfo" String="CP Status"/>
+            </Annotations>
+            <Annotations Target="SAP__self.materialType/BomEffectiveDate">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;BomEffectiveDate}"/>
+                <Annotation Term="SAP__common.Heading" String="Valid From"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Valid-From Date"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=DATUV"/>
+            </Annotations>
+            <Annotations Target="SAP__self.materialType/BomEndDate">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;BomEndDate}"/>
+                <Annotation Term="SAP__common.Heading" String="Valid to"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Valid-to date"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=DATUB"/>
+            </Annotations>
+            <Annotations Target="SAP__self.materialType/Resend">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;Resend}"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Boolean Variable (X = True, - = False, Space = Unknown)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.materialType/Description">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;Description}"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Heading" String="Long Text"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Long Text"/>
+            </Annotations>
+            <Annotations Target="SAP__self.materialType/AirlineCode">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;AirlineCode}"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_sd_int_aircode_vh/0001;ps='srvd-zsd_sd_send_specification-0001';va='com.sap.gateway.srvd.zsd_sd_send_specification.v0001.et-zi_sd_int_material.airlinecode'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+                <Annotation Term="SAP__common.FilterDefaultValue" String="CX"/>
+                <Annotation Term="SAP__common.Heading" String="Airline Code"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Airline Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.materialType/SpecType">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;SpecType}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Char. Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Characteristic Name"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ATNAM"/>
+            </Annotations>
+            <Annotations Target="SAP__self.materialType/ServiceType">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;ServiceType}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Char. Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Characteristic Name"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ATNAM"/>
+            </Annotations>
+            <Annotations Target="SAP__self.materialType/AltDescription">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;AltDescription}"/>
+                <Annotation Term="SAP__common.Heading" String="Long Text"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Long Text"/>
+            </Annotations>
+            <Annotations Target="SAP__self.materialType/SpecTagCategory">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;SpecTagCategory}"/>
+                <Annotation Term="SAP__common.Heading" String="Long Text"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Long Text"/>
+            </Annotations>
+            <Annotations Target="SAP__self.materialType/SendUser">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;SendUser}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Created By"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Created By User"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ABP_CREATION_USER"/>
+            </Annotations>
+            <Annotations Target="SAP__self.materialType/SendDate">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;SendDate}"/>
+                <Annotation Term="SAP__common.Heading" String="Date in Format YYYYMMDD"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Field of type DATS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.materialType/SendTime">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;SendTime}"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Field of type TIMS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.materialType/MaterialStatusDesc">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;MaterialStatusDesc}"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Heading" String="Description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Description of material status from MM/PP view"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MTSTB"/>
+            </Annotations>
+            <Annotations Target="SAP__self.materialType/BomStatusDesc">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;BomStatusDesc}"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Heading" String="Short Description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Short Text for Fixed Values"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VAL_TEXT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.materialType">
+                <Annotation Term="SAP__common.Label" String="Interface View for Material"/>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="{@i18n&gt;MaterialTitle}"/>
+                        <PropertyValue Property="TypeNamePlural" String="{@i18n&gt;MaterialTitle}"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Material"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="SalesOrg"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="DistChannel"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="OldMaterial"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MaterialType"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MaterialStatus"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BomStatus"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CpStatus"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BomEffectiveDate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BomEndDate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="AirlineCode"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CabinClass"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Resend"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="SpecType"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ServiceType"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="AltDescription"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="SpecTagCategory"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="SendUser"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="SendDate"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="SendTime"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>SalesOrg</PropertyPath>
+                        <PropertyPath>DistChannel</PropertyPath>
+                        <PropertyPath>MaterialType</PropertyPath>
+                        <PropertyPath>Material</PropertyPath>
+                        <PropertyPath>MaterialStatus</PropertyPath>
+                        <PropertyPath>CabinClass</PropertyPath>
+                        <PropertyPath>BomStatus</PropertyPath>
+                        <PropertyPath>CpStatus</PropertyPath>
+                        <PropertyPath>AirlineCode</PropertyPath>
+                        <PropertyPath>BomEffectiveDate</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/material">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="Filterable" Bool="true"/>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="SalesOrg"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="DistChannel"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="BomEffectiveDate"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="BomEndDate"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="AirlineCode"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="RequiredProperties">
+                            <Collection>
+                                <PropertyPath>SalesOrg</PropertyPath>
+                                <PropertyPath>DistChannel</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.SalesOrgVHType/SalesOrganization">
+                <Annotation Term="SAP__common.Text" Path="SalesOrganizationName"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Sales Organization"/>
+                <Annotation Term="SAP__common.Heading" String="SOrg."/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VKORG"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SalesOrgVHType">
+                <Annotation Term="SAP__common.Label" String="Sales Organization Value Help"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/SalesOrgVH">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.MaterialTypeVHType/ProductType">
+                <Annotation Term="SAP__common.Text" Path="ProductTypeText">
+                    <Annotation Term="SAP__UI.TextArrangement" EnumMember="SAP__UI.TextArrangementType/TextLast"/>
+                </Annotation>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Material Type"/>
+                <Annotation Term="SAP__common.Heading" String="MTyp"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MTART"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaterialTypeVHType">
+                <Annotation Term="SAP__common.Label" String="MaterialType Value Help"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/MaterialTypeVH">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.load_tempType/LoadingTempCode">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;LoadingTempCode}"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Loading Template Code"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Loading Template Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.load_tempType/LoadingTempType">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;LoadingTempType}"/>
+                <Annotation Term="SAP__common.Text" Path="_LdgTempType/Text">
+                    <Annotation Term="SAP__UI.TextArrangement" EnumMember="SAP__UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_sd_int_ldgtemp_type_vh/0001;ps='srvd-zsd_sd_send_specification-0001';va='com.sap.gateway.srvd.zsd_sd_send_specification.v0001.et-zc_sd_int_load_temp.loadingtemptype'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+                <Annotation Term="SAP__common.Heading" String="Loading Template Type"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Loading Template Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.load_tempType/ValidFrom">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;ValidFrom}"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Heading" String="Valid From"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Valid From"/>
+            </Annotations>
+            <Annotations Target="SAP__self.load_tempType/ValidTo">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;ValidTo}"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Heading" String="Valid To"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Valid To"/>
+            </Annotations>
+            <Annotations Target="SAP__self.load_tempType/AircraftType">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;AircraftType}"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Aircraft Type"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Aircraft Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.load_tempType/LoadingTempName">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;LoadingTempName}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Loading Template Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Loading Template Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.load_tempType/MealType">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;MealType}"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_pp_meal_type_vh/0001;ps='srvd-zsd_sd_send_specification-0001';va='com.sap.gateway.srvd.zsd_sd_send_specification.v0001.et-zc_sd_int_load_temp.mealtype'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="Meal Type"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Meal Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.load_tempType/AirlineCode">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;AirlineCode}"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_sd_int_aircode_vh/0001;ps='srvd-zsd_sd_send_specification-0001';va='com.sap.gateway.srvd.zsd_sd_send_specification.v0001.et-zc_sd_int_load_temp.airlinecode'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+                <Annotation Term="SAP__common.Heading" String="Airline Code"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Airline Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.load_tempType/ApprovalStatus">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;ApprovalStatus}"/>
+                <Annotation Term="SAP__common.Text" Path="ApprovalStatusDesc"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_pp_ldgtemp_apprstatus_vh/0001;ps='srvd-zsd_sd_send_specification-0001';va='com.sap.gateway.srvd.zsd_sd_send_specification.v0001.et-zc_sd_int_load_temp.approvalstatus'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+                <Annotation Term="SAP__common.Heading" String="Approval Status"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Approval Status"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/load_temp">
+                <Annotation Term="SAP__capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_ApprStatus"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_Cab"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_LdgTempType"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_Smt"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="Filterable" Bool="true"/>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="ValidFrom"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="ValidTo"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="NonUpdatableNavigationProperties">
+                            <Collection>
+                                <PropertyPath>_ApprStatus</PropertyPath>
+                                <PropertyPath>_Cab</PropertyPath>
+                                <PropertyPath>_LdgTempType</PropertyPath>
+                                <PropertyPath>_Smt</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.SendToCP(Collection(SAP__self.load_tempType))/resend">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Boolean Variable (X = True, - = False, Space = Unknown)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.GetMaterial(Collection(SAP__self.load_tempType))/resend">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Boolean Variable (X = True, - = False, Space = Unknown)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.GetMaterial(Collection(SAP__self.load_tempType))/cp">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Boolean Variable (X = True, - = False, Space = Unknown)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.load_tempType">
+                <Annotation Term="SAP__common.Label" String="projection view for ZI_SD_INT_LOAD_TEMP"/>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="{@i18n&gt;LoadingTemplateTitle}"/>
+                        <PropertyValue Property="TypeNamePlural" String="{@i18n&gt;LoadingTemplateTitle}"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="AirlineCode"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="LoadingTempType"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="LoadingTempCode"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="LoadingTempName"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n&gt;CabinClass}"/>
+                            <PropertyValue Property="Value" Path="_Cab/CabinClass"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MealType"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n&gt;SpecialMealType}"/>
+                            <PropertyValue Property="Value" Path="_Smt/SpecialMealType"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ValidFrom"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ValidTo"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Criticality" Path="_ApprStatus/color"/>
+                            <PropertyValue Property="CriticalityRepresentation" EnumMember="SAP__UI.CriticalityRepresentationType/WithoutIcon"/>
+                            <PropertyValue Property="Value" Path="ApprovalStatus"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>AirlineCode</PropertyPath>
+                        <PropertyPath>LoadingTempType</PropertyPath>
+                        <PropertyPath>_Cab/CabinClass</PropertyPath>
+                        <PropertyPath>ValidFrom</PropertyPath>
+                        <PropertyPath>ValidTo</PropertyPath>
+                        <PropertyPath>MealType</PropertyPath>
+                        <PropertyPath>LoadingTempCode</PropertyPath>
+                        <PropertyPath>LoadingTempName</PropertyPath>
+                        <PropertyPath>ApprovalStatus</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Messages" Path="SAP__Messages"/>
+            </Annotations>
+            <Annotations Target="SAP__self.load_temp_smtType/SpecialMealType">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;SpecialMealType}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Special meal type"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Special meal type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.load_temp_smtType">
+                <Annotation Term="SAP__common.Label" String="Interface View For Loading Template Header Special Meal Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/load_temp_smt">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.DistributionChannelVHType/SalesOrganization">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Sales Organization"/>
+                <Annotation Term="SAP__common.Heading" String="SOrg."/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VKORG"/>
+            </Annotations>
+            <Annotations Target="SAP__self.DistributionChannelVHType/DistributionChannel">
+                <Annotation Term="SAP__common.Text" Path="DistributionChannelText"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Distribution Channel"/>
+                <Annotation Term="SAP__common.Heading" String="DChl"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VTWEG"/>
+            </Annotations>
+            <Annotations Target="SAP__self.DistributionChannelVHType">
+                <Annotation Term="SAP__common.Label" String="Distribution Channel Data"/>
+                <Annotation Term="SAP__common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>DistributionChannel</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/DistributionChannelVH">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="true"/>
+                        <PropertyValue Property="UnsupportedExpressions" EnumMember="SAP__capabilities.SearchExpressions/AND SAP__capabilities.SearchExpressions/NOT SAP__capabilities.SearchExpressions/group "/>
+                        <PropertyValue Property="SearchSyntax" String="https://url.sap/odata-search"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.CabClassVHType/Airline">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Airline Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CabClassVHType/CabinClass">
+                <Annotation Term="SAP__common.Label" String="Cabin Class"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Mapping Cabin Class Code"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Mapping Cabin Class Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CabClassVHType/CabinName">
+                <Annotation Term="SAP__common.Label" String="Cabin Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.CabClassVHType">
+                <Annotation Term="SAP__common.Label" String="Search Help for Cabin Class"/>
+                <Annotation Term="SAP__UI.PresentationVariant">
+                    <Record>
+                        <PropertyValue Property="SortOrder">
+                            <Collection>
+                                <Record Type="SAP__common.SortOrderType">
+                                    <PropertyValue Property="Property" PropertyPath="Airline"/>
+                                    <PropertyValue Property="Descending" Bool="false"/>
+                                </Record>
+                                <Record Type="SAP__common.SortOrderType">
+                                    <PropertyValue Property="Property" PropertyPath="CabinClass"/>
+                                    <PropertyValue Property="Descending" Bool="false"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/CabClassVH">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="true"/>
+                        <PropertyValue Property="UnsupportedExpressions" EnumMember="SAP__capabilities.SearchExpressions/AND SAP__capabilities.SearchExpressions/NOT SAP__capabilities.SearchExpressions/group "/>
+                        <PropertyValue Property="SearchSyntax" String="https://url.sap/odata-search"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.BomStatusVhType/BOMStatus">
+                <Annotation Term="SAP__common.Text" Path="Description">
+                    <Annotation Term="SAP__UI.TextArrangement" EnumMember="SAP__UI.TextArrangementType/TextLast"/>
+                </Annotation>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Lower Value"/>
+                <Annotation Term="SAP__common.Heading" String="Fixed"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Values for Domains: Single Value/Lower Limit"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=DOMVALUE_L"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BomStatusVhType/Valpos">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Value key"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Domain value key"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VALPOS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BomStatusVhType">
+                <Annotation Term="SAP__common.Label" String="Search Help for BOM Manager Status"/>
+                <Annotation Term="SAP__UI.PresentationVariant">
+                    <Record>
+                        <PropertyValue Property="SortOrder">
+                            <Collection>
+                                <Record Type="SAP__common.SortOrderType">
+                                    <PropertyValue Property="Property" PropertyPath="Valpos"/>
+                                    <PropertyValue Property="Descending" Bool="false"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/BomStatusVh">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.load_temp_cabType/LoadingTempKey">
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Loading Template Key"/>
+            </Annotations>
+            <Annotations Target="SAP__self.load_temp_smtType/LoadingTempKey">
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Loading Template Key"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaterialStatusVHType/mtstb">
+                <Annotation Term="SAP__common.Label" String="Description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Description of material status from MM/PP view"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MTSTB"/>
+            </Annotations>
+            <Annotations Target="SAP__self.load_temp_apprstatusType/Text">
+                <Annotation Term="SAP__common.Label" String="Short Description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Short Text for Fixed Values"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VAL_TEXT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.load_temp_stypeType/Text">
+                <Annotation Term="SAP__common.Label" String="Short Description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Short Text for Fixed Values"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VAL_TEXT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SalesDivisionVHType/DivisionName">
+                <Annotation Term="SAP__common.Label" String="Name"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VTXTK"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaterialVHType/IsBatchManagementRequired">
+                <Annotation Term="SAP__common.Label" String="Batch Management"/>
+                <Annotation Term="SAP__common.Heading" String="BMR"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Batch Management Requirement Indicator"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=XCHPF"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SalesOrgVHType/SalesOrganizationName">
+                <Annotation Term="SAP__common.Label" String="Name"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VTXTK"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MaterialTypeVHType/ProductTypeText">
+                <Annotation Term="SAP__common.Label" String="Material Type Desc."/>
+                <Annotation Term="SAP__common.Heading" String="Material Type Description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Description of Material Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.load_tempType/LoadingTempKey">
+                <Annotation Term="SAP__common.Label" String="Loading Template Key"/>
+            </Annotations>
+            <Annotations Target="SAP__self.load_tempType/ApprovalStatusDesc">
+                <Annotation Term="SAP__common.Label" String="Short Description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Short Text for Fixed Values"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VAL_TEXT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.DistributionChannelVHType/DistributionChannelText">
+                <Annotation Term="SAP__common.Label" String="Distribution Channel Description"/>
+            </Annotations>
+            <Annotations Target="SAP__self.BomStatusVhType/Description">
+                <Annotation Term="SAP__common.Label" String="Short Description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Short Text for Fixed Values"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VAL_TEXT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_LOADTMP/LoadingTempKey">
+                <Annotation Term="SAP__common.Label" String="Loading Template Key"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_LOADTMP/CabinClass">
+                <Annotation Term="SAP__common.Label" String="Cabin Class"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Cabin class"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_MATERIAL/InternalCounter">
+                <Annotation Term="SAP__common.Label" String="Counter"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Internal counter"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=CIM_COUNT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_MATERIAL/CpStatus">
+                <Annotation Term="SAP__common.Label" String="CP Status"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_MATERIAL/Description">
+                <Annotation Term="SAP__common.Label" String="Long Text"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_MATERIAL/SendDate">
+                <Annotation Term="SAP__common.Label" String="Date"/>
+                <Annotation Term="SAP__common.Heading" String="Date in Format YYYYMMDD"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Field of type DATS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_MATERIAL/SendTime">
+                <Annotation Term="SAP__common.Label" String="Field of type TIMS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_MATERIAL/Message">
+                <Annotation Term="SAP__common.Label" String="Long Text"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_MATERIAL/MaterialStatusDesc">
+                <Annotation Term="SAP__common.Label" String="Description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Description of material status from MM/PP view"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MTSTB"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_MATERIAL/BomStatusDesc">
+                <Annotation Term="SAP__common.Label" String="Short Description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Short Text for Fixed Values"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VAL_TEXT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_SEND/InternalCounter">
+                <Annotation Term="SAP__common.Label" String="Counter"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Internal counter"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=CIM_COUNT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_SEND/CpStatus">
+                <Annotation Term="SAP__common.Label" String="CP Status"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_SD_INT_MATERIAL_ROOT/Message">
+                <Annotation Term="SAP__common.Label" String="Long Text"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

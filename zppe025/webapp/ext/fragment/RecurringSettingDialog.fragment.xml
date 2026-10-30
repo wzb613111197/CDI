@@ -1,0 +1,82 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout">
+    <Dialog
+        id="recurringSettingDialog"
+        title="{i18n>RecurringSetting}"
+        contentWidth="44rem"
+        resizable="true"
+        draggable="true">
+        <content>
+            <HBox id="recurringOuterBox" alignItems="Start" width="100%">
+                <!-- Left: Radio Buttons -->
+                <VBox id="recurringRadioBox" width="10rem" class="sapUiSmallMargin">
+                    <RadioButton id="rbWeekly"  text="{i18n>Weekly}"  groupName="recurringType" selected="{= ${recurringModel>/isWeekly} === true}"  select="onRecurringTypeChange"/>
+                    <RadioButton id="rbMonthly" text="{i18n>Monthly}" groupName="recurringType" selected="{= ${recurringModel>/isMonthly} === true}" select="onRecurringTypeChange"/>
+                </VBox>
+
+                <!-- Right: Weekly panel -->
+                <VBox id="weeklyPanel" visible="{recurringModel>/isWeekly}" class="sapUiSmallMargin" width="100%">
+                    <HBox id="recurEveryRow" alignItems="Center" class="sapUiSmallMarginBottom">
+                        <Label id="lblRecurEvery" text="{i18n>RecurEvery}" width="10rem"/>
+                        <Input id="inputRecurEvery" value="{recurringModel>/RecurEvery}" type="Number" width="8rem"/>
+                        <Text id="txtWeekOn" text="{i18n>WeekOn}" class="sapUiSmallMarginBegin"/>
+                    </HBox>
+                    <HBox id="weekDayPatternRow" alignItems="Center" class="sapUiSmallMarginBottom">
+                        <Label id="lblWeekDayPattern" text="{i18n>WeekDayPattern}" width="10rem"/>
+                        <Input id="inputWeekDayPattern" value="{recurringModel>/WeekDayPattern}" width="8rem" liveChange="onWeekDayPatternChange"/>
+                    </HBox>
+                    <l:Grid id="weekDayGrid" defaultSpan="L6 M6 S12" class="sapUiSmallMarginTop">
+                        <l:content>
+                            <CheckBox id="cbMonday"    text="{i18n>Monday}"    selected="{recurringModel>/Monday}"/>
+                            <CheckBox id="cbTuesday"   text="{i18n>Tuesday}"   selected="{recurringModel>/Tuesday}"/>
+                            <CheckBox id="cbWednesday" text="{i18n>Wednesday}" selected="{recurringModel>/Wednesday}"/>
+                            <CheckBox id="cbThursday"  text="{i18n>Thursday}"  selected="{recurringModel>/Thursday}"/>
+                            <CheckBox id="cbFriday"    text="{i18n>Friday}"    selected="{recurringModel>/Friday}"/>
+                            <CheckBox id="cbSaturday"  text="{i18n>Saturday}"  selected="{recurringModel>/Saturday}"/>
+                            <CheckBox id="cbSunday"    text="{i18n>Sunday}"    selected="{recurringModel>/Sunday}"/>
+                        </l:content>
+                    </l:Grid>
+                </VBox>
+
+                <!-- Right: Monthly panel -->
+                <VBox id="monthlyPanel" visible="{recurringModel>/isMonthly}" class="sapUiSmallMargin" width="100%">
+                    <HBox id="monthlyPatternRow" alignItems="Center" class="sapUiSmallMarginBottom">
+                        <Label id="lblThe" text="{i18n>The}" width="5rem"/>
+                        <Select id="selOrdinal" selectedKey="{recurringModel>/Ordinal}">
+                            <items>
+                                <core:Item id="itemFirst"  key="1"  text="{i18n>First}"/>
+                                <core:Item id="itemSecond" key="2" text="{i18n>Second}"/>
+                                <core:Item id="itemThird"  key="3"  text="{i18n>Third}"/>
+                                <core:Item id="itemFourth" key="4" text="{i18n>Fourth}"/>
+                                <core:Item id="itemLast"   key="L"   text="{i18n>Last}"/>
+                            </items>
+                        </Select>
+                        <Select id="selWeekDay" selectedKey="{recurringModel>/WeekDay}" class="sapUiSmallMarginBegin">
+                            <items>
+                                <core:Item id="itemMonday"    key="1" text="{i18n>Monday}"/>
+                                <core:Item id="itemTuesday"   key="2" text="{i18n>Tuesday}"/>
+                                <core:Item id="itemWednesday" key="3" text="{i18n>Wednesday}"/>
+                                <core:Item id="itemThursday"  key="4" text="{i18n>Thursday}"/>
+                                <core:Item id="itemFriday"    key="5" text="{i18n>Friday}"/>
+                                <core:Item id="itemSaturday"  key="6" text="{i18n>Saturday}"/>
+                                <core:Item id="itemSunday"    key="7" text="{i18n>Sunday}"/>
+                            </items>
+                        </Select>
+                    </HBox>
+                    <HBox id="monthlyIntervalRow" alignItems="Center">
+                        <Label id="lblOfEvery" text="{i18n>OfEvery}" width="5rem"/>
+                        <Input id="inputMonthInterval" value="{recurringModel>/RecurEvery}" type="Number" width="5rem"/>
+                        <Text id="txtMonths" text="{i18n>Months}" class="sapUiSmallMarginBegin"/>
+                    </HBox>
+                </VBox>
+            </HBox>
+        </content>
+        <buttons>
+            <Button id="btnRecurringClose"   text="{i18n>Close}"   press="onRecurringClose"/>
+            <Button id="btnRecurringClear"   text="{i18n>Clear}"   press="onRecurringClear"/>
+            <Button id="btnRecurringConfirm" text="{i18n>Confirm}" type="Emphasized" press="onRecurringConfirm"/>
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

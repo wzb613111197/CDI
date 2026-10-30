@@ -1,0 +1,75 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+>
+    <Dialog
+        id="NonAviQuotationDialog"
+        title="{i18n>NonAviQuotationDialogTitle}"
+        contentWidth="50rem"
+        draggable="true"
+        resizable="true"
+        verticalScrolling="true"
+    >
+        <content>
+            <VBox
+                id="NonAviQuotationContentBox"
+                class="sapUiSmallMargin"
+            >
+                <Panel
+                    id="NonAviQuotationHeaderPanel"
+                    headerText="{i18n>NonAviQuotationDialogTitle}"
+                    expandable="false"
+                    class="sapUiSmallMarginBottom"
+                >
+                    <f:SimpleForm
+                        id="NonAviQuotationHeaderForm"
+                        editable="true"
+                        layout="ResponsiveGridLayout"
+                        labelSpanXL="3" labelSpanL="3" labelSpanM="4" labelSpanS="12"
+                        columnsXL="1" columnsL="1" columnsM="1"
+                    >
+                        <f:content>
+                            <Label id="NonAviQuotationNameLabel" text="{i18n>AviQuotationName}"/>
+                            <Input
+                                id="NonAviQuotationNameInput"
+                                value="{ui>/NonAviQuotation/Zname}"
+                                showValueHelp="true"
+                                valueHelpRequest=".onNonAviTemplateVH"
+                            />
+                        </f:content>
+                    </f:SimpleForm>
+                </Panel>
+
+                <Panel
+                    id="NonAviQuotationFieldsPanel"
+                    headerText="{i18n>AviQuotationFieldSelection}"
+                    expandable="false"
+                >
+                    <l:Grid
+                        id="NonAviQuotationFieldsGrid"
+                        defaultSpan="L3 M4 S6"
+                        class="sapUiSmallMargin"
+                    >
+                        <l:content>
+                            <CheckBox id="NonAviChkMaterialCode" text="{i18n>AviQuotationMaterialCode}" selected="{ui>/NonAviQuotation/fields/Zmatnr}"/>
+                            <CheckBox id="NonAviChkDescriptionEN" text="{i18n>AviQuotationDescriptionEN}" selected="{ui>/NonAviQuotation/fields/ZdescEn}"/>
+                            <CheckBox id="NonAviChkDescriptionZH" text="{i18n>AviQuotationDescriptionZH}" selected="{ui>/NonAviQuotation/fields/ZdescZh}"/>
+                            <CheckBox id="NonAviChkQuantity" text="{i18n>AviQuotationQuantity}" selected="{ui>/NonAviQuotation/fields/Zqty}"/>
+                            <CheckBox id="NonAviChkPrice" text="{i18n>AviQuotationPrice}" selected="{ui>/NonAviQuotation/fields/Zprice}"/>
+                            <CheckBox id="NonAviChkTotal" text="{i18n>AviQuotationTotal}" selected="{ui>/NonAviQuotation/fields/Ztotal}"/>
+                            <CheckBox id="NonAviChkStorage" text="{i18n>AviQuotationStorage}" selected="{ui>/NonAviQuotation/fields/Zstorage}"/>
+                            <CheckBox id="NonAviChkMOQ" text="{i18n>NonAviQuotationMOQ}" selected="{ui>/NonAviQuotation/fields/Zmoq}"/>
+                            <CheckBox id="NonAviChkShowComponent" text="{i18n>AviQuotationShowComponent}" selected="{ui>/NonAviQuotation/fields/ZshowComp}"/>
+                        </l:content>
+                    </l:Grid>
+                </Panel>
+            </VBox>
+        </content>
+        <buttons>
+            <Button id="NonAviQuotationNextBtn" text="{i18n>NonAviQuotationNext}" type="Emphasized" press=".onNonAviQuotationNext"/>
+            <Button id="NonAviQuotationCloseBtn" text="{i18n>AviQuotationClose}" press=".onCloseNonAviQuotationDialog"/>
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

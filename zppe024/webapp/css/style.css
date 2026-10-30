@@ -1,0 +1,23 @@
+/* Condition Value MultiInput — display mode: blend with table cell */
+.conValueMultiInput.sapMInputBaseReadonly .sapMInputBaseContentWrapper,
+.conValueMultiInput.sapMInputBaseDisabled .sapMInputBaseContentWrapper {
+	background: transparent !important;
+	background-color: transparent !important;
+	border-color: transparent !important;
+	box-shadow: none !important;
+	outline: none !important;
+}
+
+.conValueMultiInput.sapMInputBaseReadonly .sapMInputBaseContentWrapper::before,
+.conValueMultiInput.sapMInputBaseReadonly .sapMInputBaseContentWrapper::after,
+.conValueMultiInput.sapMInputBaseDisabled .sapMInputBaseContentWrapper::before,
+.conValueMultiInput.sapMInputBaseDisabled .sapMInputBaseContentWrapper::after {
+	border: none !important;
+	background: transparent !important;
+	opacity: 0 !important;
+}
+
+.conValueMultiInput.sapMInputBaseReadonly .sapMInputBaseIconContainer,
+.conValueMultiInput.sapMInputBaseDisabled .sapMInputBaseIconContainer {
+	display: none !important;
+}

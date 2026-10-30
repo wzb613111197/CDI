@@ -1,0 +1,16 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+    <HBox alignItems="Center">
+        <Input
+            value="{path: 'NewQuantity'}"
+            width="8rem"
+            textAlign="End"
+            change=".extension.com.cathaydining.zewme002.inbgr.ext.controller.ListReportExtension.onNewQuantityChange"
+        >
+            <customData>
+                <core:CustomData key="vbeln" value="{Vbeln}"/>
+                <core:CustomData key="posnr" value="{Posnr}"/>
+            </customData>
+        </Input>
+        <Text text="{Meins}" class="sapUiTinyMarginBegin"/>
+    </HBox>
+</core:FragmentDefinition>

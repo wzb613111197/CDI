@@ -1,0 +1,16 @@
+/* Formula help icon: sit immediately after section title text (left side) */
+.zppe025FormulaHelpIcon {
+	display: inline-flex !important;
+	align-items: center;
+	vertical-align: middle;
+	margin-left: 0.35rem;
+	cursor: pointer;
+	color: var(--sapInformativeColor, #0a6ed1);
+	font-size: 1rem;
+}
+
+.sapUxAPObjectPageSectionHeader .zppe025FormulaHelpIcon,
+.sapUxAPObjectPageSubSectionHeaderToolbar .zppe025FormulaHelpIcon,
+.sapUxAPObjectPageSubSectionHeader .zppe025FormulaHelpIcon {
+	flex-shrink: 0;
+}

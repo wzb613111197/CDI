@@ -1,0 +1,38 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+    <HBox width="100%" alignItems="Center" renderType="Bare">
+        <MultiInput
+            id="valueMultiInput"
+            required="true"
+            class="conValueMultiInput"
+            visible="{= %{ConType} !== 'ALL'}"
+            editable="{ui>/isEditable}"
+            width="100%"
+            showValueHelp="true"
+            showSuggestion="false"
+            valueHelpOnly="true"
+            valueHelpRequest=".extension.com.cathaydining.zppe024.ext.controller.ObjectPageExtension.onValueHelp"
+            tokenUpdate=".extension.com.cathaydining.zppe024.ext.controller.ObjectPageExtension.onTokenUpdate"
+            change=".extension.com.cathaydining.zppe024.ext.controller.ObjectPageExtension.onMultiInputChange"
+            tokens="{path: '_Val', parameters: {$orderby: 'Value'}, templateShareable: false}"
+        >
+            <tokens>
+                <Token
+                    id="valueToken"
+                    key="{Value}"
+                    text="{
+                        path: 'Value',
+                        formatter: '.extension.com.cathaydining.zppe024.ext.controller.ObjectPageExtension.formatTimeToken'
+                    }" />
+            </tokens>
+        </MultiInput>
+        <CheckBox
+            id="valueAllCheckBox"
+            visible="{= %{ConType} === 'ALL'}"
+            editable="{ui>/isEditable}"
+            select=".extension.com.cathaydining.zppe024.ext.controller.ObjectPageExtension.onAllValueSelect"
+            modelContextChange=".extension.com.cathaydining.zppe024.ext.controller.ObjectPageExtension.onAllCheckboxContextChange"
+        />
+    </HBox>
+</core:FragmentDefinition>

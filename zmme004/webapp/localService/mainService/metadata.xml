@@ -1,0 +1,833 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="SAP__aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="SAP__capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HIERARCHY',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="SAP__hierarchy"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="SAP__HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="SAP__measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ODM',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.ODM.v1" Alias="SAP__ODM"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SESSION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="SAP__session"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="SAP__UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="SAP__validation"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="com.sap.gateway.srvd.zsd_mm_rebound.v0001" Alias="SAP__self">
+            <Annotation Term="SAP__core.SchemaVersion" String="1.0.0"/>
+            <EntityType Name="ZC_MM_REBOUNDType">
+                <Key>
+                    <PropertyRef Name="GuidParent"/>
+                    <PropertyRef Name="GuidStock"/>
+                </Key>
+                <Property Name="GuidParent" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="GuidStock" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="Lgnum" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="StorageType" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="StorageBin" Type="Edm.String" Nullable="false" MaxLength="18"/>
+                <Property Name="Hu" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="Batch" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="Quantity" Type="Edm.Decimal" Nullable="false" Precision="31" Scale="14"/>
+                <Property Name="UoM" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="CaseCt" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="3"/>
+                <Property Name="Meinh" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="Volum" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="Voleh" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="CustomsCode" Type="Edm.String" Nullable="false" MaxLength="70"/>
+                <Property Name="FirstRp" Type="Edm.String" Nullable="false" MaxLength="70"/>
+                <Property Name="ChangedBy" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="ChangedAt" Type="Edm.Decimal" Nullable="false" Precision="15"/>
+                <Property Name="Owner" Type="Edm.String" Nullable="false" MaxLength="70"/>
+                <Property Name="OwnerText" Type="Edm.String" Nullable="false" MaxLength="70"/>
+                <Property Name="Cat" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Category" Type="Edm.String" Nullable="false" MaxLength="6"/>
+                <Property Name="DutyStatus" Type="Edm.String" Nullable="false" MaxLength="70"/>
+                <Property Name="__OperationControl" Type="com.sap.gateway.srvd.zsd_mm_rebound.v0001.ZC_MM_REBOUNDOperationControl"/>
+                <Property Name="SAP__Messages" Type="Collection(com.sap.gateway.srvd.zsd_mm_rebound.v0001.SAP__Message)" Nullable="false"/>
+            </EntityType>
+            <EntityType Name="ZC_MM_REBOND_QUERYType">
+                <Key>
+                    <PropertyRef Name="Lgnum"/>
+                    <PropertyRef Name="Tanum"/>
+                </Key>
+                <Property Name="Lgnum" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Tanum" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="StorageType" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="StorageBin" Type="Edm.String" Nullable="false" MaxLength="18"/>
+                <Property Name="Hu" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="Batch" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="Quantity" Type="Edm.Decimal" Nullable="false" Precision="31" Scale="14"/>
+                <Property Name="UoM" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="CaseCt" Type="Edm.Decimal" Nullable="false" Precision="15" Scale="3"/>
+                <Property Name="Meinh" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="Volum" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="Voleh" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="CustomsCode" Type="Edm.String" Nullable="false" MaxLength="70"/>
+                <Property Name="FirstRp" Type="Edm.String" Nullable="false" MaxLength="70"/>
+                <Property Name="Wo" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="ScenarioType" Type="Edm.String" Nullable="false" MaxLength="6"/>
+                <Property Name="RemovalPermit" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="ChangedBy" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="ChangedAt" Type="Edm.Decimal" Nullable="false" Precision="21"/>
+                <Property Name="Owner" Type="Edm.String" Nullable="false" MaxLength="70"/>
+                <Property Name="OwnerText" Type="Edm.String" Nullable="false" MaxLength="70"/>
+                <Property Name="Cat" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Category" Type="Edm.String" Nullable="false" MaxLength="6"/>
+                <Property Name="DutyStatus" Type="Edm.String" Nullable="false" MaxLength="70"/>
+                <Property Name="__OperationControl" Type="com.sap.gateway.srvd.zsd_mm_rebound.v0001.ZC_MM_REBOND_QUERYOperationControl"/>
+                <Property Name="SAP__Messages" Type="Collection(com.sap.gateway.srvd.zsd_mm_rebound.v0001.SAP__Message)" Nullable="false"/>
+            </EntityType>
+            <ComplexType Name="ZC_MM_REBOUNDOperationControl">
+                <Property Name="ReBond" Type="Edm.Boolean" Nullable="false"/>
+            </ComplexType>
+            <ComplexType Name="ZC_MM_REBOND_QUERYOperationControl">
+                <Property Name="UpdateWtField" Type="Edm.Boolean" Nullable="false"/>
+            </ComplexType>
+            <ComplexType Name="SAP__Message">
+                <Property Name="code" Type="Edm.String" Nullable="false"/>
+                <Property Name="message" Type="Edm.String" Nullable="false"/>
+                <Property Name="target" Type="Edm.String"/>
+                <Property Name="additionalTargets" Type="Collection(Edm.String)" Nullable="false"/>
+                <Property Name="transition" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="numericSeverity" Type="Edm.Byte" Nullable="false"/>
+                <Property Name="longtextUrl" Type="Edm.String"/>
+            </ComplexType>
+            <Action Name="UpdateWtField" EntitySetPath="_it" IsBound="true">
+                <Parameter Name="_it" Type="com.sap.gateway.srvd.zsd_mm_rebound.v0001.ZC_MM_REBOND_QUERYType" Nullable="false"/>
+                <Parameter Name="RemovalPermitNumber" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <ReturnType Type="Collection(com.sap.gateway.srvd.zsd_mm_rebound.v0001.ZC_MM_REBOND_QUERYType)" Nullable="false"/>
+            </Action>
+            <Action Name="ReBond" EntitySetPath="_it" IsBound="true">
+                <Parameter Name="_it" Type="com.sap.gateway.srvd.zsd_mm_rebound.v0001.ZC_MM_REBOUNDType" Nullable="false"/>
+                <Parameter Name="RemovalPermitNumber" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <ReturnType Type="Collection(com.sap.gateway.srvd.zsd_mm_rebound.v0001.ZC_MM_REBOUNDType)" Nullable="false"/>
+            </Action>
+            <EntityContainer Name="Container">
+                <EntitySet Name="ZC_MM_REBOND_QUERY" EntityType="com.sap.gateway.srvd.zsd_mm_rebound.v0001.ZC_MM_REBOND_QUERYType"/>
+                <EntitySet Name="ZC_MM_REBOUND" EntityType="com.sap.gateway.srvd.zsd_mm_rebound.v0001.ZC_MM_REBOUNDType"/>
+            </EntityContainer>
+            <Annotations Target="SAP__self.ZC_MM_REBOUNDType/Lgnum">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;Lgnum}"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="WhN"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Warehouse Number/Warehouse Complex"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=%2FSCWM%2FLGNUM"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOUNDType/StorageType">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;StorageType}"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_ewm_lgtyp_vh/0001;ps='srvd-zsd_mm_rebound-0001';va='com.sap.gateway.srvd.zsd_mm_rebound.v0001.et-zc_mm_rebound.storagetype'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="Ty."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Storage Type"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=%2FSCWM%2FLGTYP"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOUNDType/StorageBin">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;StorageBin}"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Bin"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Storage Bin"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=%2FSCWM%2FLGPLA"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOUNDType/Hu">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;Hu}"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Huident"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOUNDType/Material">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;Material}"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_ewm_matnr/0001;ps='srvd-zsd_mm_rebound-0001';va='com.sap.gateway.srvd.zsd_mm_rebound.v0001.et-zc_mm_rebound.material'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="Material"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOUNDType/Batch">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;Batch}"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Batch"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Batch"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOUNDType/Quantity">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;Quantity}"/>
+                <Annotation Term="SAP__measures.Unit" Path="UoM"/>
+                <Annotation Term="SAP__common.Heading" String="Available Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Available Quantity"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOUNDType/UoM">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;UoM}"/>
+                <Annotation Term="SAP__common.Heading" String="BUn"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Base Unit of Measure"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOUNDType/CaseCt">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;CaseCt}"/>
+                <Annotation Term="SAP__measures.Unit" Path="Meinh"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOUNDType/Meinh">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__common.Label" String="AlternativeUnit"/>
+                <Annotation Term="SAP__common.Heading" String="AUn"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Alternative Unit of Measure for Stockkeeping Unit"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=LRMEI"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOUNDType/Volum">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;Volem}"/>
+                <Annotation Term="SAP__measures.Unit" Path="Voleh"/>
+                <Annotation Term="SAP__common.Heading" String="Volume"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Volume"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VOLUM"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOUNDType/Voleh">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;Voleh}"/>
+                <Annotation Term="SAP__common.Heading" String="VUn"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Volume Unit"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VOLEH"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOUNDType/CustomsCode">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;CustomsCode}"/>
+                <Annotation Term="SAP__common.Heading" String="Characteristic Value"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Characteristic Value"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ATWRT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOUNDType/FirstRp">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;FirstRp}"/>
+                <Annotation Term="SAP__common.Heading" String="Characteristic Value"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Characteristic Value"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ATWRT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOUNDType/ChangedBy">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;ChangedBy}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Created By"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Created By"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=%2FSCWM%2FDE_CREATOR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOUNDType/ChangedAt">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;ChangedAt}"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOUNDType/Owner">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;Owner}"/>
+                <Annotation Term="SAP__common.Text" Path="OwnerText">
+                    <Annotation Term="SAP__UI.TextArrangement" EnumMember="SAP__UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_ewm_owner/0001;ps='srvd-zsd_mm_rebound-0001';va='com.sap.gateway.srvd.zsd_mm_rebound.v0001.et-zc_mm_rebound.owner'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="Characteristic Value"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Characteristic Value"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ATWRT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOUNDType/OwnerText">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;OwnerText}"/>
+                <Annotation Term="SAP__common.Heading" String="Description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Characteristic value description"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ATWTB"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOUNDType/Cat">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;Cat}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Typ"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Stock Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOUNDType/Plant">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;Plant}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Plnt"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Plant"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=WERKS_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOUNDType/Category">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;Category}"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOUNDType/DutyStatus">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;DutyStatus}"/>
+                <Annotation Term="SAP__common.Heading" String="Characteristic Value"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Characteristic Value"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ATWRT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOUNDType/__OperationControl">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ReBond(SAP__self.ZC_MM_REBOUNDType)/RemovalPermitNumber">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Removal Permit"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ReBond(SAP__self.ZC_MM_REBOUNDType)">
+                <Annotation Term="SAP__core.OperationAvailable" Path="_it/__OperationControl/ReBond"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOUNDType">
+                <Annotation Term="SAP__common.Label" String="Project View For ZC_MM_REBOUND"/>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="{i18n&gt;appTitle}"/>
+                        <PropertyValue Property="TypeNamePlural" String="{i18n&gt;appTitle}"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Owner"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Material"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Batch"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="StorageType"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="StorageBin"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Hu"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Quantity"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CaseCt"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Volum"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CustomsCode"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="FirstRp"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ChangedBy"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ChangedAt"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="GuidParent"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="{i18n&gt;ReBondAction}"/>
+                            <PropertyValue Property="Action" String="com.sap.gateway.srvd.zsd_mm_rebound.v0001.ReBond(com.sap.gateway.srvd.zsd_mm_rebound.v0001.ZC_MM_REBOUNDType)"/>
+                            <PropertyValue Property="InvocationGrouping" EnumMember="SAP__UI.OperationGroupingType/ChangeSet"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>Owner</PropertyPath>
+                        <PropertyPath>Material</PropertyPath>
+                        <PropertyPath>StorageType</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Messages" Path="SAP__Messages"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZC_MM_REBOUND">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>__OperationControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>__OperationControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container">
+                <Annotation Term="SAP__CodeList.UnitsOfMeasure">
+                    <Record>
+                        <PropertyValue Property="Url" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="UnitsOfMeasure"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="SAP__capabilities.FilterFunctions">
+                    <Collection>
+                        <String>eq</String>
+                        <String>ne</String>
+                        <String>gt</String>
+                        <String>ge</String>
+                        <String>lt</String>
+                        <String>le</String>
+                        <String>and</String>
+                        <String>or</String>
+                        <String>contains</String>
+                        <String>startswith</String>
+                        <String>endswith</String>
+                        <String>any</String>
+                        <String>all</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SupportedFormats">
+                    <Collection>
+                        <String>application/json</String>
+                        <String>application/pdf</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="Border" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="FitToPage" Bool="true"/>
+                        <PropertyValue Property="FontName" Bool="true"/>
+                        <PropertyValue Property="FontSize" Bool="true"/>
+                        <PropertyValue Property="HeaderFooter" Bool="true"/>
+                        <PropertyValue Property="IANATimezoneFormat" Bool="true"/>
+                        <PropertyValue Property="Margin" Bool="true"/>
+                        <PropertyValue Property="Padding" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="20000"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="TextDirectionLayout" Bool="true"/>
+                        <PropertyValue Property="Treeview" Bool="true"/>
+                        <PropertyValue Property="UploadToFileShare" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.KeyAsSegmentSupported"/>
+                <Annotation Term="SAP__capabilities.AsynchronousRequestsSupported"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOND_QUERYType/Lgnum">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;Lgnum}"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="WhN"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Warehouse Number/Warehouse Complex"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=%2FSCWM%2FLGNUM"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOND_QUERYType/Tanum">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;Tanum}"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOND_QUERYType/StorageType">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;StorageType}"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_ewm_lgtyp_vh/0001;ps='srvd-zsd_mm_rebound-0001';va='com.sap.gateway.srvd.zsd_mm_rebound.v0001.et-zc_mm_rebond_query.storagetype'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="Type"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Source Storage Type"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=%2FSCWM%2FLTAP_VLTYP"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOND_QUERYType/StorageBin">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;StorageBin}"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Source Bin"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Source Storage Bin"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=%2FSCWM%2FLTAP_VLPLA"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOND_QUERYType/Hu">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;Hu}"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Huident"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOND_QUERYType/Material">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;Material}"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_ewm_matnr/0001;ps='srvd-zsd_mm_rebound-0001';va='com.sap.gateway.srvd.zsd_mm_rebound.v0001.et-zc_mm_rebond_query.material'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="Material"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOND_QUERYType/Batch">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;Batch}"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Batch"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Batch"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOND_QUERYType/Quantity">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;Quantity}"/>
+                <Annotation Term="SAP__measures.Unit" Path="UoM"/>
+                <Annotation Term="SAP__common.Heading" String="Target Qty Bs"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Target Quantity in Base Unit of Measure"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=%2FSCWM%2FLTAP_VSOLM"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOND_QUERYType/UoM">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;UoM}"/>
+                <Annotation Term="SAP__common.Heading" String="BUn"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Base Unit of Measure"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOND_QUERYType/CaseCt">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;CaseCt}"/>
+                <Annotation Term="SAP__measures.Unit" Path="Meinh"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOND_QUERYType/Meinh">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__common.Label" String="AlternativeUnit"/>
+                <Annotation Term="SAP__common.Heading" String="AUn"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Alternative Unit of Measure for Stockkeeping Unit"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=LRMEI"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOND_QUERYType/Volum">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;Volem}"/>
+                <Annotation Term="SAP__measures.Unit" Path="Voleh"/>
+                <Annotation Term="SAP__common.Heading" String="Volume"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Volume"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VOLUM"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOND_QUERYType/Voleh">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;Voleh}"/>
+                <Annotation Term="SAP__common.Heading" String="VUn"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Volume Unit"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VOLEH"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOND_QUERYType/CustomsCode">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;CustomsCode}"/>
+                <Annotation Term="SAP__common.Heading" String="Characteristic Value"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Characteristic Value"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ATWRT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOND_QUERYType/FirstRp">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;FirstRp}"/>
+                <Annotation Term="SAP__common.Heading" String="Characteristic Value"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Characteristic Value"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ATWRT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOND_QUERYType/Wo">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;Wo}"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOND_QUERYType/ScenarioType">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;ScenarioType}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Scenario Type"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Scenario Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOND_QUERYType/RemovalPermit">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;RemovalPermit}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Removal Permit"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Removal Permit"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOND_QUERYType/ChangedBy">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;ChangedBy}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Changed By"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Local Instance Last Changed By User"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ABP_LOCINST_LASTCHANGE_USER"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOND_QUERYType">
+                <Annotation Term="SAP__common.ChangedBy" Path="ChangedBy"/>
+                <Annotation Term="SAP__common.Label" String="Project View For ZI_MM_REBOND_QUERY"/>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="{i18n&gt;appTitle}"/>
+                        <PropertyValue Property="TypeNamePlural" String="{i18n&gt;appTitle}"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Owner"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Material"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Batch"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="StorageType"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="StorageBin"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Hu"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Quantity"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CaseCt"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Volum"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CustomsCode"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="FirstRp"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Wo"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Tanum"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ScenarioType"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="RemovalPermit"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ChangedBy"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ChangedAt"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Lgnum"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="{i18n&gt;UpdateWtField}"/>
+                            <PropertyValue Property="Action" String="com.sap.gateway.srvd.zsd_mm_rebound.v0001.UpdateWtField(com.sap.gateway.srvd.zsd_mm_rebound.v0001.ZC_MM_REBOND_QUERYType)"/>
+                            <PropertyValue Property="InvocationGrouping" EnumMember="SAP__UI.OperationGroupingType/ChangeSet"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>Owner</PropertyPath>
+                        <PropertyPath>Material</PropertyPath>
+                        <PropertyPath>StorageType</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Messages" Path="SAP__Messages"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOND_QUERYType/ChangedAt">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;ChangedAt}"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOND_QUERYType/Owner">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;Owner}"/>
+                <Annotation Term="SAP__common.Text" Path="OwnerText">
+                    <Annotation Term="SAP__UI.TextArrangement" EnumMember="SAP__UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_ewm_owner/0001;ps='srvd-zsd_mm_rebound-0001';va='com.sap.gateway.srvd.zsd_mm_rebound.v0001.et-zc_mm_rebond_query.owner'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="Characteristic Value"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Characteristic Value"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ATWRT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOND_QUERYType/OwnerText">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;OwnerText}"/>
+                <Annotation Term="SAP__common.Heading" String="Description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Characteristic value description"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ATWTB"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOND_QUERYType/Cat">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;Cat}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Typ"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Stock Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOND_QUERYType/Plant">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;Plant}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Plnt"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Plant"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=WERKS_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOND_QUERYType/Category">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;Category}"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOND_QUERYType/DutyStatus">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;DutyStatus}"/>
+                <Annotation Term="SAP__common.Heading" String="Characteristic Value"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Characteristic Value"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ATWRT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOND_QUERYType/__OperationControl">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.UpdateWtField(SAP__self.ZC_MM_REBOND_QUERYType)/RemovalPermitNumber">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Removal Permit"/>
+            </Annotations>
+            <Annotations Target="SAP__self.UpdateWtField(SAP__self.ZC_MM_REBOND_QUERYType)">
+                <Annotation Term="SAP__core.OperationAvailable" Path="_it/__OperationControl/UpdateWtField"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZC_MM_REBOND_QUERY">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>__OperationControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>__OperationControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOUNDType/GuidParent">
+                <Annotation Term="SAP__common.Label" String="Parent"/>
+                <Annotation Term="SAP__common.Heading" String="Parent GUID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Parent GUID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOUNDType/GuidStock">
+                <Annotation Term="SAP__common.Label" String="GUID Stock"/>
+                <Annotation Term="SAP__common.QuickInfo" String="GUID Stock Item"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOUNDOperationControl/ReBond">
+                <Annotation Term="SAP__common.Label" String="Dyn. Action Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Action Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Action Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOND_QUERYOperationControl/UpdateWtField">
+                <Annotation Term="SAP__common.Label" String="Dyn. Action Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Action Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Action Property"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

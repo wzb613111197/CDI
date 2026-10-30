@@ -1,0 +1,47 @@
+<mvc:View
+    controllerName="com.cathaydining.zppr005.arrivalflt.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+>
+    <Page
+        id="filterEntryPage"
+        title="{i18n>filterPageTitle}"
+        class="filterPage"
+    >
+        <content>
+            <VBox class="filterPageContent">
+                <VBox class="filterCard">
+                    <Title text="{i18n>filterSectionTitle}" />
+                    <Label text="{i18n>filterAirlineGrpLabel}" required="true" />
+                    <Input
+                        id="filterAirlineGrpInput"
+                        value="{filter>/AirlineGrp}"
+                        showValueHelp="true"
+                        valueHelpRequest=".onValueHelpRequest"
+                        placeholder="{i18n>filterAirlineGrpPlaceholder}"
+                    />
+                    <Label text="{i18n>filterPageSizeLabel}" />
+                    <Input
+                        id="filterPageSizeInput"
+                        value="{filter>/PageSize}"
+                        type="Number"
+                    />
+                    <Label text="{i18n>filterPageIntervalLabel}" />
+                    <Input
+                        id="filterPageIntervalInput"
+                        value="{filter>/PageInterval}"
+                        type="Number"
+                    />
+                    <HBox justifyContent="End">
+                        <Button
+                            id="filterExecuteButton"
+                            text="{i18n>filterExecute}"
+                            type="Emphasized"
+                            press=".onExecute"
+                        />
+                    </HBox>
+                </VBox>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

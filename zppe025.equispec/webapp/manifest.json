@@ -1,0 +1,204 @@
+{
+  "_version": "1.73.1",
+  "sap.app": {
+    "id": "com.cathaydining.zppe025.equispec",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.21.0",
+      "toolsId": "ecce0283-0bd0-4425-979e-6340b89c0179"
+    },
+    "dataSources": {
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      },
+      "mainService": {
+        "uri": "/sap/opu/odata4/sap/zui_pp_ldgtemp_hdr_o4/srvd/sap/zsd_pp_ldgtemp_hdr/0001/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation"
+          ],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.136.10",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.cathaydining.zppe025.equispec.i18n.i18n",
+          "supportedLocales": ["", "zh_CN", "zh_TW"],
+          "fallbackLocale": ""
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.cathaydining.zppe025.equispec.i18n.i18n",
+          "supportedLocales": ["", "zh_CN", "zh_TW"],
+          "fallbackLocale": ""
+        }
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "ZC_PP_EQUISPEC_ROTList",
+          "target": "ZC_PP_EQUISPEC_ROTList"
+        },
+        {
+          "pattern": "ZC_PP_EQUISPEC_ROT({key}):?query:",
+          "name": "ZC_PP_EQUISPEC_ROTObjectPage",
+          "target": "ZC_PP_EQUISPEC_ROTObjectPage"
+        }
+      ],
+      "targets": {
+        "ZC_PP_EQUISPEC_ROTList": {
+          "type": "Component",
+          "id": "ZC_PP_EQUISPEC_ROTList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/ZC_PP_EQUISPEC_ROT",
+              "variantManagement": "Page",
+              "navigation": {
+                "ZC_PP_EQUISPEC_ROT": {
+                  "detail": {
+                    "route": "ZC_PP_EQUISPEC_ROTObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable",
+                    "selectionMode": "Multi",
+                    "selectAll": true,
+                    "widthIncludingColumnHeader": true,
+                    "creationMode": {
+                      "name": "NewPage"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "ZC_PP_EQUISPEC_ROTObjectPage": {
+          "type": "Component",
+          "id": "ZC_PP_EQUISPEC_ROTObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/ZC_PP_EQUISPEC_ROT",
+              "controlConfiguration": {
+                "_Itm/@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "creationMode": {
+                      "name": "CreationDialog",
+                      "creationFields": "com.sap.vocabularies.UI.v1.FieldGroup#ItmCreation"
+                    },
+                    "enableFullScreen": true,
+                    "selectAll": true,
+                    "selectionMode": "Multi",
+                    "type": "ResponsiveTable",
+                    "widthIncludingColumnHeader": true
+                  }
+                },
+                "_Com/@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "creationMode": {
+                      "name": "CreationDialog",
+                      "creationFields": "com.sap.vocabularies.UI.v1.FieldGroup#ComCreation"
+                    },
+                    "selectionMode": "Multi",
+                    "selectAll": true,
+                    "type": "ResponsiveTable",
+                    "widthIncludingColumnHeader": true,
+                    "enableFullScreen": true,
+                    "enablePaste": false,
+                    "personalization": {
+                      "filter": true,
+                      "group": true
+                    },
+                    "quickVariantSelection": {
+                      "showCounts": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  },
+  "sap.fe": {
+    "app": {
+      "enableLazyLoading": true
+    }
+  }
+}

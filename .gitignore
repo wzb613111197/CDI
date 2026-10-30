@@ -1,0 +1,28 @@
+# Dependencies & build
+**/node_modules/
+**/dist/
+**/.scp/
+**/resources/
+**/mta_archives/
+**/mta-*/
+**/.*_mta_build_tmp
+**/Makefile*.mta
+**/archive.zip
+
+# Secrets & local env
+**/.env
+**/.env.*
+!**/.env.example
+
+# IDE / OS
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Logs & caches
+**/npm-debug.log*
+**/.ui5/
+**/.npm/
+**/coverage/

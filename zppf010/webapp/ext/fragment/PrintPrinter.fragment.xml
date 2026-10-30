@@ -1,0 +1,18 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+    <MultiInput
+        id="inputPrinter"
+        showValueHelp="true"
+        valueHelpRequest=".extension.com.cathaydining.zppf010.ext.controller.ListReportExtension.onPrinterValueHelp"
+        change=".extension.com.cathaydining.zppf010.ext.controller.ListReportExtension.onPrinterManualInput"
+        tokenUpdate=".extension.com.cathaydining.zppf010.ext.controller.ListReportExtension.onPrinterTokenUpdate"
+        modelContextChange=".extension.com.cathaydining.zppf010.ext.controller.ListReportExtension.onPrinterContextChange">
+        <customData>
+            <core:CustomData key="Bktxt" value="{Bktxt}"/>
+            <core:CustomData key="MjahrKey" value="{MjahrKey}"/>
+            <core:CustomData key="MblnrKey" value="{MblnrKey}"/>
+            <core:CustomData key="ZeileKey" value="{ZeileKey}"/>
+            <core:CustomData key="Zcnno" value="{Zcnno}"/>
+            <core:CustomData key="Werks" value="{Werks}"/>
+        </customData>
+    </MultiInput>
+</core:FragmentDefinition>

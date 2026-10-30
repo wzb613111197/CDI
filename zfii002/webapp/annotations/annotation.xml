@@ -1,0 +1,58 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata4/sap/zui_fi_002_head_o4/srvd/sap/zsd_fi_002_head/0001/$metadata">
+        <edmx:Include Namespace="com.sap.gateway.srvd.zsd_fi_002_head.v0001" Alias="SAP__self"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+            <Annotations Target="SAP__self.HeadType">
+                <Annotation Term="UI.SelectionPresentationVariant" Qualifier="Head">
+                    <Record Type="UI.SelectionPresentationVariantType">
+                        <PropertyValue Property="Text" String="{@i18n>Head}"/>
+                        <PropertyValue Property="SelectionVariant">
+                            <Record Type="UI.SelectionVariantType">
+                                <PropertyValue Property="SelectOptions">
+                                    <Collection/>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="PresentationVariant">
+                            <Record Type="UI.PresentationVariantType">
+                                <PropertyValue Property="Visualizations">
+                                    <Collection>
+                                        <AnnotationPath>@UI.LineItem</AnnotationPath>
+                                    </Collection>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ItemType">
+                <Annotation Term="UI.SelectionPresentationVariant" Qualifier="Item">
+                    <Record Type="UI.SelectionPresentationVariantType">
+                        <PropertyValue Property="Text" String="{@i18n>Item}"/>
+                        <PropertyValue Property="SelectionVariant">
+                            <Record Type="UI.SelectionVariantType">
+                                <PropertyValue Property="SelectOptions">
+                                    <Collection/>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="PresentationVariant">
+                            <Record Type="UI.PresentationVariantType">
+                                <PropertyValue Property="Visualizations">
+                                    <Collection>
+                                        <AnnotationPath>@UI.LineItem</AnnotationPath>
+                                    </Collection>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "4.0"
+metadata:
+  name: com.cathaydining.zppe025.ovrflowmeltype
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          url: https://vhcwawd1wd01.sap.fmsete.cpafms.com:44380
+          client: '100'
+        app:
+          name: ZPP_OVRFLOW_MET
+          description: Manage Overflow Meal Type
+          package: ZPPE025
+          transport: SS1K901465
+        exclude:
+          - /test/

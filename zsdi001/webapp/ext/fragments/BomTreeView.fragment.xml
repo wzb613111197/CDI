@@ -1,0 +1,114 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:table="sap.ui.table"
+    xmlns:rowmodes="sap.ui.table.rowmodes"
+>
+    <Dialog
+        title="{ui>/quotationDetail/bom/title}"
+        contentWidth="70rem"
+        contentHeight="40rem"
+        draggable="true"
+        resizable="true"
+    >
+        <content>
+            <VBox class="sapUiMediumMargin">
+                <table:TreeTable
+                    rows="{path: 'ui>/quotationDetail/bom/tree', parameters: { arrayNames: ['children'], numberOfExpandedLevels: 1 }}"
+                    selectionMode="None"
+                >
+                    <table:rowMode>
+                        <rowmodes:Auto minRowCount="8" />
+                    </table:rowMode>
+                    <table:columns>
+                        <table:Column width="12rem">
+                            <Label text="{i18n>bomColMaterial}" />
+                            <table:template>
+                                <Text text="{ui>Material}" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column width="20rem">
+                            <Label text="{i18n>bomColMaterialDesc}" />
+                            <table:template>
+                                <Text text="{ui>MaterialDesc}" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column width="6rem" hAlign="End">
+                            <Label text="{i18n>bomColLevel}" />
+                            <table:template>
+                                <Text text="{ui>BomLevel}" textAlign="End" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column width="6rem" hAlign="End">
+                            <Label text="{i18n>priceLevel}" />
+                            <table:template>
+                                <ObjectNumber
+                                    number="{ui>Price}" state="Information"
+                                    unit="{ui>Currency}" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column width="10rem">
+                            <Label text="{i18n>bomColValidFrom}" />
+                            <table:template>
+                                <Text text="{ui>ValidFrom}" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column width="10rem">
+                            <Label text="{i18n>bomColValidTo}" />
+                            <table:template>
+                                <Text text="{ui>ValidTo}" />
+                            </table:template>
+                        </table:Column>
+                    </table:columns>
+                </table:TreeTable>
+
+                <Title text="{i18n>priceHistoryTitle}" class="sapUiSmallMarginTop" level="H5" />
+                <Table
+                    items="{ui>/quotationDetail/bom/priceHistory}"
+                    growing="true"
+                    growingThreshold="20"
+                    noDataText="{i18n>noData}">
+                    <columns>
+                        <Column>
+                            <Text text="{i18n>bomColMaterial}" />
+                        </Column>
+                        <Column>
+                            <Text text="{i18n>bomColMaterialDesc}" />
+                        </Column>
+                        <Column>
+                            <Text text="{i18n>customerLabel}" />
+                        </Column>
+                        <Column hAlign="End">
+                            <Text text="{i18n>priceLevel}" />
+                        </Column>
+                        <Column hAlign="End">
+                            <Text text="{i18n>phColPricingUnit}" />
+                        </Column>
+                        <Column>
+                            <Text text="{i18n>bomColValidFrom}" />
+                        </Column>
+                        <Column>
+                            <Text text="{i18n>bomColValidTo}" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem>
+                            <cells>
+                                <Text text="{ui>material}" />
+                                <Text text="{ui>MaterialDesc}" />
+                                <Text text="{ui>Customer}" />
+                                <ObjectNumber number="{ui>Price}" unit="{ui>Currency}" state="Information" />
+                                <ObjectNumber number="{ui>PricingUnit}" unit="{ui>Unit}" state="Warning" />
+                                <Text text="{path:'ui>ValidFrom',type:'sap.ui.model.type.Date',formatOptions:{source:{pattern:'yyyy-MM-dd',UTC:true},UTC:'true'}}" />
+                                <Text text="{path:'ui>ValidTo',type:'sap.ui.model.type.Date',formatOptions:{source:{pattern:'yyyy-MM-dd',UTC:true},UTC:'true'}}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </VBox>
+        </content>
+        <endButton>
+            <Button text="{i18n>qdClose}" press="onCloseBomTreeDialog" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

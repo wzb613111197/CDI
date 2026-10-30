@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "4.0"
+metadata:
+  name: com.cathaydining.zppe024
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          url: https://vhcwawd1wd01.sap.fmsete.cpafms.com:44380
+          client: '100'
+        app:
+          name: ZPP_LDGDEF_HDR
+          description: Manage Loading Definition
+          package: ZPPE024
+          transport: SS1K904446
+        exclude:
+          - /test/
+          - /localService/

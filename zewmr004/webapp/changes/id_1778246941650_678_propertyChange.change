@@ -1,0 +1,41 @@
+{
+    "fileName": "id_1778246941650_678_propertyChange",
+    "fileType": "change",
+    "changeType": "propertyChange",
+    "moduleName": "",
+    "reference": "com.cathaydining.zewmr004",
+    "packageName": "",
+    "content": {
+        "property": "showDownloadButton",
+        "newValue": true
+    },
+    "selector": {
+        "id": "com.cathaydining.zewmr004::sap.suite.ui.generic.template.AnalyticalListPage.view.AnalyticalListPage::ZI_EWM_STOCK_CLOSINGResults--chart",
+        "idIsLocal": false,
+        "type": "sap.ui.comp.smartchart.SmartChart"
+    },
+    "layer": "CUSTOMER_BASE",
+    "texts": {},
+    "namespace": "apps/com.cathaydining.zewmr004/changes/",
+    "projectId": "",
+    "creation": 1778246941650,
+    "originalLanguage": "",
+    "support": {
+        "generator": "changeUtils: SAPFioriTools",
+        "service": "",
+        "user": "",
+        "sapui5Version": "1.136.0",
+        "sourceChangeFileName": "",
+        "compositeCommand": ""
+    },
+    "oDataInformation": {},
+    "dependentSelector": {},
+    "validAppVersions": {
+        "from": "0.0.1",
+        "to": "0.0.1",
+        "creation": "0.0.1"
+    },
+    "jsOnly": false,
+    "variantReference": "",
+    "appDescriptorChange": false
+}

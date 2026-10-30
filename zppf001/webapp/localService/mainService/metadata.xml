@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="SAP__aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="SAP__capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HIERARCHY',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="SAP__hierarchy"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="SAP__HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="SAP__measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ODM',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.ODM.v1" Alias="SAP__ODM"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SESSION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="SAP__session"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="SAP__UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="SAP__validation"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="com.sap.gateway.srvd.zsd_pp_production_label_form.v0001" Alias="SAP__self">
+            <Annotation Term="SAP__core.SchemaVersion" String="1.0.0"/>
+            <EntityType Name="PrinterVHType">
+                <Key>
+                    <PropertyRef Name="Printer"/>
+                </Key>
+                <Property Name="Printer" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="DeviceTypName" Type="Edm.String" Nullable="false" MaxLength="8"/>
+                <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="64"/>
+            </EntityType>
+            <EntityType Name="PRODUCTIONLABELFORMType">
+                <Key>
+                    <PropertyRef Name="ProductionOrder"/>
+                    <PropertyRef Name="Material"/>
+                    <PropertyRef Name="SplitBatchNumber"/>
+                    <PropertyRef Name="ItemNo"/>
+                </Key>
+                <Property Name="ProductionOrder" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="SplitBatchNumber" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="ItemNo" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="MaterialDescription" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="ProductionSupervisor" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="ReceivedQuantity" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="UnitOfMeasure" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="ReceivedLocation" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="BatchNumber" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="ProductionEndTime" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="ExpiredDate" Type="Edm.Date"/>
+                <Property Name="NumberofLabels" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="BufferOrderIndicator" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="__OperationControl" Type="com.sap.gateway.srvd.zsd_pp_production_label_form.v0001.PRODUCTIONLABELFORMOperationControl"/>
+                <Property Name="SAP__Messages" Type="Collection(com.sap.gateway.srvd.zsd_pp_production_label_form.v0001.SAP__Message)" Nullable="false"/>
+            </EntityType>
+            <ComplexType Name="PRODUCTIONLABELFORMOperationControl">
+                <Property Name="print" Type="Edm.Boolean" Nullable="false"/>
+            </ComplexType>
+            <ComplexType Name="ZSPP_PRODUCTION_LABEL_FORM">
+                <Property Name="PRODUCTIONORDER" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="PRODUCTIONSUPERVISOR" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="SUPERVISORNUMDES" Type="Edm.String" Nullable="false" MaxLength="35"/>
+                <Property Name="MATERIAL" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="MATERIALDESCRIPTION" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="PRODUCTIONENDTIME" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="EXPIREDDATE" Type="Edm.Date"/>
+                <Property Name="NUMBEROFLABELS" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="BUFFERORDERINDICATOR" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="RECEIVEDLOCATION" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="UNITOFMEASURE" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="RECEIVEDQUANTITY" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="BATCHNUMBER" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="QUANTITY_ALTALSORGNFLT" Type="Edm.String" Nullable="false" MaxLength="100"/>
+                <Property Name="QUANTITY_KSSU" Type="Edm.String" Nullable="false" MaxLength="100"/>
+                <Property Name="ZITEMNO" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="ERRORFLAG" Type="Edm.String" Nullable="false" MaxLength="1"/>
+            </ComplexType>
+            <ComplexType Name="SAP__Message">
+                <Property Name="code" Type="Edm.String" Nullable="false"/>
+                <Property Name="message" Type="Edm.String" Nullable="false"/>
+                <Property Name="target" Type="Edm.String"/>
+                <Property Name="additionalTargets" Type="Collection(Edm.String)" Nullable="false"/>
+                <Property Name="transition" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="numericSeverity" Type="Edm.Byte" Nullable="false"/>
+                <Property Name="longtextUrl" Type="Edm.String"/>
+            </ComplexType>
+            <Action Name="print" IsBound="true">
+                <Parameter Name="_it" Type="com.sap.gateway.srvd.zsd_pp_production_label_form.v0001.PRODUCTIONLABELFORMType" Nullable="false"/>
+                <Parameter Name="PrintPage" Type="Edm.Byte" Nullable="false"/>
+                <Parameter Name="Printer" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <ReturnType Type="com.sap.gateway.srvd.zsd_pp_production_label_form.v0001.ZSPP_PRODUCTION_LABEL_FORM" Nullable="false"/>
+            </Action>
+            <EntityContainer Name="Container">
+                <EntitySet Name="PrinterVH" EntityType="com.sap.gateway.srvd.zsd_pp_production_label_form.v0001.PrinterVHType"/>
+                <EntitySet Name="PRODUCTIONLABELFORM" EntityType="com.sap.gateway.srvd.zsd_pp_production_label_form.v0001.PRODUCTIONLABELFORMType"/>
+            </EntityContainer>
+            <Annotations Target="SAP__self.ZSPP_PRODUCTION_LABEL_FORM/PRODUCTIONORDER">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Order"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Order Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=AUFNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZSPP_PRODUCTION_LABEL_FORM/PRODUCTIONSUPERVISOR">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Prodn Supervisor"/>
+                <Annotation Term="SAP__common.Heading" String="ProdS"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Production Supervisor"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=FEVOR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZSPP_PRODUCTION_LABEL_FORM/MATERIAL">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Material"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZSPP_PRODUCTION_LABEL_FORM/RECEIVEDLOCATION">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Storage Location"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=LGORT_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZSPP_PRODUCTION_LABEL_FORM/UNITOFMEASURE">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__common.Label" String="Base Unit of Measure"/>
+                <Annotation Term="SAP__common.Heading" String="BUn"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MEINS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZSPP_PRODUCTION_LABEL_FORM/RECEIVEDQUANTITY">
+                <Annotation Term="SAP__measures.Unit" Path="UNITOFMEASURE"/>
+                <Annotation Term="SAP__common.Label" String="Confirmed Yield"/>
+                <Annotation Term="SAP__common.Heading" String="Confirmed qty"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Confirmed Yield Quantity From Order Confirmation"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=CO_IGMNG"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZSPP_PRODUCTION_LABEL_FORM/BATCHNUMBER">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Batch"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Batch Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=CHARG_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PrinterVHType/Printer">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Short Name"/>
+                <Annotation Term="SAP__common.Heading" String="Short"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Spool: short name for output device"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=RSPOPSHORT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PrinterVHType/DeviceTypName">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Device type"/>
+                <Annotation Term="SAP__common.Heading" String="Dev.type"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Spool: Device type name"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=RSPOPTYPE"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PrinterVHType">
+                <Annotation Term="SAP__common.Label" String="Search Help for Printer"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/PrinterVH">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.PRODUCTIONLABELFORMType/ProductionOrder">
+                <Annotation Term="SAP__common.Label" String="Production Order"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_pp_production_order_vh/0001;ps='srvd-zsd_pp_production_label_form-0001';va='com.sap.gateway.srvd.zsd_pp_production_label_form.v0001.et-zc_pp_production_label_form.productionorder'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="Order"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Order Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=AUFNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PRODUCTIONLABELFORMType/Material">
+                <Annotation Term="SAP__common.Label" String="Material"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__common.Heading" String="Material"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PRODUCTIONLABELFORMType/SplitBatchNumber">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__common.Label" String="Split batch number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PRODUCTIONLABELFORMType/ItemNo">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__common.Label" String="Item No."/>
+            </Annotations>
+            <Annotations Target="SAP__self.PRODUCTIONLABELFORMType/MaterialDescription">
+                <Annotation Term="SAP__common.Label" String="Material Description"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__common.Heading" String="Material Description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Description"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MAKTX"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PRODUCTIONLABELFORMType/ProductionSupervisor">
+                <Annotation Term="SAP__common.Label" String="Production Supervisor"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__common.Heading" String="ProdS"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Production Supervisor"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=FEVOR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PRODUCTIONLABELFORMType/ReceivedQuantity">
+                <Annotation Term="SAP__common.Label" String="Received Quantity"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__measures.Unit" Path="UnitOfMeasure"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PRODUCTIONLABELFORMType/UnitOfMeasure">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__common.Label" String="Unit of Measure"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__common.Heading" String="BUn"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Base Unit of Measure"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MEINS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PRODUCTIONLABELFORMType/ReceivedLocation">
+                <Annotation Term="SAP__common.Label" String="Receiveing Location"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__common.Heading" String="Storage Location"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Storage Location"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=LGORT_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PRODUCTIONLABELFORMType/BatchNumber">
+                <Annotation Term="SAP__common.Label" String="Batch"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__common.Heading" String="Batch"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Batch Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=CHARG_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PRODUCTIONLABELFORMType/ProductionEndTime">
+                <Annotation Term="SAP__common.Label" String="Production End Time"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PRODUCTIONLABELFORMType/ExpiredDate">
+                <Annotation Term="SAP__common.Label" String="Expired Date"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PRODUCTIONLABELFORMType/NumberofLabels">
+                <Annotation Term="SAP__common.Label" String="Number of Labels"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PRODUCTIONLABELFORMType/BufferOrderIndicator">
+                <Annotation Term="SAP__common.Label" String="Buffer Order Indicator"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PRODUCTIONLABELFORMType/__OperationControl">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.print(SAP__self.PRODUCTIONLABELFORMType)/Printer">
+                <Annotation Term="SAP__common.FieldControl" EnumMember="SAP__common.FieldControlType/Mandatory"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_ewm_printer_vh/0001;ps='srvd-zsd_pp_production_label_form-0001';va='com.sap.gateway.srvd.zsd_pp_production_label_form.v0001.ae-zc_pp_production_label_form.print.printer.PRODUCTIONLABELFORMType'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+                <Annotation Term="SAP__UI.ParameterDefaultValue" String="LP01"/>
+                <Annotation Term="SAP__common.Label" String="Output Device"/>
+                <Annotation Term="SAP__common.Heading" String="ODev"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Spool: Output device"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=RSPOPNAME"/>
+            </Annotations>
+            <Annotations Target="SAP__self.print(SAP__self.PRODUCTIONLABELFORMType)">
+                <Annotation Term="SAP__core.OperationAvailable" Path="_it/__OperationControl/print"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PRODUCTIONLABELFORMType">
+                <Annotation Term="SAP__common.Label" String="Projection View for Production label form"/>
+                <Annotation Term="SAP__UI.Facets">
+                    <Collection>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="General Information"/>
+                            <PropertyValue Property="ID" String="Generel"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.Identification"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.FieldGroup" Qualifier="General">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="ProductionOrder"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="Material"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="MaterialDescription"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="ProductionSupervisor"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="ReceivedQuantity"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="UnitOfMeasure"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="ReceivedLocation"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="BatchNumber"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="ProductionEndTime"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="ExpiredDate"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Value" Path="BufferOrderIndicator"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="Manage Production Label Printing"/>
+                        <PropertyValue Property="TypeNamePlural" String="Manage Production Label Printing"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="ProductionOrder"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProductionOrder"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Material"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MaterialDescription"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProductionSupervisor"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ReceivedQuantity"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="UnitOfMeasure"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ReceivedLocation"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BatchNumber"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProductionEndTime"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ExpiredDate"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BufferOrderIndicator"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="SplitBatchNumber"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ItemNo"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>ProductionOrder</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Messages" Path="SAP__Messages"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/PRODUCTIONLABELFORM">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="RequiredProperties">
+                            <Collection>
+                                <PropertyPath>ProductionOrder</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>__OperationControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>ReceivedLocation</PropertyPath>
+                                <PropertyPath>BatchNumber</PropertyPath>
+                                <PropertyPath>ProductionEndTime</PropertyPath>
+                                <PropertyPath>ExpiredDate</PropertyPath>
+                                <PropertyPath>NumberofLabels</PropertyPath>
+                                <PropertyPath>__OperationControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container">
+                <Annotation Term="SAP__CodeList.UnitsOfMeasure">
+                    <Record>
+                        <PropertyValue Property="Url" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="UnitsOfMeasure"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="SAP__capabilities.FilterFunctions">
+                    <Collection>
+                        <String>eq</String>
+                        <String>ne</String>
+                        <String>gt</String>
+                        <String>ge</String>
+                        <String>lt</String>
+                        <String>le</String>
+                        <String>and</String>
+                        <String>or</String>
+                        <String>contains</String>
+                        <String>startswith</String>
+                        <String>endswith</String>
+                        <String>any</String>
+                        <String>all</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SupportedFormats">
+                    <Collection>
+                        <String>application/json</String>
+                        <String>application/pdf</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="Border" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="FitToPage" Bool="true"/>
+                        <PropertyValue Property="FontName" Bool="true"/>
+                        <PropertyValue Property="FontSize" Bool="true"/>
+                        <PropertyValue Property="HeaderFooter" Bool="true"/>
+                        <PropertyValue Property="IANATimezoneFormat" Bool="true"/>
+                        <PropertyValue Property="Margin" Bool="true"/>
+                        <PropertyValue Property="Padding" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="20000"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="TextDirectionLayout" Bool="true"/>
+                        <PropertyValue Property="Treeview" Bool="true"/>
+                        <PropertyValue Property="UploadToFileShare" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.KeyAsSegmentSupported"/>
+                <Annotation Term="SAP__capabilities.AsynchronousRequestsSupported"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PrinterVHType/Name">
+                <Annotation Term="SAP__common.Label" String="Location"/>
+                <Annotation Term="SAP__common.Heading" String="Location and naming"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Spool: Location and naming of an output device"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=RSPOPLOCAT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.PRODUCTIONLABELFORMOperationControl/print">
+                <Annotation Term="SAP__common.Label" String="Dyn. Action Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Action Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Action Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZSPP_PRODUCTION_LABEL_FORM/MATERIALDESCRIPTION">
+                <Annotation Term="SAP__common.Label" String="Material Description"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MAKTX"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZSPP_PRODUCTION_LABEL_FORM/EXPIREDDATE">
+                <Annotation Term="SAP__common.Label" String="SLED/BBD"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Shelf Life Expiration or Best-Before Date"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VFDAT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZSPP_PRODUCTION_LABEL_FORM/ZITEMNO">
+                <Annotation Term="SAP__common.Label" String="Item No."/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

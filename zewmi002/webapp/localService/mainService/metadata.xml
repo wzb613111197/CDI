@@ -1,0 +1,744 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="SAP__aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="SAP__capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HIERARCHY',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="SAP__hierarchy"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="SAP__HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="SAP__measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ODM',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.ODM.v1" Alias="SAP__ODM"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SESSION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="SAP__session"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="SAP__UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="SAP__validation"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="com.sap.gateway.srvd.zsd_ewm_task_pick.v0001" Alias="SAP__self">
+            <Annotation Term="SAP__core.SchemaVersion" String="1.0.0"/>
+            <EntityType Name="ZI_EWM_LGNUMType">
+                <Key>
+                    <PropertyRef Name="WarehouseNumber"/>
+                </Key>
+                <Property Name="WarehouseNumber" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="WarehouseDescription" Type="Edm.String" Nullable="false" MaxLength="40"/>
+            </EntityType>
+            <EntityType Name="ZI_EWM_MATNRType">
+                <Key>
+                    <PropertyRef Name="Matnr"/>
+                </Key>
+                <Property Name="Matnr" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="MaterialDescription" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="MaterialType" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="BaseUnit" Type="Edm.String" Nullable="false" MaxLength="3"/>
+            </EntityType>
+            <EntityType Name="ZC_EWM_TASK_PICKType">
+                <Key>
+                    <PropertyRef Name="Lgnum"/>
+                    <PropertyRef Name="Mo"/>
+                    <PropertyRef Name="Moitem"/>
+                    <PropertyRef Name="Vlenr"/>
+                </Key>
+                <Property Name="Lgnum" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Mo" Type="Edm.String" Nullable="false" MaxLength="7"/>
+                <Property Name="Moitem" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Vlenr" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="Matnr" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="Charg" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="Menge" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="Meins" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="Vltyp" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Vlpla" Type="Edm.String" Nullable="false" MaxLength="18"/>
+                <Property Name="Nlenr" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="Nlpla" Type="Edm.String" Nullable="false" MaxLength="18"/>
+                <Property Name="Restqty" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="Qtydiff" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="Sign" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="DeboxReq" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="DeboxConf" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="Vbeln" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="Posnr" Type="Edm.String" Nullable="false" MaxLength="6"/>
+                <Property Name="Tanum" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="TanumDiff" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="TanumPc" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="Zmode" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="Zwms" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="Sendback" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="ZuserR" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="ZdateR" Type="Edm.Date"/>
+                <Property Name="ZtimeR" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="ZuserU" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="ZdateU" Type="Edm.Date"/>
+                <Property Name="ZtimeU" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="__OperationControl" Type="com.sap.gateway.srvd.zsd_ewm_task_pick.v0001.ZC_EWM_TASK_PICKOperationControl"/>
+                <Property Name="SAP__Messages" Type="Collection(com.sap.gateway.srvd.zsd_ewm_task_pick.v0001.SAP__Message)" Nullable="false"/>
+                <NavigationProperty Name="_Lgnum" Type="com.sap.gateway.srvd.zsd_ewm_task_pick.v0001.ZI_EWM_LGNUMType"/>
+                <NavigationProperty Name="_MaterialText" Type="com.sap.gateway.srvd.zsd_ewm_task_pick.v0001.ZI_EWM_MATNRType"/>
+            </EntityType>
+            <ComplexType Name="ZC_EWM_TASK_PICKOperationControl">
+                <Property Name="Reprocess" Type="Edm.Boolean" Nullable="false"/>
+            </ComplexType>
+            <ComplexType Name="SAP__Message">
+                <Property Name="code" Type="Edm.String" Nullable="false"/>
+                <Property Name="message" Type="Edm.String" Nullable="false"/>
+                <Property Name="target" Type="Edm.String"/>
+                <Property Name="additionalTargets" Type="Collection(Edm.String)" Nullable="false"/>
+                <Property Name="transition" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="numericSeverity" Type="Edm.Byte" Nullable="false"/>
+                <Property Name="longtextUrl" Type="Edm.String"/>
+            </ComplexType>
+            <Action Name="Reprocess" EntitySetPath="_it" IsBound="true">
+                <Parameter Name="_it" Type="com.sap.gateway.srvd.zsd_ewm_task_pick.v0001.ZC_EWM_TASK_PICKType" Nullable="false"/>
+                <ReturnType Type="com.sap.gateway.srvd.zsd_ewm_task_pick.v0001.ZC_EWM_TASK_PICKType" Nullable="false"/>
+            </Action>
+            <EntityContainer Name="Container">
+                <EntitySet Name="ZC_EWM_TASK_PICK" EntityType="com.sap.gateway.srvd.zsd_ewm_task_pick.v0001.ZC_EWM_TASK_PICKType">
+                    <NavigationPropertyBinding Path="_Lgnum" Target="ZI_EWM_LGNUM"/>
+                    <NavigationPropertyBinding Path="_MaterialText" Target="ZI_EWM_MATNR"/>
+                </EntitySet>
+                <EntitySet Name="ZI_EWM_LGNUM" EntityType="com.sap.gateway.srvd.zsd_ewm_task_pick.v0001.ZI_EWM_LGNUMType"/>
+                <EntitySet Name="ZI_EWM_MATNR" EntityType="com.sap.gateway.srvd.zsd_ewm_task_pick.v0001.ZI_EWM_MATNRType"/>
+            </EntityContainer>
+            <Annotations Target="SAP__self.ZI_EWM_LGNUMType/WarehouseNumber">
+                <Annotation Term="SAP__common.Label" String="Warehouse Number"/>
+                <Annotation Term="SAP__common.Text" Path="WarehouseDescription"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="WhN"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Warehouse Number/Warehouse Complex"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=%2FSCWM%2FLGNUM"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_LGNUMType/WarehouseDescription">
+                <Annotation Term="SAP__common.Label" String="Warehouse Description"/>
+                <Annotation Term="SAP__common.Heading" String="Description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Description"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_LGNUMType">
+                <Annotation Term="SAP__common.Label" String="EWM Warehouse Number"/>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="WarehouseDescription"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>WarehouseNumber</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZI_EWM_LGNUM">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="true"/>
+                        <PropertyValue Property="UnsupportedExpressions" EnumMember="SAP__capabilities.SearchExpressions/AND SAP__capabilities.SearchExpressions/NOT SAP__capabilities.SearchExpressions/group "/>
+                        <PropertyValue Property="SearchSyntax" String="https://url.sap/odata-search"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_MATNRType/Matnr">
+                <Annotation Term="SAP__common.Label" String="Material"/>
+                <Annotation Term="SAP__common.Text" Path="MaterialDescription"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_MATNRType/MaterialDescription">
+                <Annotation Term="SAP__common.Label" String="Material Description"/>
+                <Annotation Term="SAP__common.Heading" String="Product Description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Product Description"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=PRODUCTDESCRIPTION"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_MATNRType/MaterialType">
+                <Annotation Term="SAP__common.SAPObjectNodeTypeReference" String="ProductType"/>
+                <Annotation Term="SAP__common.Label" String="Material Type"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="PTyp"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Product Type"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=PRODUCTTYPE"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_MATNRType/BaseUnit">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__common.Label" String="Base Unit"/>
+                <Annotation Term="SAP__common.Heading" String="BUn"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Base Unit of Measure"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MEINS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_MATNRType">
+                <Annotation Term="SAP__common.Label" String="Material Number Value Help"/>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MaterialDescription"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MaterialType"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BaseUnit"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>Matnr</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZI_EWM_MATNR">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="true"/>
+                        <PropertyValue Property="UnsupportedExpressions" EnumMember="SAP__capabilities.SearchExpressions/AND SAP__capabilities.SearchExpressions/NOT SAP__capabilities.SearchExpressions/group "/>
+                        <PropertyValue Property="SearchSyntax" String="https://url.sap/odata-search"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container">
+                <Annotation Term="SAP__CodeList.UnitsOfMeasure">
+                    <Record>
+                        <PropertyValue Property="Url" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="UnitsOfMeasure"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="SAP__capabilities.FilterFunctions">
+                    <Collection>
+                        <String>eq</String>
+                        <String>ne</String>
+                        <String>gt</String>
+                        <String>ge</String>
+                        <String>lt</String>
+                        <String>le</String>
+                        <String>and</String>
+                        <String>or</String>
+                        <String>contains</String>
+                        <String>startswith</String>
+                        <String>endswith</String>
+                        <String>any</String>
+                        <String>all</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SupportedFormats">
+                    <Collection>
+                        <String>application/json</String>
+                        <String>application/pdf</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="Border" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="FitToPage" Bool="true"/>
+                        <PropertyValue Property="FontName" Bool="true"/>
+                        <PropertyValue Property="FontSize" Bool="true"/>
+                        <PropertyValue Property="HeaderFooter" Bool="true"/>
+                        <PropertyValue Property="IANATimezoneFormat" Bool="true"/>
+                        <PropertyValue Property="Margin" Bool="true"/>
+                        <PropertyValue Property="Padding" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="20000"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="TextDirectionLayout" Bool="true"/>
+                        <PropertyValue Property="Treeview" Bool="true"/>
+                        <PropertyValue Property="UploadToFileShare" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.KeyAsSegmentSupported"/>
+                <Annotation Term="SAP__capabilities.AsynchronousRequestsSupported"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKType/Lgnum">
+                <Annotation Term="SAP__common.Label" String="Warehouse Number"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="WhN"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Warehouse Number/Warehouse Complex"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=%2FSCWM%2FLGNUM"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKType/Mo">
+                <Annotation Term="SAP__common.Label" String="Mo"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="MO Number"/>
+                <Annotation Term="SAP__common.QuickInfo" String="MO Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKType/Moitem">
+                <Annotation Term="SAP__common.Label" String="Moitem"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Heading" String="MO Item Number"/>
+                <Annotation Term="SAP__common.QuickInfo" String="MO Item Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKType/Vlenr">
+                <Annotation Term="SAP__common.Label" String="Source Hu"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Huident"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKType/Matnr">
+                <Annotation Term="SAP__common.Label" String="Material"/>
+                <Annotation Term="SAP__common.Text" Path="_MaterialText/MaterialDescription">
+                    <Annotation Term="SAP__UI.TextArrangement" EnumMember="SAP__UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_productstdvh/0001;ps='srvd-zsd_ewm_task_pick-0001';va='com.sap.gateway.srvd.zsd_ewm_task_pick.v0001.et-zc_ewm_task_pick.matnr'/$metadata</String>
+                        <String>../../../../srvd_f4/sap/i_productbyplantvh/0001;ps='srvd-zsd_ewm_task_pick-0001';va='com.sap.gateway.srvd.zsd_ewm_task_pick.v0001.et-zc_ewm_task_pick.matnr'/$metadata</String>
+                        <String>../../../../srvd_f4/sap/i_productbydistributionchainvh/0001;ps='srvd-zsd_ewm_task_pick-0001';va='com.sap.gateway.srvd.zsd_ewm_task_pick.v0001.et-zc_ewm_task_pick.matnr'/$metadata</String>
+                        <String>../../../../srvd_f4/sap/i_prodbyewmwarehousevh/0001;ps='srvd-zsd_ewm_task_pick-0001';va='com.sap.gateway.srvd.zsd_ewm_task_pick.v0001.et-zc_ewm_task_pick.matnr'/$metadata</String>
+                        <String>../../../../srvd_f4/sap/i_productbychangemastervh/0001;ps='srvd-zsd_ewm_task_pick-0001';va='com.sap.gateway.srvd.zsd_ewm_task_pick.v0001.et-zc_ewm_task_pick.matnr'/$metadata</String>
+                        <String>../../../../srvd_f4/sap/i_productbyvaluationvh/0001;ps='srvd-zsd_ewm_task_pick-0001';va='com.sap.gateway.srvd.zsd_ewm_task_pick.v0001.et-zc_ewm_task_pick.matnr'/$metadata</String>
+                        <String>../../../../srvd_f4/sap/zi_pp_productbypropertyvh/0001;ps='srvd-zsd_ewm_task_pick-0001';va='com.sap.gateway.srvd.zsd_ewm_task_pick.v0001.et-zc_ewm_task_pick.matnr'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.SemanticObject" String="Material"/>
+                <Annotation Term="SAP__common.SemanticObjectMapping">
+                    <Collection>
+                        <Record>
+                            <PropertyValue Property="LocalProperty" PropertyPath="Matnr"/>
+                            <PropertyValue Property="SemanticObjectProperty" String="Matnr"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="Material"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKType/Charg">
+                <Annotation Term="SAP__common.Label" String="Batch"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Batch"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Batch Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=CHARG_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKType/Menge">
+                <Annotation Term="SAP__common.Label" String="Menge"/>
+                <Annotation Term="SAP__measures.Unit" Path="Meins"/>
+                <Annotation Term="SAP__common.Heading" String="Delivery Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Actual quantity delivered (in sales units)"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=LFIMG"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKType/Meins">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__common.Label" String="Base Unit of Measure"/>
+                <Annotation Term="SAP__common.Heading" String="BUn"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MEINS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKType/Vltyp">
+                <Annotation Term="SAP__common.Label" String="Source Storage Type"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Type"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Source Storage Type"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=%2FSCWM%2FLTAP_VLTYP"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKType/Vlpla">
+                <Annotation Term="SAP__common.Label" String="Source Storage Bin"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Source Bin"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Source Storage Bin"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=%2FSCWM%2FLTAP_VLPLA"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKType/Nlenr">
+                <Annotation Term="SAP__common.Label" String="Target Hu"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Huident"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKType/Nlpla">
+                <Annotation Term="SAP__common.Label" String="Target Storage Bin"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Dest. Bin"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Destination Storage Bin"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=%2FSCWM%2FLTAP_NLPLA"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKType/Restqty">
+                <Annotation Term="SAP__common.Label" String="Remaining Quantity"/>
+                <Annotation Term="SAP__common.Heading" String="Remaining Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Remaining Quantity"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKType/Qtydiff">
+                <Annotation Term="SAP__common.Label" String="Quantity of Differences"/>
+                <Annotation Term="SAP__common.Heading" String="Quantity Difference"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Quantity Difference"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKType/Sign">
+                <Annotation Term="SAP__common.Label" String="+/- Sign"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="+/- Sign"/>
+                <Annotation Term="SAP__common.QuickInfo" String="+/- Sign"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKType/DeboxReq">
+                <Annotation Term="SAP__common.Label" String="Deboxing Requirement"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Deboxing Requirement"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Deboxing Requirement"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKType/DeboxConf">
+                <Annotation Term="SAP__common.Label" String="Deboxing Confirmation"/>
+                <Annotation Term="SAP__common.Heading" String="Deboxing Confirmation"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Deboxing Confirmation"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKType/Vbeln">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Delivery"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VBELN_VL"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKType/Posnr">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Item"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Delivery Item"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=POSNR_VL"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKType/Tanum">
+                <Annotation Term="SAP__common.Label" String="Warehouse Task"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKType/TanumDiff">
+                <Annotation Term="SAP__common.Label" String="Quantity Difference Warhouse Task"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKType/TanumPc">
+                <Annotation Term="SAP__common.Label" String="Warehouse Task for Posting Change"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKType/Zmode">
+                <Annotation Term="SAP__common.Label" String="Business Mode"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Business Mode"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Business Mode"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKType/Zwms">
+                <Annotation Term="SAP__common.Label" String="WMS Data"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="WMS Data"/>
+                <Annotation Term="SAP__common.QuickInfo" String="WMS Data"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKType/Status">
+                <Annotation Term="SAP__common.Label" String="Warehouse Task Status"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="WT Status"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Warehouse Task Status"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKType/Sendback">
+                <Annotation Term="SAP__common.Label" String="Send Back Status"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Send Back Status"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Send Back Status"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKType/ZuserR">
+                <Annotation Term="SAP__common.Label" String="Created By"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Creation User"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Creation User"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKType">
+                <Annotation Term="SAP__common.CreatedBy" Path="ZuserR"/>
+                <Annotation Term="SAP__common.ChangedBy" Path="ZuserU"/>
+                <Annotation Term="SAP__common.Label" String="Project View For ZI_EWM_TASK_PICK"/>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Mo"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="Reprocess"/>
+                            <PropertyValue Property="Action" String="com.sap.gateway.srvd.zsd_ewm_task_pick.v0001.Reprocess(com.sap.gateway.srvd.zsd_ewm_task_pick.v0001.ZC_EWM_TASK_PICKType)"/>
+                            <PropertyValue Property="InvocationGrouping" EnumMember="SAP__UI.OperationGroupingType/ChangeSet"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Moitem"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Vlenr"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Matnr"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Charg"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Menge"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Vltyp"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Vlpla"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Nlenr"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Nlpla"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Restqty"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Qtydiff"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Sign"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="DeboxReq"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="DeboxConf"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Vbeln"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Posnr"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Tanum"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="TanumDiff"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="TanumPc"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Zmode"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Zwms"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Status"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Sendback"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ZuserR"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ZdateR"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ZtimeR"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ZuserU"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ZdateU"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ZtimeU"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>Mo</PropertyPath>
+                        <PropertyPath>Vlenr</PropertyPath>
+                        <PropertyPath>Matnr</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Messages" Path="SAP__Messages"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKType/ZdateR">
+                <Annotation Term="SAP__common.Label" String="Created Date"/>
+                <Annotation Term="SAP__common.Heading" String="Receiving Date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Receiving Date"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKType/ZtimeR">
+                <Annotation Term="SAP__common.Label" String="Created Time"/>
+                <Annotation Term="SAP__common.Heading" String="Receiving Time"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Receiving Time"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKType/ZuserU">
+                <Annotation Term="SAP__common.Label" String="Changed By"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Updata user"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Updata user"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKType/ZdateU">
+                <Annotation Term="SAP__common.Label" String="Changed Date"/>
+                <Annotation Term="SAP__common.Heading" String="Updating Date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Updating Date"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKType/ZtimeU">
+                <Annotation Term="SAP__common.Label" String="Changed Time"/>
+                <Annotation Term="SAP__common.Heading" String="Update Time"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Update Time"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKType/__OperationControl">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZC_EWM_TASK_PICK">
+                <Annotation Term="SAP__capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_Lgnum"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_MaterialText"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>__OperationControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>__OperationControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="NonUpdatableNavigationProperties">
+                            <Collection>
+                                <PropertyPath>_Lgnum</PropertyPath>
+                                <PropertyPath>_MaterialText</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Reprocess(SAP__self.ZC_EWM_TASK_PICKType)">
+                <Annotation Term="SAP__core.OperationAvailable" Path="_it/__OperationControl/Reprocess"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_MATNRType/Language">
+                <Annotation Term="SAP__common.Label" String="Language Key"/>
+                <Annotation Term="SAP__common.Heading" String="Language"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=SPRAS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_EWM_TASK_PICKOperationControl/Reprocess">
+                <Annotation Term="SAP__common.Label" String="Dyn. Action Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Action Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Action Property"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

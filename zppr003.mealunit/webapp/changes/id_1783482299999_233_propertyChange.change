@@ -1,0 +1,41 @@
+{
+    "fileName": "id_1783482299999_233_propertyChange",
+    "fileType": "change",
+    "changeType": "propertyChange",
+    "moduleName": "",
+    "reference": "com.cathaydining.zppr003.mealunit",
+    "packageName": "",
+    "content": {
+        "property": "useTablePersonalisation",
+        "newValue": false
+    },
+    "selector": {
+        "id": "com.cathaydining.zppr003.mealunit::sap.suite.ui.generic.template.ListReport.view.ListReport::ZI_PP_MEAL_UNIT_OVERVIEW--listReport",
+        "idIsLocal": false,
+        "type": "sap.ui.comp.smarttable.SmartTable"
+    },
+    "layer": "CUSTOMER_BASE",
+    "texts": {},
+    "namespace": "apps/com.cathaydining.zppr003.mealunit/changes/",
+    "projectId": "",
+    "creation": 1783482299999,
+    "originalLanguage": "",
+    "support": {
+        "generator": "changeUtils: SAPFioriTools",
+        "service": "",
+        "user": "",
+        "sapui5Version": "1.136.10",
+        "sourceChangeFileName": "",
+        "compositeCommand": ""
+    },
+    "oDataInformation": {},
+    "dependentSelector": {},
+    "validAppVersions": {
+        "from": "0.0.1",
+        "to": "0.0.1",
+        "creation": "0.0.1"
+    },
+    "jsOnly": false,
+    "variantReference": "",
+    "appDescriptorChange": false
+}

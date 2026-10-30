@@ -1,0 +1,220 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:ui="sap.ui.table"
+    xmlns:trm="sap.ui.table.rowmodes"
+>
+    <Dialog
+        id="NonAviPreviewDialog"
+        title="{i18n>nonAviPreviewTitle}"
+        stretch="true"
+        contentWidth="70rem"
+        draggable="true"
+        resizable="true"
+        verticalScrolling="true"
+    >
+        <content>
+            <IconTabBar
+                id="nonAviPreviewIconTabBar"
+                expandable="false"
+                stretchContentHeight="true"
+                class="sapUiNoContentPadding"
+            >
+                <items>
+                    <IconTabFilter
+                        id="nonAviPreviewTabHeader"
+                        text="{i18n>nonAviPreviewTitle}"
+                        icon="sap-icon://detail-view"
+                    >
+                        <VBox id="nonAviPreviewContentBox" class="sapUiSmallMargin">
+                            <Panel
+                                id="nonAviPreviewToPanel"
+                                headerText="{i18n>nonAviPreviewToContact}"
+                                expandable="false"
+                                class="sapUiSmallMarginBottom"
+                            >
+                                <f:SimpleForm
+                                    id="nonAviPreviewToForm"
+                                    editable="true"
+                                    layout="ResponsiveGridLayout"
+                                    labelSpanXL="2" labelSpanL="2" labelSpanM="4" labelSpanS="12"
+                                    columnsXL="2" columnsL="2" columnsM="2"
+                                >
+                                    <f:content>
+                                        <Label id="nonAviPreviewToContactLabel" text="{i18n>nonAviPreviewToContact}"/>
+                                        <Input id="nonAviPreviewToContactInput" value="{ui>/NonAviPreview/ToContact}" width="20rem"/>
+
+                                        <Label id="nonAviPreviewToTelLabel" text="{i18n>nonAviPreviewTel}"/>
+                                        <Input id="nonAviPreviewToTelInput" value="{ui>/NonAviPreview/ToTel}" width="20rem"/>
+
+                                        <Label id="nonAviPreviewToEmailLabel" text="{i18n>nonAviPreviewEmail}"/>
+                                        <Input id="nonAviPreviewToEmailInput" value="{ui>/NonAviPreview/ToEmail}" width="20rem"/>
+
+                                        <Label id="nonAviPreviewReLabel" text="{i18n>nonAviPreviewRe}"/>
+                                        <Input id="nonAviPreviewReInput" value="{ui>/NonAviPreview/Re}" width="20rem"/>
+                                    </f:content>
+                                </f:SimpleForm>
+                            </Panel>
+
+                            <Panel
+                                id="nonAviPreviewFromPanel"
+                                headerText="{i18n>nonAviPreviewFromContact}"
+                                expandable="false"
+                                class="sapUiSmallMarginBottom"
+                            >
+                                <f:SimpleForm
+                                    id="nonAviPreviewFromForm"
+                                    editable="true"
+                                    layout="ResponsiveGridLayout"
+                                    labelSpanXL="2" labelSpanL="2" labelSpanM="4" labelSpanS="12"
+                                    columnsXL="2" columnsL="2" columnsM="2"
+                                >
+                                    <f:content>
+                                        <Label id="nonAviPreviewFromContactLabel" text="{i18n>nonAviPreviewFromContact}"/>
+                                        <Input id="nonAviPreviewFromContactInput" value="{ui>/NonAviPreview/FromContact}" width="20rem"/>
+
+                                        <Label id="nonAviPreviewFromTelLabel" text="{i18n>nonAviPreviewTel}"/>
+                                        <Input id="nonAviPreviewFromTelInput" value="{ui>/NonAviPreview/FromTel}" width="20rem"/>
+
+                                        <Label id="nonAviPreviewFromEmailLabel" text="{i18n>nonAviPreviewEmail}"/>
+                                        <Input id="nonAviPreviewFromEmailInput" value="{ui>/NonAviPreview/FromEmail}" width="20rem"/>
+
+                                        <Label id="nonAviPreviewDateLabel" text="{i18n>nonAviPreviewContactDate}"/>
+                                        <Input id="nonAviPreviewDateInput" value="{ui>/NonAviPreview/QuotationDate}" width="20rem"/>
+                                    </f:content>
+                                </f:SimpleForm>
+                            </Panel>
+
+                            <Panel
+                                id="nonAviPreviewItemsPanel"
+                                headerText="{i18n>nonAviPreviewMaterialCode}"
+                                expandable="false"
+                                class="sapUiSmallMarginBottom"
+                            >
+                                <ui:Table
+                                    id="NonAviPreviewTable"
+                                    rows="{ui>/NonAviPreview/Items}"
+                                    selectionMode="None"
+                                    width="100%"
+                                >
+                                    <ui:rowMode>
+                                        <trm:Auto id="nonAviPreviewTableRowMode" minRowCount="5"/>
+                                    </ui:rowMode>
+                                    <ui:columns>
+                                        <ui:Column id="nonAviPreviewColMaterial" width="12%" visible="true">
+                                            <Label id="nonAviPreviewColMaterialText" text="{i18n>nonAviPreviewMaterialCode}"/>
+                                            <ui:template>
+                                                <Text id="nonAviPreviewItemMaterial" text="{ui>Code}"/>
+                                            </ui:template>
+                                        </ui:Column>
+                                        <ui:Column id="nonAviPreviewColProductEn" width="15%" visible="{ui>/NonAviQuotation/fields/ZdescEn}">
+                                            <Label id="nonAviPreviewColProductEnText" text="{i18n>nonAviPreviewProductNameEN}"/>
+                                            <ui:template>
+                                                <Text id="nonAviPreviewItemDescEn" text="{ui>DescEn}"/>
+                                            </ui:template>
+                                        </ui:Column>
+                                        <ui:Column id="nonAviPreviewColProductZh" width="15%" visible="{ui>/NonAviQuotation/fields/ZdescZh}">
+                                            <Label id="nonAviPreviewColProductZhText" text="{i18n>nonAviPreviewProductNameZH}"/>
+                                            <ui:template>
+                                                <Text id="nonAviPreviewItemDescZh" text="{ui>DescZh}"/>
+                                            </ui:template>
+                                        </ui:Column>
+                                        <ui:Column id="nonAviPreviewColUnit" width="8%" visible="{ui>/NonAviQuotation/fields/Zqty}">
+                                            <Label id="nonAviPreviewColUnitText" text="{i18n>nonAviPreviewUnit}"/>
+                                            <ui:template>
+                                                <Text id="nonAviPreviewItemUom" text="{ui>Uom}"/>
+                                            </ui:template>
+                                        </ui:Column>
+                                        <ui:Column id="nonAviPreviewColQuantity" width="10%" visible="{ui>/NonAviQuotation/fields/Zqty}">
+                                            <Label id="nonAviPreviewColQuantityText" text="{i18n>nonAviPreviewQuantity}"/>
+                                            <ui:template>
+                                                <Input id="nonAviPreviewItemQuantity" value="{ui>Quantity}" editable="true"/>
+                                            </ui:template>
+                                        </ui:Column>
+                                        <ui:Column id="nonAviPreviewColPrice" width="10%" visible="{ui>/NonAviQuotation/fields/Zprice}">
+                                            <Label id="nonAviPreviewColPriceText" text="{i18n>nonAviPreviewPrice}"/>
+                                            <ui:template>
+                                                <Text id="nonAviPreviewItemPrice" text="{ui>Price}"/>
+                                            </ui:template>
+                                        </ui:Column>
+                                        <ui:Column id="nonAviPreviewColTotal" width="10%" visible="{ui>/NonAviQuotation/fields/Ztotal}">
+                                            <Label id="nonAviPreviewColTotalText" text="{i18n>nonAviPreviewTotal}"/>
+                                            <ui:template>
+                                                <Text id="nonAviPreviewItemTotal" text="{= ${ui>Quantity} * ${ui>Price} }"/>
+                                            </ui:template>
+                                        </ui:Column>
+                                        <ui:Column id="nonAviPreviewColStorage" width="10%" visible="{ui>/NonAviQuotation/fields/Zstorage}">
+                                            <Label id="nonAviPreviewColStorageText" text="{i18n>nonAviPreviewStorage}"/>
+                                            <ui:template>
+                                                <Text id="nonAviPreviewItemStorage" text="{ui>Storage}"/>
+                                            </ui:template>
+                                        </ui:Column>
+                                        <ui:Column id="nonAviPreviewColMoq" width="10%" visible="{ui>/NonAviQuotation/fields/Zmoq}">
+                                            <Label id="nonAviPreviewColMoqText" text="{i18n>nonAviPreviewMOQ}"/>
+                                            <ui:template>
+                                                <Input id="nonAviPreviewItemMoq" value="{ui>Moq}" editable="true"/>
+                                            </ui:template>
+                                        </ui:Column>
+                                    </ui:columns>
+                                </ui:Table>
+                            </Panel>
+
+                            <Panel
+                                id="nonAviPreviewRemarkPanel"
+                                headerText="{i18n>nonAviPreviewRemark}"
+                                expandable="false"
+                            >
+                                <VBox id="nonAviPreviewRemarkBox" class="sapUiSmallMargin">
+                                    <Label id="nonAviPreviewRemarkLabel" text="{i18n>nonAviPreviewRemark}"/>
+                                    <TextArea
+                                        id="NonAviPreviewRemark"
+                                        value="{ui>/NonAviPreview/Zremark}"
+                                        rows="4"
+                                        width="100%"
+                                        editable="true"
+                                        class="sapUiSmallMarginBottom"
+                                    />
+                                    <Label id="nonAviPreviewTermsLabel" text="{i18n>nonAviPreviewTerms}"/>
+                                    <TextArea
+                                        id="NonAviPreviewTerms"
+                                        value="{ui>/NonAviPreview/Zterms}"
+                                        rows="4"
+                                        width="100%"
+                                        editable="true"
+                                    />
+                                </VBox>
+                            </Panel>
+                        </VBox>
+                    </IconTabFilter>
+                </items>
+            </IconTabBar>
+        </content>
+        <buttons>
+            <Button
+                id="nonAviPreviewRefreshBtn"
+                text="{i18n>nonAviPreviewPreview}"
+                type="Emphasized"
+                press=".onNonAviPreviewRefresh"
+            />
+            <!-- <Button
+                id="nonAviPreviewExportPdfBtn"
+                text="{i18n>nonAviPreviewExportPdf}"
+                type="Emphasized"
+                press=".onNonAviPreviewExportPdf"
+            /> -->
+            <Button
+                id="nonAviPreviewExportExcelBtn"
+                text="{i18n>nonAviPreviewExportExcel}"
+                type="Emphasized"
+                press=".onNonAviPreviewExportExcel"
+            />
+            <Button
+                id="nonAviPreviewCloseBtn"
+                text="{i18n>nonAviPreviewClose}"
+                press=".onCloseNonAviPreviewDialog"
+            />
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

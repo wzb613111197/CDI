@@ -1,0 +1,417 @@
+{
+  "_version": "1.73.1",
+  "sap.app": {
+    "id": "com.cathaydining.zppe025",
+    "type": "application",
+    "i18n": {
+      "bundleUrl": "i18n/i18n.properties",
+      "supportedLocales": [
+        "",
+        "zh_CN",
+        "zh_TW"
+      ],
+      "fallbackLocale": ""
+    },
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.21.0",
+      "toolsId": "8473600d-908e-449d-bc8e-6eefeb7ed679"
+    },
+    "dataSources": {
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      },
+      "mainService": {
+        "uri": "/sap/opu/odata4/sap/zui_pp_ldgtemp_hdr_o4/srvd/sap/zsd_pp_ldgtemp_hdr/0001/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation"
+          ],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "extends": {
+      "extensions": {
+        "sap.ui.controllerExtensions": {
+          "sap.fe.templates.ListReport.ListReportController": {
+            "controllerName": "com.cathaydining.zppe025.ext.controller.ListReportExtension"
+          },
+          "sap.fe.templates.ObjectPage.ObjectPageController": {
+            "controllerName": "com.cathaydining.zppe025.ext.controller.ObjectPageExtension"
+          }
+        }
+      }
+    },
+    "dependencies": {
+      "minUI5Version": "1.136.10",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.ui.mdc": {},
+        "sap.fe.templates": {},
+        "sap.se.mi.plm.lib.attachmentservice": {
+          "lazy": true
+        }
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.cathaydining.zppe025.i18n.i18n",
+          "supportedLocales": [
+            "",
+            "zh_CN",
+            "zh_TW"
+          ],
+          "fallbackLocale": ""
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties",
+        "settings": {
+          "supportedLocales": [
+            "",
+            "zh_CN",
+            "zh_TW"
+          ],
+          "fallbackLocale": ""
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "ZC_PP_LDGTEMP_HDRList",
+          "target": "ZC_PP_LDGTEMP_HDRList"
+        },
+        {
+          "pattern": "ZC_PP_LDGTEMP_HDR({key}):?query:",
+          "name": "ZC_PP_LDGTEMP_HDRObjectPage",
+          "target": "ZC_PP_LDGTEMP_HDRObjectPage"
+        }
+      ],
+      "targets": {
+        "ZC_PP_LDGTEMP_HDRList": {
+          "type": "Component",
+          "id": "ZC_PP_LDGTEMP_HDRList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/ZC_PP_LDGTEMP_HDR",
+              "variantManagement": "Page",
+              "navigation": {
+                "ZC_PP_LDGTEMP_HDR": {
+                  "detail": {
+                    "route": "ZC_PP_LDGTEMP_HDRObjectPage"
+                  }
+                }
+              },
+              "defaultTemplateAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#tableView",
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "widthIncludingColumnHeader": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "ZC_PP_LDGTEMP_HDRObjectPage": {
+          "type": "Component",
+          "id": "ZC_PP_LDGTEMP_HDRObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/ZC_PP_LDGTEMP_HDR",
+              "controlConfiguration": {
+                "_Mit/@com.sap.vocabularies.UI.v1.SelectionPresentationVariant#table": {
+                  "tableSettings": {
+                    "enableFullScreen": true,
+                    "selectAll": true,
+                    "selectionMode": "Multi",
+                    "type": "GridTable",
+                    "widthIncludingColumnHeader": true,
+                    "personalization": {
+                      "filter": true,
+                      "column": false,
+                      "sort": true
+                    },
+                    "enableMassEdit": {
+                      "ignoredFields": "Seq",
+                      "operationGroupingMode": "ChangeSet"
+                    }
+                  },
+                  "columns": {
+                    "CustomSeqColumn": {
+                      "header": "{@i18n>Seq}",
+                      "template": "com.cathaydining.zppe025.ext.fragment.MitSeqColumn",
+                      "importance": "High",
+                      "width": "8rem",
+                      "availability": "Default",
+                      "properties": [
+                        "Seq"
+                      ],
+                      "position": {
+                        "placement": "Replace",
+                        "anchor": "DataField::Seq"
+                      }
+                    },
+                    "DataField::Seq": {
+                      "availability": "Hidden"
+                    }
+                  },
+                  "actions": {
+                    "AssignLoadingEquiment": {
+                      "press": ".extension.com.cathaydining.zppe025.ext.controller.ObjectPageExtension.onAssignLoadingEquiment",
+                      "enabled": "{= ${ui>/editMode} === 'Editable'}",
+                      "requiresSelection": true,
+                      "text": "{@i18n>AssignLoadingEquiment}",
+                      "visible": ".extension.com.cathaydining.zppe025.ext.controller.ObjectPageExtension.visibleForAssignLoadingEquimentBtn"
+                    },
+                    "AssignServingEquiment": {
+                      "press": ".extension.com.cathaydining.zppe025.ext.controller.ObjectPageExtension.onAssignServingEquiment",
+                      "enabled": "{= ${ui>/editMode} === 'Editable'}",
+                      "requiresSelection": true,
+                      "text": "{@i18n>AssignServingEquiment}",
+                      "visible": ".extension.com.cathaydining.zppe025.ext.controller.ObjectPageExtension.visibleForAssignServingEquimentBtn"
+                    }
+                  }
+                },
+                "_Mit/@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "enableFullScreen": true,
+                    "selectAll": true,
+                    "selectionMode": "Multi",
+                    "type": "GridTable",
+                    "widthIncludingColumnHeader": true,
+                    "personalization": {
+                      "filter": true,
+                      "column": false,
+                      "sort": true
+                    },
+                    "enableMassEdit": {
+                      "ignoredFields": "Seq",
+                      "operationGroupingMode": "ChangeSet"
+                    }
+                  },
+                  "columns": {
+                    "CustomSeqColumn": {
+                      "header": "{@i18n>Seq}",
+                      "template": "com.cathaydining.zppe025.ext.fragment.MitSeqColumn",
+                      "importance": "High",
+                      "width": "6rem",
+                      "availability": "Default",
+                      "properties": [
+                        "Seq"
+                      ],
+                      "position": {
+                        "placement": "Before",
+                        "anchor": "DataField::AcftType"
+                      }
+                    },
+                    "DataField::Seq": {
+                      "availability": "Hidden"
+                    }
+                  },
+                  "actions": {
+                    "AssignLoadingEquiment": {
+                      "press": ".extension.com.cathaydining.zppe025.ext.controller.ObjectPageExtension.onAssignLoadingEquiment",
+                      "enabled": "{= ${ui>/editMode} === 'Editable'}",
+                      "requiresSelection": true,
+                      "text": "{@i18n>AssignLoadingEquiment}",
+                      "visible": ".extension.com.cathaydining.zppe025.ext.controller.ObjectPageExtension.visibleForAssignLoadingEquimentBtn"
+                    },
+                    "AssignServingEquiment": {
+                      "press": ".extension.com.cathaydining.zppe025.ext.controller.ObjectPageExtension.onAssignServingEquiment",
+                      "enabled": "{= ${ui>/editMode} === 'Editable'}",
+                      "requiresSelection": true,
+                      "text": "{@i18n>AssignServingEquiment}",
+                      "visible": ".extension.com.cathaydining.zppe025.ext.controller.ObjectPageExtension.visibleForAssignServingEquimentBtn"
+                    }
+                  }
+                },
+                "_Spe/@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "creationMode": {
+                      "name": "CreationDialog"
+                    },
+                    "enableFullScreen": true,
+                    "selectAll": true,
+                    "selectionMode": "Multi",
+                    "type": "ResponsiveTable",
+                    "widthIncludingColumnHeader": true
+                  }
+                },
+                "_Git/@com.sap.vocabularies.UI.v1.SelectionPresentationVariant#table": {
+                  "tableSettings": {
+                    "enableFullScreen": true,
+                    "selectAll": true,
+                    "selectionMode": "Multi",
+                    "type": "ResponsiveTable",
+                    "widthIncludingColumnHeader": true
+                  },
+                  "columns": {
+                    "CustomSeqColumn": {
+                      "header": "{@i18n>Seq}",
+                      "template": "com.cathaydining.zppe025.ext.fragment.MitSeqColumn",
+                      "importance": "High",
+                      "width": "6rem",
+                      "availability": "Default",
+                      "properties": [
+                        "Seq"
+                      ],
+                      "position": {
+                        "placement": "Replace",
+                        "anchor": "DataField::Seq"
+                      }
+                    },
+                    "DataField::Seq": {
+                      "availability": "Hidden"
+                    }
+                  }
+                },
+                "_Git/@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "enableFullScreen": true,
+                    "selectAll": true,
+                    "selectionMode": "Multi",
+                    "type": "ResponsiveTable",
+                    "widthIncludingColumnHeader": true
+                  },
+                  "columns": {
+                    "CustomSeqColumn": {
+                      "header": "{@i18n>Seq}",
+                      "template": "com.cathaydining.zppe025.ext.fragment.MitSeqColumn",
+                      "importance": "High",
+                      "width": "6rem",
+                      "availability": "Default",
+                      "properties": [
+                        "Seq"
+                      ],
+                      "position": {
+                        "placement": "Replace",
+                        "anchor": "DataField::Seq"
+                      }
+                    },
+                    "DataField::Seq": {
+                      "availability": "Hidden"
+                    }
+                  }
+                },
+                "_Dit/@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "enableFullScreen": true,
+                    "selectAll": true,
+                    "selectionMode": "Multi",
+                    "type": "ResponsiveTable",
+                    "widthIncludingColumnHeader": true
+                  },
+                  "columns": {
+                    "DitAttachmentColumn": {
+                      "header": "{@i18n>Attachments}",
+                      "width": "6rem",
+                      "horizontalAlign": "Center",
+                      "position": {
+                        "placement": "Before",
+                        "anchor": "DataField::Description"
+                      },
+                      "template": "com.cathaydining.zppe025.ext.fragment.ExtensionDitColumn"
+                    }
+                  }
+                }
+              },
+              "content": {
+                "header": {
+                  "actions": {
+                    "PreviewCalculationBtn": {
+                      "press": ".extension.com.cathaydining.zppe025.ext.controller.ObjectPageExtension.onPreviewCalculation",
+                      "enabled": "{= ${ui>/editMode} !== 'Editable'}",
+                      "requiresSelection": false,
+                      "text": "{@i18n>PreviewCalculation}",
+                      "visible": ".extension.com.cathaydining.zppe025.ext.controller.ObjectPageExtension.visibleForPreviewCalculationBtn"
+                    },
+                    "RecurringSettingBtn": {
+                      "press": ".extension.com.cathaydining.zppe025.ext.controller.ObjectPageExtension.onRecurringSetting",
+                      "enabled": true,
+                      "requiresSelection": false,
+                      "text": "{@i18n>RecurringSetting}",
+                      "visible": ".extension.com.cathaydining.zppe025.ext.controller.ObjectPageExtension.visibleForRecurringSettingBtn"
+                    }
+                  },
+                  "visible": true
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  },
+  "sap.fe": {
+    "app": {
+      "enableLazyLoading": true
+    }
+  }
+}

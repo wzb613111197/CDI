@@ -1,0 +1,277 @@
+{
+  "_version": "1.73.1",
+  "sap.app": {
+    "id": "com.cathaydining.zewme001.mrcon",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.19.6",
+      "toolsId": "d212eb34-7eb7-4c2d-b083-9d04bf55d735"
+    },
+    "dataSources": {
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      },
+      "mainService": {
+        "uri": "/sap/opu/odata4/sap/zui_ewm_mr_consolidation_o4/srvd/sap/zsd_ewm_mr_consolidation/0001/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation"
+          ],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.136.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.cathaydining.zewme001.mrcon.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "mr_consolidationList",
+          "target": "mr_consolidationList"
+        }
+      ],
+      "targets": {
+        "mr_consolidationList": {
+          "type": "Component",
+          "id": "mr_consolidationList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/mr_consolidation",
+              "variantManagement": "Page",
+              "navigation": {},
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "GridTable"
+                  },
+                  "columns": {
+                    "CustomMessageType": {
+                      "header": "Message Type",
+                      "width": "8rem",
+                      "properties": [
+                        "datasource",
+                        "vbeln",
+                        "posnr"
+                      ],
+                      "template": "com.cathaydining.zewme001.mrcon.ext.fragments.MessageType",
+                      "position": {
+                        "placement": "Before",
+                        "anchor": "DataField::vbeln"
+                      }
+                    },
+                    "CustomMessage": {
+                      "header": "Message",
+                      "width": "16rem",
+                      "properties": [
+                        "datasource",
+                        "vbeln",
+                        "posnr"
+                      ],
+                      "template": "com.cathaydining.zewme001.mrcon.ext.fragments.Message",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "CustomMessageType"
+                      }
+                    },
+                    "CustomDeliveryQuantity": {
+                      "header": "Delivery Quantity",
+                      "width": "8rem",
+                      "properties": [
+                        "datasource",
+                        "status",
+                        "status_desc",
+                        "vbeln",
+                        "posnr",
+                        "lfimg",
+                        "meins"
+                      ],
+                      "template": "com.cathaydining.zewme001.mrcon.ext.fragments.DeliveryQuantity",
+                      "position": {
+                        "placement": "Before",
+                        "anchor": "CustomProposedQuantity"
+                      }
+                    },
+                    "CustomPriority": {
+                      "header": "Priority",
+                      "width": "8rem",
+                      "properties": [
+                        "datasource",
+                        "status",
+                        "status_desc",
+                        "vbeln",
+                        "posnr",
+                        "priority"
+                      ],
+                      "template": "com.cathaydining.zewme001.mrcon.ext.fragments.Priority",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "DataField::lgobe"
+                      }
+                    },
+                    "CustomProposedQuantity": {
+                      "header": "{i18n>ProposedQuantity}",
+                      "width": "10rem",
+                      "properties": [
+                        "datasource",
+                        "status",
+                        "status_desc",
+                        "vbeln",
+                        "posnr",
+                        "meins"
+                      ],
+                      "template": "com.cathaydining.zewme001.mrcon.ext.fragments.ProposedQuantity",
+                      "position": {
+                        "placement": "After",
+                        "anchor": "DataField::lfimg"
+                      }
+                    }
+                  },
+                  "actions": {
+                    "SimulateAction": {
+                      "press": ".extension.com.cathaydining.zewme001.mrcon.ext.controller.ListPageExtention.onSimulate",
+                      "text": "Simulate",
+                      "requiresSelection": true,
+                      "enabled": "{= ${localData>/actionsEnabled} !== false }",
+                      "position": {
+                        "anchor": "ConfirmAction",
+                        "placement": "Before"
+                      }
+                    },
+                    "ChangeMRAction": {
+                      "press": ".extension.com.cathaydining.zewme001.mrcon.ext.controller.ListPageExtention.onChange",
+                      "text": "Change MR",
+                      "requiresSelection": true,
+                      "enabled": "{= ${localData>/actionsEnabled} !== false }",
+                      "position": {
+                        "anchor": "SimulateAction",
+                        "placement": "Before"
+                      }
+                    },
+                    "RefreshAction": {
+                      "press": ".extension.com.cathaydining.zewme001.mrcon.ext.controller.ListPageExtention.onRefreshSimulation",
+                      "text": "Refresh",
+                      "requiresSelection": true,
+                      "enabled": "{= ${localData>/actionsEnabled} !== false }",
+                      "position": {
+                        "anchor": "ChangeMRAction",
+                        "placement": "Before"
+                      }
+                    },
+                    "RejectAction": {
+                      "press": ".extension.com.cathaydining.zewme001.mrcon.ext.controller.ListPageExtention.onReject",
+                      "text": "Reject",
+                      "requiresSelection": true,
+                      "enabled": "{= ${localData>/actionsEnabled} !== false }",
+                      "position": {
+                        "anchor": "DataFieldForAction::com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.onSetIncomplete::com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.mr_consolidationType",
+                        "placement": "Before"
+                      }
+                    },
+                    "ConfirmAction": {
+                      "press": ".extension.com.cathaydining.zewme001.mrcon.ext.controller.ListPageExtention.onConfirm",
+                      "text": "Confirm",
+                      "requiresSelection": true,
+                      "enabled": "{= ${localData>/actionsEnabled} !== false }",
+                      "position": {
+                        "anchor": "RejectAction",
+                        "placement": "Before"
+                      }
+                    },
+                    "DataFieldForAction::com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.onSetIncomplete::com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.mr_consolidationType": {
+                      "requiresSelection": true,
+                      "enabled": "{= ${localData>/actionsEnabled} !== false }"
+                    }
+                  }
+                }
+              },
+              "initialLoad": "Disabled"
+            }
+          }
+        }
+      }
+    },
+    "extends": {
+      "extensions": {
+        "sap.ui.controllerExtensions": {
+          "sap.fe.templates.ListReport.ListReportController": {
+            "controllerName": "com.cathaydining.zewme001.mrcon.ext.controller.ListPageExtention"
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  }
+}

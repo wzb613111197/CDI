@@ -1,0 +1,43 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+    <Dialog title="{i18n>Simulator}">
+        <content>
+            <f:Form editable="true">
+                <f:layout>
+                    <f:ResponsiveGridLayout adjustLabelSpan="false" labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false" />
+                </f:layout>
+                <f:formContainers>
+                    <f:FormContainer>
+                        <f:formElements>
+                            <f:FormElement label="{i18n>CompanyCode}">
+                                <f:fields>
+                                    <Input id="simulatorBukrs" value="{simulator>/Bukrs}" required="true" maxLength="4" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>FiscalYear}">
+                                <f:fields>
+                                    <Input id="simulatorGjahr" value="{simulator>/Gjahr}" required="true" maxLength="4" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>PostingPeriod}">
+                                <f:fields>
+                                    <Input id="simulatorPoper" value="{simulator>/Poper}" required="true" maxLength="3" />
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>ReexportFullData}">
+                                <f:fields>
+                                    <CheckBox id="simulatorExport" selected="{simulator>/ZexportFdata}" />
+                                </f:fields>
+                            </f:FormElement>
+                        </f:formElements>
+                    </f:FormContainer>
+                </f:formContainers>
+            </f:Form>
+        </content>
+        <beginButton>
+            <Button text="{i18n>Simulator}" press="onConfirmSimulator" type="Emphasized" />
+        </beginButton>
+        <endButton>
+            <Button text="{i18n>Cancel}" press="onCloseSimulatorDialog" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

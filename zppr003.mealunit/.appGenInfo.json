@@ -1,0 +1,28 @@
+{
+  "generationParameters": {
+    "generationDate": "Wed Jul 08 2026 11:04:19 GMT+0800 (China Standard Time)",
+    "generatorPlatform": "Visual Studio Code",
+    "serviceType": "SAP System (ABAP On-Premise)",
+    "metadataFilename": "",
+    "serviceUrl": "https://vhcwawd1wd01.sap.fmsete.cpafms.com:44380/sap/opu/odata/sap/ZUI_PP_MEAL_UNIT_OVR_O2",
+    "appName": "zppr003.mealunit",
+    "appTitle": "Meal Unit Overview",
+    "appDescription": "Meal Unit Overview",
+    "appNamespace": "com.cathaydining",
+    "ui5Theme": "sap_horizon",
+    "ui5Version": "1.136.10",
+    "enableEslint": false,
+    "enableTypeScript": false,
+    "showMockDataInfo": true,
+    "generatorVersion": "1.21.0",
+    "template": "List Report Page V2",
+    "generatorName": "SAP Fiori Application Generator",
+    "entityRelatedConfig": [
+      {
+        "type": "Main Entity",
+        "value": "ZI_PP_MEAL_UNIT_OVERVIEW"
+      }
+    ],
+    "launchText": "To launch the generated application, run the following from the generated application root folder:\n\n```\n    npm start\n```"
+  }
+}

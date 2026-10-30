@@ -1,0 +1,117 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata4/sap/zui_ewm_mr_consolidation_o4/srvd/sap/zsd_ewm_mr_consolidation/0001/$metadata">
+        <edmx:Include Namespace="com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001" Alias="SAP__self"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+            <Annotations Target="SAP__self.mr_consolidationType">
+                <Annotation Term="UI.LineItem">
+                    <Collection>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Delivery Number"/>
+                            <PropertyValue Property="Value" Path="vbeln"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Delivery Item"/>
+                            <PropertyValue Property="Value" Path="posnr"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Material Number"/>
+                            <PropertyValue Property="Value" Path="matnr"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Material Description"/>
+                            <PropertyValue Property="Value" Path="maktx"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Delivery Quantity"/>
+                            <PropertyValue Property="Value" Path="lfimg"/>
+                            <Annotation Term="UI.Hidden"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Retain Quantity"/>
+                            <PropertyValue Property="Value" Path="zrmenge"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Delivery Unit"/>
+                            <PropertyValue Property="Value" Path="meins"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Issue UoM"/>
+                            <PropertyValue Property="Value" Path="zissue"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Receiving Location"/>
+                            <PropertyValue Property="Value" Path="lgobe"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Priority"/>
+                            <PropertyValue Property="Value" Path="priority"/>
+                            <Annotation Term="UI.Hidden"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Status"/>
+                            <PropertyValue Property="Value" Path="status_desc"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Current Status"/>
+                            <PropertyValue Property="Value" Path="currstatus_desc"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Creation Date"/>
+                            <PropertyValue Property="Value" Path="erdat"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Initiated User"/>
+                            <PropertyValue Property="Value" Path="zuser_n"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Initiated Date"/>
+                            <PropertyValue Property="Value" Path="zdate_n"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Initiated Time"/>
+                            <PropertyValue Property="Value" Path="ztime_n"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Updated User"/>
+                            <PropertyValue Property="Value" Path="zuser_l"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Updated Date"/>
+                            <PropertyValue Property="Value" Path="zdate_l"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Label" String="Updated Time"/>
+                            <PropertyValue Property="Value" Path="ztime_l"/>
+                        </Record>
+                        <Record Type="UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="Set Incomplete"/>
+                            <PropertyValue Property="Action" String="com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.onSetIncomplete(com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.mr_consolidationType)"/>
+                            <PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/ChangeSet"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="lgnum"/>
+                            <Annotation Term="UI.Hidden"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="werks"/>
+                            <Annotation Term="UI.Hidden"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="status"/>
+                            <Annotation Term="UI.Hidden"/>
+                        </Record>
+                        <Record Type="UI.DataField">
+                            <PropertyValue Property="Value" Path="currstatus"/>
+                            <Annotation Term="UI.Hidden"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,29 @@
+{
+  "generationParameters": {
+    "generationDate": "Wed Sep 30 2026 14:17:18 GMT+0800 (China Standard Time)",
+    "generatorPlatform": "Visual Studio Code",
+    "serviceType": "SAP System (ABAP On-Premise)",
+    "metadataFilename": "",
+    "serviceUrl": "https://vhcwawd1wd01.sap.fmsete.cpafms.com:44380/sap/opu/odata4/sap/zui_mm_gi_auto_o4/srvd/sap/zsd_mm_gi_auto_o4/0001/",
+    "appName": "zmme015.gilog",
+    "appTitle": "Auto Good Issue Log",
+    "appDescription": "Auto Good Issue Log",
+    "appNamespace": "com.cathaydining",
+    "ui5Theme": "sap_horizon",
+    "ui5Version": "1.136.10",
+    "enableEslint": false,
+    "enableTypeScript": false,
+    "showMockDataInfo": true,
+    "generatorVersion": "1.21.0",
+    "template": "List Report Page V4",
+    "generatorName": "SAP Fiori Application Generator",
+    "entityRelatedConfig": [
+      {
+        "type": "Main Entity",
+        "value": "Log"
+      }
+    ],
+    "launchText": "To launch the generated application, run the following from the generated application root folder:\n\n```\n    npm start\n```",
+    "valueHelpDownloaded": true
+  }
+}

@@ -1,0 +1,116 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:table="sap.ui.table"
+    xmlns:rowmodes="sap.ui.table.rowmodes"
+>
+    <Dialog
+        id="bomTreeDialog"
+        title="{ui>/quotationDetail/bom/title}"
+        contentWidth="70rem"
+        contentHeight="40rem"
+        draggable="true"
+        resizable="true"
+    >
+        <content>
+            <VBox id="bomTreeContainer" class="sapUiMediumMargin">
+                <table:TreeTable
+                    id="bomTreeTable"
+                    rows="{path: 'ui>/quotationDetail/bom/tree', parameters: { arrayNames: ['children'], numberOfExpandedLevels: 1 }}"
+                    selectionMode="None"
+                >
+                    <table:rowMode>
+                        <rowmodes:Auto id="bomTreeAutoRowMode" minRowCount="8" />
+                    </table:rowMode>
+                    <table:columns>
+                        <table:Column id="bomColMaterial" width="12rem">
+                            <Label id="bomColMaterialLabel" text="{i18n>bomColMaterial}" />
+                            <table:template>
+                                <Text id="bomColMaterialText" text="{ui>Material}" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="bomColMaterialDesc" width="20rem">
+                            <Label id="bomColMaterialDescLabel" text="{i18n>bomColMaterialDesc}" />
+                            <table:template>
+                                <Text id="bomColMaterialDescText" text="{ui>MaterialDesc}" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="bomColLevel" width="6rem" hAlign="End">
+                            <Label id="bomColLevelLabel" text="{i18n>bomColLevel}" />
+                            <table:template>
+                                <Text id="bomColLevelText" text="{ui>BomLevel}" textAlign="End" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="priceLevel" width="6rem" hAlign="End">
+                            <Label id="priceLevelLabel" text="{i18n>priceLevel}" />
+                            <table:template>
+                                <ObjectNumber id="priceLevelNumber"
+                                    number="{ui>Price}" state="Information"
+                                    unit="{ui>Currency}" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="bomColValidFrom" width="10rem">
+                            <Label id="bomColValidFromLabel" text="{i18n>bomColValidFrom}" />
+                            <table:template>
+                                <Text id="bomColValidFromText" text="{ui>ValidFrom}" />
+                            </table:template>
+                        </table:Column>
+                        <table:Column id="bomColValidTo" width="10rem">
+                            <Label id="bomColValidToLabel" text="{i18n>bomColValidTo}" />
+                            <table:template>
+                                <Text id="bomColValidToText" text="{ui>ValidTo}" />
+                            </table:template>
+                        </table:Column>
+                    </table:columns>
+                </table:TreeTable>
+
+                <Title id="priceHistoryTitle" text="{i18n>priceHistoryTitle}" class="sapUiSmallMarginTop" level="H5" />
+                <Table id="priceHistoryTable"
+                    items="{ui>/quotationDetail/bom/priceHistory}"
+                    growing="true"
+                    growingThreshold="20"
+                    noDataText="{i18n>noData}">
+                    <columns>
+                        <Column id="phColMaterial">
+                            <Text id="phColMaterialLabel" text="{i18n>bomColMaterial}" />
+                        </Column>
+                        <Column id="phColMaterialDesc">
+                            <Text id="phColMaterialDescLabel" text="{i18n>bomColMaterialDesc}" />
+                        </Column>
+                        <Column id="phColCustomer">
+                            <Text id="phColCustomerLabel" text="{i18n>customerLabel}" />
+                        </Column>
+                        <Column id="phColPrice" hAlign="End">
+                            <Text id="phColPriceLabel" text="{i18n>priceLevel}" />
+                        </Column>
+                        <Column id="phColPricingUnit" hAlign="End">
+                            <Text id="phColPricingUnitLabel" text="{i18n>phColPricingUnit}" />
+                        </Column>
+                        <Column id="phColValidFrom">
+                            <Text id="phColValidFromLabel" text="{i18n>bomColValidFrom}" />
+                        </Column>
+                        <Column id="phColValidTo">
+                            <Text id="phColValidToLabel" text="{i18n>bomColValidTo}" />
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem id="phListItem">
+                            <cells>
+                                <Text id="phCellMaterial" text="{ui>material}" />
+                                <Text id="phCellMaterialDesc" text="{ui>MaterialDesc}" />
+                                <Text id="phCellCustomer" text="{ui>Customer}" />
+                                <ObjectNumber id="phCellPrice" number="{ui>Price}" unit="{ui>Currency}" state="Information" />
+                                <ObjectNumber id="phCellPricingUnit" number="{ui>PricingUnit}" unit="{ui>Unit}" state="Warning" />
+                                <Text id="phCellValidFrom" text="{ui>ValidFrom}" />
+                                <Text id="phCellValidTo" text="{ui>ValidTo}" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </VBox>
+        </content>
+        <endButton>
+            <Button id="bomTreeCloseButton" text="{i18n>qdClose}" press="onCloseBomTreeDialog" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,18 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+    <MultiInput
+        id="inputPrinter"
+        showValueHelp="true"
+        valueHelpRequest=".extension.com.cathaydining.zppf014.ext.controller.ListReportExtension.onPrinterValueHelp"
+        change=".extension.com.cathaydining.zppf014.ext.controller.ListReportExtension.onPrinterManualInput"
+        tokenUpdate=".extension.com.cathaydining.zppf014.ext.controller.ListReportExtension.onPrinterTokenUpdate"
+        modelContextChange=".extension.com.cathaydining.zppf014.ext.controller.ListReportExtension.onPrinterContextChange">
+        <customData>
+            <core:CustomData key="ProductionOrder" value="{ProductionOrder}"/>
+            <core:CustomData key="Material" value="{Material}"/>
+            <core:CustomData key="SplitOrderNumber" value="{SplitOrderNumber}"/>
+            <core:CustomData key="SplitBatchNumber" value="{SplitBatchNumber}"/>
+            <core:CustomData key="ItemNo" value="{ItemNo}"/>
+            <core:CustomData key="GalleyStandard" value="{GalleyStandard}"/>
+        </customData>
+    </MultiInput>
+</core:FragmentDefinition>

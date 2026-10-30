@@ -1,0 +1,157 @@
+<mvc:View controllerName="com.cathaydining.zsde005.copyquo.controller.ObjectPage"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:uxap="sap.uxap"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core">
+    <uxap:ObjectPageLayout
+        id="objectPage"
+        showHeaderContent="true"
+        useIconTabBar="false"
+        upperCaseAnchorBar="false"
+        showFooter="{ui>/quotationDetailVisible}">
+        <uxap:headerTitle>
+            <uxap:ObjectPageDynamicHeaderTitle id="objectPageHeaderTitle">
+                <uxap:heading>
+                    <Title id="objectPageTitle" text="{i18n>appTitle}" level="H1" />
+                </uxap:heading>
+                <uxap:snappedHeading>
+                    <Title id="objectPageSnappedTitle" text="{i18n>appTitle}" level="H4" />
+                </uxap:snappedHeading>
+            </uxap:ObjectPageDynamicHeaderTitle>
+        </uxap:headerTitle>
+        <uxap:headerContent>
+            <MessageStrip
+                id="copyHintStrip"
+                text="{i18n>copyHintText}"
+                type="Information"
+                showIcon="true"
+                class="sapUiTinyMarginBottom"
+                visible="{= !${ui>/quotationDetailVisible} }" />
+            <HBox id="copySummaryBar" class="copySummaryBar" visible="{ui>/quotationDetailVisible}" wrap="Wrap" alignItems="Center">
+                <ObjectStatus id="summaryQuotation" title="{i18n>copyQuotationNoLabel}" text="{ui>/copyContext/quotationNo}" class="sapUiSmallMarginEnd" />
+                <ObjectStatus id="summaryDescription" title="{i18n>copyDescriptionLabel}" text="{ui>/copyContext/description}" class="sapUiSmallMarginEnd" />
+                <ObjectStatus id="summaryContractNo" title="{i18n>copyContractNoLabel}" text="{ui>/copyContext/contractNo}" class="sapUiSmallMarginEnd" />
+                <ObjectStatus id="summaryIncrement" title="{i18n>copyIncrementLabel}" text="{ui>/copyContext/increment} %" state="Information" class="sapUiSmallMarginEnd" />
+                <ObjectStatus id="summaryValidFrom" title="{i18n>copyValidFromLabel}" text="{ui>/copyContext/validFrom}" class="sapUiSmallMarginEnd" />
+                <ObjectStatus id="summaryValidTo" title="{i18n>copyValidToLabel}" text="{ui>/copyContext/validTo}" class="sapUiSmallMarginEnd" />
+                <ObjectStatus id="summaryItemCount" title="{i18n>qdItemCount}" text="{ui>/copyContext/itemCount}" state="Success" />
+            </HBox>
+        </uxap:headerContent>
+        <uxap:sections>
+            <uxap:ObjectPageSection
+                id="Section1"
+                title="{i18n>step1SectionTitle}"
+                titleUppercase="false"
+                visible="{= !${ui>/quotationDetailVisible} }">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection id="Section1SubSection" title="">
+                        <uxap:blocks>
+                            <VBox id="copyCard" class="copyCard" width="100%">
+                                <f:SimpleForm
+                                    id="copySimpleForm"
+                                    editable="true"
+                                    layout="ResponsiveGridLayout"
+                                    labelSpanXL="3"
+                                    labelSpanL="3"
+                                    labelSpanM="4"
+                                    labelSpanS="12"
+                                    emptySpanXL="4"
+                                    emptySpanL="4"
+                                    emptySpanM="0"
+                                    emptySpanS="0"
+                                    columnsXL="1"
+                                    columnsL="1"
+                                    columnsM="1"
+                                    singleContainerFullSize="false"
+                                    class="copySimpleForm">
+                                    <f:content>
+                                        <Label id="quotationLabel" text="{i18n>copyQuotationNoLabel}" required="true" />
+                                        <Input
+                                            id="quotationNoInput"
+                                            width="100%"
+                                            maxLength="10"
+                                            placeholder="{i18n>copyQuotationNoPlaceholder}"
+                                            required="true" />
+                                        <Label id="incrementLabel" text="{i18n>copyIncrementLabel}" required="true" />
+                                        <Input
+                                            id="incrementInput"
+                                            width="8rem"
+                                            type="Number"
+                                            placeholder="0"
+                                            description="%"
+                                            fieldWidth="5rem"
+                                            required="true" />
+                                        <Label id="validFromLabel" text="{i18n>copyValidFromLabel}" required="true" />
+                                        <DatePicker
+                                            id="validFromDatePicker"
+                                            width="100%"
+                                            valueFormat="yyyy-MM-dd"
+                                            displayFormat="medium"
+                                            required="true" />
+                                        <Label id="validToLabel" text="{i18n>copyValidToLabel}" required="true" />
+                                        <DatePicker
+                                            id="validToDatePicker"
+                                            width="100%"
+                                            valueFormat="yyyy-MM-dd"
+                                            displayFormat="medium"
+                                            required="true" />
+                                        <Label id="descriptionLabel" text="{i18n>copyDescriptionLabel}" required="true" />
+                                        <Input
+                                            id="descriptionInput"
+                                            width="100%"
+                                            maxLength="35"
+                                            placeholder="{i18n>copyDescriptionPlaceholder}"
+                                            required="true" />
+                                        <Label id="contractNoLabel" text="{i18n>copyContractNoLabel}" required="true" />
+                                        <Input
+                                            id="contractNoInput"
+                                            width="100%"
+                                            maxLength="10"
+                                            placeholder="{i18n>copyContractNoPlaceholder}"
+                                            required="true"
+                                            showValueHelp="true"
+                                            valueHelpOnly="false"
+                                            valueHelpRequest="onContractNoValueHelp" />
+                                    </f:content>
+                                </f:SimpleForm>
+                                <OverflowToolbar id="copyCardFooter" class="copyCardFooter">
+                                    <ToolbarSpacer id="copyCardFooterSpacer" />
+                                    <Button
+                                        id="CopyBtn"
+                                        text="{i18n>copyButton}"
+                                        type="Emphasized"
+                                        icon="sap-icon://copy"
+                                        press="onCopy" />
+                                </OverflowToolbar>
+                            </VBox>
+                        </uxap:blocks>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+
+            <uxap:ObjectPageSection
+                id="Section2"
+                title="{i18n>step2SectionTitle}"
+                titleUppercase="false"
+                visible="{ui>/quotationDetailVisible}">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection id="quotationDetailSubSection" title="">
+                        <uxap:blocks>
+                            <core:Fragment fragmentName="com.cathaydining.zsde005.copyquo.view.fragments.Section2" type="XML" />
+                        </uxap:blocks>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+        </uxap:sections>
+
+        <uxap:footer>
+            <OverflowToolbar id="objectPageFooterBar" class="copyFooterBar">
+                <Button id="prevStepButton" text="{i18n>prevStepButton}" type="Transparent" icon="sap-icon://nav-back" press="onPrevStep" />
+                <ToolbarSpacer id="objectPageFooterSpacer" />
+                <Button id="resetButton" text="{i18n>resetButton}" type="Transparent" icon="sap-icon://reset" press="onReset" />
+                <Button id="qdSaveQuotationFooterBtn" text="{i18n>qdSaveQuotation}" type="Emphasized" icon="sap-icon://save" press="onQDSaveQuotation" />
+            </OverflowToolbar>
+        </uxap:footer>
+    </uxap:ObjectPageLayout>
+</mvc:View>

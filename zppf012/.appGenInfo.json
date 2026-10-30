@@ -1,0 +1,29 @@
+{
+  "generationParameters": {
+    "generationDate": "Tue Jun 09 2026 15:18:44 GMT+0800 (China Standard Time)",
+    "generatorPlatform": "Visual Studio Code",
+    "serviceType": "SAP System (ABAP On-Premise)",
+    "metadataFilename": "",
+    "serviceUrl": "https://vhcwawd1wd01.sap.fmsete.cpafms.com:44380/sap/opu/odata4/sap/zui_pp_dish_label_print_o4/srvd/sap/zsd_pp_dish_label_form_print/0001/",
+    "appName": "zppf012",
+    "appTitle": "Dish Label Form",
+    "appDescription": "Dish Label Form",
+    "appNamespace": "com.cathaydining",
+    "ui5Theme": "sap_horizon",
+    "ui5Version": "1.136.0",
+    "enableEslint": false,
+    "enableTypeScript": false,
+    "showMockDataInfo": true,
+    "generatorVersion": "1.21.0",
+    "template": "List Report Page V4",
+    "generatorName": "SAP Fiori Application Generator",
+    "entityRelatedConfig": [
+      {
+        "type": "Main Entity",
+        "value": "ZI_PP_DISH_LABEL_FORM_PRINT"
+      }
+    ],
+    "launchText": "To launch the generated application, run the following from the generated application root folder:\n\n```\n    npm start\n```",
+    "valueHelpDownloaded": true
+  }
+}

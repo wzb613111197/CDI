@@ -1,0 +1,29 @@
+{
+  "generationParameters": {
+    "generationDate": "Wed Jun 10 2026 14:06:55 GMT+0800 (China Standard Time)",
+    "generatorPlatform": "Visual Studio Code",
+    "serviceType": "SAP System (ABAP On-Premise)",
+    "metadataFilename": "",
+    "serviceUrl": "https://vhcwawd1wd01.sap.fmsete.cpafms.com:44380/sap/opu/odata4/sap/zui_mm_dutiableitem_interim_o4/srvd/sap/zsd_mm_dutiable_item_interim/0001/",
+    "appName": "zmmf004",
+    "appTitle": "Bond Dutiable Item Permit Report (Interim)",
+    "appDescription": "Bond Dutiable Item Permit Report (Interim)",
+    "appNamespace": "com.cathaydining",
+    "ui5Theme": "sap_horizon",
+    "ui5Version": "1.136.0",
+    "enableEslint": false,
+    "enableTypeScript": false,
+    "showMockDataInfo": true,
+    "generatorVersion": "1.21.0",
+    "template": "List Report Page V4",
+    "generatorName": "SAP Fiori Application Generator",
+    "entityRelatedConfig": [
+      {
+        "type": "Main Entity",
+        "value": "ZC_MM_DUTIABLE_ITEM_INTERIM"
+      }
+    ],
+    "launchText": "To launch the generated application, run the following from the generated application root folder:\n\n```\n    npm start\n```",
+    "valueHelpDownloaded": true
+  }
+}

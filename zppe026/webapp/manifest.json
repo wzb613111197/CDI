@@ -1,0 +1,296 @@
+{
+  "_version": "1.73.1",
+  "sap.app": {
+    "id": "com.cathaydining.zppe026",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.21.0",
+      "toolsId": "60e998c4-543d-465a-a9f9-20c1683a8013"
+    },
+    "dataSources": {
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      },
+      "mainService": {
+        "uri": "/sap/opu/odata4/sap/zui_pp_ldgrmp_hdr_o4/srvd/sap/zpp_pp_ldgrmp_hdr/0001/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation"
+          ],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.136.10",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.ui.table": {},
+        "sap.ui.layout": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.cathaydining.zppe026.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "Home",
+          "target": "Home"
+        },
+        {
+          "pattern": "ZC_PP_LDGRMP_HDR:?query:",
+          "name": "ZC_PP_LDGRMP_HDRList",
+          "target": "ZC_PP_LDGRMP_HDRList"
+        },
+        {
+          "pattern": "SimulateSpecificFlight:?query:",
+          "name": "SimulateSpecificFlight",
+          "target": "SimulateSpecificFlight"
+        },
+        {
+          "pattern": "ZI_PP_SIMU_FLORD:?query:",
+          "name": "ZI_PP_SIMU_FLORDList",
+          "target": "ZI_PP_SIMU_FLORDList"
+        },
+        {
+          "pattern": "ZC_PP_LDGRMP_DEF:?query:",
+          "name": "ZC_PP_LDGRMP_DEFList",
+          "target": "ZC_PP_LDGRMP_DEFList"
+        },
+        {
+          "pattern": "ZC_PP_LDGRMP_FLORD:?query:",
+          "name": "ZC_PP_LDGRMP_FLORDList",
+          "target": "ZC_PP_LDGRMP_FLORDList"
+        }
+      ],
+      "targets": {
+        "Home": {
+          "type": "Component",
+          "id": "Home",
+          "name": "sap.fe.core.fpm",
+          "options": {
+            "settings": {
+              "viewName": "com.cathaydining.zppe026.ext.view.Home"
+            }
+          }
+        },
+        "ZC_PP_LDGRMP_HDRList": {
+          "type": "Component",
+          "id": "ZC_PP_LDGRMP_HDRList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/ZC_PP_LDGRMP_HDR",
+              "variantManagement": "Page",
+              "navigation": {},
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "GridTable",
+                    "selectAll": true,
+                    "selectionMode": "Multi",
+                    "enableExport": true,
+                    "disableCopyToClipboard": false,
+                    "widthIncludingColumnHeader": true
+                  },
+                  "actions": {
+                    "SearchLoadingDefinition": {
+                      "text": "{@i18n>searchLoadingDefinition}",
+                      "press": ".extension.com.cathaydining.zppe026.ext.controller.ListReportExtension.onSearchLoadingDefinition",
+                      "requiresSelection": true
+                    }
+                  }
+                }
+              },
+              "initialLoad": "Disabled"
+            }
+          }
+        },
+        "SimulateSpecificFlight": {
+          "type": "Component",
+          "id": "SimulateSpecificFlight",
+          "name": "sap.fe.core.fpm",
+          "options": {
+            "settings": {
+              "viewName": "com.cathaydining.zppe026.ext.view.SimulateSpecificFlight"
+            }
+          }
+        },
+        "ZI_PP_SIMU_FLORDList": {
+          "type": "Component",
+          "id": "ZI_PP_SIMU_FLORDList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/ZI_PP_SIMU_FLORD",
+              "variantManagement": "Page",
+              "initialLoad": "Disabled",
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "GridTable",
+                    "selectionMode": "Multi",
+                    "widthIncludingColumnHeader": true
+                  },
+                  "actions": {
+                    "SearchLoadingDefinition": {
+                      "text": "{@i18n>SimuFlordConfirm}",
+                      "press": ".extension.com.cathaydining.zppe026.ext.controller.ListReportExtension.onSimuFlordConfirm",
+                      "requiresSelection": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "ZC_PP_LDGRMP_DEFList": {
+          "type": "Component",
+          "id": "ZC_PP_LDGRMP_DEFList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/ZC_PP_LDGRMP_DEF",
+              "variantManagement": "Page",
+              "initialLoad": "Disabled",
+              "navigation": {},
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "GridTable",
+                    "selectionMode": "Multi",
+                    "enableExport": true,
+                    "widthIncludingColumnHeader": true
+                  },
+                  "actions": {
+                    "SearchLoadingDefinition": {
+                      "text": "{@i18n>SearchFlightOrder}",
+                      "press": ".extension.com.cathaydining.zppe026.ext.controller.ListReportExtension.onSearchFlightOrder",
+                      "requiresSelection": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "ZC_PP_LDGRMP_FLORDList": {
+          "type": "Component",
+          "id": "ZC_PP_LDGRMP_FLORDList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/ZC_PP_LDGRMP_FLORD",
+              "variantManagement": "Page",
+              "initialLoad": "Disabled",
+              "navigation": {},
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "GridTable",
+                    "selectionMode": "Multi",
+                    "enableExport": true,
+                    "widthIncludingColumnHeader": true
+                  },
+                  "actions": {
+                    "SimulateAndCompare": {
+                      "text": "{@i18n>SimulateAndCompare}",
+                      "press": ".extension.com.cathaydining.zppe026.ext.controller.ListReportExtension.onSimulateAndCompare",
+                      "requiresSelection": true
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "extends": {
+      "extensions": {
+        "sap.ui.controllerExtensions": {
+          "sap.fe.templates.ListReport.ListReportController": {
+            "controllerName": "com.cathaydining.zppe026.ext.controller.ListReportExtension"
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  },
+  "sap.fe": {
+    "app": {
+      "enableLazyLoading": true
+    }
+  }
+}

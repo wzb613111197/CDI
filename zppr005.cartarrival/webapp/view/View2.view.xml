@@ -1,0 +1,171 @@
+<mvc:View
+    controllerName="com.cathaydining.zppr005.cartarrival.controller.View2"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+>
+    <Page
+        id="boardPage"
+        showHeader="false"
+        class="arrivalBoardPage"
+    >
+        <content>
+            <VBox class="arrivalBoardRoot fitContainer">
+                <Text
+                    text="{i18n>boardTitle}"
+                    class="boardTopTitle"
+                />
+                <HBox
+                    class="boardTopBar"
+                    justifyContent="SpaceBetween"
+                    alignItems="Center"
+                >
+                    <Text
+                        text="{= ${i18n>boardColdRoomLabel} + '\uFF1A' + ${board>/coldRoomText} }"
+                        class="boardTopBadgeValue"
+                    />
+                    <Text
+                        text="{board>/dateText}"
+                        class="boardTopDate"
+                    />
+                    <Text
+                        text="{board>/timeText}"
+                        class="boardTopTime"
+                    />
+                </HBox>
+                <Table
+                    id="cartArrivalTable"
+                    class="arrivalTable"
+                    fixedLayout="Strict"
+                    items="{board>/pagedItems}"
+                >
+                    <columns>
+                        <Column width="9%">
+                            <header>
+                                <Text text="{i18n>colTarget}" />
+                            </header>
+                        </Column>
+                        <Column width="10%">
+                            <header>
+                                <Text text="{i18n>colFlight}" />
+                            </header>
+                        </Column>
+                        <Column width="8%">
+                            <header>
+                                <Text text="{i18n>colEtd}" />
+                            </header>
+                        </Column>
+                        <Column width="13%">
+                            <header>
+                                <Text text="{i18n>colWorkGroup}" />
+                            </header>
+                        </Column>
+                        <Column width="14%">
+                            <header>
+                                <Text text="{i18n>colContainer}" />
+                            </header>
+                        </Column>
+                        <Column width="8%" hAlign="End">
+                            <header>
+                                <Text text="{i18n>colDemand}" />
+                            </header>
+                        </Column>
+                        <Column width="8%" hAlign="End">
+                            <header>
+                                <Text text="{i18n>colReceived}" />
+                            </header>
+                        </Column>
+                        <Column width="7%" hAlign="End">
+                            <header>
+                                <Text text="{i18n>colOs}" />
+                            </header>
+                        </Column>
+                        <Column width="23%">
+                            <header>
+                                <Text text="{i18n>colPosition}" />
+                            </header>
+                        </Column>
+                    </columns>
+                    <items>
+                        <ColumnListItem
+                            vAlign="Middle"
+                            type="Inactive"
+                        >
+                            <cells>
+                                <Text
+                                    text="{parts: ['board>Target', 'board>_groupFirst'], formatter: '.formatGroupTime'}"
+                                    class="boardCellText"
+                                />
+                                <Text
+                                    text="{parts: ['board>FlightNumber', 'board>_groupFirst'], formatter: '.formatGroupFlight'}"
+                                    class="boardCellText boardCellBold"
+                                />
+                                <Text
+                                    text="{path: 'board>EtdTime', formatter: '.formatTime'}"
+                                    class="boardCellText"
+                                />
+                                <Text
+                                    text="{board>WorkGroup}"
+                                    class="boardCellText"
+                                />
+                                <Text
+                                    text="{board>Container}"
+                                    class="boardCellText"
+                                />
+                                <Text
+                                    text="{board>DemandQty}"
+                                    class="boardCellText"
+                                />
+                                <Text
+                                    text="{board>ReceivedQty}"
+                                    class="boardCellText"
+                                />
+                                <ObjectNumber
+                                    number="{board>OsQty}"
+                                    state="Error"
+                                />
+                                <Text
+                                    text="{board>ZPosition}"
+                                    class="boardCellText boardRemarkCell"
+                                />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+                <HBox
+                    class="boardFooterBar"
+                    alignItems="Center"
+                >
+                    <HBox width="70%" />
+                    <HBox
+                        width="7%"
+                        alignItems="Center"
+                        justifyContent="End"
+                    >
+                        <Text
+                            text="{i18n>totalLabel}"
+                            class="boardFooterSectionTitle"
+                        />
+                        <ObjectNumber
+                            number="{board>/pageOsTotal}"
+                            state="Error"
+                        />
+                    </HBox>
+                    <HBox
+                        width="23%"
+                        justifyContent="End"
+                        alignItems="Center"
+                    >
+                        <Text
+                            text="{i18n>pageLabel}"
+                            class="boardFooterSectionTitle"
+                        />
+                        <Text
+                            text="{board>/pageText}"
+                            class="boardFooterPage"
+                        />
+                    </HBox>
+                </HBox>
+            </VBox>
+        </content>
+    </Page>
+</mvc:View>

@@ -1,0 +1,1551 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="SAP__aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="SAP__capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HIERARCHY',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="SAP__hierarchy"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="SAP__HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="SAP__measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ODM',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.ODM.v1" Alias="SAP__ODM"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SESSION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="SAP__session"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="SAP__UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="SAP__validation"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="com.sap.gateway.srvd.zsd_pp_prod_perform_dashboard.v0001" Alias="SAP__self">
+            <Annotation Term="SAP__core.SchemaVersion" String="1.0.0"/>
+            <EntityType Name="ZI_PP_PROD_DASHType">
+                <Key>
+                    <PropertyRef Name="request"/>
+                </Key>
+                <Property Name="request" Type="Edm.String" Nullable="false"/>
+                <Property Name="Response" Type="Edm.String" Nullable="false"/>
+            </EntityType>
+            <EntityType Name="ZI_PP_SHIFT_NAME_VHType">
+                <Key>
+                    <PropertyRef Name="Grouping"/>
+                    <PropertyRef Name="ShiftDefinition"/>
+                    <PropertyRef Name="EndDate"/>
+                </Key>
+                <Property Name="Grouping" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="ShiftDefinition" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="EndDate" Type="Edm.Date" Nullable="false"/>
+                <Property Name="StartDate" Type="Edm.Date"/>
+                <Property Name="StartTime" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="EndTime" Type="Edm.TimeOfDay" Nullable="false"/>
+            </EntityType>
+            <EntityType Name="ZI_PP_PPD_PROD_SUMMARYType">
+                <Key>
+                    <PropertyRef Name="Plant"/>
+                    <PropertyRef Name="KeyDate"/>
+                    <PropertyRef Name="WorkCentre"/>
+                    <PropertyRef Name="ShiftName"/>
+                </Key>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="KeyDate" Type="Edm.Date" Nullable="false"/>
+                <Property Name="WorkCentre" Type="Edm.String" Nullable="false" MaxLength="8"/>
+                <Property Name="ShiftName" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="WorkCentreText" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="Department" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="DepartmentText" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="ProdSupervisor" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="ProdSupervisorText" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="ProdStartTime" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="ProdEndTime" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="CardLevel" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="CardName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="ScheduleAdherencePercent" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="SchIndicatorColor" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="ProductivityIndicatorPercent" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="ProdIndicatorColor" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="HACCPFulfilmentPercent" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="HACCPIndicatorColor" Type="Edm.String" Nullable="false" MaxLength="1"/>
+            </EntityType>
+            <EntityType Name="ZI_PP_PPD_FLIGHT_ORDER_DETAILType">
+                <Key>
+                    <PropertyRef Name="FlightOrder"/>
+                </Key>
+                <Property Name="FlightOrder" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="AirlineCode" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="FlightNum" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="KeyDate" Type="Edm.Date"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="FlightStatus" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="AirlineGroup" Type="Edm.String" Nullable="false" MaxLength="2"/>
+            </EntityType>
+            <EntityType Name="ZI_PP_PPD_PROD_DETAILType">
+                <Key>
+                    <PropertyRef Name="Plant"/>
+                    <PropertyRef Name="OrderNumber"/>
+                    <PropertyRef Name="OperationNum"/>
+                    <PropertyRef Name="Department"/>
+                    <PropertyRef Name="ProdSupervisor"/>
+                    <PropertyRef Name="WorkCentre"/>
+                </Key>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="OrderNumber" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="OperationNum" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Department" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="ProdSupervisor" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="WorkCentre" Type="Edm.String" Nullable="false" MaxLength="8"/>
+                <Property Name="DepartmentText" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="ProdSupervisorText" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="WorkCentreText" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="ScheduleAdherence" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="ProductivityIndicator" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="HACCPFulfilment" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="OrderType" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="KeyDate" Type="Edm.Date"/>
+                <Property Name="ProdEndDate" Type="Edm.Date"/>
+                <Property Name="ProdStartTime" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="ProdEndTime" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="ActualStartTime" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="ActualEndTime" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="OperationShortTxt" Type="Edm.String" Nullable="false" MaxLength="7"/>
+                <Property Name="CCPItemLevelStatus" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="MaterialDescription" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="ActualOutputQty" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="PlanProdOrderQty" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="UnitOfMeasure" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="ProdOrderSysStatus" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="ProdOrderActStartDate" Type="Edm.Date"/>
+                <Property Name="ProdOrderActEndDate" Type="Edm.Date"/>
+                <Property Name="ProdOrderActStartTime" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="ProdOrderActEndTime" Type="Edm.TimeOfDay" Nullable="false"/>
+            </EntityType>
+            <EntityType Name="I_PlantVHType">
+                <Key>
+                    <PropertyRef Name="Plant"/>
+                </Key>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="PlantName" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="ValuationArea" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="PlantCustomer" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="PlantSupplier" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="FactoryCalendar" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="DefaultPurchasingOrganization" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="SalesOrganization" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="AddressID" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="PlantCategory" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="DistributionChannel" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="Division" Type="Edm.String" Nullable="false" MaxLength="2"/>
+            </EntityType>
+            <EntityType Name="I_MfgOrderProdnSupervisorStdVHType">
+                <Key>
+                    <PropertyRef Name="Plant"/>
+                    <PropertyRef Name="ProductionSupervisor"/>
+                </Key>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="ProductionSupervisor" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="ProductionSupervisorName" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="ProductionSchedulingProfile" Type="Edm.String" Nullable="false" MaxLength="6"/>
+            </EntityType>
+            <EntityType Name="I_WrkCtrBySemanticKeyStdVHType">
+                <Key>
+                    <PropertyRef Name="Plant"/>
+                    <PropertyRef Name="WorkCenter"/>
+                </Key>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="WorkCenter" Type="Edm.String" Nullable="false" MaxLength="8"/>
+                <Property Name="WorkCenter_Text" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="WorkCenterInternalID" Type="Edm.String" Nullable="false" MaxLength="8"/>
+            </EntityType>
+            <EntityType Name="ZI_PP_DEPT_MASTER_VHType">
+                <Key>
+                    <PropertyRef Name="Zdept"/>
+                    <PropertyRef Name="Spras"/>
+                </Key>
+                <Property Name="Zdept" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Spras" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="Zdeptext" Type="Edm.String" Nullable="false" MaxLength="40"/>
+            </EntityType>
+            <EntityType Name="ZI_PP_PPD_FLIGHT_SUMMARYType">
+                <Key>
+                    <PropertyRef Name="Keydate"/>
+                    <PropertyRef Name="Plant"/>
+                </Key>
+                <Property Name="Keydate" Type="Edm.Date" Nullable="false"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="TotalCount" Type="Edm.Int32" Nullable="false"/>
+                <Property Name="Status03Count" Type="Edm.Byte" Nullable="false"/>
+            </EntityType>
+            <EntityContainer Name="Container">
+                <EntitySet Name="I_MfgOrderProdnSupervisorStdVH" EntityType="com.sap.gateway.srvd.zsd_pp_prod_perform_dashboard.v0001.I_MfgOrderProdnSupervisorStdVHType"/>
+                <EntitySet Name="I_PlantVH" EntityType="com.sap.gateway.srvd.zsd_pp_prod_perform_dashboard.v0001.I_PlantVHType"/>
+                <EntitySet Name="I_WrkCtrBySemanticKeyStdVH" EntityType="com.sap.gateway.srvd.zsd_pp_prod_perform_dashboard.v0001.I_WrkCtrBySemanticKeyStdVHType"/>
+                <EntitySet Name="ZI_PP_DEPT_MASTER_VH" EntityType="com.sap.gateway.srvd.zsd_pp_prod_perform_dashboard.v0001.ZI_PP_DEPT_MASTER_VHType"/>
+                <EntitySet Name="ZI_PP_PPD_FLIGHT_ORDER_DETAIL" EntityType="com.sap.gateway.srvd.zsd_pp_prod_perform_dashboard.v0001.ZI_PP_PPD_FLIGHT_ORDER_DETAILType"/>
+                <EntitySet Name="ZI_PP_PPD_FLIGHT_SUMMARY" EntityType="com.sap.gateway.srvd.zsd_pp_prod_perform_dashboard.v0001.ZI_PP_PPD_FLIGHT_SUMMARYType"/>
+                <EntitySet Name="ZI_PP_PPD_PROD_DETAIL" EntityType="com.sap.gateway.srvd.zsd_pp_prod_perform_dashboard.v0001.ZI_PP_PPD_PROD_DETAILType"/>
+                <EntitySet Name="ZI_PP_PPD_PROD_SUMMARY" EntityType="com.sap.gateway.srvd.zsd_pp_prod_perform_dashboard.v0001.ZI_PP_PPD_PROD_SUMMARYType"/>
+                <EntitySet Name="ZI_PP_PROD_DASH" EntityType="com.sap.gateway.srvd.zsd_pp_prod_perform_dashboard.v0001.ZI_PP_PROD_DASHType"/>
+                <EntitySet Name="ZI_PP_SHIFT_NAME_VH" EntityType="com.sap.gateway.srvd.zsd_pp_prod_perform_dashboard.v0001.ZI_PP_SHIFT_NAME_VHType"/>
+            </EntityContainer>
+            <Annotations Target="SAP__self.ZI_PP_PROD_DASHType">
+                <Annotation Term="SAP__common.Label" String="Custom Entity for Production Summary"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZI_PP_PROD_DASH">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="Filterable" Bool="true"/>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="request"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Response"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>request</PropertyPath>
+                                <PropertyPath>Response</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_SHIFT_NAME_VHType/Grouping">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Shift Grouping"/>
+                <Annotation Term="SAP__common.Heading" String="Grpg"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Grouping for Shift Definitions and Shift Sequences"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=SCHGRUP"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_SHIFT_NAME_VHType/ShiftDefinition">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Shift Definition"/>
+                <Annotation Term="SAP__common.Heading" String="Shift"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=KAPTPROG"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_SHIFT_NAME_VHType">
+                <Annotation Term="SAP__common.Label" String="Search Help for Shift Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZI_PP_SHIFT_NAME_VH">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_SUMMARYType/Plant">
+                <Annotation Term="SAP__common.Label" String="Plant"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_plantvh/0001;ps='srvd-zsd_pp_prod_perform_dashboard-0001';va='com.sap.gateway.srvd.zsd_pp_prod_perform_dashboard.v0001.et-zi_pp_ppd_prod_summary.plant'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.FilterDefaultValue" String="CDI0"/>
+                <Annotation Term="SAP__common.Heading" String="Plnt"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Plant"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=WERKS_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_SUMMARYType/KeyDate">
+                <Annotation Term="SAP__common.Label" String="Key date"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Heading" String="Date in Format YYYYMMDD"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Field of type DATS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_SUMMARYType/WorkCentre">
+                <Annotation Term="SAP__common.Label" String="Work Center"/>
+                <Annotation Term="SAP__common.Text" Path="WorkCentreText">
+                    <Annotation Term="SAP__UI.TextArrangement" EnumMember="SAP__UI.TextArrangementType/TextLast"/>
+                </Annotation>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_wrkctrbysemantickeystdvh/0001;ps='srvd-zsd_pp_prod_perform_dashboard-0001';va='com.sap.gateway.srvd.zsd_pp_prod_perform_dashboard.v0001.et-zi_pp_ppd_prod_summary.workcentre'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="Work Ctr"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Work Center"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ARBPL"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_SUMMARYType/ShiftName">
+                <Annotation Term="SAP__common.Label" String="Shift Name"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_pp_shift_name_vh/0001;ps='srvd-zsd_pp_prod_perform_dashboard-0001';va='com.sap.gateway.srvd.zsd_pp_prod_perform_dashboard.v0001.et-zi_pp_ppd_prod_summary.shiftname'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="Shift"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Shift Definition"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=KAPTPROG"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_SUMMARYType/WorkCentreText">
+                <Annotation Term="SAP__common.Label" String="Work Center Description"/>
+                <Annotation Term="SAP__common.Heading" String="Short description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Short description"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=CR_KTEXT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_SUMMARYType/Department">
+                <Annotation Term="SAP__common.Label" String="Department"/>
+                <Annotation Term="SAP__common.Text" Path="DepartmentText">
+                    <Annotation Term="SAP__UI.TextArrangement" EnumMember="SAP__UI.TextArrangementType/TextLast"/>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_pp_dept_master_vh/0001;ps='srvd-zsd_pp_prod_perform_dashboard-0001';va='com.sap.gateway.srvd.zsd_pp_prod_perform_dashboard.v0001.et-zi_pp_ppd_prod_summary.department'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="Department "/>
+                <Annotation Term="SAP__common.QuickInfo" String="Department "/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_SUMMARYType/DepartmentText">
+                <Annotation Term="SAP__common.Label" String="Department Description"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Description of department"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Description of department"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_SUMMARYType/ProdSupervisor">
+                <Annotation Term="SAP__common.Label" String="Production Supervisor"/>
+                <Annotation Term="SAP__common.Text" Path="ProdSupervisorText">
+                    <Annotation Term="SAP__UI.TextArrangement" EnumMember="SAP__UI.TextArrangementType/TextLast"/>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_mfgorderprodnsupervisorstdvh/0001;ps='srvd-zsd_pp_prod_perform_dashboard-0001';va='com.sap.gateway.srvd.zsd_pp_prod_perform_dashboard.v0001.et-zi_pp_ppd_prod_summary.prodsupervisor'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="ProdS"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Production Supervisor"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=FEVOR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_SUMMARYType/ProdSupervisorText">
+                <Annotation Term="SAP__common.Label" String="Production Supervisor Description"/>
+                <Annotation Term="SAP__common.Heading" String="Production Supervisor Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Production Supervisor Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_SUMMARYType/ProdStartTime">
+                <Annotation Term="SAP__common.Label" String="Production start time"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Field of type TIMS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_SUMMARYType/ProdEndTime">
+                <Annotation Term="SAP__common.Label" String="Production end time"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Field of type TIMS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_SUMMARYType">
+                <Annotation Term="SAP__common.Label" String="Custom Entity for Production Summary"/>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="WorkCentre"/>
+                        <PropertyValue Property="TypeNamePlural" String="WorkCentre"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="WorkCentre"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Plant"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="KeyDate"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Department"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="DepartmentText"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProdSupervisor"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProdSupervisorText"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="WorkCentre"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="WorkCentreText"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProdStartTime"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProdEndTime"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ShiftName"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CardLevel"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CardName"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ScheduleAdherencePercent"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="SchIndicatorColor"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProductivityIndicatorPercent"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProdIndicatorColor"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="HACCPFulfilmentPercent"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="HACCPIndicatorColor"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>Plant</PropertyPath>
+                        <PropertyPath>KeyDate</PropertyPath>
+                        <PropertyPath>Department</PropertyPath>
+                        <PropertyPath>ProdSupervisor</PropertyPath>
+                        <PropertyPath>WorkCentre</PropertyPath>
+                        <PropertyPath>ProdStartTime</PropertyPath>
+                        <PropertyPath>ProdEndTime</PropertyPath>
+                        <PropertyPath>ShiftName</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZI_PP_PPD_PROD_SUMMARY">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="Filterable" Bool="true"/>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Plant"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="KeyDate"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="RequiredProperties">
+                            <Collection>
+                                <PropertyPath>Plant</PropertyPath>
+                                <PropertyPath>KeyDate</PropertyPath>
+                                <PropertyPath>ShiftName</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_FLIGHT_ORDER_DETAILType/FlightOrder">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Flight order"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_FLIGHT_ORDER_DETAILType/AirlineCode">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Airline Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_FLIGHT_ORDER_DETAILType/FlightNum">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Flight Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_FLIGHT_ORDER_DETAILType/Plant">
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_plantvh/0001;ps='srvd-zsd_pp_prod_perform_dashboard-0001';va='com.sap.gateway.srvd.zsd_pp_prod_perform_dashboard.v0001.et-zi_pp_ppd_flight_order_detail.plant'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Label" String="Plant"/>
+                <Annotation Term="SAP__common.Heading" String="Plnt"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=WERKS_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_FLIGHT_ORDER_DETAILType/FlightStatus">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Flight order status"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_FLIGHT_ORDER_DETAILType/AirlineGroup">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Airline group"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_FLIGHT_ORDER_DETAILType">
+                <Annotation Term="SAP__common.Label" String="View for Flights Order Detail"/>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="Plant"/>
+                        <PropertyValue Property="TypeNamePlural" String="Plant"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="Plant"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Plant"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="FlightOrder"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="FlightNum"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="AirlineGroup"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="AirlineCode"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="KeyDate"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="FlightStatus"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>Plant</PropertyPath>
+                        <PropertyPath>KeyDate</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZI_PP_PPD_FLIGHT_ORDER_DETAIL">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="Filterable" Bool="true"/>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="KeyDate"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleRange"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_DETAILType/Plant">
+                <Annotation Term="SAP__common.Label" String="Plant"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_plantvh/0001;ps='srvd-zsd_pp_prod_perform_dashboard-0001';va='com.sap.gateway.srvd.zsd_pp_prod_perform_dashboard.v0001.et-zi_pp_ppd_prod_detail.plant'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.FilterDefaultValue" String="CDI0"/>
+                <Annotation Term="SAP__common.Heading" String="Plnt"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Plant"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=WERKS_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_DETAILType/OrderNumber">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Order"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Order Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=AUFNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_DETAILType/OperationNum">
+                <Annotation Term="SAP__common.Label" String="Operation No."/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Logical Link of Variables to Class Search"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Data Type 4 Characters"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_DETAILType/Department">
+                <Annotation Term="SAP__common.Label" String="Department"/>
+                <Annotation Term="SAP__common.Text" Path="DepartmentText">
+                    <Annotation Term="SAP__UI.TextArrangement" EnumMember="SAP__UI.TextArrangementType/TextLast"/>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_pp_dept_master_vh/0001;ps='srvd-zsd_pp_prod_perform_dashboard-0001';va='com.sap.gateway.srvd.zsd_pp_prod_perform_dashboard.v0001.et-zi_pp_ppd_prod_detail.department'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="Department "/>
+                <Annotation Term="SAP__common.QuickInfo" String="Department "/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_DETAILType/ProdSupervisor">
+                <Annotation Term="SAP__common.Label" String="Production Supervisor"/>
+                <Annotation Term="SAP__common.Text" Path="ProdSupervisorText">
+                    <Annotation Term="SAP__UI.TextArrangement" EnumMember="SAP__UI.TextArrangementType/TextLast"/>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_mfgorderprodnsupervisorstdvh/0001;ps='srvd-zsd_pp_prod_perform_dashboard-0001';va='com.sap.gateway.srvd.zsd_pp_prod_perform_dashboard.v0001.et-zi_pp_ppd_prod_detail.prodsupervisor'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="ProdS"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Production Supervisor"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=FEVOR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_DETAILType/WorkCentre">
+                <Annotation Term="SAP__common.Label" String="Work Center"/>
+                <Annotation Term="SAP__common.Text" Path="WorkCentreText">
+                    <Annotation Term="SAP__UI.TextArrangement" EnumMember="SAP__UI.TextArrangementType/TextLast"/>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_wrkctrbysemantickeystdvh/0001;ps='srvd-zsd_pp_prod_perform_dashboard-0001';va='com.sap.gateway.srvd.zsd_pp_prod_perform_dashboard.v0001.et-zi_pp_ppd_prod_detail.workcentre'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="Work Ctr"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Work Center"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ARBPL"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_DETAILType/DepartmentText">
+                <Annotation Term="SAP__common.Label" String="Department Description"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Description of department"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Description of department"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_DETAILType/ProdSupervisorText">
+                <Annotation Term="SAP__common.Label" String="Production Supervisor Description"/>
+                <Annotation Term="SAP__common.Heading" String="Production Supervisor Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Production Supervisor Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_DETAILType/WorkCentreText">
+                <Annotation Term="SAP__common.Label" String="Work Center Description"/>
+                <Annotation Term="SAP__common.Heading" String="Short description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Short description"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=CR_KTEXT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_DETAILType/OrderType">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Order"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Order Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=AUFNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_DETAILType/KeyDate">
+                <Annotation Term="SAP__common.Label" String="Prod Order Basic Start Date"/>
+                <Annotation Term="SAP__common.Heading" String="Basic Start Date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Basic Start Date"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_DETAILType/ProdEndDate">
+                <Annotation Term="SAP__common.Label" String="Prod Order Basic End Date"/>
+                <Annotation Term="SAP__common.Heading" String="Basic finish date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Basic finish date"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=CO_GLTRP"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_DETAILType/ProdStartTime">
+                <Annotation Term="SAP__common.Label" String="Prod Order Basic Start Time"/>
+                <Annotation Term="SAP__common.Heading" String="Start time"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Basic Start (Time)"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=CO_GSUZP"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_DETAILType/ProdEndTime">
+                <Annotation Term="SAP__common.Label" String="Prod Order Basic End Time"/>
+                <Annotation Term="SAP__common.Heading" String="Basic Fin."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Basic Finish (Time)"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=CO_GLUZP"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_DETAILType/ActualStartTime">
+                <Annotation Term="SAP__common.Label" String="Operation Actual Start Time"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Field of type TIMS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_DETAILType/ActualEndTime">
+                <Annotation Term="SAP__common.Label" String="Operation Actual End Time"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Field of type TIMS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_DETAILType/OperationShortTxt">
+                <Annotation Term="SAP__common.Label" String="Operation Short Text"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="StTextKy"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Standard text key"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=KTSCH_CHG"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_DETAILType/CCPItemLevelStatus">
+                <Annotation Term="SAP__common.Label" String="CCP Item Level Status"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="item level status"/>
+                <Annotation Term="SAP__common.QuickInfo" String="CCP item level status"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_DETAILType/Material">
+                <Annotation Term="SAP__common.Label" String="Material Code"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Material"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_DETAILType/MaterialDescription">
+                <Annotation Term="SAP__common.Label" String="Material Description"/>
+                <Annotation Term="SAP__common.Heading" String="Material Description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Description"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MAKTX"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_DETAILType/ActualOutputQty">
+                <Annotation Term="SAP__common.Label" String="Actual Output Quantity"/>
+                <Annotation Term="SAP__measures.Unit" Path="UnitOfMeasure"/>
+                <Annotation Term="SAP__common.Heading" String="Confirmed qty"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Confirmed Yield Quantity From Order Confirmation"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=CO_IGMNG"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_DETAILType/PlanProdOrderQty">
+                <Annotation Term="SAP__common.Label" String="Planned Production Order Quantity"/>
+                <Annotation Term="SAP__measures.Unit" Path="UnitOfMeasure"/>
+                <Annotation Term="SAP__common.Heading" String="Total Order Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Total Order Quantity"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=GAMNG"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_DETAILType/UnitOfMeasure">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__common.Label" String="Unit of Measure"/>
+                <Annotation Term="SAP__common.Heading" String="BUn"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Base Unit of Measure"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MEINS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_DETAILType/ProdOrderSysStatus">
+                <Annotation Term="SAP__common.Label" String="Production Order System Status"/>
+                <Annotation Term="SAP__common.Heading" String="Stat"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Individual status of an object (short form)"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=J_TXT04"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_DETAILType/ProdOrderActStartDate">
+                <Annotation Term="SAP__common.Label" String="Production Order Actual Start Date"/>
+                <Annotation Term="SAP__common.Heading" String="Actual start date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Actual start date"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=CO_GSTRI"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_DETAILType/ProdOrderActEndDate">
+                <Annotation Term="SAP__common.Label" String="Production Order Actual End Date"/>
+                <Annotation Term="SAP__common.Heading" String="Actual Order Finish Date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Confirmed Order Finish Date"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=CO_GETRI"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_DETAILType/ProdOrderActStartTime">
+                <Annotation Term="SAP__common.Label" String="Production Order Actual Start Time"/>
+                <Annotation Term="SAP__common.Heading" String="ActlStart"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Actual start time"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=CO_GSUZI"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_DETAILType/ProdOrderActEndTime">
+                <Annotation Term="SAP__common.Label" String="Production Order Actual End Time"/>
+                <Annotation Term="SAP__common.Heading" String="Act.Finish"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Confirmed Order Finish (Time)"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=CO_GEUZI"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_DETAILType">
+                <Annotation Term="SAP__common.Label" String="Custom View for Production Detail"/>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="WorkCentre"/>
+                        <PropertyValue Property="TypeNamePlural" String="WorkCentre"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="WorkCentre"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Plant"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Department"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProdSupervisor"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="OrderNumber"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="OperationNum"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="WorkCentre"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ScheduleAdherence"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProductivityIndicator"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="HACCPFulfilment"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="OrderType"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="KeyDate"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProdEndDate"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProdStartTime"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProdEndTime"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ActualStartTime"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ActualEndTime"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="OperationShortTxt"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CCPItemLevelStatus"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Material"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="MaterialDescription"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ActualOutputQty"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PlanProdOrderQty"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="UnitOfMeasure"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProdOrderSysStatus"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProdOrderActStartDate"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProdOrderActEndDate"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProdOrderActStartTime"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ProdOrderActEndTime"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>Plant</PropertyPath>
+                        <PropertyPath>KeyDate</PropertyPath>
+                        <PropertyPath>Department</PropertyPath>
+                        <PropertyPath>ProdSupervisor</PropertyPath>
+                        <PropertyPath>WorkCentre</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZI_PP_PPD_PROD_DETAIL">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="Filterable" Bool="true"/>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Plant"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="KeyDate"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleRange"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="ProdEndDate"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleRange"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container">
+                <Annotation Term="SAP__CodeList.UnitsOfMeasure">
+                    <Record>
+                        <PropertyValue Property="Url" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="UnitsOfMeasure"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="SAP__capabilities.FilterFunctions">
+                    <Collection>
+                        <String>eq</String>
+                        <String>ne</String>
+                        <String>gt</String>
+                        <String>ge</String>
+                        <String>lt</String>
+                        <String>le</String>
+                        <String>and</String>
+                        <String>or</String>
+                        <String>contains</String>
+                        <String>startswith</String>
+                        <String>endswith</String>
+                        <String>any</String>
+                        <String>all</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SupportedFormats">
+                    <Collection>
+                        <String>application/json</String>
+                        <String>application/pdf</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="Border" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="FitToPage" Bool="true"/>
+                        <PropertyValue Property="FontName" Bool="true"/>
+                        <PropertyValue Property="FontSize" Bool="true"/>
+                        <PropertyValue Property="HeaderFooter" Bool="true"/>
+                        <PropertyValue Property="IANATimezoneFormat" Bool="true"/>
+                        <PropertyValue Property="Margin" Bool="true"/>
+                        <PropertyValue Property="Padding" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="20000"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="TextDirectionLayout" Bool="true"/>
+                        <PropertyValue Property="Treeview" Bool="true"/>
+                        <PropertyValue Property="UploadToFileShare" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.KeyAsSegmentSupported"/>
+                <Annotation Term="SAP__capabilities.AsynchronousRequestsSupported"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_PlantVHType/Plant">
+                <Annotation Term="SAP__common.Text" Path="PlantName"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Plant"/>
+                <Annotation Term="SAP__common.Heading" String="Plnt"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=WERKS_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_PlantVHType/ValuationArea">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Valuation Area"/>
+                <Annotation Term="SAP__common.Heading" String="ValA"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BWKEY"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_PlantVHType/PlantCustomer">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_customer_vh/0001;ps='srvd-zsd_pp_prod_perform_dashboard-0001';va='com.sap.gateway.srvd.zsd_pp_prod_perform_dashboard.v0001.et-i_plantvh.plantcustomer'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Label" String="Customer Number of Plant"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_PlantVHType/PlantSupplier">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_supplier_vh/0001;ps='srvd-zsd_pp_prod_perform_dashboard-0001';va='com.sap.gateway.srvd.zsd_pp_prod_perform_dashboard.v0001.et-i_plantvh.plantsupplier'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Label" String="Supplier Number of Plant"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_PlantVHType/FactoryCalendar">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Factory Calendar"/>
+                <Annotation Term="SAP__common.Heading" String="Cal"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Factory calendar key"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=FABKL"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_PlantVHType/DefaultPurchasingOrganization">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Purchasing Organization"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_PlantVHType/SalesOrganization">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Sls Organization ICB"/>
+                <Annotation Term="SAP__common.Heading" String="SO ICB"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Sales Organization for Intercompany Billing"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VKOIV"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_PlantVHType/AddressID">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Address"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ADRNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_PlantVHType/PlantCategory">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Plant Category"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_PlantVHType/DistributionChannel">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Distribution Channel"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Distribution Channel for Intercompany Billing"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_PlantVHType/Division">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Intercompany Billing Division"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Division for Intercompany Billing"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_PlantVHType">
+                <Annotation Term="SAP__common.Label" String="Plants"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/I_PlantVH">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="true"/>
+                        <PropertyValue Property="UnsupportedExpressions" EnumMember="SAP__capabilities.SearchExpressions/AND SAP__capabilities.SearchExpressions/NOT SAP__capabilities.SearchExpressions/group "/>
+                        <PropertyValue Property="SearchSyntax" String="https://url.sap/odata-search"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.I_MfgOrderProdnSupervisorStdVHType/Plant">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Plant"/>
+                <Annotation Term="SAP__common.Heading" String="Plnt"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=WERKS_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_MfgOrderProdnSupervisorStdVHType/ProductionSupervisor">
+                <Annotation Term="SAP__common.Text" Path="ProductionSupervisorName"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Production Supervisor"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_MfgOrderProdnSupervisorStdVHType/ProductionSchedulingProfile">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Production Scheduling Profile"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_MfgOrderProdnSupervisorStdVHType">
+                <Annotation Term="SAP__common.Label" String="Production Supervisor"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/I_MfgOrderProdnSupervisorStdVH">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="true"/>
+                        <PropertyValue Property="UnsupportedExpressions" EnumMember="SAP__capabilities.SearchExpressions/AND SAP__capabilities.SearchExpressions/NOT SAP__capabilities.SearchExpressions/group "/>
+                        <PropertyValue Property="SearchSyntax" String="https://url.sap/odata-search"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.I_WrkCtrBySemanticKeyStdVHType/Plant">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Plant"/>
+                <Annotation Term="SAP__common.Heading" String="Plnt"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=WERKS_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_WrkCtrBySemanticKeyStdVHType/WorkCenter">
+                <Annotation Term="SAP__common.Text" Path="WorkCenter_Text"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Work Center"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_WrkCtrBySemanticKeyStdVHType/WorkCenter_Text">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Work Center Text"/>
+                <Annotation Term="SAP__common.Heading" String="Text"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_WrkCtrBySemanticKeyStdVHType/WorkCenterInternalID">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Object ID"/>
+                <Annotation Term="SAP__common.Heading" String="ID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Object ID of the resource"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=CR_OBJID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_WrkCtrBySemanticKeyStdVHType">
+                <Annotation Term="SAP__common.Label" String="Work Center By Semantic Key"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/I_WrkCtrBySemanticKeyStdVH">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="true"/>
+                        <PropertyValue Property="UnsupportedExpressions" EnumMember="SAP__capabilities.SearchExpressions/AND SAP__capabilities.SearchExpressions/NOT SAP__capabilities.SearchExpressions/group "/>
+                        <PropertyValue Property="SearchSyntax" String="https://url.sap/odata-search"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_DEPT_MASTER_VHType/Zdept">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Department "/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_DEPT_MASTER_VHType/Zdeptext">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Description of depar"/>
+                <Annotation Term="SAP__common.Heading" String="Description of department"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Description of department"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_DEPT_MASTER_VHType">
+                <Annotation Term="SAP__common.Label" String="Value Help for Department"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZI_PP_DEPT_MASTER_VH">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_FLIGHT_SUMMARYType/Keydate">
+                <Annotation Term="SAP__common.Label" String="Key date"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Heading" String="Scheduled Departure Date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Scheduled Departure Date"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_FLIGHT_SUMMARYType/Plant">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_plantvh/0001;ps='srvd-zsd_pp_prod_perform_dashboard-0001';va='com.sap.gateway.srvd.zsd_pp_prod_perform_dashboard.v0001.et-zi_pp_ppd_flight_summary.plant'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Label" String="Plant"/>
+                <Annotation Term="SAP__common.Heading" String="Plnt"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=WERKS_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_FLIGHT_SUMMARYType/TotalCount">
+                <Annotation Term="SAP__common.Label" String="Number of Flights"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_FLIGHT_SUMMARYType/Status03Count">
+                <Annotation Term="SAP__common.Label" String="Number of Flights closed"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_FLIGHT_SUMMARYType">
+                <Annotation Term="SAP__common.Label" String="View for Number of Flights Summary"/>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="Plant"/>
+                        <PropertyValue Property="TypeNamePlural" String="Plant"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="Plant"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Keydate"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Plant"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="TotalCount"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Status03Count"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>Keydate</PropertyPath>
+                        <PropertyPath>Plant</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZI_PP_PPD_FLIGHT_SUMMARY">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="Filterable" Bool="true"/>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Keydate"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleRange"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_SHIFT_NAME_VHType/EndDate">
+                <Annotation Term="SAP__common.Label" String="End Date"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_SHIFT_NAME_VHType/StartDate">
+                <Annotation Term="SAP__common.Label" String="Start Date"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_SHIFT_NAME_VHType/StartTime">
+                <Annotation Term="SAP__common.Label" String="Start Time"/>
+                <Annotation Term="SAP__common.Heading" String="Start"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=KAPBEGZEIT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_SHIFT_NAME_VHType/EndTime">
+                <Annotation Term="SAP__common.Label" String="End Time"/>
+                <Annotation Term="SAP__common.Heading" String="End"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=KAPENDZEIT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_PROD_SUMMARYType/CardName">
+                <Annotation Term="SAP__common.Label" String="Description"/>
+                <Annotation Term="SAP__common.Heading" String="Short description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Short description"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=CR_KTEXT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_PPD_FLIGHT_ORDER_DETAILType/KeyDate">
+                <Annotation Term="SAP__common.Label" String="Sched. Dep. Date"/>
+                <Annotation Term="SAP__common.Heading" String="Scheduled Departure Date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Scheduled Departure Date"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_PlantVHType/PlantName">
+                <Annotation Term="SAP__common.Label" String="Plant Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_MfgOrderProdnSupervisorStdVHType/ProductionSupervisorName">
+                <Annotation Term="SAP__common.Label" String="Prod. Superv. Name"/>
+                <Annotation Term="SAP__common.Heading" String="Production Supervisor Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Production Supervisor Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_DEPT_MASTER_VHType/Spras">
+                <Annotation Term="SAP__common.Label" String="Language Key"/>
+                <Annotation Term="SAP__common.Heading" String="Language"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=SPRAS"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

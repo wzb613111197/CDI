@@ -1,0 +1,176 @@
+{
+  "_version": "1.73.1",
+  "sap.app": {
+    "id": "com.cathaydining.zewmf008",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.21.0",
+      "toolsId": "eb4e9be5-cc0d-4ae0-b7bf-48d64ceba943"
+    },
+    "dataSources": {
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      },
+      "mainService": {
+        "uri": "/sap/opu/odata4/sap/zui_ewm_bslr_print_o4/srvd/sap/zsd_ewm_bond_stock_ledger_rpt/0001/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation"
+          ],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.136.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.cathaydining.zewmf008.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "ZI_EWM_BOND_STOCK_LEDGER_RPTList",
+          "target": "ZI_EWM_BOND_STOCK_LEDGER_RPTList"
+        },
+        {
+          "pattern": "ZI_EWM_BOND_STOCK_LEDGER_RPT({key}):?query:",
+          "name": "ZI_EWM_BOND_STOCK_LEDGER_RPTObjectPage",
+          "target": "ZI_EWM_BOND_STOCK_LEDGER_RPTObjectPage"
+        }
+      ],
+      "targets": {
+        "ZI_EWM_BOND_STOCK_LEDGER_RPTList": {
+          "type": "Component",
+          "id": "ZI_EWM_BOND_STOCK_LEDGER_RPTList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/ZI_EWM_BOND_STOCK_LEDGER_RPT",
+              "variantManagement": "Page",
+              "navigation": {
+                "ZI_EWM_BOND_STOCK_LEDGER_RPT": {
+                  "detail": {
+                    "route": "ZI_EWM_BOND_STOCK_LEDGER_RPTObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable",
+                    "selectAll": true,
+                    "selectionMode": "Multi"
+                  },
+                  "actions": {
+                    "Print": {
+                      "press": ".extension.com.cathaydining.zewmf008.ext.controller.ListReportExtension.onPrint",
+                      "visible": true,
+                      "enabled": true,
+                      "requiresSelection": true,
+                      "text": "{i18n>Print}"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "ZI_EWM_BOND_STOCK_LEDGER_RPTObjectPage": {
+          "type": "Component",
+          "id": "ZI_EWM_BOND_STOCK_LEDGER_RPTObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/ZI_EWM_BOND_STOCK_LEDGER_RPT"
+            }
+          }
+        }
+      }
+    },
+    "extends": {
+      "extensions": {
+        "sap.ui.controllerExtensions": {
+          "sap.fe.templates.ListReport.ListReportController": {
+            "controllerName": "com.cathaydining.zewmf008.ext.controller.ListReportExtension"
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  },
+  "sap.fe": {
+    "app": {
+      "enableLazyLoading": true
+    }
+  }
+}

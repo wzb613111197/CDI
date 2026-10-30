@@ -1,0 +1,33 @@
+﻿<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:ndc="sap.ndc">
+    <form:SimpleForm
+        id="ConfirmReceivingForm"
+        layout="ResponsiveGridLayout"
+        labelSpanL="4" labelSpanM="4" labelSpanS="12"
+        emptySpanL="0" emptySpanM="0"
+        columnsL="1" columnsM="1"
+        editable="true">
+        <form:content>
+            <Label id="MaterialDocumentNumberLabel" required="true" text="Material Document Number"/>
+            <HBox id="MaterialDocumentNumberHBox" alignItems="Center" width="100%">
+                <Input
+                    id="MaterialDocumentNumberInput"
+                    type="Text"
+                    placeholder="Scan or enter barcode"
+                    width="100%"
+                    change=".extension.com.cathaydining.zppf010.ext.controller.ListReportExtension.onMaterialDocumentChange"
+                />
+                <ndc:BarcodeScannerButton
+                    id="BarcodeScannerButton"
+                    scanSuccess=".extension.com.cathaydining.zppf010.ext.controller.ListReportExtension.onBarcodeScanSuccess"
+                    scanFail=".extension.com.cathaydining.zppf010.ext.controller.ListReportExtension.onBarcodeScanFail"
+                    inputLiveUpdate="false"
+                    class="sampleBarcodeScannerButtonWithZebraEB"
+                />
+            </HBox>
+        </form:content>
+    </form:SimpleForm>
+</core:FragmentDefinition>

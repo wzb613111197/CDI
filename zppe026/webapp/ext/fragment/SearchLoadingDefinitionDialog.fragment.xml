@@ -1,0 +1,52 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Dialog
+        id="searchLoadingDefinitionDialog"
+        title="Search Loading Definition"
+        contentWidth="90%"
+        contentHeight="32rem"
+        resizable="true"
+        draggable="true">
+        <content>
+            <Table
+                id="searchLoadingDefinitionTable"
+                mode="MultiSelect"
+                growing="true"
+                growingScrollToLoad="true"
+                items="{loadingDefinition>/rows}">
+                <columns>
+                    <Column id="airlineColumn"><Label id="airlineLabel" text="Airline"/></Column>
+                    <Column id="templateCodeColumn"><Label id="templateCodeLabel" text="Loading Template Code"/></Column>
+                    <Column id="templateNameColumn"><Label id="templateNameLabel" text="Loading Template Name"/></Column>
+                    <Column id="templateValidFromColumn"><Label id="templateValidFromLabel" text="Loading Template Valid From"/></Column>
+                    <Column id="templateValidToColumn"><Label id="templateValidToLabel" text="Loading Template Valid To"/></Column>
+                    <Column id="definitionCodeColumn"><Label id="definitionCodeLabel" text="Loading Definition Code"/></Column>
+                    <Column id="definitionNameColumn"><Label id="definitionNameLabel" text="Loading Definition Name"/></Column>
+                    <Column id="definitionValidFromColumn"><Label id="definitionValidFromLabel" text="Loading Definition Valid From"/></Column>
+                    <Column id="definitionValidToColumn"><Label id="definitionValidToLabel" text="Loading Definition Valid To"/></Column>
+                    <Column id="flightNumberColumn"><Label id="flightNumberLabel" text="Flight Number"/></Column>
+                    <Column id="sectorColumn"><Label id="sectorLabel" text="Sector"/></Column>
+                </columns>
+                <items>
+                    <ColumnListItem id="searchLoadingDefinitionItem">
+                        <cells>
+                            <Text id="airlineText" text="{loadingDefinition>Airline}"/>
+                            <Text id="templateCodeText" text="{loadingDefinition>LoadingTemplateCode}"/>
+                            <Text id="templateNameText" text="{loadingDefinition>LoadingTemplateName}"/>
+                            <Text id="templateValidFromText" text="{loadingDefinition>LoadingTemplateValidFrom}"/>
+                            <Text id="templateValidToText" text="{loadingDefinition>LoadingTemplateValidTo}"/>
+                            <Text id="definitionCodeText" text="{loadingDefinition>LoadingDefinitionCode}"/>
+                            <Text id="definitionNameText" text="{loadingDefinition>LoadingDefinitionName}"/>
+                            <Text id="definitionValidFromText" text="{loadingDefinition>LoadingDefinitionValidFrom}"/>
+                            <Text id="definitionValidToText" text="{loadingDefinition>LoadingDefinitionValidTo}"/>
+                            <Text id="flightNumberText" text="{loadingDefinition>FlightNumber}"/>
+                            <Text id="sectorText" text="{loadingDefinition>Sector}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+        <endButton>
+            <Button id="closeSearchLoadingDefinitionButton" text="Close" press=".onCloseSearchLoadingDefinition"/>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

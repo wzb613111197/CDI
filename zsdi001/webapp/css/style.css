@@ -1,0 +1,76 @@
+/* Enter your custom styles here */
+
+/* Send Spec: dialog content fills stretch height; GridTable sized via JS */
+.sendSpecDialog.sapMDialog {
+    display: flex;
+    flex-direction: column;
+}
+.sendSpecDialog .sapMDialogSection {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden !important;
+}
+.sendSpecDialog .sapMDialogScroll {
+    flex: 1 1 auto;
+    min-height: 0;
+    height: auto !important;
+    overflow: hidden !important;
+}
+.sendSpecDialog .sapMDialogScrollCont {
+    display: flex !important;
+    flex-direction: column;
+    height: 100% !important;
+    min-height: 0;
+    overflow: hidden !important;
+    box-sizing: border-box;
+}
+.sendSpecToolbar {
+    padding-right: 1rem;
+    box-sizing: border-box;
+    flex: 0 0 auto;
+}
+.sendSpecContent {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    padding-top: 0.5rem;
+}
+.sendSpecDialog .sendSpecGridTable,
+.sendSpecDialog .sendSpecGridTable.sapUiTable {
+    flex: 1 1 auto;
+    min-height: 0;
+}
+
+/* Hide state icon inside ProgressIndicator */
+.hideBarIcon > span[id$="-icon"],
+.hideBarIcon > .sapUiIcon,
+.hideBarIcon > span[data-sap-ui-icon-content],
+.hideBarIcon > span:not([class*="sapMPI"]) {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    visibility: hidden !important;
+}
+
+.fixedSectionBlock {
+    height: 34rem;
+    min-height: 34rem;
+    max-height: 34rem;
+    overflow: auto;
+    padding: 0.5rem 0;
+}
+
+@media (max-width: 1024px) {
+    .fixedSectionBlock {
+        height: auto;
+        min-height: 24rem;
+        max-height: none;
+    }
+}

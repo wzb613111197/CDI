@@ -1,0 +1,29 @@
+{
+  "generationParameters": {
+    "generationDate": "Mon Oct 26 2026 10:20:52 GMT+0800 (China Standard Time)",
+    "generatorPlatform": "Visual Studio Code",
+    "serviceType": "SAP System (ABAP On-Premise)",
+    "metadataFilename": "",
+    "serviceUrl": "https://vhcwawd1wd01.sap.fmsete.cpafms.com:44380/sap/opu/odata4/sap/zui_sd_ewm_task_pick_o4/srvd/sap/zsd_ewm_task_pick/0001/",
+    "appName": "zewmi002",
+    "appTitle": "Picking Warehouse Task（From WMS）",
+    "appDescription": "Picking Warehouse Task（From WMS）",
+    "appNamespace": "com.cathaydining",
+    "ui5Theme": "sap_horizon",
+    "ui5Version": "1.136.10",
+    "enableEslint": false,
+    "enableTypeScript": false,
+    "showMockDataInfo": true,
+    "generatorVersion": "1.21.0",
+    "template": "List Report Page V4",
+    "generatorName": "SAP Fiori Application Generator",
+    "entityRelatedConfig": [
+      {
+        "type": "Main Entity",
+        "value": "ZC_EWM_TASK_PICK"
+      }
+    ],
+    "launchText": "To launch the generated application, run the following from the generated application root folder:\n\n```\n    npm start\n```",
+    "valueHelpDownloaded": true
+  }
+}

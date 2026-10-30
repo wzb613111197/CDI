@@ -1,0 +1,63 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:table="sap.ui.table"
+	xmlns:rowmodes="sap.ui.table.rowmodes">
+	<Dialog
+		id="simulateAndCompareResultDialog"
+		title="{@i18n>SimulateAndCompare}"
+		contentWidth="98%"
+		contentHeight="95%"
+		resizable="true"
+		draggable="true"
+		stretch="true"
+		verticalScrolling="false"
+		horizontalScrolling="false">
+		<content>
+			<table:Table
+				id="simulateAndCompareTable"
+				rows="{ui>/compareItems}"
+				selectionMode="MultiToggle"
+				enableSelectAll="true"
+				width="100%"
+				height="100%"
+				rowHeight="32"
+				columnHeaderHeight="34"
+				noData="{@i18n>msgNoSimulateData}">
+				<table:rowMode>
+					<rowmodes:Auto minRowCount="12"/>
+				</table:rowMode>
+				<table:columns>
+					<table:Column width="5rem"><Label text="{@i18n>Airline}"/><table:template><Text text="{ui>AirlineCode}" wrapping="false"/></table:template></table:Column>
+					<table:Column width="9rem"><Label text="{@i18n>FlightOrderNumber}"/><table:template><Text text="{ui>FlightOrderNumber}" wrapping="false"/></table:template></table:Column>
+					<table:Column width="7rem"><Label text="{@i18n>FlightOrderType}"/><table:template><Text text="{ui>FlightOrderType}" wrapping="false"/></table:template></table:Column>
+					<table:Column width="7rem"><Label text="{@i18n>AircraftType}"/><table:template><Text text="{ui>AircraftType}" wrapping="false"/></table:template></table:Column>
+					<table:Column width="9rem"><Label text="{@i18n>ScheduledDepartureDate}"/><table:template><Text text="{ui>ScheduledDepartureDate}" wrapping="false"/></table:template></table:Column>
+					<table:Column width="5rem"><Label text="{@i18n>ItemNo}"/><table:template><Text text="{ui>ItemNo}" wrapping="false"/></table:template></table:Column>
+					<table:Column width="7rem"><Label text="{@i18n>Sector}"/><table:template><Text text="{ui>Sector}" wrapping="false"/></table:template></table:Column>
+					<table:Column width="7rem"><Label text="{@i18n>ServiceSequence}"/><table:template><Text text="{ui>ServiceSequence}" wrapping="false"/></table:template></table:Column>
+					<table:Column width="6rem"><Label text="{@i18n>SeatClass}"/><table:template><Text text="{ui>SeatClass}" wrapping="false"/></table:template></table:Column>
+					<table:Column width="6rem"><Label text="{@i18n>MealClass}"/><table:template><Text text="{ui>MealClass}" wrapping="false"/></table:template></table:Column>
+					<table:Column width="8rem"><Label text="{@i18n>ItemCategory}"/><table:template><Text text="{ui>ItemCategory}" wrapping="false"/></table:template></table:Column>
+					<table:Column width="7rem"><Label text="{@i18n>DishType}"/><table:template><Text text="{ui>DishType}" wrapping="false"/></table:template></table:Column>
+					<table:Column width="6rem"><Label text="{@i18n>ChoiceNumber}"/><table:template><Text text="{ui>ChoiceNumber}" wrapping="false"/></table:template></table:Column>
+					<table:Column width="8rem"><Label text="{@i18n>SpecialMealType}"/><table:template><Text text="{ui>SpecialMealType}" wrapping="false"/></table:template></table:Column>
+					<table:Column width="10rem"><Label text="{@i18n>MaterialNumber}"/><table:template><Text text="{ui>MaterialNumber}" wrapping="false"/></table:template></table:Column>
+					<table:Column width="10rem"><Label text="{@i18n>OriginalCalculatedItemQuantity}"/><table:template><Text text="{ui>OriginalCalculatedItemQuantity}" wrapping="false"/></table:template></table:Column>
+					<table:Column width="10rem"><Label text="{@i18n>SimulatedCalculatedItemQuantity}"/><table:template><Text text="{ui>SimulatedCalculatedItemQuantity}" wrapping="false"/></table:template></table:Column>
+					<table:Column width="8rem"><Label text="{@i18n>VarianceQuantity}"/><table:template><Text text="{ui>VarianceQuantity}" wrapping="false"/></table:template></table:Column>
+					<table:Column width="8rem"><Label text="{@i18n>SalesOrderPrice}"/><table:template><Text text="{ui>SalesOrderPrice}" wrapping="false"/></table:template></table:Column>
+					<table:Column width="8rem"><Label text="{@i18n>CurrentSalesPrice}"/><table:template><Text text="{ui>CurrentSalesPrice}" wrapping="false"/></table:template></table:Column>
+					<table:Column width="10rem"><Label text="{@i18n>VarianceValuePerSalesOrder}"/><table:template><Text text="{ui>VarianceValuePerSalesOrder}" wrapping="false"/></table:template></table:Column>
+					<table:Column width="10rem"><Label text="{@i18n>VarianceValuePerCurrent}"/><table:template><Text text="{ui>VarianceValuePerCurrent}" wrapping="false"/></table:template></table:Column>
+					<table:Column width="5rem"><Label text="{@i18n>UnitOfMeasure}"/><table:template><Text text="{ui>UnitOfMeasure}" wrapping="false"/></table:template></table:Column>
+					<table:Column width="8rem"><Label text="{@i18n>SalesOrderNumber}"/><table:template><Text text="{ui>SalesOrderNumber}" wrapping="false"/></table:template></table:Column>
+					<table:Column width="8rem"><Label text="{@i18n>BillingDocument}"/><table:template><Text text="{ui>BillingDocument}" wrapping="false"/></table:template></table:Column>
+				</table:columns>
+			</table:Table>
+		</content>
+		<endButton>
+			<Button text="{@i18n>Cancel}" press=".onCloseSimulateAndCompareDialog"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

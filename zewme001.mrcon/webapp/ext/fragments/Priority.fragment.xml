@@ -1,0 +1,27 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+    <VBox id="vboxPriority">
+        <Select
+            id="inputPriority"
+            enabled="false"
+            modelContextChange=".extension.com.cathaydining.zewme001.mrcon.ext.controller.ListPageExtention.onRowInputModelContextChange"
+            selectedKey="{
+                parts: [
+                    {path: 'localData>/changedRows'},
+                    {path: 'datasource'},
+                    {path: 'vbeln'},
+                    {path: 'posnr'},
+                    {path: 'priority'}
+                ],
+                formatter: '.extension.com.cathaydining.zewme001.mrcon.ext.controller.ListPageExtention.getPriorityValue',
+                mode: 'sap.ui.model.BindingMode.OneWay'
+            }"
+            change=".extension.com.cathaydining.zewme001.mrcon.ext.controller.ListPageExtention.onRowDataChange_priority">
+            <items>
+                <core:Item id="priorityNormalItem" key="N" text="{i18n>priorityNormal}" />
+                <core:Item id="priorityUrgentItem" key="U" text="{i18n>priorityUrgent}" />
+            </items>
+        </Select>
+    </VBox>
+</core:FragmentDefinition>

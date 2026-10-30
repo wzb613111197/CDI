@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "4.0"
+metadata:
+  name: com.cathaydining.zppf006
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          url: https://vhcwawd1wd01.sap.fmsete.cpafms.com:44380
+          client: '100'
+        app:
+          name: ZPP_FLIGHTLABEL
+          description: Flight Label
+          package: ZPPF006
+          transport: SS1K902828
+        exclude:
+          - /test/

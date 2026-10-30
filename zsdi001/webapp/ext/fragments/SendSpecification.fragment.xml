@@ -1,0 +1,174 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:table="sap.ui.table"
+>
+    <VBox
+        width="100%"
+        height="100%"
+        class="sendSpecContent"
+    >
+        <OverflowToolbar width="100%" class="sendSpecToolbar">
+            <layoutData>
+                <FlexItemData shrinkFactor="0"/>
+            </layoutData>
+            <Label
+                text="{i18n>qdVaidForm}"
+                wrapping="false"
+            />
+            <DatePicker
+                width="10rem"
+                value="{path:'ui>/MassUpdate/vaidfrom',type:'sap.ui.model.type.Date',formatOptions:{UTC:true}}"
+                displayFormat="medium"
+            />
+            <Button
+                text="{i18n>MassUpdate}"
+                type="Emphasized"
+                press="onMassUpdate"
+            />
+            <ToolbarSeparator/>
+            <Title
+                text="{= ${i18n>materialDisplayLabel} + ' (' + (${ui>/selectedMaterialRows}.length || 0) + ')' }"
+                level="H5"
+                wrapping="false"
+            />
+            <ToolbarSpacer/>
+            <Button
+                text="{i18n>retriggerToCpButton}"
+                type="Attention"
+                press="onRetriggerToCp"
+            />
+            <Button
+                text="{i18n>triggerToCpButton}"
+                type="Emphasized"
+                press="onTriggerToCp"
+            />
+        </OverflowToolbar>
+        <table:Table
+            id="sendSpecGridTable"
+            width="100%"
+            height="100%"
+            rows="{ui>/selectedMaterialRows}"
+            selectionMode="MultiToggle"
+            selectionBehavior="RowSelector"
+            visibleRowCountMode="Auto"
+            minAutoRowCount="12"
+            alternateRowColors="true"
+            enableColumnReordering="true"
+            noData="{i18n>noData}"
+            class="sendSpecGridTable"
+        >
+            <table:layoutData>
+                <FlexItemData growFactor="1" shrinkFactor="1" baseSize="0%"/>
+            </table:layoutData>
+            <table:columns>
+                <table:Column width="3rem" hAlign="Center">
+                    <Label text=""/>
+                    <table:template>
+                        <Button
+                            icon="sap-icon://display"
+                            tooltip="{i18n>viewLabel}"
+                            type="Transparent"
+                            press="onQDViewItem"
+                        />
+                    </table:template>
+                </table:Column>
+                <table:Column width="20rem" minWidth="160" sortProperty="Material" filterProperty="Material">
+                    <Label text="{i18n>colMaterial}"/>
+                    <table:template>
+                        <Text text="{= ${ui>Description} &amp;&amp; ${ui>Material} ? ${ui>Description} + ' (' + ${ui>Material} + ')' : (${ui>Description} || ${ui>Material}) }" wrapping="false"/>
+                    </table:template>
+                </table:Column>
+                <table:Column width="12rem" sortProperty="OldMaterial" filterProperty="OldMaterial">
+                    <Label text="{i18n>oldMaterialLabel}"/>
+                    <table:template>
+                        <Text text="{ui>OldMaterial}" wrapping="false"/>
+                    </table:template>
+                </table:Column>
+                <table:Column width="8rem" sortProperty="BomEffectiveDate">
+                    <Label text="{i18n>validFromLabel}"/>
+                    <table:template>
+                        <Text
+                            text="{path:'ui>BomEffectiveDate',type:'sap.ui.model.type.Date',formatOptions:{source:{pattern:'yyyy-MM-dd',UTC:true},UTC:true}}"
+                        />
+                    </table:template>
+                </table:Column>
+                <table:Column width="7rem" sortProperty="ServiceType" filterProperty="ServiceType">
+                    <Label text="{i18n>serviceTypeLabel}"/>
+                    <table:template>
+                        <Text text="{ui>ServiceType}" wrapping="false"/>
+                    </table:template>
+                </table:Column>
+                <table:Column width="6rem" sortProperty="SpecType" filterProperty="SpecType">
+                    <Label text="{i18n>specTypeLabel}"/>
+                    <table:template>
+                        <Text text="{ui>SpecType}"/>
+                    </table:template>
+                </table:Column>
+                <table:Column width="6.5rem" sortProperty="MaterialType" filterProperty="MaterialType">
+                    <Label text="{i18n>materialTypeLabel}"/>
+                    <table:template>
+                        <Text text="{ui>MaterialType}"/>
+                    </table:template>
+                </table:Column>
+                <table:Column width="12rem" sortProperty="BomStatus" filterProperty="BomStatus">
+                    <Label text="{i18n>bomStatusLabel}"/>
+                    <table:template>
+                        <Text text="{= ${ui>BomStatusDesc} &amp;&amp; ${ui>BomStatus} ? ${ui>BomStatusDesc} + ' (' + ${ui>BomStatus} + ')' : (${ui>BomStatusDesc} || ${ui>BomStatus}) }" wrapping="false"/>
+                    </table:template>
+                </table:Column>
+                <table:Column width="9rem" sortProperty="MaterialStatus" filterProperty="MaterialStatus">
+                    <Label text="{i18n>materialStatusLabel}"/>
+                    <table:template>
+                        <Text text="{= ${ui>MaterialStatusDesc} &amp;&amp; ${ui>MaterialStatus} ? ${ui>MaterialStatusDesc} + ' (' + ${ui>MaterialStatus} + ')' : (${ui>MaterialStatusDesc} || ${ui>MaterialStatus}) }" wrapping="false"/>
+                    </table:template>
+                </table:Column>
+                <table:Column width="10rem" sortProperty="CpStatus" filterProperty="CpStatus">
+                    <Label text="{i18n>CpStatus}"/>
+                    <table:template>
+                        <Text text="{ui>CpStatus}" wrapping="false"/>
+                    </table:template>
+                </table:Column>
+                <table:Column width="5rem" hAlign="Center" sortProperty="Resend">
+                    <Label text="{i18n>resendLabel}"/>
+                    <table:template>
+                        <Text text="{ui>Resend}"/>
+                    </table:template>
+                </table:Column>
+                <table:Column width="5rem" sortProperty="AirlineCode" filterProperty="AirlineCode">
+                    <Label text="{i18n>colAirlineCode}"/>
+                    <table:template>
+                        <Text text="{ui>AirlineCode}"/>
+                    </table:template>
+                </table:Column>
+                <table:Column width="8rem" sortProperty="CabinClass" filterProperty="CabinClass">
+                    <Label text="{i18n>cabinClassLabel}"/>
+                    <table:template>
+                        <Text text="{ui>CabinClass}"/>
+                    </table:template>
+                </table:Column>
+                <table:Column width="10rem" sortProperty="AltDescription" filterProperty="AltDescription">
+                    <Label text="{i18n>altDescriptionLabel}"/>
+                    <table:template>
+                        <Text text="{ui>AltDescription}"/>
+                    </table:template>
+                </table:Column>
+                <table:Column width="10rem" sortProperty="SpecTagCategory" filterProperty="SpecTagCategory">
+                    <Label text="{i18n>specTagCategoryLabel}"/>
+                    <table:template>
+                        <Text text="{ui>SpecTagCategory}"/>
+                    </table:template>
+                </table:Column>
+                <table:Column width="14rem" sortProperty="Message" filterProperty="Message">
+                    <Label text="{i18n>messageLabel}"/>
+                    <table:template>
+                        <ObjectStatus
+                            text="{ui>Message}"
+                            state="{= ${ui>Type} === 'E' || ${ui>Type} === 'A' ? 'Error' : (${ui>Type} === 'W' ? 'Warning' : (${ui>Type} === 'S' || ${ui>Type} === 'I' ? 'Success' : 'None')) }"
+                        />
+                    </table:template>
+                </table:Column>
+            </table:columns>
+        </table:Table>
+    </VBox>
+</core:FragmentDefinition>

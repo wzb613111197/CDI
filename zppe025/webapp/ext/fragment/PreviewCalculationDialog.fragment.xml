@@ -1,0 +1,56 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:t="sap.ui.table"
+    xmlns:trm="sap.ui.table.rowmodes"
+    xmlns:f="sap.ui.layout.form">
+    <Dialog
+        id="previewCalcDialog"
+        title="{i18n>PreviewCalculation}"
+        contentWidth="60rem"
+        resizable="true"
+        draggable="true">
+        <content>
+            <f:SimpleForm
+                id="previewCalcForm"
+                editable="true"
+                layout="ResponsiveGridLayout"
+                labelSpanXL="4" labelSpanL="4" labelSpanM="4" labelSpanS="12"
+                columnsXL="2" columnsL="2" columnsM="2">
+                <f:content>
+                    <Label id="lblDepartureDate" text="{i18n>DepartureDate}" required="true"/>
+                    <DatePicker id="previewDepartureDate" width="12rem" value="{path:'previewModel>/DepartureDate',type:'sap.ui.model.type.Date',formatOptions:{source:{pattern:'yyyy-MM-dd',UTC:true},UTC:'true'}}"/>
+                    <Label id="lblCalcBase" text="{i18n>CalcBase}" required="true"/>
+                    <Input id="previewCalcBase" value="{previewModel>/CalcBase}" type="Number" width="12rem"/>
+                    <Label id="lblSeatConfiguration" text="{i18n>SeatConfiguration}" required="true"/>
+                    <Input id="previewSeatConfiguration" value="{previewModel>/SeatConfiguration}" type="Number" width="12rem"/>
+                    <Label id="lblAcftType" text="{i18n>AcftType}"/>
+                    <Input id="previewAcftType" value="{previewModel>/AcftType}" width="12rem" showValueHelp="true" valueHelpRequest="onAcftTypeValueHelp"/>
+                    <Label id="lblGalleyVersion" text="{i18n>GalleyVersion}"/>
+                    <Input id="previewGalleyVersion" value="{previewModel>/GalleyVersion}" width="12rem" showValueHelp="true" valueHelpRequest="onGalleyVersionValueHelp"/>
+                </f:content>
+            </f:SimpleForm>
+            <t:Table
+                id="previewResultTable"
+                rows="{path: 'previewModel>/results', sorter: {path: 'Seq', descending: false}}"
+                selectionMode="None">
+                <t:rowMode>
+                    <trm:Fixed id="previewRowMode" rowCount="10"/>
+                </t:rowMode>
+                <t:columns>
+                    <t:Column id="colDishType" width="10rem"><Label id="txtColDishType" text="{i18n>DishType}"/><t:template><Text id="cellDishType" text="{previewModel>DishType}"/></t:template></t:Column>
+                    <t:Column id="colMatnr" width="10rem"><Label id="txtColMatnr" text="{i18n>Matnr}"/><t:template><Text id="cellMatnr" text="{previewModel>Matnr}"/></t:template></t:Column>
+                    <t:Column id="colMatDesc"><Label id="txtColMatDesc" text="{i18n>MaterialDescription}"/><t:template><Text id="cellMatDesc" text="{previewModel>MaterialDescription}"/></t:template></t:Column>
+                    <t:Column id="colChoice" width="6rem"><Label id="txtColChoice" text="{i18n>Choice}"/><t:template><Text id="cellChoice" text="{previewModel>Choice}"/></t:template></t:Column>
+                    <t:Column id="colCalcQty" width="10rem"><Label id="txtColCalcQty" text="{i18n>CalcQty}"/><t:template><Text id="cellCalcQty" text="{previewModel>CalcQty}"/></t:template></t:Column>
+                </t:columns>
+            </t:Table>
+        </content>
+        <beginButton>
+            <Button id="btnPreviewGo" text="{i18n>Go}" type="Emphasized" press="onPreviewGo"/>
+        </beginButton>
+        <endButton>
+            <Button id="btnPreviewClose" text="{i18n>Close}" press="onPreviewClose"/>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

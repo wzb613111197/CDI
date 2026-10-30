@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="SAP__aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="SAP__capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HIERARCHY',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="SAP__hierarchy"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="SAP__HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="SAP__measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ODM',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.ODM.v1" Alias="SAP__ODM"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SESSION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="SAP__session"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="SAP__UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="SAP__validation"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="com.sap.gateway.srvd.zsd_ewm_bond_daily_closing_rpt.v0001" Alias="SAP__self">
+            <Annotation Term="SAP__core.SchemaVersion" String="1.0.0"/>
+            <EntityType Name="ZI_EWM_BOND_DAILY_CLOSING_RPTType">
+                <Key>
+                    <PropertyRef Name="Item"/>
+                    <PropertyRef Name="ReportDate"/>
+                    <PropertyRef Name="Airline"/>
+                    <PropertyRef Name="DutyStatus"/>
+                    <PropertyRef Name="Warehouse"/>
+                    <PropertyRef Name="WarehouseAll"/>
+                    <PropertyRef Name="ReportType"/>
+                </Key>
+                <Property Name="Item" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="ReportDate" Type="Edm.Date" Nullable="false"/>
+                <Property Name="Airline" Type="Edm.String" Nullable="false" MaxLength="70"/>
+                <Property Name="DutyStatus" Type="Edm.String" Nullable="false" MaxLength="70"/>
+                <Property Name="Warehouse" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="WarehouseAll" Type="Edm.String" Nullable="false"/>
+                <Property Name="ReportType" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="CustomCode" Type="Edm.String" Nullable="false" MaxLength="70"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="Packing" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="UM" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="DGUM" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="DGCT" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="DGTU" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="PSUM" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="PSCT" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="PSTU" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="HMUM" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="HMCT" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="HMTU" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="FloatUM" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="FloatCT" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="FloatTU" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="BOND2UM" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="BOND2CT" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="BOND2TU" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="TotalUM" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="TotalCT" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="TotalTU" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="SaleableValue" Type="Edm.String" Nullable="false" MaxLength="70"/>
+                <Property Name="__OperationControl" Type="com.sap.gateway.srvd.zsd_ewm_bond_daily_closing_rpt.v0001.ZI_EWM_BOND_DAILY_CLOSING_RPTOperationControl"/>
+                <Property Name="SAP__Messages" Type="Collection(com.sap.gateway.srvd.zsd_ewm_bond_daily_closing_rpt.v0001.SAP__Message)" Nullable="false"/>
+            </EntityType>
+            <ComplexType Name="ZI_EWM_BOND_DAILY_CLOSING_RPTOperationControl">
+                <Property Name="print" Type="Edm.Boolean" Nullable="false"/>
+            </ComplexType>
+            <ComplexType Name="ZA_EWM_BDCR_RESULT">
+                <Property Name="filename" Type="Edm.String" Nullable="false" MaxLength="200"/>
+                <Property Name="huform" Type="Edm.Binary" Nullable="false"/>
+                <Property Name="mimetype" Type="Edm.String" Nullable="false" MaxLength="128"/>
+            </ComplexType>
+            <ComplexType Name="SAP__Message">
+                <Property Name="code" Type="Edm.String" Nullable="false"/>
+                <Property Name="message" Type="Edm.String" Nullable="false"/>
+                <Property Name="target" Type="Edm.String"/>
+                <Property Name="additionalTargets" Type="Collection(Edm.String)" Nullable="false"/>
+                <Property Name="transition" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="numericSeverity" Type="Edm.Byte" Nullable="false"/>
+                <Property Name="longtextUrl" Type="Edm.String"/>
+            </ComplexType>
+            <Action Name="print" IsBound="true">
+                <Parameter Name="_it" Type="com.sap.gateway.srvd.zsd_ewm_bond_daily_closing_rpt.v0001.ZI_EWM_BOND_DAILY_CLOSING_RPTType" Nullable="false"/>
+                <Parameter Name="IsPreview" Type="Edm.Boolean" Nullable="false"/>
+                <ReturnType Type="com.sap.gateway.srvd.zsd_ewm_bond_daily_closing_rpt.v0001.ZA_EWM_BDCR_RESULT" Nullable="false"/>
+            </Action>
+            <EntityContainer Name="Container">
+                <EntitySet Name="ZI_EWM_BOND_DAILY_CLOSING_RPT" EntityType="com.sap.gateway.srvd.zsd_ewm_bond_daily_closing_rpt.v0001.ZI_EWM_BOND_DAILY_CLOSING_RPTType"/>
+            </EntityContainer>
+            <Annotations Target="SAP__self.ZA_EWM_BDCR_RESULT/filename">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="File Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_EWM_BDCR_RESULT/mimetype">
+                <Annotation Term="SAP__core.IsMediaType"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Mime Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTType/Item">
+                <Annotation Term="SAP__common.Label" String="Item"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Material"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTType/ReportDate">
+                <Annotation Term="SAP__common.Label" String="Date"/>
+                <Annotation Term="SAP__core.Computed"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTType/Airline">
+                <Annotation Term="SAP__common.Label" String="Airline"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_ewm_airline_vh/0001;ps='srvd-zsd_ewm_bond_daily_closing_rpt-0001';va='com.sap.gateway.srvd.zsd_ewm_bond_daily_closing_rpt.v0001.et-zi_ewm_bond_daily_closing_rpt.airline'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="Characteristic Value"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Characteristic Value"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ATWRT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTType/DutyStatus">
+                <Annotation Term="SAP__common.Label" String="Duty Status"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_ewm_dutystatus_vh/0001;ps='srvd-zsd_ewm_bond_daily_closing_rpt-0001';va='com.sap.gateway.srvd.zsd_ewm_bond_daily_closing_rpt.v0001.et-zi_ewm_bond_daily_closing_rpt.dutystatus'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="Characteristic Value"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Characteristic Value"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ATWRT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTType/Warehouse">
+                <Annotation Term="SAP__common.Label" String="Warehouse"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_ewm_warehouse_vh/0001;ps='srvd-zsd_ewm_bond_daily_closing_rpt-0001';va='com.sap.gateway.srvd.zsd_ewm_bond_daily_closing_rpt.v0001.et-zi_ewm_bond_daily_closing_rpt.warehouse'/$metadata</String>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTType/ReportType">
+                <Annotation Term="SAP__common.Label" String="Report Type"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_ewm_bdcr_reporttype_vh/0001;ps='srvd-zsd_ewm_bond_daily_closing_rpt-0001';va='com.sap.gateway.srvd.zsd_ewm_bond_daily_closing_rpt.v0001.et-zi_ewm_bond_daily_closing_rpt.reporttype'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTType/CustomCode">
+                <Annotation Term="SAP__common.Label" String="Custom Code"/>
+                <Annotation Term="SAP__common.Heading" String="Characteristic Value"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Characteristic Value"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ATWRT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTType/Description">
+                <Annotation Term="SAP__common.Label" String="Description"/>
+                <Annotation Term="SAP__common.Heading" String="Material Description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Description"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MAKTX"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTType/Packing">
+                <Annotation Term="SAP__common.Label" String="Packing"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Size/dimensions"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Size/dimensions"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=GROES"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTType/UM">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__common.Label" String="UM"/>
+                <Annotation Term="SAP__common.Heading" String="BUn"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Base Unit of Measure"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MEINS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTType/DGUM">
+                <Annotation Term="SAP__common.Label" String="DG-UM"/>
+                <Annotation Term="SAP__measures.Unit" Path="UM"/>
+                <Annotation Term="SAP__common.Heading" String="Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Quantity"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTType/DGCT">
+                <Annotation Term="SAP__common.Label" String="DG-CT"/>
+                <Annotation Term="SAP__measures.Unit" Path="UM"/>
+                <Annotation Term="SAP__common.Heading" String="Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Quantity"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTType/DGTU">
+                <Annotation Term="SAP__common.Label" String="DG-TU"/>
+                <Annotation Term="SAP__measures.Unit" Path="UM"/>
+                <Annotation Term="SAP__common.Heading" String="Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Quantity"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTType/PSUM">
+                <Annotation Term="SAP__common.Label" String="PS-UM"/>
+                <Annotation Term="SAP__measures.Unit" Path="UM"/>
+                <Annotation Term="SAP__common.Heading" String="Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Quantity"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTType/PSCT">
+                <Annotation Term="SAP__common.Label" String="PS-CT"/>
+                <Annotation Term="SAP__measures.Unit" Path="UM"/>
+                <Annotation Term="SAP__common.Heading" String="Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Quantity"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTType/PSTU">
+                <Annotation Term="SAP__common.Label" String="PS-TU"/>
+                <Annotation Term="SAP__measures.Unit" Path="UM"/>
+                <Annotation Term="SAP__common.Heading" String="Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Quantity"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTType/HMUM">
+                <Annotation Term="SAP__common.Label" String="HM-UM"/>
+                <Annotation Term="SAP__measures.Unit" Path="UM"/>
+                <Annotation Term="SAP__common.Heading" String="Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Quantity"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTType/HMCT">
+                <Annotation Term="SAP__common.Label" String="HM-CT"/>
+                <Annotation Term="SAP__measures.Unit" Path="UM"/>
+                <Annotation Term="SAP__common.Heading" String="Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Quantity"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTType/HMTU">
+                <Annotation Term="SAP__common.Label" String="HM-TU"/>
+                <Annotation Term="SAP__measures.Unit" Path="UM"/>
+                <Annotation Term="SAP__common.Heading" String="Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Quantity"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTType/FloatUM">
+                <Annotation Term="SAP__common.Label" String="Float-UM"/>
+                <Annotation Term="SAP__measures.Unit" Path="UM"/>
+                <Annotation Term="SAP__common.Heading" String="Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Quantity"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTType/FloatCT">
+                <Annotation Term="SAP__common.Label" String="Float-CT"/>
+                <Annotation Term="SAP__measures.Unit" Path="UM"/>
+                <Annotation Term="SAP__common.Heading" String="Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Quantity"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTType/FloatTU">
+                <Annotation Term="SAP__common.Label" String="Float-TU"/>
+                <Annotation Term="SAP__measures.Unit" Path="UM"/>
+                <Annotation Term="SAP__common.Heading" String="Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Quantity"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTType/BOND2UM">
+                <Annotation Term="SAP__common.Label" String="Bond2-UM"/>
+                <Annotation Term="SAP__measures.Unit" Path="UM"/>
+                <Annotation Term="SAP__common.Heading" String="Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Quantity"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTType/BOND2CT">
+                <Annotation Term="SAP__common.Label" String="Bond2-CT"/>
+                <Annotation Term="SAP__measures.Unit" Path="UM"/>
+                <Annotation Term="SAP__common.Heading" String="Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Quantity"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTType/BOND2TU">
+                <Annotation Term="SAP__common.Label" String="Bond2-TU"/>
+                <Annotation Term="SAP__measures.Unit" Path="UM"/>
+                <Annotation Term="SAP__common.Heading" String="Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Quantity"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTType/TotalUM">
+                <Annotation Term="SAP__common.Label" String="Total-UM"/>
+                <Annotation Term="SAP__measures.Unit" Path="UM"/>
+                <Annotation Term="SAP__common.Heading" String="Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Quantity"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTType/TotalCT">
+                <Annotation Term="SAP__common.Label" String="Total-CT"/>
+                <Annotation Term="SAP__measures.Unit" Path="UM"/>
+                <Annotation Term="SAP__common.Heading" String="Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Quantity"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTType/TotalTU">
+                <Annotation Term="SAP__common.Label" String="Total-TU"/>
+                <Annotation Term="SAP__measures.Unit" Path="UM"/>
+                <Annotation Term="SAP__common.Heading" String="Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Quantity"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MENGE_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTType/__OperationControl">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.print(SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTType)/IsPreview">
+                <Annotation Term="SAP__common.Label" String="Preview Mode"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.ParameterDefaultValue" Bool="true"/>
+                <Annotation Term="SAP__common.Heading" String="Truth Value"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Truth Value: True/False"/>
+            </Annotations>
+            <Annotations Target="SAP__self.print(SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTType)">
+                <Annotation Term="SAP__core.OperationAvailable" Path="_it/__OperationControl/print"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTType">
+                <Annotation Term="SAP__common.Label" String="Custom View for Bond Daily Closing Report"/>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Annotation Term="SAP__core.Messages">
+                        <Collection>
+                            <Record>
+                                <PropertyValue Property="message" String="UI.HEADERINFO: TypeNamePlural is mandatory"/>
+                                <PropertyValue Property="severity" String="error"/>
+                            </Record>
+                        </Collection>
+                    </Annotation>
+                    <Record>
+                        <PropertyValue Property="TypeName" String="Bond Daily Closing Report"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="Item"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Airline"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Item"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CustomCode"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Description"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Packing"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="UM"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="DGUM"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="DGCT"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="DGTU"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PSUM"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PSCT"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="PSTU"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="HMUM"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="HMCT"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="HMTU"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="FloatUM"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="FloatCT"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="FloatTU"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOND2UM"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOND2CT"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="BOND2TU"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="TotalUM"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="TotalCT"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="TotalTU"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ReportDate"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="DutyStatus"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Warehouse"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="WarehouseAll"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ReportType"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="SaleableValue"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>ReportDate</PropertyPath>
+                        <PropertyPath>Airline</PropertyPath>
+                        <PropertyPath>DutyStatus</PropertyPath>
+                        <PropertyPath>Warehouse</PropertyPath>
+                        <PropertyPath>ReportType</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Messages" Path="SAP__Messages"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZI_EWM_BOND_DAILY_CLOSING_RPT">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="Filterable" Bool="true"/>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="ReportDate"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Airline"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="DutyStatus"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="WarehouseAll"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="ReportType"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="RequiredProperties">
+                            <Collection>
+                                <PropertyPath>ReportDate</PropertyPath>
+                                <PropertyPath>Airline</PropertyPath>
+                                <PropertyPath>DutyStatus</PropertyPath>
+                                <PropertyPath>Warehouse</PropertyPath>
+                                <PropertyPath>ReportType</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>__OperationControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>WarehouseAll</PropertyPath>
+                                <PropertyPath>__OperationControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container">
+                <Annotation Term="SAP__CodeList.UnitsOfMeasure">
+                    <Record>
+                        <PropertyValue Property="Url" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="UnitsOfMeasure"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="SAP__capabilities.FilterFunctions">
+                    <Collection>
+                        <String>eq</String>
+                        <String>ne</String>
+                        <String>gt</String>
+                        <String>ge</String>
+                        <String>lt</String>
+                        <String>le</String>
+                        <String>and</String>
+                        <String>or</String>
+                        <String>contains</String>
+                        <String>startswith</String>
+                        <String>endswith</String>
+                        <String>any</String>
+                        <String>all</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SupportedFormats">
+                    <Collection>
+                        <String>application/json</String>
+                        <String>application/pdf</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="Border" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="FitToPage" Bool="true"/>
+                        <PropertyValue Property="FontName" Bool="true"/>
+                        <PropertyValue Property="FontSize" Bool="true"/>
+                        <PropertyValue Property="HeaderFooter" Bool="true"/>
+                        <PropertyValue Property="IANATimezoneFormat" Bool="true"/>
+                        <PropertyValue Property="Margin" Bool="true"/>
+                        <PropertyValue Property="Padding" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="20000"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="TextDirectionLayout" Bool="true"/>
+                        <PropertyValue Property="Treeview" Bool="true"/>
+                        <PropertyValue Property="UploadToFileShare" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.KeyAsSegmentSupported"/>
+                <Annotation Term="SAP__capabilities.AsynchronousRequestsSupported"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTType/WarehouseAll">
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTType/SaleableValue">
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__common.Label" String="Characteristic Value"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ATWRT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_CLOSING_RPTOperationControl/print">
+                <Annotation Term="SAP__common.Label" String="Dyn. Action Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Action Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Action Property"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

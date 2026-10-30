@@ -1,0 +1,243 @@
+{
+  "_version": "1.73.1",
+  "sap.app": {
+    "id": "com.cathaydining.zsdi001",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.21.0",
+      "toolsId": "46635d07-b681-43c4-80c4-54ebc7968fd9"
+    },
+    "dataSources": {
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      },
+      "mainService": {
+        "uri": "/sap/opu/odata4/sap/zui_sd_send_specification_o4/srvd/sap/zsd_sd_send_specification/0001/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation"
+          ],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      },
+      "qtLoadTempService": {
+        "uri": "/sap/opu/odata4/sap/zui_sd_qt_load_temp_o4/srvd/sap/zsd_sd_qt_load_temp/0001/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    },
+    "fullWidth": true
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.136.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.f": {},
+        "sap.fe.templates": {},
+        "sap.ui.table": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.cathaydining.zsdi001.i18n.i18n",
+          "supportedLocales": [
+            "",
+            "zh",
+            "zh_TW"
+          ],
+          "fallbackLocale": ""
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "qtLoadTemp": {
+        "dataSource": "qtLoadTempService",
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": false
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "Home",
+          "target": "Home"
+        },
+        {
+          "pattern": "material:?query:",
+          "name": "materialList",
+          "target": "materialList"
+        },
+        {
+          "pattern": "load_temp:?query:",
+          "name": "load_tempList",
+          "target": "load_tempList"
+        }
+      ],
+      "targets": {
+        "Home": {
+          "type": "Component",
+          "id": "Home",
+          "name": "sap.fe.core.fpm",
+          "options": {
+            "settings": {
+              "viewName": "com.cathaydining.zsdi001.ext.view.Home"
+            }
+          }
+        },
+        "materialList": {
+          "type": "Component",
+          "id": "materialList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/material",
+              "variantManagement": "Page",
+              "navigation": {},
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.SelectionFields": {
+                  "filterFields": {
+                    "SalesOrg": {
+                      "label": "{i18n>SalesOrg}",
+                      "template": "com.cathaydining.zsdi001.ext.fragments.SalesOrgFilter",
+                      "required": true
+                    }
+                  }
+                },
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "GridTable",
+                    "selectAll": true,
+                    "selectionMode": "Multi",
+                    "widthIncludingColumnHeader": true
+                  },
+                  "actions": {
+                    "MaterialSendSpecification": {
+                      "press": ".extension.com.cathaydining.zsdi001.ext.controller.ListReportExtension.onMaterialSendSpecification",
+                      "visible": true,
+                      "enabled": true,
+                      "requiresSelection": true,
+                      "text": "{i18n>Next}"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "load_tempList": {
+          "type": "Component",
+          "id": "load_tempList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/load_temp",
+              "variantManagement": "Page",
+              "navigation": {},
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable",
+                    "selectAll": true,
+                    "selectionMode": "Multi",
+                    "widthIncludingColumnHeader": true
+                  },
+                  "actions": {
+                    "LoadingTemplateSendSpecification": {
+                      "press": ".extension.com.cathaydining.zsdi001.ext.controller.ListReportExtension.onLoadingTemplateSendSpecification",
+                      "visible": true,
+                      "enabled": true,
+                      "requiresSelection": true,
+                      "text": "{i18n>Next}"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "extends": {
+      "extensions": {
+        "sap.ui.controllerExtensions": {
+          "sap.fe.templates.ListReport.ListReportController": {
+            "controllerName": "com.cathaydining.zsdi001.ext.controller.ListReportExtension"
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  },
+  "sap.fe": {
+    "app": {
+      "enableLazyLoading": true
+    }
+  }
+}

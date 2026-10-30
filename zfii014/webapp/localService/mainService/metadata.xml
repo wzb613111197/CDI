@@ -1,0 +1,1268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="SAP__aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="SAP__capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HIERARCHY',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="SAP__hierarchy"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="SAP__HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="SAP__measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ODM',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.ODM.v1" Alias="SAP__ODM"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SESSION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="SAP__session"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="SAP__UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="SAP__validation"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="com.sap.gateway.srvd.zsd_fi_zfii014.v0001" Alias="SAP__self">
+            <Annotation Term="SAP__core.SchemaVersion" String="1.0.0"/>
+            <EntityType Name="MainType">
+                <Key>
+                    <PropertyRef Name="Renum"/>
+                    <PropertyRef Name="Laufd"/>
+                    <PropertyRef Name="Laufi"/>
+                    <PropertyRef Name="Zbukr"/>
+                    <PropertyRef Name="Vblnr"/>
+                </Key>
+                <Property Name="Renum" Type="Edm.String" Nullable="false" MaxLength="16"/>
+                <Property Name="Laufd" Type="Edm.Date" Nullable="false"/>
+                <Property Name="Laufi" Type="Edm.String" Nullable="false" MaxLength="6"/>
+                <Property Name="Zbukr" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Vblnr" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="Ubnks" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="Zaldt" Type="Edm.Date"/>
+                <Property Name="Gjahr" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="FileDate" Type="Edm.Date"/>
+                <Property Name="FileTime" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="FileUser" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="FilePath" Type="Edm.String" Nullable="false" MaxLength="255"/>
+                <Property Name="ZgrpstsJpmAck0" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="ZreasonJpmAck0" Type="Edm.String" Nullable="false"/>
+                <Property Name="ZtxstsJpmAck1" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="ZreasonJpmAck1" Type="Edm.String" Nullable="false"/>
+                <Property Name="ZgrpstsHsbcAck1" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="ZreasonHsbcAck1" Type="Edm.String" Nullable="false"/>
+                <Property Name="ZtxstsHsbcAck2" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="ZreasonHsbcAck2" Type="Edm.String" Nullable="false"/>
+                <Property Name="Lifnr" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="Budat" Type="Edm.Date"/>
+                <Property Name="Kunnr" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="Empfg" Type="Edm.String" Nullable="false" MaxLength="16"/>
+                <Property Name="Name1" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="Name2" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="Land1" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="Znme1" Type="Edm.String" Nullable="false" MaxLength="35"/>
+                <Property Name="Zbnkn" Type="Edm.String" Nullable="false" MaxLength="18"/>
+                <Property Name="Zbnkl" Type="Edm.String" Nullable="false" MaxLength="15"/>
+                <Property Name="Zbkon" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="Zbvty" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Zswif" Type="Edm.String" Nullable="false" MaxLength="11"/>
+                <Property Name="Rzawe" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="Hktid" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="Hbkid" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="Valut" Type="Edm.Date"/>
+                <Property Name="Crval" Type="Edm.Date"/>
+                <Property Name="Rbetr" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="variable"/>
+                <Property Name="Rwskt" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="variable"/>
+                <Property Name="Rwbtr" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="variable"/>
+                <Property Name="Waers" Type="Edm.String" Nullable="false" MaxLength="5"/>
+                <Property Name="Kursf" Type="Edm.String" Nullable="false" MaxLength="15"/>
+                <Property Name="Absbu" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Bkref" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="Uzawe" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="Pernr" Type="Edm.String" Nullable="false" MaxLength="8"/>
+                <Property Name="Seqnr" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="Ausfd" Type="Edm.Date"/>
+                <Property Name="Koinh" Type="Edm.String" Nullable="false" MaxLength="60"/>
+                <Property Name="Kidno" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="Text" Type="Edm.String" Nullable="false" MaxLength="29"/>
+                <Property Name="Btyp1" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="Bnks1" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="Bnkl1" Type="Edm.String" Nullable="false" MaxLength="15"/>
+                <Property Name="Bnkn1" Type="Edm.String" Nullable="false" MaxLength="18"/>
+                <Property Name="Bkon1" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="Bkrf1" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="Iban1" Type="Edm.String" Nullable="false" MaxLength="34"/>
+                <Property Name="Saknr" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="Hkont" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="PaytRsn" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Dorigin" Type="Edm.String" Nullable="false" MaxLength="8"/>
+                <Property Name="Msgid" Type="Edm.String" Nullable="false" MaxLength="35"/>
+                <Property Name="Orgnlpmtinfid" Type="Edm.String" Nullable="false" MaxLength="35"/>
+                <Property Name="Orgnlmsgid" Type="Edm.String" Nullable="false" MaxLength="35"/>
+                <Property Name="Orgnlendtoendid" Type="Edm.String" Nullable="false" MaxLength="35"/>
+                <Property Name="Orgnlinstrid" Type="Edm.String" Nullable="false" MaxLength="35"/>
+                <Property Name="CreDate1" Type="Edm.Date"/>
+                <Property Name="CreTime1" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="CreDate2" Type="Edm.Date"/>
+                <Property Name="CreTime2" Type="Edm.TimeOfDay" Nullable="false"/>
+            </EntityType>
+            <EntityContainer Name="Container">
+                <EntitySet Name="Main" EntityType="com.sap.gateway.srvd.zsd_fi_zfii014.v0001.MainType"/>
+            </EntityContainer>
+            <Annotations Target="SAP__self.MainType/Renum">
+                <Annotation Term="SAP__common.Label" String="Line Number"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Heading" String="Reference Number"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Reference Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Laufd">
+                <Annotation Term="SAP__common.Label" String="Payment Run Date"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_f110_payment_vh/0001;ps='srvd-zsd_fi_zfii014-0001';va='com.sap.gateway.srvd.zsd_fi_zfii014.v0001.et-zc_fi_zfii014.laufd'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="Run On"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Date on Which the Program Is to Be Run"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=LAUFD"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Laufi">
+                <Annotation Term="SAP__common.Label" String="Payment Run ID"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="ID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Additional Identification"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=LAUFI"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Zbukr">
+                <Annotation Term="SAP__common.Label" String="Company Code"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_companycodevh/0001;ps='srvd-zsd_fi_zfii014-0001';va='com.sap.gateway.srvd.zsd_fi_zfii014.v0001.et-zc_fi_zfii014.zbukr'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="Paying CC"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Paying company code"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=DZBUKR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Vblnr">
+                <Annotation Term="SAP__common.Label" String="Payment Document"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Payment"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Document Number of the Payment Document"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VBLNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Ubnks">
+                <Annotation Term="SAP__common.Label" String="House Bank Country"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="C/R"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Bank Country/Region Key"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BANKS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Zaldt">
+                <Annotation Term="SAP__common.Label" String="Payment Date"/>
+                <Annotation Term="SAP__common.Heading" String="Pstng Date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Posting Date of Payment Document"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Gjahr">
+                <Annotation Term="SAP__common.Label" String="Fiscal Year"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Heading" String="Year"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Fiscal Year"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=GJAHR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/FileDate">
+                <Annotation Term="SAP__common.Label" String="File Date"/>
+                <Annotation Term="SAP__common.Heading" String="Date in Format YYYYMMDD"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Field of type DATS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/FileTime">
+                <Annotation Term="SAP__common.Label" String="File Time"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Field of type TIMS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/FileUser">
+                <Annotation Term="SAP__common.Label" String="File User"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="User Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="User Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/FilePath">
+                <Annotation Term="SAP__common.Label" String="File Path"/>
+                <Annotation Term="SAP__common.Heading" String="File Name in the File System"/>
+                <Annotation Term="SAP__common.QuickInfo" String="File Name in the File System"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=FSNAM"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/ZgrpstsJpmAck0">
+                <Annotation Term="SAP__common.Label" String="Payment Status Level 0"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Payment Status Level 0"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Payment Status Level 0"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/ZreasonJpmAck0">
+                <Annotation Term="SAP__common.Label" String="Payment Rejection Error Message 0"/>
+                <Annotation Term="SAP__common.Heading" String="Payment Rejection Error Message 0"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Payment Rejection Error Message 0"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/ZtxstsJpmAck1">
+                <Annotation Term="SAP__common.Label" String="Payment Status Level 1"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Payment Status Level 0"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Payment Status Level 1"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/ZreasonJpmAck1">
+                <Annotation Term="SAP__common.Label" String="Payment Rejection Error Message 1"/>
+                <Annotation Term="SAP__common.Heading" String="Payment Rejection Error Message 1"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Payment Rejection Error Message 1"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/ZgrpstsHsbcAck1">
+                <Annotation Term="SAP__common.Label" String="Payment Status Level 1"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Payment Status Level 1"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Payment Status Level 1"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/ZreasonHsbcAck1">
+                <Annotation Term="SAP__common.Label" String="Payment Rejection Error Message 1"/>
+                <Annotation Term="SAP__common.Heading" String="Payment Rejection Error Message 1"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Payment Rejection Error Message 1"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/ZtxstsHsbcAck2">
+                <Annotation Term="SAP__common.Label" String="Payment Status Level 2"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Payment Status Level 2"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Payment Status Level 2"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/ZreasonHsbcAck2">
+                <Annotation Term="SAP__common.Label" String="Payment Rejection Error Message 2"/>
+                <Annotation Term="SAP__common.Heading" String="Payment Rejection Error Message 2"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Payment Rejection Error Message 2"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Lifnr">
+                <Annotation Term="SAP__common.Label" String="Vendor"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Supplier"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Account Number of Supplier"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=LIFNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Budat">
+                <Annotation Term="SAP__common.Label" String="Posting Date"/>
+                <Annotation Term="SAP__common.Heading" String="Pstng Date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Posting Date in the Document"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BUDAT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Kunnr">
+                <Annotation Term="SAP__common.Label" String="Customer"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Customer"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Customer Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=KUNNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Empfg">
+                <Annotation Term="SAP__common.Label" String="Payee"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Pmnt Recipient"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Payment Recipient Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Name1">
+                <Annotation Term="SAP__common.Label" String="Name 1"/>
+                <Annotation Term="SAP__common.Heading" String="Name 1"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Name2">
+                <Annotation Term="SAP__common.Label" String="Name 2"/>
+                <Annotation Term="SAP__common.Heading" String="Name 2"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Name 2"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Land1">
+                <Annotation Term="SAP__common.Label" String="Country"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="C/R"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Country/Region Key"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=LAND1"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Znme1">
+                <Annotation Term="SAP__common.Label" String="Bank Name"/>
+                <Annotation Term="SAP__common.Heading" String="Name of the payee"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Name of the payee"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Zbnkn">
+                <Annotation Term="SAP__common.Label" String="Bank Account"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Payee's acct no."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Bank account number of the payee"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Zbnkl">
+                <Annotation Term="SAP__common.Label" String="Bank Key"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Bank number"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Bank number of the payee's bank"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Zbkon">
+                <Annotation Term="SAP__common.Label" String="Bank Control Key"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="CK"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Bank Control Key of the Payee's Bank"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Zbvty">
+                <Annotation Term="SAP__common.Label" String="Bank Type"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="BnkT"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Bank Data Indicator for the Payee"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Zswif">
+                <Annotation Term="SAP__common.Label" String="SWIFT Code"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="SWIFT/BIC"/>
+                <Annotation Term="SAP__common.QuickInfo" String="SWIFT/BIC for International Payments"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=SWIFT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Rzawe">
+                <Annotation Term="SAP__common.Label" String="Payment Method"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="P"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Payment Method for This Payment"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=RZAWE"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Hktid">
+                <Annotation Term="SAP__common.Label" String="Account ID"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Acct ID"/>
+                <Annotation Term="SAP__common.QuickInfo" String="ID for Account Details"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=HKTID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Hbkid">
+                <Annotation Term="SAP__common.Label" String="House Bank"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_payment_type_vh/0001;ps='srvd-zsd_fi_zfii014-0001';va='com.sap.gateway.srvd.zsd_fi_zfii014.v0001.et-zc_fi_zfii014.hbkid'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+                <Annotation Term="SAP__common.Heading" String="House Bk"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Short Key for a House Bank"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=HBKID"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Valut">
+                <Annotation Term="SAP__common.Label" String="Value Date"/>
+                <Annotation Term="SAP__common.Heading" String="Value Date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Value date"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VALUT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Crval">
+                <Annotation Term="SAP__common.Label" String="Credit Value Date"/>
+                <Annotation Term="SAP__common.Heading" String="Value date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Value Date at Payee's Bank"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=PRQ_CRVAL"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Rbetr">
+                <Annotation Term="SAP__common.Label" String="Payment Amount"/>
+                <Annotation Term="SAP__measures.ISOCurrency" Path="Waers"/>
+                <Annotation Term="SAP__common.Heading" String="Amnt Paid in LC"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount in Local Currency"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Rwskt">
+                <Annotation Term="SAP__common.Label" String="Withholding Tax Amount"/>
+                <Annotation Term="SAP__measures.ISOCurrency" Path="Waers"/>
+                <Annotation Term="SAP__common.Heading" String="Cash Discount"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Total Cash Discount for the Pmnt Transactn in Pmnt Currency"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=RWSKT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Rwbtr">
+                <Annotation Term="SAP__common.Label" String="Amount in Document Currency"/>
+                <Annotation Term="SAP__measures.ISOCurrency" Path="Waers"/>
+                <Annotation Term="SAP__common.Heading" String="Amount Paid (FC)"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Amount Paid in the Payment Currency"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=RWBTR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Waers">
+                <Annotation Term="SAP__common.IsCurrency"/>
+                <Annotation Term="SAP__common.Label" String="Currency"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Crcy"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Currency Key"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=WAERS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Kursf">
+                <Annotation Term="SAP__common.Label" String="Exchange Rate"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Absbu">
+                <Annotation Term="SAP__common.Label" String="Payment Supplement"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Snd.co.cde"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Sending company code"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ABSBU"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Bkref">
+                <Annotation Term="SAP__common.Label" String="Bank Reference"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Reference Details"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Reference Details for Bank Details"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BKREF"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Uzawe">
+                <Annotation Term="SAP__common.Label" String="Payment Method Supplement"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="PmtMthSu"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Payment method supplement"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=UZAWE"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Pernr">
+                <Annotation Term="SAP__common.Label" String="Personnel Number"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Heading" String="Pers.No."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Personnel Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=PERNR_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Seqnr">
+                <Annotation Term="SAP__common.Label" String="Sequence Number"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Heading" String="RNo"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Number of Infotype Record With Same Key"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=SEQNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Ausfd">
+                <Annotation Term="SAP__common.Label" String="Execution Date"/>
+                <Annotation Term="SAP__common.Heading" String="Due date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Due Date of the Paid Items"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Koinh">
+                <Annotation Term="SAP__common.Label" String="Account Holder"/>
+                <Annotation Term="SAP__common.Heading" String="Acct holder"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Account Holder Name"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=KOINH_FI"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Kidno">
+                <Annotation Term="SAP__common.Label" String="Payment Reference"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Payment Reference"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Payment Reference"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=KIDNO"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Text">
+                <Annotation Term="SAP__common.Label" String="Text"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Field name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Text field"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Btyp1">
+                <Annotation Term="SAP__common.Label" String="Bank Type 1"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Grp"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Tax Scale Group"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BTYP1"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Bnks1">
+                <Annotation Term="SAP__common.Label" String="Bank Country 1"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="C/R"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Bank Country/Region Key"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BANKS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Bnkl1">
+                <Annotation Term="SAP__common.Label" String="Bank Key 1"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Bank Key"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Bank Keys"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BANKK"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Bnkn1">
+                <Annotation Term="SAP__common.Label" String="Bank Account 1"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Bank Account"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Bank Account Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BANKN"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Bkon1">
+                <Annotation Term="SAP__common.Label" String="Bank Control Key 1"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="CK"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Bank Control Key"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BKONT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Bkrf1">
+                <Annotation Term="SAP__common.Label" String="Bank Reference 1"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Reference Details"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Reference Details for Bank Details"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BKREF"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Iban1">
+                <Annotation Term="SAP__common.Label" String="IBAN"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="IBAN"/>
+                <Annotation Term="SAP__common.QuickInfo" String="IBAN (International Bank Account Number)"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=IBAN"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Saknr">
+                <Annotation Term="SAP__common.Label" String="G/L Account"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="G/L Acct"/>
+                <Annotation Term="SAP__common.QuickInfo" String="G/L Account Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=SAKNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Hkont">
+                <Annotation Term="SAP__common.Label" String="House Bank Account"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="G/L"/>
+                <Annotation Term="SAP__common.QuickInfo" String="General Ledger Account"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=HKONT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/PaytRsn">
+                <Annotation Term="SAP__common.Label" String="Payment Reason"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Payment Reason"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Payment Reason"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=FARP_PAYT_RSN"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Dorigin">
+                <Annotation Term="SAP__common.Label" String="Data Origin"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Origin of Grouping"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Grouping Origin"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=FIBL_DORIGIN"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Msgid">
+                <Annotation Term="SAP__common.Label" String="Message ID"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="MsgId"/>
+                <Annotation Term="SAP__common.QuickInfo" String="MsgId"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Orgnlpmtinfid">
+                <Annotation Term="SAP__common.Label" String="Original Payment Info ID"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="OrgnlPmtInfId"/>
+                <Annotation Term="SAP__common.QuickInfo" String="OrgnlPmtInfId"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Orgnlmsgid">
+                <Annotation Term="SAP__common.Label" String="Original Message ID"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="OrgnlMsgId"/>
+                <Annotation Term="SAP__common.QuickInfo" String="OrgnlMsgId"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Orgnlendtoendid">
+                <Annotation Term="SAP__common.Label" String="Original End-to-End ID"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="OrgnlEndToEndId"/>
+                <Annotation Term="SAP__common.QuickInfo" String="OrgnlEndToEndId"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/Orgnlinstrid">
+                <Annotation Term="SAP__common.Label" String="Original Instruction ID"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="OrgnlInstrId"/>
+                <Annotation Term="SAP__common.QuickInfo" String="OrgnlInstrId"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/CreDate1">
+                <Annotation Term="SAP__common.Label" String="Create Date 1"/>
+                <Annotation Term="SAP__common.Heading" String="Date of Level 1"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Date of Level 1"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/CreTime1">
+                <Annotation Term="SAP__common.Label" String="Create Time 1"/>
+                <Annotation Term="SAP__common.Heading" String="Time of Level 1"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Time of Level 1"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/CreDate2">
+                <Annotation Term="SAP__common.Label" String="Create Date 2"/>
+                <Annotation Term="SAP__common.Heading" String="Date of Level 2"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Date of Level 2"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType/CreTime2">
+                <Annotation Term="SAP__common.Label" String="Create Time 2"/>
+                <Annotation Term="SAP__common.Heading" String="Time of Level 2"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Time of Level 2"/>
+            </Annotations>
+            <Annotations Target="SAP__self.MainType">
+                <Annotation Term="SAP__common.Label" String="Projection View for HSBC Payment Status Report"/>
+                <Annotation Term="SAP__UI.Facets">
+                    <Collection>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Basic Data"/>
+                            <PropertyValue Property="ID" String="BasicData"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.FieldGroup#BasicData"/>
+                        </Record>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Partner Information"/>
+                            <PropertyValue Property="ID" String="PartnerInfo"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.FieldGroup#PartnerInfo"/>
+                        </Record>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Status &amp; Reason"/>
+                            <PropertyValue Property="ID" String="StatusInfo"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.FieldGroup#StatusInfo"/>
+                        </Record>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Amount Information"/>
+                            <PropertyValue Property="ID" String="AmountInfo"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.FieldGroup#AmountInfo"/>
+                        </Record>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Bank Details"/>
+                            <PropertyValue Property="ID" String="BankInfo"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.FieldGroup#BankInfo"/>
+                        </Record>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Payment Details"/>
+                            <PropertyValue Property="ID" String="PaymentDetails"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.FieldGroup#PaymentDetails"/>
+                        </Record>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="File Information"/>
+                            <PropertyValue Property="ID" String="FileInfo"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.FieldGroup#FileInfo"/>
+                        </Record>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="Original Message"/>
+                            <PropertyValue Property="ID" String="OriginInfo"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.FieldGroup#OriginInfo"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.FieldGroup" Qualifier="AmountInfo">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Payment Amount"/>
+                                    <PropertyValue Property="Value" Path="Rbetr"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Withholding Tax Amount"/>
+                                    <PropertyValue Property="Value" Path="Rwskt"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Amount in Doc. Currency"/>
+                                    <PropertyValue Property="Value" Path="Rwbtr"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Currency"/>
+                                    <PropertyValue Property="Value" Path="Waers"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Exchange Rate"/>
+                                    <PropertyValue Property="Value" Path="Kursf"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="G/L Account"/>
+                                    <PropertyValue Property="Value" Path="Saknr"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="House Bank Account"/>
+                                    <PropertyValue Property="Value" Path="Hkont"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.FieldGroup" Qualifier="BankInfo">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Bank Name"/>
+                                    <PropertyValue Property="Value" Path="Znme1"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Bank Account"/>
+                                    <PropertyValue Property="Value" Path="Zbnkn"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Bank Key"/>
+                                    <PropertyValue Property="Value" Path="Zbnkl"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Bank Control Key"/>
+                                    <PropertyValue Property="Value" Path="Zbkon"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Bank Type"/>
+                                    <PropertyValue Property="Value" Path="Zbvty"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="SWIFT Code"/>
+                                    <PropertyValue Property="Value" Path="Zswif"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Bank Type 1"/>
+                                    <PropertyValue Property="Value" Path="Btyp1"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Bank Country 1"/>
+                                    <PropertyValue Property="Value" Path="Bnks1"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Bank Key 1"/>
+                                    <PropertyValue Property="Value" Path="Bnkl1"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Bank Account 1"/>
+                                    <PropertyValue Property="Value" Path="Bnkn1"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Bank Control Key 1"/>
+                                    <PropertyValue Property="Value" Path="Bkon1"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Bank Reference 1"/>
+                                    <PropertyValue Property="Value" Path="Bkrf1"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="IBAN"/>
+                                    <PropertyValue Property="Value" Path="Iban1"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.FieldGroup" Qualifier="BasicData">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Payment Run Date"/>
+                                    <PropertyValue Property="Value" Path="Laufd"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Payment Run ID"/>
+                                    <PropertyValue Property="Value" Path="Laufi"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Company Code"/>
+                                    <PropertyValue Property="Value" Path="Zbukr"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Payment Document"/>
+                                    <PropertyValue Property="Value" Path="Vblnr"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Payment Date"/>
+                                    <PropertyValue Property="Value" Path="Zaldt"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Fiscal Year"/>
+                                    <PropertyValue Property="Value" Path="Gjahr"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Posting Date"/>
+                                    <PropertyValue Property="Value" Path="Budat"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="House Bank Country"/>
+                                    <PropertyValue Property="Value" Path="Ubnks"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Text"/>
+                                    <PropertyValue Property="Value" Path="Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.FieldGroup" Qualifier="FileInfo">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="File Date"/>
+                                    <PropertyValue Property="Value" Path="FileDate"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="File Time"/>
+                                    <PropertyValue Property="Value" Path="FileTime"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="File User"/>
+                                    <PropertyValue Property="Value" Path="FileUser"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="File Path"/>
+                                    <PropertyValue Property="Value" Path="FilePath"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.FieldGroup" Qualifier="OriginInfo">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Message ID"/>
+                                    <PropertyValue Property="Value" Path="Msgid"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Original Payment Info ID"/>
+                                    <PropertyValue Property="Value" Path="Orgnlpmtinfid"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Original Message ID"/>
+                                    <PropertyValue Property="Value" Path="Orgnlmsgid"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Original End-to-End ID"/>
+                                    <PropertyValue Property="Value" Path="Orgnlendtoendid"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Original Instruction ID"/>
+                                    <PropertyValue Property="Value" Path="Orgnlinstrid"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Create Date 1"/>
+                                    <PropertyValue Property="Value" Path="CreDate1"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Create Time 1"/>
+                                    <PropertyValue Property="Value" Path="CreTime1"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Create Date 2"/>
+                                    <PropertyValue Property="Value" Path="CreDate2"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Create Time 2"/>
+                                    <PropertyValue Property="Value" Path="CreTime2"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.FieldGroup" Qualifier="PartnerInfo">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Vendor"/>
+                                    <PropertyValue Property="Value" Path="Lifnr"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Customer"/>
+                                    <PropertyValue Property="Value" Path="Kunnr"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Payee"/>
+                                    <PropertyValue Property="Value" Path="Empfg"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Name 1"/>
+                                    <PropertyValue Property="Value" Path="Name1"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Name 2"/>
+                                    <PropertyValue Property="Value" Path="Name2"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Country"/>
+                                    <PropertyValue Property="Value" Path="Land1"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Account Holder"/>
+                                    <PropertyValue Property="Value" Path="Koinh"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.FieldGroup" Qualifier="PaymentDetails">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Payment Method"/>
+                                    <PropertyValue Property="Value" Path="Rzawe"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Account ID"/>
+                                    <PropertyValue Property="Value" Path="Hktid"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="House Bank"/>
+                                    <PropertyValue Property="Value" Path="Hbkid"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Value Date"/>
+                                    <PropertyValue Property="Value" Path="Valut"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Credit Value Date"/>
+                                    <PropertyValue Property="Value" Path="Crval"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Payment Supplement"/>
+                                    <PropertyValue Property="Value" Path="Absbu"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Bank Reference"/>
+                                    <PropertyValue Property="Value" Path="Bkref"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Payment Method Suppl."/>
+                                    <PropertyValue Property="Value" Path="Uzawe"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Personnel Number"/>
+                                    <PropertyValue Property="Value" Path="Pernr"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Sequence Number"/>
+                                    <PropertyValue Property="Value" Path="Seqnr"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Execution Date"/>
+                                    <PropertyValue Property="Value" Path="Ausfd"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Payment Reference"/>
+                                    <PropertyValue Property="Value" Path="Kidno"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.FieldGroup" Qualifier="StatusInfo">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Payment Status Level 0"/>
+                                    <PropertyValue Property="Value" Path="ZgrpstsJpmAck0"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Payment Rejection Error Message 0"/>
+                                    <PropertyValue Property="Value" Path="ZreasonJpmAck0"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Payment Status Level 1"/>
+                                    <PropertyValue Property="Value" Path="ZtxstsJpmAck1"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Payment Rejection Error Message 1"/>
+                                    <PropertyValue Property="Value" Path="ZreasonJpmAck1"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Payment Status Level 1"/>
+                                    <PropertyValue Property="Value" Path="ZgrpstsHsbcAck1"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Payment Rejection Error Message 1"/>
+                                    <PropertyValue Property="Value" Path="ZreasonHsbcAck1"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Payment Status Level 2"/>
+                                    <PropertyValue Property="Value" Path="ZtxstsHsbcAck2"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Payment Rejection Error Message 2"/>
+                                    <PropertyValue Property="Value" Path="ZreasonHsbcAck2"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Payment Reason"/>
+                                    <PropertyValue Property="Value" Path="PaytRsn"/>
+                                </Record>
+                                <Record Type="SAP__UI.DataField">
+                                    <PropertyValue Property="Label" String="Data Origin"/>
+                                    <PropertyValue Property="Value" Path="Dorigin"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="Payment Status"/>
+                        <PropertyValue Property="TypeNamePlural" String="Payment Status Report"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Label" String="Payment Document"/>
+                                <PropertyValue Property="Value" Path="Vblnr"/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Label" String="Company Code"/>
+                                <PropertyValue Property="Value" Path="Zbukr"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Laufd"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Laufi"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Zbukr"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Vblnr"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Zaldt"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Lifnr"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Kunnr"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Name1"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ZgrpstsJpmAck0"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ZreasonJpmAck0"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ZtxstsJpmAck1"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ZreasonJpmAck1"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ZgrpstsHsbcAck1"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Rbetr"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ZreasonHsbcAck1"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ZtxstsHsbcAck2"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ZreasonHsbcAck2"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Rwbtr"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Waers"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/High"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="FileDate"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="FileTime"/>
+                            <Annotation Term="SAP__UI.Importance" EnumMember="SAP__UI.ImportanceType/Medium"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.PresentationVariant">
+                    <Record>
+                        <PropertyValue Property="SortOrder">
+                            <Collection>
+                                <Record Type="SAP__common.SortOrderType">
+                                    <PropertyValue Property="Property" PropertyPath="Zaldt"/>
+                                    <PropertyValue Property="Descending" Bool="true"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Visualizations">
+                            <Collection>
+                                <AnnotationPath>@SAP__UI.LineItem</AnnotationPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>Laufd</PropertyPath>
+                        <PropertyPath>Laufi</PropertyPath>
+                        <PropertyPath>Zbukr</PropertyPath>
+                        <PropertyPath>Vblnr</PropertyPath>
+                        <PropertyPath>Zaldt</PropertyPath>
+                        <PropertyPath>Budat</PropertyPath>
+                        <PropertyPath>Hbkid</PropertyPath>
+                        <PropertyPath>ZgrpstsJpmAck0</PropertyPath>
+                        <PropertyPath>ZtxstsJpmAck1</PropertyPath>
+                        <PropertyPath>ZgrpstsHsbcAck1</PropertyPath>
+                        <PropertyPath>ZtxstsHsbcAck2</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/Main">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="Filterable" Bool="true"/>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Zaldt"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleRange"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="ZreasonJpmAck0"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="ZreasonJpmAck1"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="ZreasonHsbcAck1"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="ZreasonHsbcAck2"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Budat"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleRange"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>ZreasonJpmAck0</PropertyPath>
+                                <PropertyPath>ZreasonJpmAck1</PropertyPath>
+                                <PropertyPath>ZreasonHsbcAck1</PropertyPath>
+                                <PropertyPath>ZreasonHsbcAck2</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container">
+                <Annotation Term="SAP__CodeList.CurrencyCodes">
+                    <Record>
+                        <PropertyValue Property="Url" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="Currencies"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="SAP__capabilities.FilterFunctions">
+                    <Collection>
+                        <String>eq</String>
+                        <String>ne</String>
+                        <String>gt</String>
+                        <String>ge</String>
+                        <String>lt</String>
+                        <String>le</String>
+                        <String>and</String>
+                        <String>or</String>
+                        <String>contains</String>
+                        <String>startswith</String>
+                        <String>endswith</String>
+                        <String>any</String>
+                        <String>all</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SupportedFormats">
+                    <Collection>
+                        <String>application/json</String>
+                        <String>application/pdf</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="Border" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="FitToPage" Bool="true"/>
+                        <PropertyValue Property="FontName" Bool="true"/>
+                        <PropertyValue Property="FontSize" Bool="true"/>
+                        <PropertyValue Property="HeaderFooter" Bool="true"/>
+                        <PropertyValue Property="IANATimezoneFormat" Bool="true"/>
+                        <PropertyValue Property="Margin" Bool="true"/>
+                        <PropertyValue Property="Padding" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="20000"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="TextDirectionLayout" Bool="true"/>
+                        <PropertyValue Property="Treeview" Bool="true"/>
+                        <PropertyValue Property="UploadToFileShare" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.KeyAsSegmentSupported"/>
+                <Annotation Term="SAP__capabilities.AsynchronousRequestsSupported"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

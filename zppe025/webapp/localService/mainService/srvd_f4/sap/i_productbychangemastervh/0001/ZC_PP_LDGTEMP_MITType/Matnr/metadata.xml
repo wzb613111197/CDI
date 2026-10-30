@@ -1,0 +1,413 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="SAP__aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="SAP__capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HIERARCHY',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="SAP__hierarchy"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="SAP__HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="SAP__measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ODM',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.ODM.v1" Alias="SAP__ODM"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SESSION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="SAP__session"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="SAP__UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="SAP__validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="../../../../srvd/sap/zsd_pp_ldgtemp_hdr/0001/$metadata">
+        <edmx:Include Namespace="com.sap.gateway.srvd.zsd_pp_ldgtemp_hdr.v0001" Alias="SAP__ParentService"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="com.sap.gateway.srvd_f4.i_productbychangemastervh.v0001" Alias="SAP__self">
+            <Annotation Term="SAP__core.SchemaVersion" String="1.0.0"/>
+            <EntityType Name="I_ChangeMasterStdVHType">
+                <Key>
+                    <PropertyRef Name="ChangeNumber"/>
+                </Key>
+                <Property Name="ChangeNumber" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="ChangeNumberDescription" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="AuthorizationGroup" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="ChangeNumberReleaseKey" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="ChangeNumberStatus" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="ChangeNumberIsMrkdForDeletion" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="ChangeNumberValidFromDate" Type="Edm.Date"/>
+            </EntityType>
+            <EntityType Name="I_ProductByChangeMasterVHType">
+                <Key>
+                    <PropertyRef Name="Product"/>
+                    <PropertyRef Name="ChangeNumber"/>
+                </Key>
+                <Property Name="Product" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="Product_Text" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="ChangeNumber" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="MaterialRevisionLevel" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="ChangeNumberValidFromDate" Type="Edm.Date"/>
+            </EntityType>
+            <EntityType Name="I_ChangeMstrObjTypeRevisionLvlType">
+                <Key>
+                    <PropertyRef Name="ChangeNumberObjectType"/>
+                    <PropertyRef Name="RevisionLevel"/>
+                </Key>
+                <Property Name="ChangeNumberObjectType" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="RevisionLevel" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="RevisionLevelOrdinalNumber" Type="Edm.String" Nullable="false" MaxLength="3"/>
+            </EntityType>
+            <EntityContainer Name="Container">
+                <EntitySet Name="I_ChangeMasterStdVH" EntityType="com.sap.gateway.srvd_f4.i_productbychangemastervh.v0001.I_ChangeMasterStdVHType"/>
+                <EntitySet Name="I_ChangeMstrObjTypeRevisionLvl" EntityType="com.sap.gateway.srvd_f4.i_productbychangemastervh.v0001.I_ChangeMstrObjTypeRevisionLvlType"/>
+                <EntitySet Name="I_ProductByChangeMasterVH" EntityType="com.sap.gateway.srvd_f4.i_productbychangemastervh.v0001.I_ProductByChangeMasterVHType"/>
+            </EntityContainer>
+            <Annotations Target="SAP__self.I_ChangeMasterStdVHType/ChangeNumber">
+                <Annotation Term="SAP__common.Text" Path="ChangeNumberDescription"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Change Number"/>
+                <Annotation Term="SAP__common.Heading" String="Change No."/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=AENNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ChangeMasterStdVHType/AuthorizationGroup">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Authorization Group"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Authorization group for change master record"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ChangeMasterStdVHType/ChangeNumberReleaseKey">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Release Key"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Release Key for Change Master Record"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ChangeMasterStdVHType/ChangeNumberStatus">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Status"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Status of Change Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductByChangeMasterVHType/ChangeNumber">
+                <Annotation Term="SAP__common.ValueListMapping">
+                    <Record>
+                        <PropertyValue Property="Label" String="Change Number"/>
+                        <PropertyValue Property="CollectionPath" String="I_ChangeMasterStdVH"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="SAP__common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="ChangeNumber"/>
+                                    <PropertyValue Property="ValueListProperty" String="ChangeNumber"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ChangeNumberDescription"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="AuthorizationGroup"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ChangeNumberReleaseKey"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ChangeNumberStatus"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ChangeNumberIsMrkdForDeletion"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ChangeNumberValidFromDate"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Change Number"/>
+                <Annotation Term="SAP__common.Heading" String="Change No."/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=AENNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ChangeMasterStdVHType">
+                <Annotation Term="SAP__common.Label" String="Change Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/I_ChangeMasterStdVH">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="true"/>
+                        <PropertyValue Property="UnsupportedExpressions" EnumMember="SAP__capabilities.SearchExpressions/AND SAP__capabilities.SearchExpressions/NOT SAP__capabilities.SearchExpressions/group "/>
+                        <PropertyValue Property="SearchSyntax" String="https://url.sap/odata-search"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductByChangeMasterVHType/Product">
+                <Annotation Term="SAP__common.Text" Path="Product_Text"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Product"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Product Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=PRODUCTNUMBER"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductByChangeMasterVHType/Product_Text">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Product Description"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=PRODUCTDESCRIPTION"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductByChangeMasterVHType/MaterialRevisionLevel">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListMapping">
+                    <Record>
+                        <PropertyValue Property="Label" String="Change Number Object Type Revision Level"/>
+                        <PropertyValue Property="CollectionPath" String="I_ChangeMstrObjTypeRevisionLvl"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="SAP__common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="MaterialRevisionLevel"/>
+                                    <PropertyValue Property="ValueListProperty" String="RevisionLevel"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ChangeNumberObjectType"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="RevisionLevelOrdinalNumber"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterConstant">
+                                    <PropertyValue Property="Constant" String="41"/>
+                                    <PropertyValue Property="ValueListProperty" String="ChangeNumberObjectType"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.Label" String="Revision Level"/>
+                <Annotation Term="SAP__common.Heading" String="Revision Level without Conversion Exit"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Revision Level without Conversion Exit"/>
+            </Annotations>
+            <Annotations Target="SAP__ParentService.ZC_PP_LDGTEMP_MITType/Matnr">
+                <Annotation Term="SAP__common.ValueListMapping" Qualifier="ProdChangeMaster">
+                    <Record>
+                        <PropertyValue Property="Label" String="{@i18n&gt;ProductsbyChangeNumber}"/>
+                        <PropertyValue Property="CollectionPath" String="I_ProductByChangeMasterVH"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="SAP__common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Matnr"/>
+                                    <PropertyValue Property="ValueListProperty" String="Product"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Product_Text"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ChangeNumber"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="MaterialRevisionLevel"/>
+                                </Record>
+                                <Record Type="SAP__common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ChangeNumberValidFromDate"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductByChangeMasterVHType">
+                <Annotation Term="SAP__common.Label" String="List of Revision Levels"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/I_ProductByChangeMasterVH">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="true"/>
+                        <PropertyValue Property="UnsupportedExpressions" EnumMember="SAP__capabilities.SearchExpressions/AND SAP__capabilities.SearchExpressions/NOT SAP__capabilities.SearchExpressions/group "/>
+                        <PropertyValue Property="SearchSyntax" String="https://url.sap/odata-search"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ChangeMstrObjTypeRevisionLvlType/ChangeNumberObjectType">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Object Category"/>
+                <Annotation Term="SAP__common.Heading" String="ObjTyp"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=AETYP"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ChangeMstrObjTypeRevisionLvlType/RevisionLevel">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Revision Level"/>
+                <Annotation Term="SAP__common.Heading" String="Revision Level without Conversion Exit"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Revision Level without Conversion Exit"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ChangeMstrObjTypeRevisionLvlType/RevisionLevelOrdinalNumber">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Order"/>
+                <Annotation Term="SAP__common.Heading" String="Seq"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Revision Level Order"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=CCSRF"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ChangeMstrObjTypeRevisionLvlType">
+                <Annotation Term="SAP__common.Label" String="Change Number Object Type Revision Level"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/I_ChangeMstrObjTypeRevisionLvl">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="true"/>
+                        <PropertyValue Property="UnsupportedExpressions" EnumMember="SAP__capabilities.SearchExpressions/AND SAP__capabilities.SearchExpressions/NOT SAP__capabilities.SearchExpressions/group "/>
+                        <PropertyValue Property="SearchSyntax" String="https://url.sap/odata-search"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container">
+                <Annotation Term="SAP__common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="SAP__capabilities.FilterFunctions">
+                    <Collection>
+                        <String>eq</String>
+                        <String>ne</String>
+                        <String>gt</String>
+                        <String>ge</String>
+                        <String>lt</String>
+                        <String>le</String>
+                        <String>and</String>
+                        <String>or</String>
+                        <String>contains</String>
+                        <String>startswith</String>
+                        <String>endswith</String>
+                        <String>any</String>
+                        <String>all</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SupportedFormats">
+                    <Collection>
+                        <String>application/json</String>
+                        <String>application/pdf</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="Border" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="FitToPage" Bool="true"/>
+                        <PropertyValue Property="FontName" Bool="true"/>
+                        <PropertyValue Property="FontSize" Bool="true"/>
+                        <PropertyValue Property="HeaderFooter" Bool="true"/>
+                        <PropertyValue Property="IANATimezoneFormat" Bool="true"/>
+                        <PropertyValue Property="Margin" Bool="true"/>
+                        <PropertyValue Property="Padding" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="100"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="5000"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="TextDirectionLayout" Bool="true"/>
+                        <PropertyValue Property="Treeview" Bool="true"/>
+                        <PropertyValue Property="UploadToFileShare" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.KeyAsSegmentSupported"/>
+                <Annotation Term="SAP__capabilities.AsynchronousRequestsSupported"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ChangeMasterStdVHType/ChangeNumberDescription">
+                <Annotation Term="SAP__common.Label" String="Description"/>
+                <Annotation Term="SAP__common.Heading" String="Change number description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Change number description"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=CC_AETXT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ChangeMasterStdVHType/ChangeNumberIsMrkdForDeletion">
+                <Annotation Term="SAP__common.Label" String="Deletion Flag"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Deletion Flag for Change Number (Reorganization)"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ChangeMasterStdVHType/ChangeNumberValidFromDate">
+                <Annotation Term="SAP__common.Label" String="Valid From"/>
+                <Annotation Term="SAP__common.Heading" String="Valid from"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Valid-From Date"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=CC_CCDAT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.I_ProductByChangeMasterVHType/ChangeNumberValidFromDate">
+                <Annotation Term="SAP__common.Label" String="Valid From"/>
+                <Annotation Term="SAP__common.Heading" String="Valid from"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Valid-From Date"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=CC_CCDAT"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

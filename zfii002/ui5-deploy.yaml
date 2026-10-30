@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "3.1"
+metadata:
+  name: com.cathaydining.zfii002
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          url: https://vhcwawd1wd01.sap.fmsete.cpafms.com:44380
+          client: '100'
+        app:
+          name: ZFI_ZFII002
+          description: GL Balance Interface
+          package: ZFII002
+          transport: SS1K902828
+        exclude:
+          - /test/

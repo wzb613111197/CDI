@@ -1,0 +1,12 @@
+/* Custom styles for zppr003.fltunit */
+
+.cabinDynamicColumn {
+    color: #053df5e3;
+    font-weight: bold;
+}
+
+.sapUiTableTr.sapUiTableSummaryRow * {
+    font-weight: bold !important;
+    color: black;
+    background-color:rgba(23, 192, 99, 0.993);
+}

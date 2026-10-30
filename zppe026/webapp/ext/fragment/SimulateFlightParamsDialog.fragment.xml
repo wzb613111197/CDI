@@ -1,0 +1,52 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form">
+	<Dialog
+		id="simulateFlightParamsDialog"
+		title="{@i18n>Simulate}"
+		type="Message"
+		contentWidth="28rem"
+		resizable="true"
+		draggable="true">
+		<content>
+			<f:SimpleForm
+				editable="true"
+				layout="ResponsiveGridLayout"
+				labelSpanM="4"
+				labelSpanL="4"
+				columnsM="1"
+				columnsL="1"
+				class="sapUiSmallMarginTop">
+				<f:content>
+					<Label text="{@i18n>AirlineCode}" required="true"/>
+					<Input
+						id="dlgAirlineCodeInput"
+						maxLength="3"
+						change=".onDlgAirlineCodeChange"/>
+					<Label text="{@i18n>FlightNumber}" required="true"/>
+					<Input
+						id="dlgFlightNumberInput"
+						maxLength="4"/>
+					<Label text="{@i18n>SimulationDate}" required="true"/>
+					<DatePicker
+						id="dlgSimulationDatePicker"
+						valueFormat="yyyy-MM-dd"
+						displayFormat="medium"
+						placeholder="{@i18n>SimulationDatePlaceholder}"/>
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<beginButton>
+			<Button
+				text="{@i18n>Execute}"
+				type="Emphasized"
+				press=".onConfirmSimulateFlightParams"/>
+		</beginButton>
+		<endButton>
+			<Button
+				text="{@i18n>Cancel}"
+				press=".onCancelSimulateFlightParams"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

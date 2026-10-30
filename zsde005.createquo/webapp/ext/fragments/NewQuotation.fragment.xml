@@ -1,0 +1,113 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:layout="sap.ui.layout"
+>
+    <VBox
+        width="100%"
+        class="sapUiContentPadding"
+    >
+        <f:SimpleForm
+            id="nqHeaderSimpleForm"
+            editable="true"
+            layout="ColumnLayout"
+            title="{i18n>mdSectionTitle}"
+            columnsM="3"
+            columnsL="4"
+            columnsXL="6"
+        >
+            <f:content>
+                <Label id="nqSalesOrgLabel" text="{i18n>salesOrgLabel}" />
+                <Text id="nqSalesOrgText" text="{ui>/newQuotation/salesOrg}"/>
+                <Label id="nqEffectiveFromLabel" required="true" text="{i18n>effectiveFromLabel}" />
+                <DatePicker id="nqEffectiveFromDP" width="100%" displayFormat="short" value="{path:'ui>/newQuotation/effectiveFrom',type:'sap.ui.model.type.Date',formatOptions:{UTC:'true'}}"/>
+                <Label id="nqDivisionLabel" text="{i18n>divisionLabel}" />
+                <Text id="nqDivisionText" text="{ui>/newQuotation/division}"/>
+                <Label id="nqEffectiveToLabel" required="true" text="{i18n>effectiveToLabel}" />
+                <DatePicker id="nqEffectiveToDP" width="100%" displayFormat="short" value="{path:'ui>/newQuotation/effectiveTo',type:'sap.ui.model.type.Date',formatOptions:{UTC:'true'}}"/>
+                <Label id="nqDistChannelLabel" text="{i18n>distChannelLabel}" />
+                <Text id="nqDistChannelText" text="{ui>/newQuotation/distChannel}"/>
+                <Label id="nqContractNoLabel" text="{i18n>contractNoLabel}"/>
+                <Input id="nqContractNoInput" width="100%" value="{ui>/newQuotation/contractNo}" showValueHelp="true" valueHelpOnly="false" valueHelpRequest="onContractNoValueHelp"/>
+                <Label id="nqHeaderDescLabel" text="{i18n>headerDescLabel}"/>
+                <Input id="nqHeaderDescInput" width="100%" value="{ui>/newQuotation/headerDesc}"/>
+                <Label id="nqCustomerLabel" text="{i18n>customerLabel}" />
+                <Text id="nqCustomerText" text="{ui>/newQuotation/customer}"/>
+                <Label id="nqRoundUpLabel" text="{i18n>roundUpLabel}" />
+                <CheckBox id="nqRoundUpCB" selected="{ui>/newQuotation/roundUp}"/>
+                <Label id="nqAirlineLabel" text="{i18n>airlineLabel}" />
+                <Text id="nqAirlineText" text="{ui>/newQuotation/airline}"/>
+                <Label id="nqGrossProfitModeLabel" text="{i18n>grossProfitModeLabel}" />
+                <CheckBox id="nqGrossProfitModeCB" selected="{ui>/newQuotation/grossProfitMode}"/>
+            </f:content>
+        </f:SimpleForm>
+
+        <Panel headerText="{i18n>nqSelectedMaterialsTitle}" class="sapUiResponsiveMargin cdSectionPanel">
+        <Table
+            mode="None"
+            growing="true"
+            growingThreshold="100"
+            alternateRowColors="true"
+            items="{ui>/newQuotation/selectedMaterialRows}"
+        >
+            <columns>
+                <Column>
+                    <header>
+                        <Text
+                            text="{i18n>colMaterial}"
+                        />
+                    </header>
+                </Column>
+                <Column>
+                    <header>
+                        <Text
+                            text="{i18n>colDescription}"
+                        />
+                    </header>
+                </Column>
+                <Column>
+                    <header>
+                        <Text
+                            text="{i18n>materialTypeLabel}"
+                        />
+                    </header>
+                </Column>
+                <Column>
+                    <header>
+                        <Text
+                            text="{i18n>materialStatusLabel}"
+                        />
+                    </header>
+                </Column>
+                <Column>
+                    <header>
+                        <Text
+                            text="{i18n>bomStatusLabel}"
+                        />
+                    </header>
+                </Column>
+                <Column>
+                    <header>
+                        <Text
+                            text="{i18n>costingRunDateLabel}"
+                        />
+                    </header>
+                </Column>
+            </columns>
+            <items>
+                <ColumnListItem>
+                    <cells>
+                        <Text text="{ui>Material}"/>
+                        <Text text="{ui>Description}"/>
+                        <Text text="{ui>MaterialType}"/>
+                        <Text text="{ui>MaterialStatus}"/>
+                        <Text text="{ui>BomStatus}"/>
+                        <Text text="{ui>CostRunDate}"/>
+                    </cells>
+                </ColumnListItem>
+            </items>
+        </Table>
+        </Panel>
+    </VBox>
+</core:FragmentDefinition>

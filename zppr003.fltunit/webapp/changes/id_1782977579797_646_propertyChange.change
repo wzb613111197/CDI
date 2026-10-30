@@ -1,0 +1,41 @@
+{
+    "fileName": "id_1782977579797_646_propertyChange",
+    "fileType": "change",
+    "changeType": "propertyChange",
+    "moduleName": "",
+    "reference": "com.cathaydining.zppr003.fltunit",
+    "packageName": "",
+    "content": {
+        "property": "showTablePersonalisation",
+        "newValue": false
+    },
+    "selector": {
+        "id": "com.cathaydining.zppr003.fltunit::sap.suite.ui.generic.template.ListReport.view.ListReport::ZI_PP_FLIGHT_UNIT_OVERVIEW--listReport",
+        "idIsLocal": false,
+        "type": "sap.ui.comp.smarttable.SmartTable"
+    },
+    "layer": "CUSTOMER_BASE",
+    "texts": {},
+    "namespace": "apps/com.cathaydining.zppr003.fltunit/changes/",
+    "projectId": "",
+    "creation": 1782988512320,
+    "originalLanguage": "",
+    "support": {
+        "generator": "changeUtils: SAPFioriTools",
+        "service": "",
+        "user": "",
+        "sapui5Version": "1.136.10",
+        "sourceChangeFileName": "",
+        "compositeCommand": ""
+    },
+    "oDataInformation": {},
+    "dependentSelector": {},
+    "validAppVersions": {
+        "from": "0.0.1",
+        "to": "0.0.1",
+        "creation": "0.0.1"
+    },
+    "jsOnly": false,
+    "variantReference": "",
+    "appDescriptorChange": false
+}

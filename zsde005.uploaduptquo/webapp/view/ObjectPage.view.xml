@@ -1,0 +1,76 @@
+<mvc:View controllerName="com.cathaydining.zsde005.uploaduptquo.controller.ObjectPage"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:uxap="sap.uxap"
+    xmlns:layout="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:mdc="sap.ui.mdc"
+    xmlns:mdcTable="sap.ui.mdc.table"
+    xmlns:unified="sap.ui.unified"
+    xmlns:core="sap.ui.core">
+    <uxap:ObjectPageLayout id="objectPage" showHeaderContent="true" useIconTabBar="false" showFooter="{= ${ui>/detailsVisible} || ${ui>/newQuotationVisible} || ${ui>/quotationDetailVisible} }">
+        <uxap:headerTitle>
+            <uxap:ObjectPageDynamicHeaderTitle id="objectPageHeaderTitle">
+                <uxap:heading>
+                    <Title id="objectPageTitle" text="{i18n>title}" level="H1" />
+                </uxap:heading>
+            </uxap:ObjectPageDynamicHeaderTitle>
+        </uxap:headerTitle>
+
+        <uxap:sections>
+            <uxap:ObjectPageSection id="Section1" title="{i18n>uploadSectionTitle}">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection id="uploadSubSection" title="">
+                        <uxap:blocks>
+                            <layout:VerticalLayout id="uploadLayout" width="100%">
+                                <f:SimpleForm id="uploadForm" editable="true" layout="ResponsiveGridLayout" width="100%">
+                                    <f:content>
+                                        <core:Title id="uploadFormTitle" text="" />
+
+                                        <Label id="uploadFileLabel" text="{i18n>uploadFileLabel}" />
+                                        <unified:FileUploader
+                                            id="excelFileUploader"
+                                            name="excelFile"
+                                            fileType="xlsx,xls"
+                                            typeMissmatch="onFileTypeMismatch"
+                                            change="onFileChange"
+                                            placeholder="{i18n>uploadFilePlaceholder}"
+                                            width="24rem"
+                                        />
+                                    </f:content>
+                                </f:SimpleForm>
+
+                                <Toolbar id="uploadToolbar" design="Transparent">
+                                    <ToolbarSpacer id="uploadToolbarSpacer" />
+                                    <Button id="uploadBtn" text="{i18n>uploadBtn}" type="Emphasized" press="onUpload" enabled="{ui>/uploadEnabled}" />
+                                    <Button id="downloadTemplateBtn" text="{i18n>downloadTemplateBtn}" type="Transparent" icon="sap-icon://download" press="onDownloadTemplate" />
+                                </Toolbar>
+                            </layout:VerticalLayout>
+                        </uxap:blocks>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+
+            <uxap:ObjectPageSection id="Section2" title="{i18n>qdTitle}" visible="{ui>/quotationDetailVisible}">
+                <uxap:subSections>
+                    <uxap:ObjectPageSubSection id="quotationDetailSubSection" title="">
+                        <uxap:blocks>
+                            <layout:VerticalLayout id="quotationDetailLayout" width="100%">
+                                <core:Fragment fragmentName="com.cathaydining.zsde005.uploaduptquo.view.fragments.Section2" type="XML" />
+                            </layout:VerticalLayout>
+                        </uxap:blocks>
+                    </uxap:ObjectPageSubSection>
+                </uxap:subSections>
+            </uxap:ObjectPageSection>
+        </uxap:sections>
+
+        <uxap:footer>
+            <OverflowToolbar id="objectPageFooterBar">
+                <ToolbarSpacer id="objectPageFooterSpacer" />
+                <Button id="prevStepButton" text="{i18n>prevStepButton}" type="Transparent" visible="{= ${ui>/detailsVisible} || ${ui>/newQuotationVisible} || ${ui>/quotationDetailVisible} }" press="onPrevStep" />
+                <Button id="resetButton" text="{i18n>resetButton}" type="Reject" visible="{= ${ui>/detailsVisible} || ${ui>/newQuotationVisible} || ${ui>/quotationDetailVisible} }" press="onReset" />
+                <Button id="qdSaveQuotationFooterBtn" text="{i18n>qdSaveQuotation}" type="Emphasized" visible="{ui>/quotationDetailVisible}" press="onQDSaveQuotation" />
+            </OverflowToolbar>
+        </uxap:footer>
+    </uxap:ObjectPageLayout>
+</mvc:View>

@@ -1,0 +1,54 @@
+/* Copy Quotation – visual polish */
+
+.copyCard {
+    max-width: 42rem;
+    margin: 0.5rem 0 1.25rem 0;
+    padding: 0;
+    border: 1px solid var(--sapGroup_ContentBorderColor, #d9d9d9);
+    border-radius: 0.5rem;
+    background: var(--sapGroup_ContentBackground, #fff);
+    box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}
+
+.copySimpleForm {
+    padding: 0.75rem 0.75rem 0 0.75rem;
+}
+
+.copyCardFooter {
+    padding: 0.5rem 1rem 0.85rem 1rem;
+    border-top: 1px solid var(--sapGroup_ContentBorderColor, #e5e5e5);
+    background: var(--sapList_HeaderBackground, #f7f7f7);
+}
+
+.copySummaryBar {
+    gap: 0.25rem 0.75rem;
+    padding: 0.25rem 0;
+}
+
+.qdWorkbench {
+    width: 100%;
+}
+
+.qdTableToolbar {
+    padding-left: 0.25rem;
+}
+
+.qdWorkbenchTable {
+    border: 1px solid var(--sapGroup_ContentBorderColor, #d9d9d9);
+    border-radius: 0.25rem;
+}
+
+.copyFooterBar {
+    padding: 0.35rem 0.75rem;
+}
+
+/* ProgressIndicator bar icon cleanup used by onQDTableRowsUpdated */
+.hideBarIcon .sapMPIBarIcon,
+.hideBarIcon .sapMPIBarRemaining {
+    display: none;
+}
+
+.bomTreeDialog .sapMITBContent {
+    padding: 0.5rem 0 0 0;
+}

@@ -1,0 +1,347 @@
+<mvc:View
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:card="sap.f.cards"
+    xmlns:form="sap.ui.layout.form"
+    controllerName="com.cathaydining.zppr004.ext.view.Main"
+    height="100%"
+>
+    <!-- OVP: filter header on top, dashboard cards below on the same page -->
+    <f:DynamicPage
+        id="selectionPage"
+        class="ppdOvpPage ppdSelectionPage"
+        toggleHeaderOnTitleClick="true"
+        headerExpanded="true"
+    >
+        <f:title>
+            <f:DynamicPageTitle class="ppdOvpTitle">
+                <f:heading>
+                    <Title text="{i18n>appTitle}" level="H2" class="ppdOvpHeading"/>
+                </f:heading>
+                <f:snappedContent>
+                    <Text
+                        text="{= ${dash>/hasRun} ? ${dash>/selectionSummary} : ${i18n>selectionCriteria} }"
+                        class="ppdOvpSnappedText"
+                    />
+                </f:snappedContent>
+                <f:actions>
+                    <Button
+                        id="resetButton"
+                        text="{i18n>reset}"
+                        type="Transparent"
+                        press=".onReset"
+                        class="ppdResetButton"
+                    />
+                    <Button
+                        id="goButton"
+                        text="{i18n>go}"
+                        type="Emphasized"
+                        press=".onGo"
+                        class="ppdGoButton"
+                    />
+                </f:actions>
+            </f:DynamicPageTitle>
+        </f:title>
+
+        <f:header>
+            <f:DynamicPageHeader class="ppdOvpFilterHeader" pinnable="true">
+                <VBox class="ppdOvpFilterHeaderInner" width="100%">
+                    <form:SimpleForm
+                        id="selectionForm"
+                        editable="true"
+                        layout="ColumnLayout"
+                        columnsM="2"
+                        columnsL="3"
+                        columnsXL="4"
+                        class="ppdSelectionForm ppdOvpFilterForm"
+                    >
+                        <form:content>
+                            <Label id="plantLabel" text="{i18n>plant}" required="true"/>
+                            <Input
+                                id="plantInput"
+                                value="{sel>/Plant}"
+                                valueLiveUpdate="true"
+                                showValueHelp="true"
+                                valueHelpOnly="false"
+                                valueHelpRequest=".onValueHelpRequest"
+                            >
+                                <customData>
+                                    <core:CustomData key="vhField" value="Plant"/>
+                                </customData>
+                            </Input>
+
+                            <Label id="keyDateLabel" text="{i18n>keyDate}" required="true"/>
+                            <DatePicker
+                                id="keyDatePicker"
+                                value="{sel>/KeyDate}"
+                                valueFormat="yyyy-MM-dd"
+                                width="100%"
+                            />
+
+                            <Label id="departmentLabel" text="{i18n>department}"/>
+                            <MultiInput
+                                id="departmentInput"
+                                showValueHelp="true"
+                                valueHelpRequest=".onValueHelpRequest"
+                                tokenUpdate=".onMultiInputTokenUpdate"
+                                submit=".onMultiInputSubmit"
+                            >
+                                <customData>
+                                    <core:CustomData key="vhField" value="Department"/>
+                                </customData>
+                            </MultiInput>
+
+                            <Label id="prodSupervisorLabel" text="{i18n>prodSupervisor}"/>
+                            <MultiInput
+                                id="prodSupervisorInput"
+                                showValueHelp="true"
+                                valueHelpRequest=".onValueHelpRequest"
+                                tokenUpdate=".onMultiInputTokenUpdate"
+                                submit=".onMultiInputSubmit"
+                            >
+                                <customData>
+                                    <core:CustomData key="vhField" value="ProdSupervisor"/>
+                                </customData>
+                            </MultiInput>
+
+                            <Label id="workCentreLabel" text="{i18n>workCentre}"/>
+                            <MultiInput
+                                id="workCentreInput"
+                                showValueHelp="true"
+                                valueHelpRequest=".onValueHelpRequest"
+                                tokenUpdate=".onMultiInputTokenUpdate"
+                                submit=".onMultiInputSubmit"
+                            >
+                                <customData>
+                                    <core:CustomData key="vhField" value="WorkCentre"/>
+                                </customData>
+                            </MultiInput>
+
+                            <Label id="shiftNameLabel" text="{i18n>shiftName}"/>
+                            <Input
+                                id="shiftNameInput"
+                                value="{sel>/ShiftName}"
+                                showValueHelp="true"
+                                valueHelpRequest=".onValueHelpRequest"
+                            >
+                                <customData>
+                                    <core:CustomData key="vhField" value="ShiftName"/>
+                                </customData>
+                            </Input>
+
+                            <Label id="prodStartTimeLabel" text="{i18n>prodStartTime}"/>
+                            <TimePicker
+                                id="prodStartTimePicker"
+                                value="{sel>/ProdStartTime}"
+                                valueFormat="HH:mm"
+                                displayFormat="HH:mm"
+                                support2400="false"
+                                width="100%"
+                            />
+
+                            <Label id="prodEndTimeLabel" text="{i18n>prodEndTime}"/>
+                            <TimePicker
+                                id="prodEndTimePicker"
+                                value="{sel>/ProdEndTime}"
+                                valueFormat="HH:mm"
+                                displayFormat="HH:mm"
+                                support2400="false"
+                                width="100%"
+                            />
+                        </form:content>
+                    </form:SimpleForm>
+                </VBox>
+            </f:DynamicPageHeader>
+        </f:header>
+
+        <f:content>
+            <VBox width="100%" class="ppdOvpContentRoot">
+                <VBox
+                    class="ppdOvpContentHint"
+                    width="100%"
+                    alignItems="Center"
+                    justifyContent="Center"
+                    visible="{= !${dash>/hasRun} }"
+                >
+                    <IllustratedMessage
+                        illustrationType="sapIllus-SearchFolder"
+                        title="{i18n>resultsIdleTitle}"
+                        description="{i18n>resultsIdleDescription}"
+                        class="ppdIdleMessage"
+                    />
+                </VBox>
+
+                <VBox class="ppdOvpCardArea" width="100%" visible="{dash>/hasRun}">
+                    <VBox class="ppdOvpSection" width="100%">
+                        <HBox alignItems="Center" class="ppdOvpSectionHeader" width="100%">
+                            <Title text="{i18n>tabProduction}" level="H4" class="ppdOvpSectionTitle"/>
+                            <ObjectStatus
+                                text="{dash>/CardLevelLabel}"
+                                state="Information"
+                                inverted="true"
+                                visible="{= !!${dash>/CardLevelLabel} }"
+                                class="ppdProdLevelBadge"
+                            />
+                            <ObjectStatus
+                                text="{= (${dash>/productionCards} || []).length + ' ' + ((${dash>/productionCards} || []).length === 1 ? ${i18n>cardCountSuffix} : ${i18n>cardsCountSuffix}) }"
+                                state="None"
+                                class="ppdGroupCount"
+                            />
+                            <Button
+                                id="prodDrillBack"
+                                text="{i18n>cardNavBack}"
+                                icon="sap-icon://nav-back"
+                                type="Transparent"
+                                press=".onDrillBack"
+                                visible="{= (${dash>/drillStack} || []).length > 0 }"
+                                class="ppdDrillBack"
+                            />
+                        </HBox>
+                        <f:GridContainer
+                            class="ppdOvpGrid"
+                            visible="{= (${dash>/productionCards} || []).length > 0 }"
+                            inlineBlockLayout="true"
+                            items="{dash>/productionCards}"
+                        >
+                            <f:layout>
+                                <f:GridContainerSettings rowSize="5rem" columnSize="20rem" gap="1rem"/>
+                            </f:layout>
+                            <f:layoutS>
+                                <f:GridContainerSettings rowSize="5rem" columnSize="100%" gap="0.75rem"/>
+                            </f:layoutS>
+                            <f:Card class="ppdOvpCard" width="100%">
+                                <f:layoutData>
+                                    <f:GridContainerItemLayoutData columns="1" minRows="4"/>
+                                </f:layoutData>
+                                <f:header>
+                                    <card:Header
+                                        title="{dash>Title}"
+                                        titleMaxLines="2"
+                                        subtitle="{= ${dash>Date} ? ${i18n>cardDate} + ' ' + ${dash>Date} : '' }"
+                                        iconVisible="false"
+                                        press=".onProductionCardPress"
+                                    />
+                                </f:header>
+                                <f:content>
+                                    <VBox class="ppdCardBody" width="100%">
+                                        <VBox items="{dash>Metrics}" class="ppdCardMetrics" width="100%">
+                                            <VBox class="ppdMetricRow" width="100%">
+                                                <HBox justifyContent="SpaceBetween" alignItems="Center" width="100%" class="ppdMetricTop">
+                                                    <Text text="{dash>Label}" class="ppdMetricLabel"/>
+                                                    <ObjectStatus
+                                                        text="{dash>Value}"
+                                                        state="{dash>State}"
+                                                        class="ppdMetricValueText"
+                                                    />
+                                                </HBox>
+                                                <Image
+                                                    src="{dash>BarSvg}"
+                                                    width="100%"
+                                                    densityAware="false"
+                                                    visible="{dash>IsPercent}"
+                                                    class="ppdMetricBarSvg"
+                                                />
+                                            </VBox>
+                                        </VBox>
+                                        <Link
+                                            text="{i18n>cardDrillDown}"
+                                            press=".onProductionCardPress"
+                                            visible="{dash>ShowLink}"
+                                            class="ppdCardOpenLink"
+                                        />
+                                    </VBox>
+                                </f:content>
+                            </f:Card>
+                        </f:GridContainer>
+                        <HBox
+                            class="ppdSectionEmpty"
+                            width="100%"
+                            alignItems="Center"
+                            justifyContent="Start"
+                            visible="{= (${dash>/productionCards} || []).length === 0 }"
+                        >
+                            <Text text="{i18n>noDataDescription}" class="ppdSectionEmptyText"/>
+                        </HBox>
+                    </VBox>
+
+                    <VBox class="ppdOvpSection ppdOvpSectionPlant" width="100%">
+                        <HBox alignItems="Center" class="ppdOvpSectionHeader" width="100%">
+                            <Title text="{i18n>tabPlant}" level="H4" class="ppdOvpSectionTitle"/>
+                            <ObjectStatus
+                                text="{= (${dash>/plantCards} || []).length + ' ' + ((${dash>/plantCards} || []).length === 1 ? ${i18n>cardCountSuffix} : ${i18n>cardsCountSuffix}) }"
+                                state="None"
+                                class="ppdGroupCount"
+                            />
+                        </HBox>
+                        <f:GridContainer
+                            class="ppdOvpGrid"
+                            visible="{= (${dash>/plantCards} || []).length > 0 }"
+                            inlineBlockLayout="true"
+                            items="{dash>/plantCards}"
+                        >
+                            <f:layout>
+                                <f:GridContainerSettings rowSize="5rem" columnSize="20rem" gap="1rem"/>
+                            </f:layout>
+                            <f:layoutS>
+                                <f:GridContainerSettings rowSize="5rem" columnSize="100%" gap="0.75rem"/>
+                            </f:layoutS>
+                            <f:Card class="ppdOvpCard ppdOvpCardPlant" width="100%">
+                                <f:layoutData>
+                                    <f:GridContainerItemLayoutData columns="1" minRows="4"/>
+                                </f:layoutData>
+                                <f:header>
+                                    <card:Header
+                                        title="{dash>Title}"
+                                        titleMaxLines="2"
+                                        subtitle="{= ${dash>Date} ? ${i18n>cardDate} + ' ' + ${dash>Date} : '' }"
+                                        iconVisible="false"
+                                        press=".onPlantCardPress"
+                                    />
+                                </f:header>
+                                <f:content>
+                                    <VBox class="ppdCardBody" width="100%">
+                                        <SegmentedButton
+                                            selectedKey="{dash>ChartType}"
+                                            visible="{dash>HasCountChart}"
+                                            width="100%"
+                                            class="ppdPlantChartToggle"
+                                        >
+                                            <items>
+                                                <SegmentedButtonItem key="column" text="{i18n>plantChartColumn}"/>
+                                                <SegmentedButtonItem key="pie" text="{i18n>plantChartPie}"/>
+                                            </items>
+                                        </SegmentedButton>
+                                        <Image
+                                            src="{= ${dash>ChartType} === 'pie' ? ${dash>ChartSvgPie} : ${dash>ChartSvgColumn} }"
+                                            width="100%"
+                                            densityAware="false"
+                                            visible="{dash>HasCountChart}"
+                                            class="ppdPlantChartSvg"
+                                        />
+                                        <Link
+                                            text="{i18n>cardDrillDown}"
+                                            press=".onPlantCardPress"
+                                            visible="{dash>ShowLink}"
+                                            class="ppdCardOpenLink"
+                                        />
+                                    </VBox>
+                                </f:content>
+                            </f:Card>
+                        </f:GridContainer>
+                        <HBox
+                            class="ppdSectionEmpty"
+                            width="100%"
+                            alignItems="Center"
+                            justifyContent="Start"
+                            visible="{= (${dash>/plantCards} || []).length === 0 }"
+                        >
+                            <Text text="{i18n>noDataDescription}" class="ppdSectionEmptyText"/>
+                        </HBox>
+                    </VBox>
+                </VBox>
+            </VBox>
+        </f:content>
+    </f:DynamicPage>
+</mvc:View>

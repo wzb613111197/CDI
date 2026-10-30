@@ -1,0 +1,91 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    <Dialog
+        id="productValueHelpDialog"
+        title="{productVhModel>/title}"
+        contentWidth="60rem"
+        contentHeight="34rem"
+        resizable="true"
+        draggable="true">
+        <content>
+            <VBox id="productVhFilterArea" class="sapUiSmallMarginBegin sapUiSmallMarginEnd">
+                <OverflowToolbar id="productVhFilterToolbar" style="Clear">
+                    <ToolbarSpacer id="productVhFilterSpacer"/>
+                    <Button
+                        id="btnProductVhGo"
+                        text="{i18n>Go}"
+                        type="Emphasized"
+                        press="onProductValueHelpGo"/>
+                    <Button
+                        id="btnProductVhToggleFilters"
+                        text="{productVhModel>/filterToggleText}"
+                        type="Transparent"
+                        press="onProductValueHelpToggleFilters"/>
+                </OverflowToolbar>
+                <HBox
+                    id="productVhFilterFields"
+                    renderType="Bare"
+                    visible="{productVhModel>/filtersVisible}"
+                    class="sapUiSmallMarginBottom">
+                    <VBox id="productVhBoxProduct" width="33%" class="sapUiSmallMarginEnd">
+                        <Label id="lblProductVhProduct" text="{i18n>MaterialNumber}" labelFor="inpProductVhProduct"/>
+                        <Input
+                            id="inpProductVhProduct"
+                            value="{productVhModel>/filterProduct}"
+                            submit="onProductValueHelpGo"/>
+                    </VBox>
+                    <VBox id="productVhBoxText" width="33%" class="sapUiSmallMarginEnd">
+                        <Label id="lblProductVhText" text="{i18n>MaterialDescription}" labelFor="inpProductVhText"/>
+                        <Input
+                            id="inpProductVhText"
+                            value="{productVhModel>/filterProductText}"
+                            submit="onProductValueHelpGo"/>
+                    </VBox>
+                    <VBox id="productVhBoxPlant" width="33%">
+                        <Label id="lblProductVhPlant" text="{i18n>Plant}" labelFor="inpProductVhPlant"/>
+                        <Input
+                            id="inpProductVhPlant"
+                            value="{productVhModel>/filterPlant}"
+                            submit="onProductValueHelpGo"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+            <Table
+                id="productVhTable"
+                items="{path: '/I_ProductByPlantVH', suspended: true}"
+                growing="true"
+                growingThreshold="50"
+                itemPress="onProductValueHelpSelect">
+                <headerToolbar>
+                    <Toolbar id="productVhTableToolbar">
+                        <Title id="productVhTableTitle" text="{i18n>Items}" level="H3"/>
+                    </Toolbar>
+                </headerToolbar>
+                <columns>
+                    <Column id="colProductVhProduct" width="14rem">
+                        <Text id="txtColProductVhProduct" text="{i18n>MaterialNumber}"/>
+                    </Column>
+                    <Column id="colProductVhText">
+                        <Text id="txtColProductVhText" text="{i18n>MaterialDescription}"/>
+                    </Column>
+                    <Column id="colProductVhPlant" width="8rem">
+                        <Text id="txtColProductVhPlant" text="{i18n>Plant}"/>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem id="productVhListItem" type="Active">
+                        <cells>
+                            <Text id="cellProductVhProduct" text="{Product}"/>
+                            <Text id="cellProductVhText" text="{Product_Text}"/>
+                            <Text id="cellProductVhPlant" text="{Plant}"/>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+        <endButton>
+            <Button id="btnProductVhCancel" text="{i18n>Cancel}" press="onProductValueHelpCancel"/>
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,42 @@
+/**
+ * Custom styles for zsde005.createquo
+ */
+
+/**
+ * Card-style panels used on the Home view and the Material/Quotation dialogs, to visually
+ * group related content with a subtle border, rounded corners and drop shadow.
+ */
+.cdHomePanel,
+.cdSectionPanel {
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+/**
+ * Current Quotation table – full-row highlight for top-level rows (ComponentID = 0).
+ *
+ * The cdQDHighlightRow class is added to each <tr> by the rowsUpdated JS handler
+ * in ListReportExtension.controller.js, based on the ComponentID binding value.
+ */
+tr.cdQDHighlightRow > td {
+    background-color: var(--sapInformationBackground, #e3f1fb) !important;
+}
+
+tr.cdQDHighlightRow:hover > td {
+    background-color: var(--sapInformationBackground, #e3f1fb) !important;
+    filter: brightness(0.96);
+}
+
+/**
+ * Fix vertical misalignment in SimpleForm ColumnLayout.
+ * Different control heights (Input, DatePicker, CheckBox, Text) cause rows to
+ * start at different vertical offsets across columns. Force every FormElement
+ * (label + field pair) to the same min-height so rows stay aligned.
+ */
+[id$="ltnqHeaderSimpleForm"] .sapUiFormElement,
+[id$="mnqHeaderSimpleForm"] .sapUiFormElement,
+[id$="qdHeaderSimpleForm"] .sapUiFormElement {
+    min-height: 5rem;
+    box-sizing: border-box;
+}

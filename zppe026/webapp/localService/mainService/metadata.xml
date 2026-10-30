@@ -1,0 +1,936 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="SAP__aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="SAP__capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HIERARCHY',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="SAP__hierarchy"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="SAP__HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="SAP__measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ODM',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.ODM.v1" Alias="SAP__ODM"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SESSION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="SAP__session"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="SAP__UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="SAP__validation"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="com.sap.gateway.srvd.zpp_pp_ldgrmp_hdr.v0001" Alias="SAP__self">
+            <Annotation Term="SAP__core.SchemaVersion" String="1.0.0"/>
+            <EntityType Name="ZC_PP_LDGRMP_HDRType">
+                <Key>
+                    <PropertyRef Name="LoadingTemplateKey"/>
+                </Key>
+                <Property Name="LoadingTemplateKey" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="LoadingTemplateCode" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="ValidFrom" Type="Edm.Date"/>
+                <Property Name="ValidTo" Type="Edm.Date"/>
+                <Property Name="AcftType" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="AirlineCode" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="LdgTempKey" Type="Edm.Guid"/>
+                <Property Name="LoadingTemplateName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="CalcModeCode" Type="Edm.String" Nullable="false" MaxLength="255"/>
+                <Property Name="CalculationModeType" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="CalculationModeValidFrom" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="CalculationModeValidTo" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="CycleMethod" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="DistributionMethod" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="__OperationControl" Type="com.sap.gateway.srvd.zpp_pp_ldgrmp_hdr.v0001.ZC_PP_LDGRMP_HDROperationControl"/>
+                <Property Name="SAP__Messages" Type="Collection(com.sap.gateway.srvd.zpp_pp_ldgrmp_hdr.v0001.SAP__Message)" Nullable="false"/>
+                <NavigationProperty Name="_Cab" Type="Collection(com.sap.gateway.srvd.zpp_pp_ldgrmp_hdr.v0001.ZI_PP_LDGRMP_CABType)"/>
+            </EntityType>
+            <EntityType Name="ZI_PP_LDGRMP_CABType">
+                <Key>
+                    <PropertyRef Name="LoadingTemplateKey"/>
+                    <PropertyRef Name="CabinClass"/>
+                </Key>
+                <Property Name="LoadingTemplateKey" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="CabinClass" Type="Edm.String" Nullable="false" MaxLength="2"/>
+            </EntityType>
+            <EntityType Name="ZC_PP_LDGRMP_FLORDType">
+                <Key>
+                    <PropertyRef Name="FlightOrderNumber"/>
+                    <PropertyRef Name="AirlineCode"/>
+                    <PropertyRef Name="LoadingDefinitionCode"/>
+                </Key>
+                <Property Name="FlightOrderNumber" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="AirlineCode" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="LoadingDefinitionCode" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="LoadingDefinitionName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="LoadingDefinitionValidFrom" Type="Edm.Date"/>
+                <Property Name="LoadingDefinitionValidTo" Type="Edm.Date"/>
+                <Property Name="FlightOrderType" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="ScheduledDepartureDate" Type="Edm.Date"/>
+            </EntityType>
+            <EntityType Name="ZC_PP_LDGRMP_DEFType">
+                <Key>
+                    <PropertyRef Name="LoadingDefinitionKey"/>
+                </Key>
+                <Property Name="LoadingDefinitionKey" Type="Edm.Guid" Nullable="false"/>
+                <Property Name="AirlineCode" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="LoadingTemplateCode" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="LoadingTemplateValidFrom" Type="Edm.Date"/>
+                <Property Name="LoadingTemplateValidTo" Type="Edm.Date"/>
+                <Property Name="LoadingDefinitionCode" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="LoadingDefinitionName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="LoadingDefinitionValidFrom" Type="Edm.Date"/>
+                <Property Name="LoadingDefinitionValidTo" Type="Edm.Date"/>
+                <Property Name="FlightNumber" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Sector" Type="Edm.String" Nullable="false" MaxLength="1"/>
+            </EntityType>
+            <EntityType Name="ZI_PP_SIMU_FLORDType">
+                <Key>
+                    <PropertyRef Name="AirlineCode"/>
+                    <PropertyRef Name="FlightNumber"/>
+                    <PropertyRef Name="StdDate"/>
+                    <PropertyRef Name="LoadingDefinitionCode"/>
+                    <PropertyRef Name="LoadingTemplateCode"/>
+                </Key>
+                <Property Name="AirlineCode" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="FlightNumber" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="StdDate" Type="Edm.Date" Nullable="false"/>
+                <Property Name="LoadingDefinitionCode" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="LoadingTemplateCode" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="LoadingDefinitionName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="LoadingDefinitionValidFrom" Type="Edm.Date"/>
+                <Property Name="LoadingDefinitionValidTo" Type="Edm.Date"/>
+                <Property Name="LoadingTemplateName" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="LoadingTemplateValidFrom" Type="Edm.Date"/>
+                <Property Name="LoadingTemplateValidTo" Type="Edm.Date"/>
+                <Property Name="AircraftType" Type="Edm.String" Nullable="false" MaxLength="10"/>
+            </EntityType>
+            <ComplexType Name="ZC_PP_LDGRMP_HDROperationControl">
+                <Property Name="SimulateSpecificFlight" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="SimulateSpecificFlightConfirm" Type="Edm.Boolean" Nullable="false"/>
+            </ComplexType>
+            <ComplexType Name="ZC_PP_LDGRMP_FLORDOperationControl">
+                <Property Name="SimulateAndCompare" Type="Edm.Boolean" Nullable="false"/>
+            </ComplexType>
+            <ComplexType Name="ZA_PP_LDGRMP_RESULTS">
+                <Property Name="Response" Type="Edm.String" Nullable="false"/>
+            </ComplexType>
+            <ComplexType Name="SAP__Message">
+                <Property Name="code" Type="Edm.String" Nullable="false"/>
+                <Property Name="message" Type="Edm.String" Nullable="false"/>
+                <Property Name="target" Type="Edm.String"/>
+                <Property Name="additionalTargets" Type="Collection(Edm.String)" Nullable="false"/>
+                <Property Name="transition" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="numericSeverity" Type="Edm.Byte" Nullable="false"/>
+                <Property Name="longtextUrl" Type="Edm.String"/>
+            </ComplexType>
+            <Action Name="SimulateSpecificFlight" IsBound="true">
+                <Parameter Name="_it" Type="Collection(com.sap.gateway.srvd.zpp_pp_ldgrmp_hdr.v0001.ZC_PP_LDGRMP_HDRType)" Nullable="false"/>
+                <Parameter Name="Request" Type="Edm.String" Nullable="false"/>
+                <ReturnType Type="com.sap.gateway.srvd.zpp_pp_ldgrmp_hdr.v0001.ZA_PP_LDGRMP_RESULTS" Nullable="false"/>
+            </Action>
+            <Action Name="SimulateSpecificFlightConfirm" IsBound="true">
+                <Parameter Name="_it" Type="Collection(com.sap.gateway.srvd.zpp_pp_ldgrmp_hdr.v0001.ZC_PP_LDGRMP_HDRType)" Nullable="false"/>
+                <Parameter Name="Request" Type="Edm.String" Nullable="false"/>
+                <ReturnType Type="com.sap.gateway.srvd.zpp_pp_ldgrmp_hdr.v0001.ZA_PP_LDGRMP_RESULTS" Nullable="false"/>
+            </Action>
+            <Action Name="SimulateAndCompare" EntitySetPath="_it" IsBound="true">
+                <Parameter Name="_it" Type="com.sap.gateway.srvd.zpp_pp_ldgrmp_hdr.v0001.ZC_PP_LDGRMP_FLORDType" Nullable="false"/>
+                <ReturnType Type="com.sap.gateway.srvd.zpp_pp_ldgrmp_hdr.v0001.ZA_PP_LDGRMP_RESULTS" Nullable="false"/>
+            </Action>
+            <EntityContainer Name="Container">
+                <EntitySet Name="ZC_PP_LDGRMP_DEF" EntityType="com.sap.gateway.srvd.zpp_pp_ldgrmp_hdr.v0001.ZC_PP_LDGRMP_DEFType"/>
+                <EntitySet Name="ZC_PP_LDGRMP_FLORD" EntityType="com.sap.gateway.srvd.zpp_pp_ldgrmp_hdr.v0001.ZC_PP_LDGRMP_FLORDType"/>
+                <EntitySet Name="ZC_PP_LDGRMP_HDR" EntityType="com.sap.gateway.srvd.zpp_pp_ldgrmp_hdr.v0001.ZC_PP_LDGRMP_HDRType">
+                    <NavigationPropertyBinding Path="_Cab" Target="ZI_PP_LDGRMP_CAB"/>
+                </EntitySet>
+                <EntitySet Name="ZI_PP_LDGRMP_CAB" EntityType="com.sap.gateway.srvd.zpp_pp_ldgrmp_hdr.v0001.ZI_PP_LDGRMP_CABType"/>
+                <EntitySet Name="ZI_PP_SIMU_FLORD" EntityType="com.sap.gateway.srvd.zpp_pp_ldgrmp_hdr.v0001.ZI_PP_SIMU_FLORDType"/>
+            </EntityContainer>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_HDRType/LoadingTemplateKey">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.Label" String="Loading Template Key"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_HDRType/LoadingTemplateCode">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;LoadingTemplateCode}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Loading Template Code"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Loading Template Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_HDRType/ValidFrom">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;LoadingTemplateValidFrom}"/>
+                <Annotation Term="SAP__common.Heading" String="Valid From"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Valid From"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_HDRType/ValidTo">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;LoadingTemplateValidTo}"/>
+                <Annotation Term="SAP__common.Heading" String="Valid To"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Valid To"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_HDRType/AcftType">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;AcftType}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Aircraft Type"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Aircraft Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_HDRType/AirlineCode">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;AirlineCode}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Airline Code"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Airline Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_HDRType/LdgTempKey">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;LdgTempKey}"/>
+                <Annotation Term="SAP__common.Heading" String="Loading Template Key"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Loading Template Key"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_HDRType/LoadingTemplateName">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;LoadingTemplateName}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Loading Template Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Loading Template Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_HDRType/CalcModeCode">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;CalcModeCode}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Calculation Mode Code"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Calculation Mode Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_HDRType/CalculationModeType">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;CalculationModeType}"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_HDRType/CalculationModeValidFrom">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;CalculationModeValidFrom}"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_HDRType/CalculationModeValidTo">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;CalculationModeValidTo}"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_HDRType/CycleMethod">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;CycleMethod}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Cycle Method Code"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Cycle Method Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_HDRType/DistributionMethod">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;DistributionMethod}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Distribution Method Code"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Distribution Method Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_HDRType/Material">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;Material}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Material"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_HDRType/__OperationControl">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZC_PP_LDGRMP_HDR">
+                <Annotation Term="SAP__capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="_Cab"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="false"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="Filterable" Bool="true"/>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="LoadingTemplateCode"/>
+                                    <PropertyValue Property="AllowedExpressions" String="MultiValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>__OperationControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>__OperationControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="NonUpdatableNavigationProperties">
+                            <Collection>
+                                <PropertyPath>_Cab</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.SimulateSpecificFlight(Collection(SAP__self.ZC_PP_LDGRMP_HDRType))">
+                <Annotation Term="SAP__core.OperationAvailable" Bool="true"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SimulateSpecificFlightConfirm(Collection(SAP__self.ZC_PP_LDGRMP_HDRType))">
+                <Annotation Term="SAP__core.OperationAvailable" Bool="true"/>
+            </Annotations>
+            <Annotations Target="SAP__self.SimulateAndCompare(SAP__self.ZC_PP_LDGRMP_FLORDType)">
+                <Annotation Term="SAP__core.OperationAvailable" Bool="true"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_HDRType">
+                <Annotation Term="SAP__common.Label" String="Project View For ZI_PP_LDGRMP_HDR"/>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="{@i18n&gt;Compare}"/>
+                        <PropertyValue Property="TypeNamePlural" String="{@i18n&gt;Compare}"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="AirlineCode"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="LoadingTemplateCode"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="LoadingTemplateName"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ValidFrom"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ValidTo"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="{@i18n&gt;CabinClass}"/>
+                            <PropertyValue Property="Value" Path="_Cab/CabinClass"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CalcModeCode"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CalculationModeType"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CalculationModeValidFrom"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CalculationModeValidTo"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CycleMethod"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="DistributionMethod"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Material"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>CalcModeCode</PropertyPath>
+                        <PropertyPath>CycleMethod</PropertyPath>
+                        <PropertyPath>LoadingTemplateCode</PropertyPath>
+                        <PropertyPath>DistributionMethod</PropertyPath>
+                        <PropertyPath>Material</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Messages" Path="SAP__Messages"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_LDGRMP_CABType/CabinClass">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;CabinClass}"/>
+                <Annotation Term="SAP__common.Heading" String="Cabin Class"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Cabin class"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_LDGRMP_CABType">
+                <Annotation Term="SAP__common.Label" String="Interface View For Loading Template CabinClass"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZI_PP_LDGRMP_CAB">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_FLORDType/FlightOrderNumber">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;FlightOrderNumber}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Flight order"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Flight order"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_FLORDType/AirlineCode">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;AirlineCode}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Airline Code"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Airline Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_FLORDType/LoadingDefinitionCode">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;LoadingDefinitionCode}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Customer Loading Definition Code"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Loading Definition Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_FLORDType/LoadingDefinitionName">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;LoadingDefinitionName}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Loading Definition Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Loading Definition Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_FLORDType/LoadingDefinitionValidFrom">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;LoadingDefinitionValidFrom}"/>
+                <Annotation Term="SAP__common.Heading" String="Valid From"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Valid From"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_FLORDType/LoadingDefinitionValidTo">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;LoadingDefinitionValidTo}"/>
+                <Annotation Term="SAP__common.Heading" String="Valid To"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Valid To"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_FLORDType/FlightOrderType">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;FlightOrderType}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Flight order type"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Flight order type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_FLORDType/ScheduledDepartureDate">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;ScheduledDepartureDate}"/>
+                <Annotation Term="SAP__common.Heading" String="Scheduled Departure Date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Scheduled Departure Date"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_FLORDType">
+                <Annotation Term="SAP__common.Label" String="Project View For ZI_PP_LDGRMP_FLORD"/>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="{@i18n&gt;FlightOrderExplorer}"/>
+                        <PropertyValue Property="TypeNamePlural" String="{@i18n&gt;FlightOrderExplorer}"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="AirlineCode"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="LoadingDefinitionCode"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="LoadingDefinitionName"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="LoadingDefinitionValidFrom"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="LoadingDefinitionValidTo"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="FlightOrderNumber"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="FlightOrderType"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ScheduledDepartureDate"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>LoadingDefinitionCode</PropertyPath>
+                        <PropertyPath>ScheduledDepartureDate</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZC_PP_LDGRMP_FLORD">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="Filterable" Bool="true"/>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="ScheduledDepartureDate"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_DEFType/AirlineCode">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;AirlineCode}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Airline Code"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Airline Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_DEFType/LoadingTemplateCode">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;LoadingTemplateCode}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Loading Template Code"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Loading Template Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_DEFType/LoadingTemplateValidFrom">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;LoadingTemplateValidFrom}"/>
+                <Annotation Term="SAP__common.Heading" String="Valid From"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Valid From"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_DEFType/LoadingTemplateValidTo">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;LoadingTemplateValidTo}"/>
+                <Annotation Term="SAP__common.Heading" String="Valid To"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Valid To"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_DEFType/LoadingDefinitionCode">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;LoadingDefinitionCode}"/>
+                <Annotation Term="SAP__common.Text" Path="LoadingDefinitionName">
+                    <Annotation Term="SAP__UI.TextArrangement" EnumMember="SAP__UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Customer Loading Definition Code"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Loading Definition Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_DEFType/LoadingDefinitionName">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Loading Def. Name"/>
+                <Annotation Term="SAP__common.Heading" String="Loading Definition Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Loading Definition Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_DEFType/LoadingDefinitionValidFrom">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;LoadingDefinitionValidFrom}"/>
+                <Annotation Term="SAP__common.Heading" String="Valid From"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Valid From"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_DEFType/LoadingDefinitionValidTo">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;LoadingDefinitionValidTo}"/>
+                <Annotation Term="SAP__common.Heading" String="Valid To"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Valid To"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_DEFType/FlightNumber">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;FlightNumber}"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Heading" String="Flight Number"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Flight Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_DEFType/Sector">
+                <Annotation Term="SAP__common.Label" String="{@i18n&gt;Sector}"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Heading" String="Sector"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Sector"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_DEFType">
+                <Annotation Term="SAP__common.Label" String="Project View For ZI_PP_LDGRMP_DEF"/>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="{@i18n&gt;LoadingDefinitionSelector}"/>
+                        <PropertyValue Property="TypeNamePlural" String="{@i18n&gt;LoadingDefinitionSelector}"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="AirlineCode"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="LoadingTemplateCode"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="LoadingTemplateValidFrom"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="LoadingTemplateValidTo"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="LoadingDefinitionCode"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="LoadingDefinitionValidFrom"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="LoadingDefinitionValidTo"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="FlightNumber"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Sector"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>LoadingTemplateCode</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZC_PP_LDGRMP_DEF">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_SIMU_FLORDType/AirlineCode">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;AirlineCode}"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_pp_airline_vh/0001;ps='srvd-zpp_pp_ldgrmp_hdr-0001';va='com.sap.gateway.srvd.zpp_pp_ldgrmp_hdr.v0001.et-zi_pp_simu_flord.airlinecode'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="Airline Code"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Airline Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_SIMU_FLORDType/FlightNumber">
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Flight Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_SIMU_FLORDType/StdDate">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;SimulationDate}"/>
+                <Annotation Term="SAP__common.Heading" String="Scheduled Departure Date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Scheduled Departure Date"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_SIMU_FLORDType/LoadingDefinitionCode">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;LoadingDefinitionCode}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Customer Loading Definition Code"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Loading Definition Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_SIMU_FLORDType/LoadingTemplateCode">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;LoadingTemplateCode}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Loading Template Code"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Loading Template Code"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_SIMU_FLORDType/LoadingDefinitionName">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;LoadingDefinitionName}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Loading Definition Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Loading Definition Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_SIMU_FLORDType/LoadingDefinitionValidFrom">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;LoadingDefinitionValidFrom}"/>
+                <Annotation Term="SAP__common.Heading" String="Valid From"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Valid From"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_SIMU_FLORDType/LoadingDefinitionValidTo">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;LoadingDefinitionValidTo}"/>
+                <Annotation Term="SAP__common.Heading" String="Valid To"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Valid To"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_SIMU_FLORDType/LoadingTemplateName">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;LoadingTemplateName}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Loading Template Name"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Loading Template Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_SIMU_FLORDType/LoadingTemplateValidFrom">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;LoadingTemplateValidFrom}"/>
+                <Annotation Term="SAP__common.Heading" String="Valid From"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Valid From"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_SIMU_FLORDType/LoadingTemplateValidTo">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;LoadingTemplateValidTo}"/>
+                <Annotation Term="SAP__common.Heading" String="Valid To"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Valid To"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_SIMU_FLORDType/AircraftType">
+                <Annotation Term="SAP__common.Label" String="{i18n&gt;AircraftType}"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Aircraft Type"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Aircraft Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_SIMU_FLORDType">
+                <Annotation Term="SAP__common.Label" String="Project View For ZC_PP_SIMU_FLORD"/>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="{i18n&gt;Simulate}"/>
+                        <PropertyValue Property="TypeNamePlural" String="{i18n&gt;Simulate}"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="AirlineCode"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="LoadingDefinitionCode"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="LoadingDefinitionName"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="LoadingDefinitionValidFrom"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="LoadingDefinitionValidTo"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="LoadingTemplateCode"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="LoadingTemplateName"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="LoadingTemplateValidFrom"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="LoadingTemplateValidTo"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>AirlineCode</PropertyPath>
+                        <PropertyPath>FlightNumber</PropertyPath>
+                        <PropertyPath>StdDate</PropertyPath>
+                        <PropertyPath>AircraftType</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZI_PP_SIMU_FLORD">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="Filterable" Bool="true"/>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="AirlineCode"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="FlightNumber"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container">
+                <Annotation Term="SAP__common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="SAP__capabilities.FilterFunctions">
+                    <Collection>
+                        <String>eq</String>
+                        <String>ne</String>
+                        <String>gt</String>
+                        <String>ge</String>
+                        <String>lt</String>
+                        <String>le</String>
+                        <String>and</String>
+                        <String>or</String>
+                        <String>contains</String>
+                        <String>startswith</String>
+                        <String>endswith</String>
+                        <String>any</String>
+                        <String>all</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SupportedFormats">
+                    <Collection>
+                        <String>application/json</String>
+                        <String>application/pdf</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="Border" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="FitToPage" Bool="true"/>
+                        <PropertyValue Property="FontName" Bool="true"/>
+                        <PropertyValue Property="FontSize" Bool="true"/>
+                        <PropertyValue Property="HeaderFooter" Bool="true"/>
+                        <PropertyValue Property="IANATimezoneFormat" Bool="true"/>
+                        <PropertyValue Property="Margin" Bool="true"/>
+                        <PropertyValue Property="Padding" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="20000"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="TextDirectionLayout" Bool="true"/>
+                        <PropertyValue Property="Treeview" Bool="true"/>
+                        <PropertyValue Property="UploadToFileShare" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.KeyAsSegmentSupported"/>
+                <Annotation Term="SAP__capabilities.AsynchronousRequestsSupported"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_PP_LDGRMP_CABType/LoadingTemplateKey">
+                <Annotation Term="SAP__UI.Hidden"/>
+                <Annotation Term="SAP__common.Label" String="Loading Template Key"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_DEFType/LoadingDefinitionKey">
+                <Annotation Term="SAP__common.Label" String="Loading Definition K"/>
+                <Annotation Term="SAP__common.Heading" String="Loading Definition Key"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Loading Definition Key"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_HDROperationControl/SimulateSpecificFlight">
+                <Annotation Term="SAP__common.Label" String="Dyn. Action Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Action Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Action Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_LDGRMP_HDROperationControl/SimulateSpecificFlightConfirm">
+                <Annotation Term="SAP__common.Label" String="Dyn. Action Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Action Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Action Property"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

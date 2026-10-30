@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="SAP__aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="SAP__capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HIERARCHY',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="SAP__hierarchy"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="SAP__HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="SAP__measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ODM',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.ODM.v1" Alias="SAP__ODM"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SESSION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="SAP__session"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="SAP__UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="SAP__validation"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="com.sap.gateway.srvd.zsd_ewm_wms_stock_balance.v0001" Alias="SAP__self">
+            <Annotation Term="SAP__core.SchemaVersion" String="1.0.0"/>
+            <EntityType Name="ZI_EWM_WMS_STOCK_BALANCEType">
+                <Key>
+                    <PropertyRef Name="Lgnum"/>
+                    <PropertyRef Name="Ztimestamp"/>
+                    <PropertyRef Name="Huident"/>
+                    <PropertyRef Name="Matnr"/>
+                    <PropertyRef Name="Charg"/>
+                </Key>
+                <Property Name="Lgnum" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Ztimestamp" Type="Edm.Decimal" Nullable="false" Precision="15"/>
+                <Property Name="Huident" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="Matnr" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="Charg" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="StockSap" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="StockWms" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="Diff" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="Meins" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="Owner" Type="Edm.String" Nullable="false" MaxLength="70"/>
+                <Property Name="OwnerDesc" Type="Edm.String" Nullable="false" MaxLength="70"/>
+                <Property Name="Zlock" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="Vfdat" Type="Edm.Date"/>
+                <Property Name="Lgtyp" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="Lgpla" Type="Edm.String" Nullable="false" MaxLength="18"/>
+                <Property Name="Erdat" Type="Edm.Date"/>
+                <Property Name="Erzet" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="DisplayList" Type="Edm.String" Nullable="false" MaxLength="2"/>
+                <Property Name="OperationMode" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="__EntityControl" Type="com.sap.gateway.srvd.zsd_ewm_wms_stock_balance.v0001.EntityControl"/>
+                <Property Name="SAP__Messages" Type="Collection(com.sap.gateway.srvd.zsd_ewm_wms_stock_balance.v0001.SAP__Message)" Nullable="false"/>
+            </EntityType>
+            <ComplexType Name="EntityControl">
+                <Property Name="Deletable" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="Updatable" Type="Edm.Boolean" Nullable="false"/>
+            </ComplexType>
+            <ComplexType Name="SAP__Message">
+                <Property Name="code" Type="Edm.String" Nullable="false"/>
+                <Property Name="message" Type="Edm.String" Nullable="false"/>
+                <Property Name="target" Type="Edm.String"/>
+                <Property Name="additionalTargets" Type="Collection(Edm.String)" Nullable="false"/>
+                <Property Name="transition" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="numericSeverity" Type="Edm.Byte" Nullable="false"/>
+                <Property Name="longtextUrl" Type="Edm.String"/>
+            </ComplexType>
+            <EntityContainer Name="Container">
+                <EntitySet Name="ZI_EWM_WMS_STOCK_BALANCE" EntityType="com.sap.gateway.srvd.zsd_ewm_wms_stock_balance.v0001.ZI_EWM_WMS_STOCK_BALANCEType"/>
+            </EntityContainer>
+            <Annotations Target="SAP__self.ZI_EWM_WMS_STOCK_BALANCEType/Lgnum">
+                <Annotation Term="SAP__common.Label" String="Warehouse Number"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="WhN"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Warehouse Number/Warehouse Complex"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=%2FSCWM%2FLGNUM"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_WMS_STOCK_BALANCEType/Ztimestamp">
+                <Annotation Term="SAP__common.Label" String="Timestamp"/>
+                <Annotation Term="SAP__core.Computed"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_WMS_STOCK_BALANCEType/Huident">
+                <Annotation Term="SAP__common.Label" String="HU number"/>
+                <Annotation Term="SAP__core.Computed"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_WMS_STOCK_BALANCEType/Matnr">
+                <Annotation Term="SAP__common.Label" String="Material Number"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_materialvh/0001;ps='srvd-zsd_ewm_wms_stock_balance-0001';va='com.sap.gateway.srvd.zsd_ewm_wms_stock_balance.v0001.et-zi_ewm_wms_stock_balance.matnr'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="Material"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_WMS_STOCK_BALANCEType/Charg">
+                <Annotation Term="SAP__common.Label" String="Batch Number"/>
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__common.Heading" String="Batch"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Batch Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=CHARG_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_WMS_STOCK_BALANCEType/StockSap">
+                <Annotation Term="SAP__common.Label" String="SAP Stock Quantity"/>
+                <Annotation Term="SAP__measures.Unit" Path="Meins"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__common.Heading" String="Delivery Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Actual quantity delivered (in sales units)"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=LFIMG"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_WMS_STOCK_BALANCEType/StockWms">
+                <Annotation Term="SAP__common.Label" String="WMS Stock Quantity"/>
+                <Annotation Term="SAP__measures.Unit" Path="Meins"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__common.Heading" String="Delivery Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Actual quantity delivered (in sales units)"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=LFIMG"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_WMS_STOCK_BALANCEType/Diff">
+                <Annotation Term="SAP__common.Label" String="Difference Quantity"/>
+                <Annotation Term="SAP__measures.Unit" Path="Meins"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__common.Heading" String="Delivery Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Actual quantity delivered (in sales units)"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=LFIMG"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_WMS_STOCK_BALANCEType/Meins">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__common.Label" String="Base Unit"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__common.Heading" String="BUn"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Base Unit of Measure"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MEINS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_WMS_STOCK_BALANCEType/Owner">
+                <Annotation Term="SAP__common.Label" String="Owner"/>
+                <Annotation Term="SAP__common.Text" Path="OwnerDesc">
+                    <Annotation Term="SAP__UI.TextArrangement" EnumMember="SAP__UI.TextArrangementType/TextFirst"/>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_ewm_owner_vh/0001;ps='srvd-zsd_ewm_wms_stock_balance-0001';va='com.sap.gateway.srvd.zsd_ewm_wms_stock_balance.v0001.et-zi_ewm_wms_stock_balance.owner'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="Owner"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Owner"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_WMS_STOCK_BALANCEType/Zlock">
+                <Annotation Term="SAP__common.Label" String="Stock Status"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Single-Character Flag"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_WMS_STOCK_BALANCEType/Vfdat">
+                <Annotation Term="SAP__common.Label" String="Expiration date"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__common.Heading" String="SLED/BBD"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Shelf Life Expiration or Best-Before Date"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VFDAT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_WMS_STOCK_BALANCEType/Lgtyp">
+                <Annotation Term="SAP__common.Label" String="Storage Type"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_ewm_storage_type_vh/0001;ps='srvd-zsd_ewm_wms_stock_balance-0001';va='com.sap.gateway.srvd.zsd_ewm_wms_stock_balance.v0001.et-zi_ewm_wms_stock_balance.lgtyp'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+                <Annotation Term="SAP__common.Heading" String="Ty."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Storage Type"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=%2FSCWM%2FLGTYP"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_WMS_STOCK_BALANCEType/Lgpla">
+                <Annotation Term="SAP__common.Label" String="Storage Bin"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Bin"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Storage Bin"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=%2FSCWM%2FLGPLA"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_WMS_STOCK_BALANCEType/Erdat">
+                <Annotation Term="SAP__common.Label" String="Creation Date"/>
+                <Annotation Term="SAP__common.Heading" String="Created On"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Creation Date"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ABP_CREATION_DATE"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_WMS_STOCK_BALANCEType/Erzet">
+                <Annotation Term="SAP__common.Label" String="Creation Time"/>
+                <Annotation Term="SAP__common.Heading" String="Created At"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Creation Time"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ABP_CREATION_TIME"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_WMS_STOCK_BALANCEType/DisplayList">
+                <Annotation Term="SAP__common.Label" String="Display list (List Box)"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_ewm_display_list_vh/0001;ps='srvd-zsd_ewm_wms_stock_balance-0001';va='com.sap.gateway.srvd.zsd_ewm_wms_stock_balance.v0001.et-zi_ewm_wms_stock_balance.displaylist'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Component of the Version Number"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_WMS_STOCK_BALANCEType/OperationMode">
+                <Annotation Term="SAP__common.Label" String="Operation mode (List Box)"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_ewm_operation_mode_vh/0001;ps='srvd-zsd_ewm_wms_stock_balance-0001';va='com.sap.gateway.srvd.zsd_ewm_wms_stock_balance.v0001.et-zi_ewm_wms_stock_balance.operationmode'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Single-Character Flag"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_WMS_STOCK_BALANCEType/__EntityControl">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_WMS_STOCK_BALANCEType">
+                <Annotation Term="SAP__common.Label" String="Inbound Interface to receive WMSStock Bal for Reconciliation"/>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="Inbound Interface to Receive WMS Stock Balance for Reconciliation"/>
+                        <PropertyValue Property="TypeNamePlural" String="Inbound Interface to Receive WMS Stock Balance for Reconciliation"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="Huident"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Erdat"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Erzet"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Lgtyp"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Lgpla"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Huident"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Matnr"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Charg"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="StockSap"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="StockWms"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Diff"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Meins"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Owner"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Zlock"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Vfdat"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Lgnum"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Ztimestamp"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="DisplayList"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="OperationMode"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>Lgtyp</PropertyPath>
+                        <PropertyPath>Owner</PropertyPath>
+                        <PropertyPath>Erdat</PropertyPath>
+                        <PropertyPath>Erzet</PropertyPath>
+                        <PropertyPath>Matnr</PropertyPath>
+                        <PropertyPath>Lgpla</PropertyPath>
+                        <PropertyPath>Huident</PropertyPath>
+                        <PropertyPath>Ztimestamp</PropertyPath>
+                        <PropertyPath>Lgnum</PropertyPath>
+                        <PropertyPath>DisplayList</PropertyPath>
+                        <PropertyPath>OperationMode</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Messages" Path="SAP__Messages"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZI_EWM_WMS_STOCK_BALANCE">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>__EntityControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>__EntityControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="DeltaUpdateSupported" Bool="true"/>
+                        <PropertyValue Property="Updatable" Path="__EntityControl/Updatable"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeepUpdateSupport">
+                    <Record>
+                        <PropertyValue Property="ContentIDSupported" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Path="__EntityControl/Deletable"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container">
+                <Annotation Term="SAP__CodeList.UnitsOfMeasure">
+                    <Record>
+                        <PropertyValue Property="Url" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="UnitsOfMeasure"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="SAP__capabilities.FilterFunctions">
+                    <Collection>
+                        <String>eq</String>
+                        <String>ne</String>
+                        <String>gt</String>
+                        <String>ge</String>
+                        <String>lt</String>
+                        <String>le</String>
+                        <String>and</String>
+                        <String>or</String>
+                        <String>contains</String>
+                        <String>startswith</String>
+                        <String>endswith</String>
+                        <String>any</String>
+                        <String>all</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SupportedFormats">
+                    <Collection>
+                        <String>application/json</String>
+                        <String>application/pdf</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="Border" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="FitToPage" Bool="true"/>
+                        <PropertyValue Property="FontName" Bool="true"/>
+                        <PropertyValue Property="FontSize" Bool="true"/>
+                        <PropertyValue Property="HeaderFooter" Bool="true"/>
+                        <PropertyValue Property="IANATimezoneFormat" Bool="true"/>
+                        <PropertyValue Property="Margin" Bool="true"/>
+                        <PropertyValue Property="Padding" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="20000"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="TextDirectionLayout" Bool="true"/>
+                        <PropertyValue Property="Treeview" Bool="true"/>
+                        <PropertyValue Property="UploadToFileShare" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.KeyAsSegmentSupported"/>
+                <Annotation Term="SAP__capabilities.AsynchronousRequestsSupported"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_WMS_STOCK_BALANCEType/OwnerDesc">
+                <Annotation Term="SAP__common.Label" String="Value description"/>
+                <Annotation Term="SAP__common.Heading" String="Description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Characteristic value description"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ATWTB"/>
+            </Annotations>
+            <Annotations Target="SAP__self.EntityControl/Deletable">
+                <Annotation Term="SAP__common.Label" String="Dyn. Method Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Method Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Method Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.EntityControl/Updatable">
+                <Annotation Term="SAP__common.Label" String="Dyn. Method Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Method Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Method Property"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

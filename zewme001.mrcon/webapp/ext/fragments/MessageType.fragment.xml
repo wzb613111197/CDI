@@ -1,0 +1,16 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+    <Text
+        id="textMessageType"
+        text="{
+            parts: [
+                {path: 'localData>/messageTypes'},
+                {path: 'datasource'},
+                {path: 'vbeln'},
+                {path: 'posnr'}
+            ],
+            formatter: '.extension.com.cathaydining.zewme001.mrcon.ext.controller.ListPageExtention.getMappedValue'
+        }"
+        wrapping="false" />
+</core:FragmentDefinition>

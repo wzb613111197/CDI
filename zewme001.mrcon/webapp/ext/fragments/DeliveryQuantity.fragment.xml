@@ -1,0 +1,24 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+    <VBox id="vboxDeliveryQuantity">
+        <Input 
+            id="inputDeliveryQuantity"
+            editable="false"
+            modelContextChange=".extension.com.cathaydining.zewme001.mrcon.ext.controller.ListPageExtention.onRowInputModelContextChange"
+            value="{
+                parts: [
+                    {path: 'localData>/changedRows'},
+                    {path: 'datasource'},
+                    {path: 'vbeln'},
+                    {path: 'posnr'},
+                    {path: 'lfimg'},
+                    {path: 'meins'}
+                ],
+                formatter: '.extension.com.cathaydining.zewme001.mrcon.ext.controller.ListPageExtention.getDeliveryQuantityValue',
+                mode: 'sap.ui.model.BindingMode.OneWay'
+            }"
+         
+            change=".extension.com.cathaydining.zewme001.mrcon.ext.controller.ListPageExtention.onRowDataChange_lfimg" />
+    </VBox>
+</core:FragmentDefinition>

@@ -1,0 +1,220 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata4/sap/zui_mm_rebound_o4/srvd/sap/zsd_mm_rebound/0001/$metadata">
+        <edmx:Include Namespace="com.sap.gateway.srvd.zsd_mm_rebound.v0001" Alias="SAP__self"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+
+            <Annotations Target="SAP__self.ZC_MM_REBOUNDType">
+                <Annotation Term="UI.SelectionPresentationVariant" Qualifier="Create">
+                    <Record Type="UI.SelectionPresentationVariantType">
+                        <PropertyValue Property="Text" String="{@i18n>Create}"/>
+                        <PropertyValue Property="SelectionVariant">
+                            <Record Type="UI.SelectionVariantType">
+                                <PropertyValue Property="SelectOptions">
+                                    <Collection>
+                                        <Record Type="UI.SelectOptionType">
+                                            <PropertyValue Property="PropertyName" PropertyPath="Category"/>
+                                            <PropertyValue Property="Ranges">
+                                                <Collection>
+                                                    <Record Type="UI.SelectionRangeType">
+                                                        <PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
+                                                        <PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ"/>
+                                                        <PropertyValue Property="Low" String="Create"/>
+                                                    </Record>
+                                                </Collection>
+                                            </PropertyValue>
+                                        </Record>
+                                    </Collection>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="PresentationVariant">
+                            <Record Type="UI.PresentationVariantType">
+                                <PropertyValue Property="Visualizations">
+                                    <Collection>
+                                        <AnnotationPath>@UI.LineItem</AnnotationPath>
+                                    </Collection>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.SelectionPresentationVariant" Qualifier="tableView">
+                    <Record Type="UI.SelectionPresentationVariantType">
+                        <PropertyValue Property="PresentationVariant">
+                            <Record Type="UI.PresentationVariantType">
+                                <PropertyValue Property="Visualizations">
+                                    <Collection>
+                                        <AnnotationPath>@UI.LineItem</AnnotationPath>
+                                    </Collection>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="SelectionVariant">
+                            <Record Type="UI.SelectionVariantType">
+                                <PropertyValue Property="SelectOptions">
+                                    <Collection/>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Text" String="Table View"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.SelectionPresentationVariant" Qualifier="tableView1">
+                    <Record Type="UI.SelectionPresentationVariantType">
+                        <PropertyValue Property="PresentationVariant">
+                            <Record Type="UI.PresentationVariantType">
+                                <PropertyValue Property="Visualizations">
+                                    <Collection>
+                                        <AnnotationPath>@UI.LineItem</AnnotationPath>
+                                    </Collection>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="SelectionVariant">
+                            <Record Type="UI.SelectionVariantType">
+                                <PropertyValue Property="SelectOptions">
+                                    <Collection/>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Text" String="Table View 1"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.LineItem" Qualifier="tableView">
+                    <Collection/>
+                </Annotation>
+                <Annotation Term="UI.SelectionPresentationVariant" Qualifier="tableView2">
+                    <Record Type="UI.SelectionPresentationVariantType">
+                        <PropertyValue Property="PresentationVariant">
+                            <Record Type="UI.PresentationVariantType">
+                                <PropertyValue Property="Visualizations">
+                                    <Collection>
+                                        <AnnotationPath>@UI.LineItem#tableView</AnnotationPath>
+                                    </Collection>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="SelectionVariant">
+                            <Record Type="UI.SelectionVariantType">
+                                <PropertyValue Property="SelectOptions">
+                                    <Collection/>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Text" String="Table View 2"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.SelectionPresentationVariant" Qualifier="tableView3">
+                    <Record Type="UI.SelectionPresentationVariantType">
+                        <PropertyValue Property="PresentationVariant">
+                            <Record Type="UI.PresentationVariantType">
+                                <PropertyValue Property="Visualizations">
+                                    <Collection>
+                                        <AnnotationPath>@UI.LineItem</AnnotationPath>
+                                    </Collection>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="SelectionVariant">
+                            <Record Type="UI.SelectionVariantType">
+                                <PropertyValue Property="SelectOptions">
+                                    <Collection/>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Text" String="Table View 3"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_MM_REBOND_QUERYType">
+                <Annotation Term="UI.SelectionPresentationVariant" Qualifier="Query">
+                    <Record Type="UI.SelectionPresentationVariantType">
+                        <PropertyValue Property="Text" String="{@i18n>Query}"/>
+                        <PropertyValue Property="SelectionVariant">
+                            <Record Type="UI.SelectionVariantType">
+                                <PropertyValue Property="SelectOptions">
+                                    <Collection>
+                                        <Record Type="UI.SelectOptionType">
+                                            <PropertyValue Property="PropertyName" PropertyPath="Category"/>
+                                            <PropertyValue Property="Ranges">
+                                                <Collection>
+                                                    <Record Type="UI.SelectionRangeType">
+                                                        <PropertyValue Property="Sign" EnumMember="UI.SelectionRangeSignType/I"/>
+                                                        <PropertyValue Property="Option" EnumMember="UI.SelectionRangeOptionType/EQ"/>
+                                                        <PropertyValue Property="Low" String="Query"/>
+                                                    </Record>
+                                                </Collection>
+                                            </PropertyValue>
+                                        </Record>
+                                    </Collection>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="PresentationVariant">
+                            <Record Type="UI.PresentationVariantType">
+                                <PropertyValue Property="Visualizations">
+                                    <Collection>
+                                        <AnnotationPath>@UI.LineItem</AnnotationPath>
+                                    </Collection>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.LineItem" Qualifier="tableView">
+                    <Collection/>
+                </Annotation>
+                <Annotation Term="UI.SelectionPresentationVariant" Qualifier="tableView">
+                    <Record Type="UI.SelectionPresentationVariantType">
+                        <PropertyValue Property="PresentationVariant">
+                            <Record Type="UI.PresentationVariantType">
+                                <PropertyValue Property="Visualizations">
+                                    <Collection>
+                                        <AnnotationPath>@UI.LineItem#tableView</AnnotationPath>
+                                    </Collection>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="SelectionVariant">
+                            <Record Type="UI.SelectionVariantType">
+                                <PropertyValue Property="SelectOptions">
+                                    <Collection/>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Text" String="Table View ZC_MM_REBOND_QUERY"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.LineItem" Qualifier="tableView1">
+                    <Collection/>
+                </Annotation>
+                <Annotation Term="UI.SelectionPresentationVariant" Qualifier="tableView1">
+                    <Record Type="UI.SelectionPresentationVariantType">
+                        <PropertyValue Property="PresentationVariant">
+                            <Record Type="UI.PresentationVariantType">
+                                <PropertyValue Property="Visualizations">
+                                    <Collection>
+                                        <AnnotationPath>@UI.LineItem#tableView1</AnnotationPath>
+                                    </Collection>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="SelectionVariant">
+                            <Record Type="UI.SelectionVariantType">
+                                <PropertyValue Property="SelectOptions">
+                                    <Collection/>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Text" String="Table View ZC_MM_REBOND_QUERY 1"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

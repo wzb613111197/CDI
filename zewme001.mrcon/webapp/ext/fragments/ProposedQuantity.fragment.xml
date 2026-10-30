@@ -1,0 +1,36 @@
+<core:FragmentDefinition
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m">
+    <VBox id="vboxProposedQuantity">
+        <Text 
+            id="textProposedQuantity"
+            visible="{= !${localView>/isQuantityEditable} }"
+            text="{
+                parts: [
+                    {path: 'localData>/proposedQuantities'},
+                    {path: 'datasource'},
+                    {path: 'vbeln'},
+                    {path: 'posnr'},
+                    {path: 'meins'}
+                ],
+                formatter: '.extension.com.cathaydining.zewme001.mrcon.ext.controller.ListPageExtention.getProposedQuantity'
+            }" />
+        <Input 
+            id="inputProposedQuantity"
+            visible="{localView>/isQuantityEditable}"
+            editable="{= ${status} !== 'R' &amp;&amp; ${status} !== 'C' &amp;&amp; ${status_desc} !== 'Rejected' &amp;&amp; ${status_desc} !== 'Completed' }"
+            value="{
+                parts: [
+                    {path: 'localData>/proposedQuantities'},
+                    {path: 'datasource'},
+                    {path: 'vbeln'},
+                    {path: 'posnr'},
+                    {path: 'meins'}
+                ],
+                formatter: '.extension.com.cathaydining.zewme001.mrcon.ext.controller.ListPageExtention.getProposedQuantity',
+                mode: 'sap.ui.model.BindingMode.OneWay'
+            }"
+            change=".extension.com.cathaydining.zewme001.mrcon.ext.controller.ListPageExtention.onProposedQuantityChange" />
+    </VBox>
+</core:FragmentDefinition>
+

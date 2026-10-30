@@ -1,0 +1,795 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="SAP__aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="SAP__capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HIERARCHY',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="SAP__hierarchy"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="SAP__HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="SAP__measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ODM',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.ODM.v1" Alias="SAP__ODM"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SESSION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="SAP__session"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="SAP__UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="SAP__validation"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001" Alias="SAP__self">
+            <Annotation Term="SAP__core.SchemaVersion" String="1.0.0"/>
+            <EntityType Name="mr_consolidationType">
+                <Key>
+                    <PropertyRef Name="datasource"/>
+                    <PropertyRef Name="vbeln"/>
+                    <PropertyRef Name="posnr"/>
+                </Key>
+                <Property Name="datasource" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="vbeln" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="posnr" Type="Edm.String" Nullable="false" MaxLength="6"/>
+                <Property Name="erdat" Type="Edm.Date"/>
+                <Property Name="lgnum" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="werks" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="matnr" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="maktx" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="lfimg" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="zrmenge" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="meins" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="zissue" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="lgobe" Type="Edm.String" Nullable="false" MaxLength="16"/>
+                <Property Name="priority" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="status" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="status_desc" Type="Edm.String" Nullable="false" MaxLength="20"/>
+                <Property Name="currstatus" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="currstatus_desc" Type="Edm.String" Nullable="false" MaxLength="30"/>
+                <Property Name="zuser_n" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="zdate_n" Type="Edm.Date"/>
+                <Property Name="ztime_n" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="zuser_l" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="zdate_l" Type="Edm.Date"/>
+                <Property Name="ztime_l" Type="Edm.TimeOfDay" Nullable="false"/>
+                <Property Name="__EntityControl" Type="com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.EntityControl"/>
+                <Property Name="__FieldControl" Type="com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.mr_consolidationControl"/>
+                <Property Name="__OperationControl" Type="com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.mr_consolidationOperationControl"/>
+                <Property Name="SAP__Messages" Type="Collection(com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.SAP__Message)" Nullable="false"/>
+            </EntityType>
+            <ComplexType Name="mr_consolidationControl">
+                <Property Name="lfimg" Type="Edm.Byte" Nullable="false"/>
+                <Property Name="priority" Type="Edm.Byte" Nullable="false"/>
+            </ComplexType>
+            <ComplexType Name="mr_consolidationOperationControl">
+                <Property Name="onChange" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="onConfirm" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="onRefreshSimulation" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="onReject" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="onSetIncomplete" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="onSimulate" Type="Edm.Boolean" Nullable="false"/>
+            </ComplexType>
+            <ComplexType Name="ZA_EWM_MR_CONSOLIDATION_R">
+                <Property Name="dummy" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="_mrcon" Type="Collection(com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.ZA_EWM_MR_CONSOLIDATION)" Nullable="false"/>
+            </ComplexType>
+            <ComplexType Name="ZA_EWM_MR_CONSOLIDATION">
+                <Property Name="vbeln" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="posnr" Type="Edm.String" Nullable="false" MaxLength="6"/>
+                <Property Name="zmenge" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="zissue" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="lfimg" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="meins" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="priority" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="type" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="message" Type="Edm.String" Nullable="false" MaxLength="220"/>
+            </ComplexType>
+            <ComplexType Name="EntityControl">
+                <Property Name="Updatable" Type="Edm.Boolean" Nullable="false"/>
+            </ComplexType>
+            <ComplexType Name="SAP__Message">
+                <Property Name="code" Type="Edm.String" Nullable="false"/>
+                <Property Name="message" Type="Edm.String" Nullable="false"/>
+                <Property Name="target" Type="Edm.String"/>
+                <Property Name="additionalTargets" Type="Collection(Edm.String)" Nullable="false"/>
+                <Property Name="transition" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="numericSeverity" Type="Edm.Byte" Nullable="false"/>
+                <Property Name="longtextUrl" Type="Edm.String"/>
+            </ComplexType>
+            <Action Name="onConfirm" IsBound="true">
+                <Parameter Name="_it" Type="com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.mr_consolidationType" Nullable="false"/>
+                <Parameter Name="dummy" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Parameter Name="_mrcon" Type="Collection(com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.ZA_EWM_MR_CONSOLIDATION)" Nullable="false"/>
+                <ReturnType Type="Collection(com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.ZA_EWM_MR_CONSOLIDATION_R)" Nullable="false"/>
+            </Action>
+            <Action Name="onSimulate" IsBound="true">
+                <Parameter Name="_it" Type="com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.mr_consolidationType" Nullable="false"/>
+                <ReturnType Type="Collection(com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.ZA_EWM_MR_CONSOLIDATION_R)" Nullable="false"/>
+            </Action>
+            <Action Name="onRefreshSimulation" EntitySetPath="_it" IsBound="true">
+                <Parameter Name="_it" Type="com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.mr_consolidationType" Nullable="false"/>
+                <ReturnType Type="com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.mr_consolidationType" Nullable="false"/>
+            </Action>
+            <Action Name="onReject" IsBound="true">
+                <Parameter Name="_it" Type="com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.mr_consolidationType" Nullable="false"/>
+                <Parameter Name="dummy" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Parameter Name="_mrcon" Type="Collection(com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.ZA_EWM_MR_CONSOLIDATION)" Nullable="false"/>
+                <ReturnType Type="Collection(com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.ZA_EWM_MR_CONSOLIDATION_R)" Nullable="false"/>
+            </Action>
+            <Action Name="onChange" IsBound="true">
+                <Parameter Name="_it" Type="com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.mr_consolidationType" Nullable="false"/>
+                <Parameter Name="dummy" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Parameter Name="_mrcon" Type="Collection(com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.ZA_EWM_MR_CONSOLIDATION)" Nullable="false"/>
+                <ReturnType Type="Collection(com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.ZA_EWM_MR_CONSOLIDATION_R)" Nullable="false"/>
+            </Action>
+            <Action Name="onSetIncomplete" EntitySetPath="_it" IsBound="true">
+                <Parameter Name="_it" Type="com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.mr_consolidationType" Nullable="false"/>
+                <ReturnType Type="com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.mr_consolidationType" Nullable="false"/>
+            </Action>
+            <EntityContainer Name="Container">
+                <EntitySet Name="mr_consolidation" EntityType="com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.mr_consolidationType"/>
+            </EntityContainer>
+            <Annotations Target="SAP__self.ZA_EWM_MR_CONSOLIDATION/vbeln">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Delivery"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VBELN_VL"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_EWM_MR_CONSOLIDATION/zmenge">
+                <Annotation Term="SAP__measures.Unit" Path="zissue"/>
+                <Annotation Term="SAP__common.Label" String="Proposed Quantity"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_EWM_MR_CONSOLIDATION/zissue">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__common.Label" String="Issue UM"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_EWM_MR_CONSOLIDATION/lfimg">
+                <Annotation Term="SAP__measures.Unit" Path="meins"/>
+                <Annotation Term="SAP__common.Label" String="Delivery Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Actual quantity delivered (in sales units)"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=LFIMG"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_EWM_MR_CONSOLIDATION/meins">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__common.Label" String="Base Unit of Measure"/>
+                <Annotation Term="SAP__common.Heading" String="BUn"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MEINS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_EWM_MR_CONSOLIDATION/priority">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Priority"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_EWM_MR_CONSOLIDATION/type">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Message type"/>
+                <Annotation Term="SAP__common.Heading" String="MsgType"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Message type: S Success, E Error, W Warning, I Info, A Abort"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BAPI_MTYPE"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_EWM_MR_CONSOLIDATION/message">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Message Text"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BAPI_MSG"/>
+            </Annotations>
+            <Annotations Target="SAP__self.mr_consolidationType/vbeln">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_deliverydocumentstdvh/0001;ps='srvd-zsd_ewm_mr_consolidation-0001';va='com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.et-zi_ewm_mr_consolidation.vbeln'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Label" String="Delivery"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=VBELN_VL"/>
+            </Annotations>
+            <Annotations Target="SAP__self.mr_consolidationType/posnr">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__common.IsDigitSequence"/>
+                <Annotation Term="SAP__common.Label" String="Item"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Delivery Item"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=POSNR_VL"/>
+            </Annotations>
+            <Annotations Target="SAP__self.mr_consolidationType/lgnum">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_warehouse/0001;ps='srvd-zsd_ewm_mr_consolidation-0001';va='com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.et-zi_ewm_mr_consolidation.lgnum'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.FilterDefaultValue" String="CDI"/>
+                <Annotation Term="SAP__common.Label" String="Warehouse Number"/>
+                <Annotation Term="SAP__common.Heading" String="WhN"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Warehouse Number / Warehouse Complex"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=LGNUM"/>
+            </Annotations>
+            <Annotations Target="SAP__self.mr_consolidationType/werks">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_plantstdvh/0001;ps='srvd-zsd_ewm_mr_consolidation-0001';va='com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.et-zi_ewm_mr_consolidation.werks'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Label" String="Plant"/>
+                <Annotation Term="SAP__common.Heading" String="Plnt"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=WERKS_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.mr_consolidationType/matnr">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_productstdvh/0001;ps='srvd-zsd_ewm_mr_consolidation-0001';va='com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.et-zi_ewm_mr_consolidation.matnr'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Label" String="Material"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.mr_consolidationType/lfimg">
+                <Annotation Term="SAP__common.FieldControl" Path="__FieldControl/lfimg"/>
+                <Annotation Term="SAP__measures.Unit" Path="meins"/>
+                <Annotation Term="SAP__common.Label" String="Delivery Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Actual quantity delivered (in sales units)"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=LFIMG"/>
+            </Annotations>
+            <Annotations Target="SAP__self.mr_consolidationType/zrmenge">
+                <Annotation Term="SAP__measures.Unit" Path="zissue"/>
+                <Annotation Term="SAP__common.Label" String="Proposed Quantity"/>
+            </Annotations>
+            <Annotations Target="SAP__self.mr_consolidationType/meins">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__common.Label" String="Base Unit of Measure"/>
+                <Annotation Term="SAP__common.Heading" String="BUn"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MEINS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.mr_consolidationType/zissue">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__common.Label" String="Issue UM"/>
+            </Annotations>
+            <Annotations Target="SAP__self.mr_consolidationType/priority">
+                <Annotation Term="SAP__common.FieldControl" Path="__FieldControl/priority"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_ewm_prioriyt_vh/0001;ps='srvd-zsd_ewm_mr_consolidation-0001';va='com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.et-zi_ewm_mr_consolidation.priority'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+                <Annotation Term="SAP__common.Label" String="Priority"/>
+            </Annotations>
+            <Annotations Target="SAP__self.mr_consolidationType/status">
+                <Annotation Term="SAP__common.Text" Path="status_desc">
+                    <Annotation Term="SAP__UI.TextArrangement" EnumMember="SAP__UI.TextArrangementType/TextLast"/>
+                </Annotation>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_ewm_dstatus_vh/0001;ps='srvd-zsd_ewm_mr_consolidation-0001';va='com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.et-zi_ewm_mr_consolidation.status'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+                <Annotation Term="SAP__common.Label" String="Outbound del. status"/>
+                <Annotation Term="SAP__common.Heading" String="Outbound delivery status"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Outbound delivery status"/>
+            </Annotations>
+            <Annotations Target="SAP__self.mr_consolidationType/zuser_n">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="User"/>
+            </Annotations>
+            <Annotations Target="SAP__self.mr_consolidationType/zuser_l">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="User"/>
+            </Annotations>
+            <Annotations Target="SAP__self.mr_consolidationType/__EntityControl">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.mr_consolidationType/__FieldControl">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.mr_consolidationType/__OperationControl">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.onConfirm(SAP__self.mr_consolidationType)">
+                <Annotation Term="SAP__core.OperationAvailable" Path="_it/__OperationControl/onConfirm"/>
+            </Annotations>
+            <Annotations Target="SAP__self.onSimulate(SAP__self.mr_consolidationType)">
+                <Annotation Term="SAP__core.OperationAvailable" Path="_it/__OperationControl/onSimulate"/>
+            </Annotations>
+            <Annotations Target="SAP__self.onRefreshSimulation(SAP__self.mr_consolidationType)">
+                <Annotation Term="SAP__core.OperationAvailable" Path="_it/__OperationControl/onRefreshSimulation"/>
+            </Annotations>
+            <Annotations Target="SAP__self.onReject(SAP__self.mr_consolidationType)">
+                <Annotation Term="SAP__core.OperationAvailable" Path="_it/__OperationControl/onReject"/>
+            </Annotations>
+            <Annotations Target="SAP__self.onChange(SAP__self.mr_consolidationType)">
+                <Annotation Term="SAP__core.OperationAvailable" Path="_it/__OperationControl/onChange"/>
+            </Annotations>
+            <Annotations Target="SAP__self.onSetIncomplete(SAP__self.mr_consolidationType)">
+                <Annotation Term="SAP__core.OperationAvailable" Path="_it/__OperationControl/onSetIncomplete"/>
+            </Annotations>
+            <Annotations Target="SAP__self.mr_consolidationType">
+                <Annotation Term="SAP__common.Label" String="Interface view for MR Consolidation"/>
+                <Annotation Term="SAP__UI.Facets">
+                    <Collection>
+                        <Record Type="SAP__UI.ReferenceFacet">
+                            <PropertyValue Property="Label" String="MR Consolidation"/>
+                            <PropertyValue Property="ID" String="MR Consolidation"/>
+                            <PropertyValue Property="Target" AnnotationPath="@SAP__UI.Identification"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Record>
+                        <PropertyValue Property="TypeName" String="MR Consolidation"/>
+                        <PropertyValue Property="TypeNamePlural" String="MR Consolidation"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="vbeln"/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="vbeln"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.Identification">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="vbeln"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="posnr"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="matnr"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="maktx"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="lfimg"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="zrmenge"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="meins"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="zissue"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="lgobe"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="status_desc"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="zuser_n"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="zdate_n"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ztime_n"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="zuser_l"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="zdate_l"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ztime_l"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="status"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="priority"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="werks"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="lgnum"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="erdat"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Delivery Number"/>
+                            <PropertyValue Property="Value" Path="vbeln"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Delivery Item"/>
+                            <PropertyValue Property="Value" Path="posnr"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Material Number"/>
+                            <PropertyValue Property="Value" Path="matnr"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Material Description"/>
+                            <PropertyValue Property="Value" Path="maktx"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Delivery Quantity"/>
+                            <PropertyValue Property="Value" Path="lfimg"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Retain Quantity"/>
+                            <PropertyValue Property="Value" Path="zrmenge"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Delivery Unit"/>
+                            <PropertyValue Property="Value" Path="meins"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Issue UoM"/>
+                            <PropertyValue Property="Value" Path="zissue"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Receiving Location"/>
+                            <PropertyValue Property="Value" Path="lgobe"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Priority"/>
+                            <PropertyValue Property="Value" Path="priority"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Status"/>
+                            <PropertyValue Property="Value" Path="status_desc"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Current Status"/>
+                            <PropertyValue Property="Value" Path="currstatus_desc"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Creation Date"/>
+                            <PropertyValue Property="Value" Path="erdat"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Initiated User"/>
+                            <PropertyValue Property="Value" Path="zuser_n"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Initiated Date"/>
+                            <PropertyValue Property="Value" Path="zdate_n"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Initiated Time"/>
+                            <PropertyValue Property="Value" Path="ztime_n"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Updated User"/>
+                            <PropertyValue Property="Value" Path="zuser_l"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Updated Date"/>
+                            <PropertyValue Property="Value" Path="zdate_l"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Label" String="Updated Time"/>
+                            <PropertyValue Property="Value" Path="ztime_l"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="Refresh"/>
+                            <PropertyValue Property="Action" String="com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.onRefreshSimulation(com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.mr_consolidationType)"/>
+                            <PropertyValue Property="InvocationGrouping" EnumMember="SAP__UI.OperationGroupingType/ChangeSet"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="Reject"/>
+                            <PropertyValue Property="Action" String="com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.onReject(com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.mr_consolidationType)"/>
+                            <PropertyValue Property="InvocationGrouping" EnumMember="SAP__UI.OperationGroupingType/ChangeSet"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="Set Incomplete"/>
+                            <PropertyValue Property="Action" String="com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.onSetIncomplete(com.sap.gateway.srvd.zsd_ewm_mr_consolidation.v0001.mr_consolidationType)"/>
+                            <PropertyValue Property="InvocationGrouping" EnumMember="SAP__UI.OperationGroupingType/ChangeSet"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="lgnum"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="werks"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="status"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>lgnum</PropertyPath>
+                        <PropertyPath>werks</PropertyPath>
+                        <PropertyPath>erdat</PropertyPath>
+                        <PropertyPath>vbeln</PropertyPath>
+                        <PropertyPath>matnr</PropertyPath>
+                        <PropertyPath>priority</PropertyPath>
+                        <PropertyPath>status</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Messages" Path="SAP__Messages"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/mr_consolidation">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="Filterable" Bool="true"/>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="vbeln"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleRange"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="erdat"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleRange"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="lgnum"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="werks"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleRange"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="matnr"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleRange"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="priority"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="status"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="RequiredProperties">
+                            <Collection>
+                                <PropertyPath>lgnum</PropertyPath>
+                                <PropertyPath>status</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>__EntityControl</PropertyPath>
+                                <PropertyPath>__FieldControl</PropertyPath>
+                                <PropertyPath>__OperationControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>__EntityControl</PropertyPath>
+                                <PropertyPath>__FieldControl</PropertyPath>
+                                <PropertyPath>__OperationControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="DeltaUpdateSupported" Bool="true"/>
+                        <PropertyValue Property="Updatable" Path="__EntityControl/Updatable"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeepUpdateSupport">
+                    <Record>
+                        <PropertyValue Property="ContentIDSupported" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container">
+                <Annotation Term="SAP__CodeList.UnitsOfMeasure">
+                    <Record>
+                        <PropertyValue Property="Url" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="UnitsOfMeasure"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="SAP__capabilities.FilterFunctions">
+                    <Collection>
+                        <String>eq</String>
+                        <String>ne</String>
+                        <String>gt</String>
+                        <String>ge</String>
+                        <String>lt</String>
+                        <String>le</String>
+                        <String>and</String>
+                        <String>or</String>
+                        <String>contains</String>
+                        <String>startswith</String>
+                        <String>endswith</String>
+                        <String>any</String>
+                        <String>all</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SupportedFormats">
+                    <Collection>
+                        <String>application/json</String>
+                        <String>application/pdf</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="Border" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="FitToPage" Bool="true"/>
+                        <PropertyValue Property="FontName" Bool="true"/>
+                        <PropertyValue Property="FontSize" Bool="true"/>
+                        <PropertyValue Property="HeaderFooter" Bool="true"/>
+                        <PropertyValue Property="IANATimezoneFormat" Bool="true"/>
+                        <PropertyValue Property="Margin" Bool="true"/>
+                        <PropertyValue Property="Padding" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="20000"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="TextDirectionLayout" Bool="true"/>
+                        <PropertyValue Property="Treeview" Bool="true"/>
+                        <PropertyValue Property="UploadToFileShare" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.KeyAsSegmentSupported"/>
+                <Annotation Term="SAP__capabilities.AsynchronousRequestsSupported"/>
+            </Annotations>
+            <Annotations Target="SAP__self.mr_consolidationType/datasource">
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.mr_consolidationType/currstatus">
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.mr_consolidationType/erdat">
+                <Annotation Term="SAP__common.Label" String="Created On"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Record Created On"/>
+            </Annotations>
+            <Annotations Target="SAP__self.mr_consolidationType/maktx">
+                <Annotation Term="SAP__common.Label" String="Material Description"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MAKTX"/>
+            </Annotations>
+            <Annotations Target="SAP__self.mr_consolidationType/lgobe">
+                <Annotation Term="SAP__common.Label" String="Description"/>
+                <Annotation Term="SAP__common.Heading" String="Stor. Loc. Descr."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Description of Storage Location"/>
+            </Annotations>
+            <Annotations Target="SAP__self.mr_consolidationType/zdate_n">
+                <Annotation Term="SAP__common.Label" String="Date"/>
+            </Annotations>
+            <Annotations Target="SAP__self.mr_consolidationType/ztime_n">
+                <Annotation Term="SAP__common.Label" String="Time"/>
+            </Annotations>
+            <Annotations Target="SAP__self.mr_consolidationType/zdate_l">
+                <Annotation Term="SAP__common.Label" String="Date"/>
+            </Annotations>
+            <Annotations Target="SAP__self.mr_consolidationType/ztime_l">
+                <Annotation Term="SAP__common.Label" String="Time"/>
+            </Annotations>
+            <Annotations Target="SAP__self.mr_consolidationControl/lfimg">
+                <Annotation Term="SAP__common.Label" String="Dyn. Field Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Field Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Field Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.mr_consolidationControl/priority">
+                <Annotation Term="SAP__common.Label" String="Dyn. Field Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Field Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Field Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.mr_consolidationOperationControl/onChange">
+                <Annotation Term="SAP__common.Label" String="Dyn. Action Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Action Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Action Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.mr_consolidationOperationControl/onConfirm">
+                <Annotation Term="SAP__common.Label" String="Dyn. Action Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Action Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Action Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.mr_consolidationOperationControl/onRefreshSimulation">
+                <Annotation Term="SAP__common.Label" String="Dyn. Action Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Action Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Action Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.mr_consolidationOperationControl/onReject">
+                <Annotation Term="SAP__common.Label" String="Dyn. Action Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Action Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Action Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.mr_consolidationOperationControl/onSetIncomplete">
+                <Annotation Term="SAP__common.Label" String="Dyn. Action Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Action Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Action Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.mr_consolidationOperationControl/onSimulate">
+                <Annotation Term="SAP__common.Label" String="Dyn. Action Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Action Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Action Property"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_EWM_MR_CONSOLIDATION/posnr">
+                <Annotation Term="SAP__common.Label" String="Item"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Delivery Item"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=POSNR_VL"/>
+            </Annotations>
+            <Annotations Target="SAP__self.EntityControl/Updatable">
+                <Annotation Term="SAP__common.Label" String="Dyn. Method Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Method Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Method Property"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

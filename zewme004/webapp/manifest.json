@@ -1,0 +1,271 @@
+{
+  "_version": "1.73.1",
+  "sap.app": {
+    "id": "com.cathaydining.zewme004",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.21.0",
+      "toolsId": "0b7dbcaa-f34f-4605-bc95-3cb7201d6ff8"
+    },
+    "dataSources": {
+      "annotation": {
+        "type": "ODataAnnotation",
+        "uri": "annotations/annotation.xml",
+        "settings": {
+          "localUri": "annotations/annotation.xml"
+        }
+      },
+      "mainService": {
+        "uri": "/sap/opu/odata4/sap/zui_ewm_relocdoc_o4/srvd/sap/zsd_ewm_relocdoc/0001/",
+        "type": "OData",
+        "settings": {
+          "annotations": [
+            "annotation"
+          ],
+          "localUri": "localService/mainService/metadata.xml",
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.136.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "com.cathaydining.zewme004.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "ZC_EWM_RELOCDOCList",
+          "target": "ZC_EWM_RELOCDOCList"
+        },
+        {
+          "pattern": "ZC_EWM_RELOCDOC({key}):?query:",
+          "name": "ZC_EWM_RELOCDOCObjectPage",
+          "target": "ZC_EWM_RELOCDOCObjectPage"
+        },
+        {
+          "name": "ZC_EWM_AVAIL_STOCKObjectPage",
+          "pattern": "ZC_EWM_AVAIL_STOCK({ZC_EWM_AVAIL_STOCKKey}):?query:",
+          "target": "ZC_EWM_AVAIL_STOCKObjectPage"
+        }
+      ],
+      "targets": {
+        "ZC_EWM_RELOCDOCList": {
+          "type": "Component",
+          "id": "ZC_EWM_RELOCDOCList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/ZC_EWM_RELOCDOC",
+              "variantManagement": "Page",
+              "navigation": {
+                "ZC_EWM_RELOCDOC": {
+                  "detail": {
+                    "route": "ZC_EWM_RELOCDOCObjectPage"
+                  }
+                },
+                "ZC_EWM_AVAIL_STOCK": {
+                  "detail": {
+                    "route": "ZC_EWM_AVAIL_STOCKObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "GridTable",
+                    "selectAll": true,
+                    "selectionMode": "Multi",
+                    "enableExport": true,
+                    "disableCopyToClipboard": false
+                  },
+                  "columns": {
+                    "DataField::RelocItem": {
+                      "widthIncludingColumnHeader": true
+                    },
+                    "DataField::SourceStorageType": {
+                      "widthIncludingColumnHeader": true
+                    },
+                    "DataField::DestStorageType": {
+                      "widthIncludingColumnHeader": true
+                    },
+                    "DataField::RelocDoc": {
+                      "widthIncludingColumnHeader": true
+                    }
+                  }
+                },
+                "/ZC_EWM_AVAIL_STOCK/@com.sap.vocabularies.UI.v1.LineItem": {
+                  "columns": {
+                    "DataField::Material": {
+                      "widthIncludingColumnHeader": true,
+                      "width": "20rem"
+                    }
+                  },
+                  "tableSettings": {
+                    "selectAll": true,
+                    "selectionMode": "Multi",
+                    "disableCopyToClipboard": false,
+                    "enableExport": true,
+                    "enableMassEdit": false,
+                    "widthIncludingColumnHeader": true,
+                    "quickVariantSelection": {
+                      "showCounts": true
+                    }
+                  }
+                },
+                "/ZC_EWM_RELOCDOC/@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "enableExport": true,
+                    "disableCopyToClipboard": false,
+                    "widthIncludingColumnHeader": true,
+                    "quickVariantSelection": {
+                      "showCounts": true
+                    }
+                  },
+                  "columns": {
+                    "DataField::CreatedBy": {
+                      "width": "20rem"
+                    },
+                    "DataField::ChangedBy": {
+                      "width": "20rem"
+                    }
+                  }
+                }
+              },
+              "views": {
+                "paths": [
+                  {
+                    "key": "Create",
+                    "annotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#Create",
+                    "entitySet": "ZC_EWM_AVAIL_STOCK",
+                    "keepPreviousPersonalization": true
+                  },
+                  {
+                    "key": "Query",
+                    "annotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#Query",
+                    "entitySet": "ZC_EWM_RELOCDOC",
+                    "keepPreviousPersonalization": true
+                  }
+                ],
+                "showCounts": false
+              },
+              "initialLoad": "Enabled",
+              "content": {
+                "header": {
+                  "actions": {
+                    "NavWtAssignment": {
+                      "press": ".extension.com.cathaydining.zewme004.ext.controller.ListReportExtension.onNavWtAssignment",
+                      "visible": true,
+                      "enabled": true,
+                      "text": "{i18n>NavWtAssignment}"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "ZC_EWM_RELOCDOCObjectPage": {
+          "type": "Component",
+          "id": "ZC_EWM_RELOCDOCObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/ZC_EWM_RELOCDOC"
+            }
+          }
+        },
+        "ZC_EWM_AVAIL_STOCKObjectPage": {
+          "type": "Component",
+          "id": "ZC_EWM_AVAIL_STOCKObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "navigation": {},
+              "contextPath": "/ZC_EWM_AVAIL_STOCK"
+            }
+          }
+        }
+      }
+    },
+    "extends": {
+      "extensions": {
+        "sap.ui.controllerExtensions": {
+          "sap.fe.templates.ListReport.ListReportController": {
+            "controllerName": "com.cathaydining.zewme004.ext.controller.ListReportExtension"
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  },
+  "sap.fe": {
+    "app": {
+      "enableLazyLoading": true
+    }
+  }
+}

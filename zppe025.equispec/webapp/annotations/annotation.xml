@@ -1,0 +1,287 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata4/sap/zui_pp_ldgtemp_hdr_o4/srvd/sap/zsd_pp_ldgtemp_hdr/0001/$metadata">
+        <edmx:Include Namespace="com.sap.gateway.srvd.zsd_pp_ldgtemp_hdr.v0001" Alias="SAP__self"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+            <Annotations Target="SAP__self.ZC_PP_EQUISPEC_ROTType">
+                <!-- Identification: Object Page Header Actions -->
+                <Annotation Term="UI.Identification">
+                    <Collection>
+                        <Record Type="UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="{i18n>SubmitForApproval}"/>
+                            <PropertyValue Property="Action" String="com.sap.gateway.srvd.zsd_pp_ldgtemp_hdr.v0001.SubmitForApproval(com.sap.gateway.srvd.zsd_pp_ldgtemp_hdr.v0001.ZC_PP_EQUISPEC_ROTType)"/>
+                            <PropertyValue Property="InvocationGrouping" EnumMember="UI.OperationGroupingType/Isolated"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+
+                <!-- HeaderInfo -->
+                <Annotation Term="UI.HeaderInfo">
+                    <Record Type="UI.HeaderInfoType">
+                        <PropertyValue Property="TypeName" String="{@i18n>appTitle}"/>
+                        <PropertyValue Property="TypeNamePlural" String="{@i18n>appTitle}"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="ZequipCode"/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description">
+                            <Record Type="UI.DataField">
+                                <PropertyValue Property="Value" Path="Zdescription"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                <!-- Header: Approval Status (left DataPoint, same as Loading Template) -->
+                <Annotation Term="UI.DataPoint" Qualifier="ApprovalStatusQualifier">
+                    <Record Type="UI.DataPointType">
+                        <PropertyValue Property="Value" Path="ZapprStatus"/>
+                        <PropertyValue Property="Title" String="{@i18n>ZapprStatus}"/>
+                        <PropertyValue Property="Criticality" Path="_ApprStatus/color"/>
+                        <PropertyValue Property="CriticalityRepresentation" EnumMember="UI.CriticalityRepresentationType/WithoutIcon"/>
+                    </Record>
+                </Annotation>
+
+                <!-- Header: Equipment Type (right, Airline position) -->
+                <Annotation Term="UI.FieldGroup" Qualifier="HeaderQualifier">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ZequipType"/>
+                                    <PropertyValue Property="Label" String="{@i18n>ZequipType}"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                <Annotation Term="UI.HeaderFacets">
+                    <Collection>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#ApprovalStatusQualifier"/>
+                        </Record>
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#HeaderQualifier"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+
+                <!-- FieldGroup: General Information -->
+                <Annotation Term="UI.FieldGroup" Qualifier="GeneralInfo">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Label" String="{@i18n>GeneralInfo}"/>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ZequipCodeInput"/>
+                                    <PropertyValue Property="Label" String="{@i18n>ZequipCode}"/>
+                                    <Annotation Term="UI.Hidden">
+                                        <If>
+                                            <Ne>
+                                                <Path>ZequipType</Path>
+                                                <String>I</String>
+                                            </Ne>
+                                            <Bool>true</Bool>
+                                            <Bool>false</Bool>
+                                        </If>
+                                    </Annotation>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Zdescription"/>
+                                    <PropertyValue Property="Label" String="{i18n>Zdescription}"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                <!-- FieldGroup: Administrative Data -->
+                <Annotation Term="UI.FieldGroup" Qualifier="AdminData">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Label" String="{i18n>AdminData}"/>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="CreatedBy"/>
+                                    <PropertyValue Property="Label" String="{i18n>CreatedBy}"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="CreatedAt"/>
+                                    <PropertyValue Property="Label" String="{i18n>CreatedAt}"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ChangedBy"/>
+                                    <PropertyValue Property="Label" String="{i18n>ChangedBy}"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ChangedAt"/>
+                                    <PropertyValue Property="Label" String="{i18n>ChangedAt}"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ZproposedBy"/>
+                                    <PropertyValue Property="Label" String="{i18n>ZproposedBy}"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ZproposedAt"/>
+                                    <PropertyValue Property="Label" String="{i18n>ZproposedAt}"/>
+                                </Record>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ZapprAt"/>
+                                    <PropertyValue Property="Label" String="{i18n>ZapprAt}"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+
+                <!-- Facets -->
+                <Annotation Term="UI.Facets">
+                    <Collection>
+                        <!-- General Information Section -->
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="GeneralInfoFacet"/>
+                            <PropertyValue Property="Label" String="{i18n>GeneralInfo}"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#GeneralInfo"/>
+                        </Record>
+                        <!-- Material Line Item: visible when ZequipType = 'I' (flat section, no sub-tab) -->
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="ItmTable"/>
+                            <PropertyValue Property="Label" String="{i18n>MaterialLine}"/>
+                            <PropertyValue Property="Target" AnnotationPath="_Itm/@UI.SelectionPresentationVariant#table"/>
+                            <Annotation Term="UI.Hidden">
+                                <If>
+                                    <Eq>
+                                        <Path>ZequipType</Path>
+                                        <String>C</String>
+                                    </Eq>
+                                    <Bool>true</Bool>
+                                    <Bool>false</Bool>
+                                </If>
+                            </Annotation>
+                        </Record>
+                        <!-- Equipment Line Item: visible when ZequipType = 'C' (flat section, no sub-tab) -->
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="ComTable"/>
+                            <PropertyValue Property="Label" String="{i18n>EquimentLine}"/>
+                            <PropertyValue Property="Target" AnnotationPath="_Com/@UI.SelectionPresentationVariant#table"/>
+                            <Annotation Term="UI.Hidden">
+                                <If>
+                                    <Eq>
+                                        <Path>ZequipType</Path>
+                                        <String>I</String>
+                                    </Eq>
+                                    <Bool>true</Bool>
+                                    <Bool>false</Bool>
+                                </If>
+                            </Annotation>
+                        </Record>
+                        <!-- Administrative Data Section -->
+                        <Record Type="UI.ReferenceFacet">
+                            <PropertyValue Property="ID" String="AdminDataFacet"/>
+                            <PropertyValue Property="Label" String="{i18n>AdminData}"/>
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#AdminData"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+
+            <!-- ZequipType: render as fixed-value dropdown (I=Item, C=Combination) -->
+            <Annotations Target="SAP__self.ZC_PP_EQUISPEC_ROTType/ZequipType">
+                <Annotation Term="Common.ValueListWithFixedValues" Bool="true"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_EQUISPEC_ITMType">
+                <Annotation Term="UI.FieldGroup" Qualifier="ItmCreation">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="Matnr"/>
+                                    <PropertyValue Property="Label" String="Material"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.SelectionPresentationVariant" Qualifier="table">
+                    <Record Type="UI.SelectionPresentationVariantType">
+                        <PropertyValue Property="PresentationVariant">
+                            <Record Type="UI.PresentationVariantType">
+                                <PropertyValue Property="Visualizations">
+                                    <Collection>
+                                        <AnnotationPath>@UI.LineItem</AnnotationPath>
+                                    </Collection>
+                                </PropertyValue>
+                                <PropertyValue Property="SortOrder">
+                                    <Collection>
+                                        <Record Type="Common.SortOrderType">
+                                            <PropertyValue Property="Property" PropertyPath="Matnr"/>
+                                            <PropertyValue Property="Descending" Bool="false"/>
+                                        </Record>
+                                    </Collection>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="SelectionVariant">
+                            <Record Type="UI.SelectionVariantType">
+                                <PropertyValue Property="SelectOptions">
+                                    <Collection/>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.ZC_PP_EQUISPEC_COMType">
+                <Annotation Term="UI.FieldGroup" Qualifier="ComCreation">
+                    <Record Type="UI.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="UI.DataField">
+                                    <PropertyValue Property="Value" Path="ZitmEqCode"/>
+                                    <PropertyValue Property="Label" String="Equipment Code"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.SelectionPresentationVariant" Qualifier="table">
+                    <Record Type="UI.SelectionPresentationVariantType">
+                        <PropertyValue Property="PresentationVariant">
+                            <Record Type="UI.PresentationVariantType">
+                                <PropertyValue Property="Visualizations">
+                                    <Collection>
+                                        <AnnotationPath>@UI.LineItem</AnnotationPath>
+                                    </Collection>
+                                </PropertyValue>
+                                <PropertyValue Property="SortOrder">
+                                    <Collection>
+                                        <Record Type="Common.SortOrderType">
+                                            <PropertyValue Property="Property" PropertyPath="ZitmEqCode"/>
+                                            <PropertyValue Property="Descending" Bool="false"/>
+                                        </Record>
+                                    </Collection>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="SelectionVariant">
+                            <Record Type="UI.SelectionVariantType">
+                                <PropertyValue Property="SelectOptions">
+                                    <Collection/>
+                                </PropertyValue>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,89 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI" />
+    </edmx:Reference>
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Communication.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication" />
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/sap/ZUI_EWM_PHY_STOCK_O2/$metadata">
+        <edmx:Include Namespace="cds_zsd_ewm_phy_stock" Alias="SAP" />
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+            <Annotations Target="SAP.ZI_EWM_PHY_STOCKType/Plant">
+                <Annotation Term="Common.ValueList" Qualifier="VisualFilterPlant">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="ZI_EWM_PHY_STOCK" />
+                        <PropertyValue Property="SearchSupported" Bool="true" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Plant" />
+                                    <PropertyValue Property="ValueListProperty" String="Plant" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="PresentationVariantQualifier" String="VisualFilterPlant" />
+                    </Record>
+                </Annotation>
+            </Annotations>
+
+            <Annotations Target="SAP.ZI_EWM_PHY_STOCKType/Owner">
+                <Annotation Term="Common.ValueList" Qualifier="VisualFilterOwner">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="ZI_EWM_PHY_STOCK" />
+                        <PropertyValue Property="SearchSupported" Bool="true" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Owner" />
+                                    <PropertyValue Property="ValueListProperty" String="Owner" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="PresentationVariantQualifier" String="VisualFilterOwner" />
+                    </Record>
+                </Annotation>
+            </Annotations>
+
+            <Annotations Target="SAP.ZI_EWM_PHY_STOCKType/StorageType">
+                <Annotation Term="Common.ValueList" Qualifier="VisualFilterStorageType">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="ZI_EWM_PHY_STOCK" />
+                        <PropertyValue Property="SearchSupported" Bool="true" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="StorageType" />
+                                    <PropertyValue Property="ValueListProperty" String="StorageType" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="PresentationVariantQualifier" String="VisualFilterStorageType" />
+                    </Record>
+                </Annotation>
+            </Annotations>
+
+            <Annotations Target="SAP.ZI_EWM_PHY_STOCKType/StorageLocation">
+                <Annotation Term="Common.ValueList" Qualifier="VisualFilterStorageLocation">
+                    <Record Type="Common.ValueListType">
+                        <PropertyValue Property="CollectionPath" String="ZI_EWM_PHY_STOCK" />
+                        <PropertyValue Property="SearchSupported" Bool="true" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="StorageLocation" />
+                                    <PropertyValue Property="ValueListProperty" String="StorageLocation" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="PresentationVariantQualifier" String="VisualFilterStorageLocation" />
+                    </Record>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

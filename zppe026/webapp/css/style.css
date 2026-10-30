@@ -1,0 +1,57 @@
+/* Simulate Specific Flight – fill remaining viewport with result table */
+.simulateSpecificFlightPage {
+	height: 100%;
+}
+
+.simulateSpecificFlightPage .sapFDynamicPageContentWrapper,
+.simulateSpecificFlightPage .sapFDynamicPageContent,
+.simulateSpecificFlightPage .sapFDynamicPageContentFitContainer {
+	height: 100%;
+	min-height: 0;
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+}
+
+.simulateSpecificFlightPage .sapFDynamicPageContentFitContainer > .sapUiView,
+.simulateSpecificFlightPage .sapFDynamicPageContent > div {
+	height: 100%;
+	min-height: 0;
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+}
+
+.simulatePageContent.sapMVBox,
+.simulatePageContent {
+	height: 100% !important;
+	min-height: 0;
+	flex: 1 1 auto;
+	display: flex !important;
+	flex-direction: column;
+	box-sizing: border-box;
+}
+
+.simulatePageContent > .sapMFlexItem {
+	flex: 1 1 auto;
+	min-height: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.simulateResultTable {
+	flex: 1 1 auto;
+	min-height: 0;
+	width: 100%;
+	border: 1px solid #e5e5e5;
+	border-radius: 0.25rem;
+	background: #ffffff;
+}
+
+.simulateResultTable .sapUiTableCnt {
+	height: 100%;
+}
+
+.simulateConfirmResultDialog .sapMDialogSection {
+	height: 100%;
+}

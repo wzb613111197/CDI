@@ -1,0 +1,66 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form">
+	<Dialog
+		id="exportCpaSpmlAssignmentRuleDialog"
+		title="{i18n>ExportCpaSpmlAssignmentRule}"
+		contentWidth="28rem"
+		resizable="true"
+		draggable="true">
+		<content>
+			<f:SimpleForm
+				id="exportCpaForm"
+				editable="true"
+				layout="ResponsiveGridLayout"
+				labelSpanXL="4"
+				labelSpanL="4"
+				labelSpanM="4"
+				labelSpanS="12"
+				columnsXL="1"
+				columnsL="1"
+				columnsM="1"
+				class="sapUiSmallMarginTop">
+				<f:content>
+					<Label id="lblExportValidFrom" text="{i18n>ValidFrom}" required="true"/>
+					<DatePicker
+						id="exportValidFrom"
+						width="100%"
+						required="true"
+						valueFormat="yyyy-MM-dd"
+						displayFormat="medium"
+						value="{path:'exportModel>/ValidFrom',type:'sap.ui.model.type.Date',formatOptions:{source:{pattern:'yyyy-MM-dd'},style:'medium',UTC:false},constraints:{nullable:false}}"
+						change=".onExportDateChange"/>
+					<Label id="lblExportValidTo" text="{i18n>ValidTo}"/>
+					<DatePicker
+						id="exportValidTo"
+						width="100%"
+						valueFormat="yyyy-MM-dd"
+						displayFormat="medium"
+						value="{path:'exportModel>/ValidTo',type:'sap.ui.model.type.Date',formatOptions:{source:{pattern:'yyyy-MM-dd'},style:'medium',UTC:false},constraints:{nullable:true}}"
+						change=".onExportDateChange"/>
+				</f:content>
+			</f:SimpleForm>
+			<VBox id="exportFilesBox" class="sapUiSmallMarginBeginEnd sapUiSmallMarginBottom">
+				<Title id="ttlFilesToDownload" text="{i18n>FilesToDownload}" level="H5" class="sapUiSmallMarginBottom"/>
+				<CheckBox id="cbSpmlAssignment" text="{i18n>SpmlAssignment}" selected="{exportModel>/SpmlAssignment}"/>
+				<CheckBox id="cbCrwmlAssignment" text="{i18n>CrwmlAssignment}" selected="{exportModel>/CrwmlAssignment}"/>
+				<CheckBox id="cbFlightTagMapping" text="{i18n>FlightTagMapping}" selected="{exportModel>/FlightTagMapping}"/>
+			</VBox>
+		</content>
+		<beginButton>
+			<Button
+				id="btnExportCpaDownload"
+				text="{i18n>Download}"
+				type="Emphasized"
+				press="onExportCpaDownload"/>
+		</beginButton>
+		<endButton>
+			<Button
+				id="btnExportCpaClose"
+				text="{i18n>Close}"
+				type="Transparent"
+				press="onExportCpaClose"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

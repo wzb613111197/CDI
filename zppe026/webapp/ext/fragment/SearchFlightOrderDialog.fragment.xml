@@ -1,0 +1,39 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog
+		id="searchFlightOrderDialog"
+		title="{@i18n>SearchFlightOrder}"
+		contentWidth="22rem"
+		resizable="false"
+		draggable="true">
+		<content>
+			<VBox class="sapUiSmallMargin">
+				<Label
+					id="scheduledDepartureDateLabel"
+					text="{@i18n>ScheduledDepartureDate}"
+					labelFor="scheduledDepartureDatePicker"
+					required="true"
+					showColon="true"/>
+				<DatePicker
+					id="scheduledDepartureDatePicker"
+					width="100%"
+					displayFormat="medium"
+					valueFormat="yyyy-MM-dd"
+					required="true"
+					placeholder="{@i18n>ScheduledDepartureDate}"/>
+			</VBox>
+		</content>
+		<beginButton>
+			<Button
+				id="confirmSearchFlightOrderButton"
+				text="{@i18n>SimuFlordConfirm}"
+				type="Emphasized"
+				press=".onConfirmSearchFlightOrder"/>
+		</beginButton>
+		<endButton>
+			<Button
+				id="cancelSearchFlightOrderButton"
+				text="{@i18n>Cancel}"
+				press=".onCancelSearchFlightOrder"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

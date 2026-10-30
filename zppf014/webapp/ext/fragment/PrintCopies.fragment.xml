@@ -1,0 +1,19 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+    <Input
+        id="inputPrintCopies"
+        type="Number"
+        width="8rem"
+        textAlign="End"
+        liveChange=".extension.com.cathaydining.zppf014.ext.controller.ListReportExtension.onCopiesChange"
+        change=".extension.com.cathaydining.zppf014.ext.controller.ListReportExtension.onCopiesChange"
+        modelContextChange=".extension.com.cathaydining.zppf014.ext.controller.ListReportExtension.onCopiesContextChange">
+        <customData>
+            <core:CustomData key="ProductionOrder" value="{ProductionOrder}"/>
+            <core:CustomData key="Material" value="{Material}"/>
+            <core:CustomData key="SplitOrderNumber" value="{SplitOrderNumber}"/>
+            <core:CustomData key="SplitBatchNumber" value="{SplitBatchNumber}"/>
+            <core:CustomData key="ItemNo" value="{ItemNo}"/>
+            <core:CustomData key="GalleyStandard" value="{GalleyStandard}"/>
+        </customData>
+    </Input>
+</core:FragmentDefinition>

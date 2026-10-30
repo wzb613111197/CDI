@@ -1,0 +1,230 @@
+<mvc:View
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:card="sap.f.cards"
+    controllerName="com.cathaydining.zppr004.ext.view.Dashboard"
+    height="100%"
+>
+    <!--
+      OVP-inspired Overview layout:
+      DynamicPage header (filter summary) + fixed card sections.
+      Avoid stable id attributes on controls inside items="{...}" templates.
+    -->
+    <f:DynamicPage
+        id="dashboardPage"
+        class="ppdOvpPage ppdDashboardPage"
+        toggleHeaderOnTitleClick="true"
+        headerExpanded="true"
+        showFooter="false"
+    >
+        <f:title>
+            <f:DynamicPageTitle class="ppdOvpTitle">
+                <f:heading>
+                    <Title text="{i18n>dashboardTitle}" level="H2" class="ppdOvpHeading"/>
+                </f:heading>
+                <f:snappedContent>
+                    <Text text="{dash>/selectionSummary}" class="ppdOvpSnappedText"/>
+                </f:snappedContent>
+                <f:actions>
+                    <Button
+                        icon="sap-icon://nav-back"
+                        type="Transparent"
+                        tooltip="{i18n>cardNavBack}"
+                        press=".onNavBack"
+                    />
+                </f:actions>
+            </f:DynamicPageTitle>
+        </f:title>
+
+        <f:header>
+            <f:DynamicPageHeader class="ppdOvpFilterHeader" pinnable="true">
+                <HBox alignItems="Center" class="ppdOvpFilterSummaryBar" width="100%" wrap="Wrap">
+                    <core:Icon src="sap-icon://filter" class="ppdOvpFilterIcon"/>
+                    <Text text="{dash>/selectionSummary}" class="ppdSelectionSummary"/>
+                </HBox>
+            </f:DynamicPageHeader>
+        </f:header>
+
+        <f:content>
+            <VBox class="ppdOvpCardArea" width="100%">
+                <!-- Production cards -->
+                <VBox class="ppdOvpSection" width="100%">
+                    <HBox alignItems="Center" class="ppdOvpSectionHeader" width="100%">
+                        <Title text="{i18n>tabProduction}" level="H4" class="ppdOvpSectionTitle"/>
+                        <ObjectStatus
+                            text="{dash>/CardLevelLabel}"
+                            state="Information"
+                            inverted="true"
+                            visible="{= !!${dash>/CardLevelLabel} }"
+                            class="ppdProdLevelBadge"
+                        />
+                        <ObjectStatus
+                            text="{= (${dash>/productionCards} || []).length + ' ' + ((${dash>/productionCards} || []).length === 1 ? ${i18n>cardCountSuffix} : ${i18n>cardsCountSuffix}) }"
+                            state="Information"
+                            class="ppdGroupCount"
+                        />
+                    </HBox>
+                    <f:GridContainer
+                        class="ppdOvpGrid"
+                        visible="{= (${dash>/productionCards} || []).length > 0 }"
+                        inlineBlockLayout="true"
+                        items="{dash>/productionCards}"
+                    >
+                        <f:layout>
+                            <f:GridContainerSettings
+                                rowSize="5rem"
+                                columnSize="20rem"
+                                gap="1rem"
+                            />
+                        </f:layout>
+                        <f:layoutS>
+                            <f:GridContainerSettings
+                                rowSize="5rem"
+                                columnSize="100%"
+                                gap="0.75rem"
+                            />
+                        </f:layoutS>
+                        <f:Card class="ppdOvpCard" width="100%">
+                            <f:layoutData>
+                                <f:GridContainerItemLayoutData columns="1" minRows="4"/>
+                            </f:layoutData>
+                            <f:header>
+                                <card:Header
+                                    title="{dash>Title}"
+                                    titleMaxLines="2"
+                                    subtitle="{= ${dash>Date} ? ${i18n>cardDate} + ' ' + ${dash>Date} : '' }"
+                                    iconVisible="false"
+                                    press=".onProductionCardPress"
+                                />
+                            </f:header>
+                            <f:content>
+                                <VBox class="ppdCardBody" width="100%">
+                                    <VBox items="{dash>Metrics}" class="ppdCardMetrics" width="100%">
+                                        <VBox class="ppdMetricRow" width="100%">
+                                            <HBox justifyContent="SpaceBetween" alignItems="Center" width="100%" class="ppdMetricTop">
+                                                <Text text="{dash>Label}" class="ppdMetricLabel"/>
+                                                <ObjectStatus
+                                                    text="{dash>Value}"
+                                                    state="{dash>State}"
+                                                    class="ppdMetricValueText"
+                                                />
+                                            </HBox>
+                                            <Image
+                                                src="{dash>BarSvg}"
+                                                width="100%"
+                                                densityAware="false"
+                                                visible="{dash>IsPercent}"
+                                                class="ppdMetricBarSvg"
+                                            />
+                                        </VBox>
+                                    </VBox>
+                                    <Link
+                                        text="{i18n>cardDrillDown}"
+                                        press=".onProductionCardPress"
+                                        visible="{dash>ShowLink}"
+                                        class="ppdCardOpenLink"
+                                    />
+                                </VBox>
+                            </f:content>
+                        </f:Card>
+                    </f:GridContainer>
+                    <HBox
+                        class="ppdSectionEmpty"
+                        width="100%"
+                        alignItems="Center"
+                        justifyContent="Start"
+                        visible="{= (${dash>/productionCards} || []).length === 0 }"
+                    >
+                        <Text text="{i18n>noDataDescription}" class="ppdSectionEmptyText"/>
+                    </HBox>
+                </VBox>
+
+                <!-- Plant cards -->
+                <VBox class="ppdOvpSection ppdOvpSectionPlant" width="100%">
+                    <HBox alignItems="Center" class="ppdOvpSectionHeader" width="100%">
+                        <Title text="{i18n>tabPlant}" level="H4" class="ppdOvpSectionTitle"/>
+                        <ObjectStatus
+                            text="{= (${dash>/plantCards} || []).length + ' ' + ((${dash>/plantCards} || []).length === 1 ? ${i18n>cardCountSuffix} : ${i18n>cardsCountSuffix}) }"
+                            state="Information"
+                            class="ppdGroupCount"
+                        />
+                    </HBox>
+                    <f:GridContainer
+                        class="ppdOvpGrid"
+                        visible="{= (${dash>/plantCards} || []).length > 0 }"
+                        inlineBlockLayout="true"
+                        items="{dash>/plantCards}"
+                    >
+                        <f:layout>
+                            <f:GridContainerSettings
+                                rowSize="5rem"
+                                columnSize="20rem"
+                                gap="1rem"
+                            />
+                        </f:layout>
+                        <f:layoutS>
+                            <f:GridContainerSettings
+                                rowSize="5rem"
+                                columnSize="100%"
+                                gap="0.75rem"
+                            />
+                        </f:layoutS>
+                        <f:Card class="ppdOvpCard ppdOvpCardPlant" width="100%">
+                            <f:layoutData>
+                                <f:GridContainerItemLayoutData columns="1" minRows="4"/>
+                            </f:layoutData>
+                            <f:header>
+                                <card:Header
+                                    title="{dash>Title}"
+                                    titleMaxLines="2"
+                                    subtitle="{= ${dash>Date} ? ${i18n>cardDate} + ' ' + ${dash>Date} : '' }"
+                                    iconVisible="false"
+                                    press=".onPlantCardPress"
+                                />
+                            </f:header>
+                            <f:content>
+                                    <VBox class="ppdCardBody" width="100%">
+                                        <SegmentedButton
+                                            selectedKey="{dash>ChartType}"
+                                            visible="{dash>HasCountChart}"
+                                            width="100%"
+                                            class="ppdPlantChartToggle"
+                                        >
+                                            <items>
+                                                <SegmentedButtonItem key="column" text="{i18n>plantChartColumn}"/>
+                                                <SegmentedButtonItem key="pie" text="{i18n>plantChartPie}"/>
+                                            </items>
+                                        </SegmentedButton>
+                                        <Image
+                                            src="{= ${dash>ChartType} === 'pie' ? ${dash>ChartSvgPie} : ${dash>ChartSvgColumn} }"
+                                            width="100%"
+                                            densityAware="false"
+                                            visible="{dash>HasCountChart}"
+                                            class="ppdPlantChartSvg"
+                                        />
+                                        <Link
+                                            text="{i18n>cardDrillDown}"
+                                            press=".onPlantCardPress"
+                                            visible="{dash>ShowLink}"
+                                            class="ppdCardOpenLink"
+                                        />
+                                    </VBox>
+                            </f:content>
+                        </f:Card>
+                    </f:GridContainer>
+                    <HBox
+                        class="ppdSectionEmpty"
+                        width="100%"
+                        alignItems="Center"
+                        justifyContent="Start"
+                        visible="{= (${dash>/plantCards} || []).length === 0 }"
+                    >
+                        <Text text="{i18n>noDataDescription}" class="ppdSectionEmptyText"/>
+                    </HBox>
+                </VBox>
+            </VBox>
+        </f:content>
+    </f:DynamicPage>
+</mvc:View>

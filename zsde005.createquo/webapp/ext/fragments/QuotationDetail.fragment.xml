@@ -1,0 +1,971 @@
+<!-- QuotationDetail fragment: pricing adjustment form and Current Quotation table (Step 3 - Modify the pricing workbench) -->
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:layout="sap.ui.layout"
+    xmlns:table="sap.ui.table"
+    xmlns:rowmodes="sap.ui.table.rowmodes"
+>
+    <VBox
+        id="quotationDetailContent"
+        width="100%"
+    >
+        <!-- Header information (read-only) -->
+        <Panel id="qdHeaderPanel" class="sapUiSmallMarginBottom cdSectionPanel">
+            <f:SimpleForm
+                id="qdHeaderSimpleForm"
+                editable="false"
+                layout="ColumnLayout"
+                columnsM="3"
+                columnsL="4"
+                columnsXL="6"
+            >
+                <f:content>
+                    <Label id="qdHdrSalesOrgLabel" text="{i18n>salesOrgLabel}" design="Bold"/>
+                    <Text id="qdHdrSalesOrgText" text="{ui>/newQuotation/salesOrg}"/>
+                    <Label id="qdHdrDivisionLabel" text="{i18n>divisionLabel}" design="Bold"/>
+                    <Text id="qdHdrDivisionText" text="{ui>/newQuotation/division}"/>
+                    <Label id="qdHdrDistChannelLabel" text="{i18n>distChannelLabel}" design="Bold"/>
+                    <Text id="qdHdrDistChannelText" text="{ui>/newQuotation/distChannel}"/>
+                    <Label id="qdHdrCustomerLabel" text="{i18n>customerLabel}" design="Bold"/>
+                    <Text id="qdHdrCustomerText" text="{ui>/newQuotation/customer}"/>
+                    <Label id="qdHdrAirlineLabel" text="{i18n>airlineLabel}" design="Bold"/>
+                    <Text id="qdHdrAirlineText" text="{ui>/newQuotation/airline}"/>
+                    <Label id="qdHdrcontractNoLabel" text="{i18n>contractNoLabel}" design="Bold"/>
+                    <Text id="qdHdrcontractNoText" text="{ui>/newQuotation/contractNo}"/>
+                    <Label id="qdHdrHeaderDescLabel" text="{i18n>headerDescLabel}" design="Bold"/>
+                    <Text id="qdHdrHeaderDescText" text="{ui>/newQuotation/headerDesc}"/>
+                    <Label id="qdHdrEffFromLabel" text="{i18n>effectiveFromLabel}" design="Bold"/>
+                    <Text id="qdHdrEffFromText" text="{path:'ui>/newQuotation/effectiveFrom',type:'sap.ui.model.type.Date',formatOptions:{UTC:'true'}}"/>
+                    <Label id="qdHdrRoundUpLabel" text="{i18n>roundUpLabel}" design="Bold"/>
+                    <Text id="qdHdrRoundUpCB" text="{ui>/newQuotation/roundUp}"/>
+                    <Label id="qdHdrEffToLabel" text="{i18n>effectiveToLabel}" design="Bold"/>
+                    <Text id="qdHdrEffToText" text="{path:'ui>/newQuotation/effectiveTo',type:'sap.ui.model.type.Date',formatOptions:{UTC:'true'}}"/>
+                    <Label id="qdHdrGPModeLabel" text="{i18n>grossProfitModeLabel}" design="Bold"/>
+                    <Text id="qdHdrGPModeCB" text="{ui>/newQuotation/grossProfitMode}"/>
+                </f:content>
+            </f:SimpleForm>
+        </Panel>
+
+        <Toolbar
+            id="qdAddMaterialToolbar"
+            class="sapUiTinyMarginBottom"
+        >
+            <Label
+                id="qdAddMaterialLabel"
+                text="{i18n>qdAddMaterial}"
+                wrapping="false"
+            />
+            <Input
+                id="qdAddMaterialInput"
+                width="14rem"
+                value="{ui>/quotationDetail/addMaterial}"
+                placeholder="{i18n>qdAddMaterialPlaceholder}"
+                showValueHelp="true"
+                valueHelpRequest="onMaterialValueHelp"
+            />
+            <Button
+                id="qdAddMaterialBtn"
+                text="{i18n>qdAdd}"
+                type="Emphasized"
+                press="onQDAddMaterial"
+            />
+        </Toolbar>
+
+        <!-- Pricing Adjustment Form (2 fields) -->
+        <f:Form
+            id="qdPricingForm"
+            editable="true"
+        >
+            <f:title>
+                <core:Title id="qdPricingFormTitle" text="{i18n>qdPricingAdjustmentTitle}" level="H5"/>
+            </f:title>
+            <f:layout>
+                <f:ResponsiveGridLayout
+                    id="qdPricingFormLayout"
+                    columnsXL="2"
+                    columnsL="2"
+                    columnsM="2"
+                    columnsS="1"
+                    labelSpanXL="6"
+                    labelSpanL="6"
+                    labelSpanM="6"
+                    labelSpanS="12"
+                    emptySpanXL="0"
+                    emptySpanL="0"
+                    emptySpanM="0"
+                    emptySpanS="0"
+                />
+            </f:layout>
+            <f:formContainers>
+                <f:FormContainer id="qdPricingCol1">
+                    <f:formElements>
+                        <f:FormElement id="qdLabourMMAdjValueElement">
+                            <f:label>
+                                <Label id="qdLabourMMAdjValueLabel" text="{i18n>qdLabourMMAdjValue}" wrapping="false"/>
+                            </f:label>
+                            <f:fields>
+                                <Input id="qdLabourMMAdjValueInput" value="{ui>/quotationDetail/labourMMAdjValue}" width="12rem" type="Number"/>
+                            </f:fields>
+                        </f:FormElement>
+                    </f:formElements>
+                </f:FormContainer>
+
+                <f:FormContainer id="qdPricingCol2">
+                    <f:formElements>
+                        <f:FormElement id="qdLabourSellRateElement">
+                            <f:label>
+                                <Label id="qdLabourSellRateLabel" text="{i18n>qdLabourSellRate}" wrapping="false"/>
+                            </f:label>
+                            <f:fields>
+                                <Input id="qdLabourSellRateInput" value="{ui>/quotationDetail/labourSellRate}" width="12rem" type="Number"/>
+                            </f:fields>
+                        </f:FormElement>
+                    </f:formElements>
+                </f:FormContainer>
+            </f:formContainers>
+        </f:Form>
+
+        <Toolbar id="qdActionToolbar" class="sapUiSmallMarginTop">
+            <ToolbarSpacer id="qdActionSpacer" />
+            <Button id="qdMassUpdateBtn" text="{i18n>qdMassUpdate}" type="Emphasized" press="onQDMassUpdate"/>
+        </Toolbar>
+
+        <table:Table
+            id="qdCurrentQuotationTable"
+            rows="{ui>/quotationDetail/items}"
+            busy="{ui>/quotationDetailBusy}"
+            busyIndicatorDelay="0"
+            selectionMode="MultiToggle"
+            fixedColumnCount="12"
+            enableSelectAll="true"
+        >
+            <table:rowMode>
+                <rowmodes:Fixed id="qdCurrentQuotationTableRowMode" rowCount="15"/>
+            </table:rowMode>
+            <table:extension>
+                <Toolbar id="qdTableToolbar">
+                    <Title id="qdTableTitle" text="{i18n>qdCurrentQuotation}" level="H5"/>
+                    <ToolbarSpacer id="qdTableToolbarSpacer" />
+                    <Button id="qdDeleteRowsBtn" text="{i18n>qdDeleteRows}" press="onQDDeleteQuotationDetailRows"/>
+                    <Button id="qdRefreshMarkupBtn" text="{i18n>qdRefreshMarkup}" type="Emphasized" press="onQDRefreshMarkup"/>
+                    <Button id="qdSimulationBtn" text="{i18n>qdSimulation}" type="Emphasized" press="onQDSimulation"/>
+                    <Button id="qdExportBtn" icon="sap-icon://excel-attachment" press="onQDExport"/>
+                </Toolbar>
+            </table:extension>
+            <table:columns>
+                <table:Column id="qdColView" width="6rem" headerSpan="21,1">
+                 <table:multiLabels>
+                        <Label id="qdColViewGroupLabel" text="{i18n>qdColGroupLabel}" textAlign="Center" width="100%"/>
+                        <Label id="qdColViewLabel" text="{i18n>qdColView}" wrapping="false"/>
+                    </table:multiLabels>
+                    <table:template>
+                        <Button id="qdCellViewBtn" text="{i18n>qdView}" type="Transparent" press="onQDViewItem"/>
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColItemNo" width="6rem">
+                 <table:multiLabels>
+                        <Label id="qdCollItemNoGroupLabel" text="{i18n>qdColGroupLabel}" textAlign="Center" width="100%"/>
+                        <Label id="qdColItemNoLabel" text="{i18n>qdColItemNo}"/>
+                 </table:multiLabels>
+                    <table:template>
+                        <Text id="qdColItemNoText" text="{ui>Item}"/>
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColDeleteFlag" width="7rem">
+                <table:multiLabels>
+                        <Label id="qdCoDeleteFlagGroupLabel" text="{i18n>qdColGroupLabel}" textAlign="Center" width="100%"/>
+                       <Label id="qdColDeleteFlagLabel" text="{i18n>qdColDeleteFlag}"/>
+                 </table:multiLabels>
+                    <table:template>
+                        <CheckBox id="qdColDeleteFlagCheckBox" selected="{ui>DeleteFlag}" editable="false"/>
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColComponentID" width="8rem">
+                <table:multiLabels>
+                        <Label id="qdColComponentIDGroupLabel" text="{i18n>qdColGroupLabel}" textAlign="Center" width="100%"/>
+                        <Label id="qdColComponentIDLabel" text="{i18n>qdColComponentID}"/>
+                 </table:multiLabels>
+                    <table:template>
+                        <Text id="qdColComponentIDText" text="{ui>ComponentID}"/>
+                    </table:template>
+                </table:Column>
+
+              <table:Column id="qdColSalesOrg" width="8rem" visible="false">
+                <table:multiLabels>
+                        <Label id="qdColqdColSalesOrgGroupLabel" text="{i18n>qdColGroupLabel}" textAlign="Center" width="100%"/>
+                        <Label id="qdColqdColSalesOrgLabel" text="{i18n>qdColColSalesOrg}"/>
+                 </table:multiLabels>
+                    <table:template>
+                        <Text id="qdColSalesOrgText" text="{ui>SalesOrg}"/>
+                    </table:template>
+                </table:Column>
+
+               <table:Column id="qdColDistChannel" width="8rem" visible="false">
+                <table:multiLabels>
+                        <Label id="qdColqdColDistChannelGroupLabel" text="{i18n>qdColGroupLabel}" textAlign="Center" width="100%"/>
+                        <Label id="qdColqdColDistChannelLabel" text="{i18n>qdColDistChannel}"/>
+                 </table:multiLabels>
+                    <table:template>
+                        <Text id="qdColDistChannelText" text="{ui>DistChannel}"/>
+                    </table:template>
+                </table:Column>
+                 <table:Column id="qdColDivision" width="8rem" visible="false">
+                <table:multiLabels>
+                        <Label id="qdColqdColDivisionGroupLabel" text="{i18n>qdColGroupLabel}" textAlign="Center" width="100%"/>
+                        <Label id="qdColqdColDivisionLabel" text="{i18n>qdColDivision}"/>
+                 </table:multiLabels>
+                    <table:template>
+                        <Text id="qdColDivisionText" text="{ui>Division}"/>
+                    </table:template>
+                </table:Column>
+
+                <table:Column id="qdColHeaderDesc" width="16rem" visible="false">
+                <table:multiLabels>
+                        <Label id="qdColHeaderDescGroupLabel" text="{i18n>qdColGroupLabel}" textAlign="Center" width="100%"/>
+                        <Label id="qdColHeaderDescLabel" text="{i18n>qdColHeaderDesc}"/>
+                 </table:multiLabels>
+                    <table:template>
+                        <Text id="qdColHeaderDescText" text="{ui>HeaderDesc}"/>
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColCustomerCode" width="16rem" visible='false'>
+                 <table:multiLabels>
+                        <Label id="qdColCustomerCodeGroupLabel" text="{i18n>qdColGroupLabel}" textAlign="Center" width="100%"/>
+                        <Label id="qdColCustomerCodeLabel" text="{i18n>qdColCustomerCode}"/>
+                 </table:multiLabels>
+                    <table:template>
+                      <ObjectIdentifier id="qdColCustomerCodeText" title="{ui>Customer}" text="{ui>CustomerName}"/>
+                    </table:template>
+                </table:Column>
+                        <table:Column id="qdColAirlineCode" width="10rem" visible='false'>
+                 <table:multiLabels>
+                        <Label id="qdColAirlineCodeGroupLabel" text="{i18n>qdColGroupLabel}" textAlign="Center" width="100%"/>
+                        <Label id="qdColAirlineCodeLabel" text="{i18n>qdColAirlineCode}"/>
+                 </table:multiLabels>
+                    <table:template>
+                      <Text id="qdColAirlineCodeText" text="{ui>AirlineCode}"/>
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColLoadingTempCode" width="12rem">
+                 <table:multiLabels>
+                        <Label id="qdColLoadingTempCodeGroupLabel" text="{i18n>qdColGroupLabel}" textAlign="Center" width="100%"/>
+                        <Label id="qdColLoadingTempCodeLabel" text="{i18n>LoadingTempCode}"/>
+                 </table:multiLabels>
+                    <table:template>
+                        <Text id="qdColLoadingTempCodeText" text="{ui>LoadingTempCode}"/>
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColMaterial" width="10rem">
+                 <table:multiLabels>
+                        <Label id="qdColMaterialGroupLabel" text="{i18n>qdColGroupLabel}" textAlign="Center" width="100%"/>
+                         <Label id="qdColMaterialLabel" text="{i18n>qdColMaterial}"/>
+                 </table:multiLabels>
+                    <table:template>
+                        <Text id="qdColMaterialText" text="{ui>Material}"/>
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColMaterialType" width="8rem">
+                  <table:multiLabels>
+                        <Label id="qdColMaterialTypeGroupLabel" text="{i18n>qdColGroupLabel}" textAlign="Center" width="100%"/>
+                        <Label id="qdColMaterialTypeLabel" text="{i18n>qdColMaterialType}"/>
+                 </table:multiLabels>
+                    <table:template>
+                        <Text id="qdColMaterialTypeText" text="{ui>MaterialType}"/>
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColMaterialStatus" width="8rem">
+                  <table:multiLabels>
+                        <Label id="qdColMaterialStatusGroupLabel" text="{i18n>qdColGroupLabel}" textAlign="Center" width="100%"/>
+                       <Label id="qdColMaterialStatusLabel" text="{i18n>qdColMaterialStatus}"/>
+                 </table:multiLabels>
+                    <table:template>
+                        <Text id="qdColMaterialStatusText" text="{ui>MaterialStatus}"/>
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColBomStatus" width="8rem">
+                  <table:multiLabels>
+                        <Label id="qdColBomStatusGroupLabel" text="{i18n>qdColGroupLabel}" textAlign="Center" width="100%"/>
+                        <Label id="qdColBomStatusLabel" text="{i18n>qdColBomStatus}"/>
+                 </table:multiLabels>
+                    <table:template>
+                        <Text id="qdColBomStatusText" text="{ui>BomStatus}"/>
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColMealType" width="9rem">
+                 <table:multiLabels>
+                        <Label id="qdColMealTypeGroupLabel" text="{i18n>qdColGroupLabel}" textAlign="Center" width="100%"/>
+                        <Label id="qdColMealTypeLabel" text="{i18n>qdColMealType}"/>
+                 </table:multiLabels>
+                    <table:template>
+                        <Text id="qdColMealTypeText" text="{ui>MealType}"/>
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColDescription" width="18rem">
+                 <table:multiLabels>
+                        <Label id="qdColDescriptionGroupLabel" text="{i18n>qdColGroupLabel}" textAlign="Center" width="100%"/>
+                        <Label id="qdColDescriptionLabel" text="{i18n>qdColDescription}"/>
+                 </table:multiLabels>
+                    <table:template>
+                        <Text id="qdColDescriptionText" text="{ui>Description}"/>
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColClass" width="5rem">
+                 <table:multiLabels>
+                        <Label id="qdColCabinClassGroupLabel" text="{i18n>qdColGroupLabel}" textAlign="Center" width="100%"/>
+                        <Label id="qdColClassLabel" text="{i18n>qdColClass}"/>
+                 </table:multiLabels>
+                    <table:template>
+                        <Text id="qdColClassText" text="{ui>CabinClass}"/>
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColCostRunDate" width="7rem">
+                 <table:multiLabels>
+                        <Label id="qdColCostRunDateGroupLabel" text="{i18n>qdColGroupLabel}" textAlign="Center" width="100%"/>
+                        <Label id="qdColCostRunDateLabel" text="{i18n>qdColCostRunDate}"/>
+                 </table:multiLabels>
+                    <table:template>
+                      <Text id="qdColCostRunDateText" text="{path:'ui>CostRunDate',type:'sap.ui.model.type.Date',formatOptions:{source:{pattern:'yyyy-MM-dd',UTC:true},UTC:'true'}}"/>
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColStatus" width="14rem">
+                 <table:multiLabels>
+                        <Label id="qdColQTStatusGroupLabel" text="{i18n>qdColGroupLabel}" textAlign="Center" width="100%"/>
+                        <Label id="qdColStatusLabel" text="{i18n>qdColStatus}"/>
+                 </table:multiLabels>
+                    <table:template>
+                        <Select id="qdColStatusSelect" selectedKey="{ui>QTStatus}" width="100%" showSecondaryValues="true">
+                            <core:ListItem key="0001" text="{i18n>qdStatusCreated}" additionalText="0001"/>
+                            <core:ListItem key="0002" text="{i18n>qdStatusInternalApproved}" additionalText="0002"/>
+                            <core:ListItem key="0003" text="{i18n>qdStatusProposed}" additionalText="0003"/>
+                            <core:ListItem key="0004" text="{i18n>qdStatusRejected}" additionalText="0004"/>
+                            <core:ListItem key="0005" text="{i18n>qdStatusApproved}" additionalText="0005"/>
+                            <core:ListItem key="0006" text="{i18n>qdStatusCompleted}" additionalText="0006"/>
+                        </Select>
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColSequence" width="7rem">
+                 <table:multiLabels>
+                        <Label id="qdColSequenceGroupLabel" text="{i18n>qdColGroupLabel}" textAlign="Center" width="100%"/>
+                        <Label id="qdColSequenceLabel" text="{i18n>qdColSequence}"/>
+                 </table:multiLabels>
+                    <table:template>
+                        <Input id="qdColSequenceInput" value="{ui>Sequence}" width="100%"/>
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColItemRemark" width="14rem">
+                 <table:multiLabels>
+                        <Label id="qdColItemRemarkGroupLabel" text="{i18n>qdColGroupLabel}" textAlign="Center" width="100%"/>
+                        <Label id="qdColItemRemarkLabel" text="{i18n>qdColItemRemark}"/>
+                 </table:multiLabels>
+                    <table:template>
+                        <Input id="qdColItemRemarkInput" value="{ui>ItemRemark}" width="100%"/>
+                    </table:template>
+                </table:Column>
+
+                <table:Column id="qdColVariant" width="6rem" headerSpan="7,1">
+                    <table:multiLabels>
+                        <Label id="qdColInvCostGroupLabel" text="{i18n>qdGrpInventoryCost}" textAlign="Center" width="100%"/>
+                        <Label id="qdColVariantLabel" text="{i18n>qdColVariant}"/>
+                    </table:multiLabels>
+                    <table:template>
+                    	<ObjectStatus id="qdColVariantObjectStatus" text="{ui>Variant}" state="Warning" />
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColYieldedFoodCost" width="10rem">
+                    <table:multiLabels>
+                        <Label id="qdColYieldedFoodCostGroupLabel" text="{i18n>qdGrpInventoryCost}"/>
+                        <Label id="qdColYieldedFoodCostLabel" text="{i18n>qdColYieldedFoodCost}"/>
+                    </table:multiLabels>
+                    <table:template>
+                    	<ObjectNumber id="qdColYieldedFoodCostText" number="{
+							parts:[{path:'ui>YieldedFoodCost'},{path:'ui>CurrencyCode'}],
+							type: 'sap.ui.model.type.Currency', 
+							formatOptions: {showMeasure: true}
+						}" state="Warning"
+						unit="{ui>CurrencyCode}" />
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColLabourMM" width="8rem">
+                    <table:multiLabels>
+                        <Label id="qdColLabourMMGroupLabel" text="{i18n>qdGrpInventoryCost}"/>
+                        <Label id="qdColLabourMMLabel" text="{i18n>qdColLabourMM}"/>
+                    </table:multiLabels>
+                    <table:template>
+                    <ObjectNumber id="qdColLabourMMText" number="{ui>LabourMM}" state="Warning"/>
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColLabourRate" width="8rem">
+                    <table:multiLabels>
+                        <Label id="qdColLabourRateGroupLabel" text="{i18n>qdGrpInventoryCost}"/>
+                        <Label id="qdColLabourRateLabel" text="{i18n>qdColLabourRate}"/>
+                    </table:multiLabels>
+                    <table:template>
+                    <ObjectNumber id="qdColLabourRateText" number="{
+							parts:[{path:'ui>LabourRate'},{path:'ui>CurrencyCode'}],
+							type: 'sap.ui.model.type.Currency', 
+							formatOptions: {showMeasure: true}
+						}" state="Warning"
+						unit="{ui>CurrencyCode}" />
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColLabourPriceSys" width="9rem">
+                    <table:multiLabels>
+                        <Label id="qdColLabourPriceSysGroupLabel" text="{i18n>qdGrpInventoryCost}"/>
+                        <Label id="qdColLabourPriceSysLabel" text="{i18n>qdColLabourPriceSys}"/>
+                    </table:multiLabels>
+                    <table:template>
+                     <ObjectNumber id="qdColLabourPriceSysText" number="{
+							parts:[{path:'ui>LabourPrice'},{path:'ui>CurrencyCode'}],
+							type: 'sap.ui.model.type.Currency', 
+							formatOptions: {showMeasure: true}
+						}" state="Warning"
+						unit="{ui>CurrencyCode}" />
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColOverhead" width="9rem">
+                    <table:multiLabels>
+                        <Label id="qdColOverheadGroupLabel" text="{i18n>qdGrpInventoryCost}"/>
+                        <Label id="qdColOverheadLabel" text="{i18n>qdColOverhead}"/>
+                    </table:multiLabels>
+                    <table:template>
+                     <ObjectNumber id="qdColOverheadText" number="{
+							parts:[{path:'ui>Overhead'},{path:'ui>CurrencyCode'}],
+							type: 'sap.ui.model.type.Currency', 
+							formatOptions: {showMeasure: true}
+						}" state="Warning"
+						unit="{ui>CurrencyCode}" />
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColTotal" width="8rem">
+                    <table:multiLabels>
+                        <Label id="qdColTotalGroupLabel" text="{i18n>qdGrpInventoryCost}"/>
+                        <Label id="qdColTotalLabel" text="{i18n>qdColTotal}"/>
+                    </table:multiLabels>
+                    <table:template>
+                     <ObjectNumber id="qdColTotalText" number="{
+							parts:[{path:'ui>Total'},{path:'ui>CurrencyCode'}],
+							type: 'sap.ui.model.type.Currency', 
+							formatOptions: {showMeasure: true}
+						}" state="Warning"
+						unit="{ui>CurrencyCode}" />
+                    </table:template>
+                </table:Column>
+            </table:columns>
+               <table:Column id="qdColSTVariant" width="6rem" headerSpan="19,1">
+                    <table:multiLabels>
+                        <Label id="qdColSTVariantGroupLabel" text="{i18n>qdGrpStandardCost}" textAlign="Center" width="100%"/>
+                        <Label id="qdColSTVariantLabel" text="{i18n>qdColSTVariant}"/>
+                    </table:multiLabels>
+                    <table:template>
+                    <ObjectStatus id="qdColSTVariantObjectStatus" text="{ui>STVariant}" state="Success" />
+                    </table:template>
+                </table:Column>
+              <table:Column id="qdColYieldedStandardFoodCost" width="12rem" >
+                    <table:multiLabels>
+                        <Label id="qdColYieldedStandardFoodCostGroupLabel" text="{i18n>qdGrpStandardCost}" textAlign="Center" width="100%"/>
+                        <Label id="qdColYieldedStandardFoodCostLabel" text="{i18n>qdColYieldedStdCost}"/>
+                    </table:multiLabels>
+                    <table:template>
+                     <ObjectNumber id="qdColYieldedStandardFoodCostText" number="{
+							parts:[{path:'ui>YieldedStandardFoodCost'},{path:'ui>CurrencyCode'}],
+							type: 'sap.ui.model.type.Currency', 
+							formatOptions: {showMeasure: true}
+						}" state="Success"
+						unit="{ui>CurrencyCode}" />
+                    </table:template>
+                </table:Column>
+                  <table:Column id="qdColMarkUpPercent" width="8rem" >
+                    <table:multiLabels>
+                        <Label id="qdColMarkUpPercentGroupLabel" text="{i18n>qdGrpStandardCost}" textAlign="Center" width="100%"/>
+                        <Label id="qdColMarkUpPercentLabel" text="{i18n>qdColMarkUpPercent}"/>
+                    </table:multiLabels>
+                    <table:template>
+                       <Input id="qdColMarkUpPercentInput" value="{ui>MarkUpPercent}" width="100%" type="Number" />
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColSTMarkUp" width="15rem" >
+                    <table:multiLabels>
+                        <Label id="qdColSTMarkUpGroupLabel" text="{i18n>qdGrpStandardCost}" textAlign="Center" width="100%"/>
+                        <Label id="qdColSTMarkUpLabel" text="{i18n>qdColSTMarkUp}"/>
+                    </table:multiLabels>
+                    <table:template>
+                         <ObjectNumber id="qdColSTMarkUpText" number="{
+							parts:[{path:'ui>STMarkUp'},{path:'ui>CurrencyCode'}],
+							type: 'sap.ui.model.type.Currency', 
+							formatOptions: {showMeasure: true}
+						}" state="Success"
+						unit="{ui>CurrencyCode}" />
+                    </table:template>
+                </table:Column>
+                 <table:Column id="qdColSTLabourMM" width="8rem" >
+                    <table:multiLabels>
+                        <Label id="qdColSTLabourMMGroupLabel" text="{i18n>qdGrpStandardCost}" textAlign="Center" width="100%"/>
+                        <Label id="qdColSTLabourMMLabel" text="{i18n>qdColSTLabourMM}"/>
+                    </table:multiLabels>
+                    <table:template>
+                     <ObjectNumber id="qdColSTLabourMMText" number="{ui>STLabourMM}" state="Success" />
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColLabourCostRate" width="12rem" >
+                    <table:multiLabels>
+                        <Label id="qdColLabourCostRateGroupLabel" text="{i18n>qdGrpStandardCost}" textAlign="Center" width="100%"/>
+                        <Label id="qdColLabourCostRateLabel" text="{i18n>qdColLabourCostRate}"/>
+                    </table:multiLabels>
+                    <table:template>
+                      <ObjectNumber id="qdColLabourCostRateText" number="{
+							parts:[{path:'ui>LabourCostRate'},{path:'ui>CurrencyCode'}],
+							type: 'sap.ui.model.type.Currency', 
+							formatOptions: {showMeasure: true}
+						}" state="Success"
+						unit="{ui>CurrencyCode}" />
+                    </table:template>
+                </table:Column>
+                   <table:Column id="qdColLabourCost" width="6rem" >
+                    <table:multiLabels>
+                        <Label id="qdColLabourCostGroupLabel" text="{i18n>qdGrpStandardCost}" textAlign="Center" width="100%"/>
+                        <Label id="qdColLabourCostLabel" text="{i18n>qdColLabourCost}"/>
+                    </table:multiLabels>
+                    <table:template>
+                      <ObjectNumber id="qdColLabourCostText" number="{
+							parts:[{path:'ui>LabourCost'},{path:'ui>CurrencyCode'}],
+							type: 'sap.ui.model.type.Currency', 
+							formatOptions: {showMeasure: true}
+						}" state="Success"
+						unit="{ui>CurrencyCode}" />
+                    </table:template>
+                </table:Column>
+                  <table:Column id="qdColSMPLPercent" width="6rem" >
+                    <table:multiLabels>
+                        <Label id="qdColSMPLPercentGroupLabel" text="{i18n>qdGrpStandardCost}" textAlign="Center" width="100%"/>
+                        <Label id="qdColSMPLPercentLabel" text="{i18n>qdColSMPLPercent}"/>
+                    </table:multiLabels>
+                    <table:template>
+                       <Input id="qdColSMPLPercentInput" value="{ui>SMPLPercent}" width="100%" type="Number" />
+                    </table:template>
+                </table:Column>
+                    <table:Column id="qdColSMPLRatio" width="12rem" >
+                    <table:multiLabels>
+                        <Label id="qdColSMPLRatioGroupLabel" text="{i18n>qdGrpStandardCost}" textAlign="Center" width="100%"/>
+                        <Label id="qdColSMPLRatioLabel" text="{i18n>qdColSMPLRatio}"/>
+                    </table:multiLabels>
+                    <table:template>
+                       <Input id="qdColSMPLRatioInput" value="{ui>SMPLRatio}" width="100%" type="Number" />
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColLabourMMAdjustment" width="13rem" >
+                    <table:multiLabels>
+                        <Label id="qdColLabourMMAdjustmentGroupLabel" text="{i18n>qdGrpStandardCost}" textAlign="Center" width="100%"/>
+                        <Label id="qdColLabourMMAdjustmentLabel" text="{i18n>qdColLabourMMAdjustment}"/>
+                    </table:multiLabels>
+                    <table:template>
+                       <Input id="qdColLabourMMAdjustmentInput" value="{ui>LabourMMAdjustment}" width="100%" type="Number" />
+                    </table:template>
+                </table:Column>
+               <table:Column id="qdColAdjustedLabourMM" width="12rem" >
+                    <table:multiLabels>
+                        <Label id="qdColAdjustedLabourMMGroupLabel" text="{i18n>qdGrpStandardCost}" textAlign="Center" width="100%"/>
+                        <Label id="qdColAdjustedLabourMMLabel" text="{i18n>qdColAdjustedLabourMM}"/>
+                    </table:multiLabels>
+                    <table:template>
+                       <ObjectNumber id="qdColAdjustedLabourMMText" number="{ui>AdjustedLabourMM}" state="Success" />
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColLabourMMAdjFix" width="16rem" >
+                    <table:multiLabels>
+                        <Label id="qdColLabourMMAdjFixGroupLabel" text="{i18n>qdGrpStandardCost}" textAlign="Center" width="100%"/>
+                        <Label id="qdColLabourMMAdjFixLabel" text="{i18n>qdColLabourMMAdjFix}"/>
+                    </table:multiLabels>
+                    <table:template>
+                       <Input id="qdColLabourMMAdjFixInput" value="{ui>LabourMMAdjFix}" width="100%" type="Number" />
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColLabourSellRate" width="12rem" >
+                    <table:multiLabels>
+                        <Label id="qdColLabourSellRateGroupLabel" text="{i18n>qdGrpStandardCost}" textAlign="Center" width="100%"/>
+                        <Label id="qdColLabourSellRateLabel" text="{i18n>qdColLabourSellRate}"/>
+                    </table:multiLabels>
+                    <table:template>
+                       <Input id="qdColLabourSellRateInput" value="{ui>LabourSellRate}" width="100%" type="Number" />
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColSTLabourPrice" width="8rem" >
+                    <table:multiLabels>
+                        <Label id="qdColSTLabourPriceGroupLabel" text="{i18n>qdGrpStandardCost}" textAlign="Center" width="100%"/>
+                        <Label id="qdColSTLabourPriceLabel" text="{i18n>qdColSTLabourPrice}"/>
+                    </table:multiLabels>
+                    <table:template>
+                      <ObjectNumber id="qdColSTLabourPriceText" number="{
+							parts:[{path:'ui>STLabourPrice'},{path:'ui>CurrencyCode'}],
+							type: 'sap.ui.model.type.Currency', 
+							formatOptions: {showMeasure: true}
+						}" state="Success"
+						unit="{ui>CurrencyCode}" />
+                    </table:template>
+                </table:Column>
+                 <table:Column id="qdColSTOverHead" width="12rem" >
+                    <table:multiLabels>
+                        <Label id="qdColSTOverHeadGroupLabel" text="{i18n>qdGrpStandardCost}" textAlign="Center" width="100%"/>
+                        <Label id="qdColSTOverHeadLabel" text="{i18n>qdColSTOverHead}"/>
+                    </table:multiLabels>
+                    <table:template>
+                      <ObjectNumber id="qdColSTOverHeadText" number="{
+							parts:[{path:'ui>STOverHead'},{path:'ui>CurrencyCode'}],
+							type: 'sap.ui.model.type.Currency', 
+							formatOptions: {showMeasure: true}
+						}" state="Success"
+						unit="{ui>CurrencyCode}" />
+                    </table:template>
+                </table:Column>
+                 <table:Column id="qdColSTOverHeadPercent" width="12rem" >
+                    <table:multiLabels>
+                        <Label id="qdColSTOverHeadPercentGroupLabel" text="{i18n>qdGrpStandardCost}" textAlign="Center" width="100%"/>
+                        <Label id="qdColSTOverHeadPercentLabel" text="{i18n>qdColSTOverHeadPercent}"/>
+                    </table:multiLabels>
+                    <table:template>
+                       <Input id="qdColSTOverHeadPercentInput" value="{ui>STOverHeadPercent}" width="100%" type="Number" />
+                    </table:template>
+                </table:Column>
+                 <table:Column id="qdColAdjustedOverhead" width="12rem" >
+                    <table:multiLabels>
+                        <Label id="qdColAdjustedOverheadGroupLabel" text="{i18n>qdGrpStandardCost}" textAlign="Center" width="100%"/>
+                        <Label id="qdColAdjustedOverheadLabel" text="{i18n>qdColAdjustedOverhead}"/>
+                    </table:multiLabels>
+                    <table:template>
+                      <ObjectNumber id="qdColAdjustedOverheadText" number="{
+							parts:[{path:'ui>AdjustedOverhead'},{path:'ui>CurrencyCode'}],
+							type: 'sap.ui.model.type.Currency', 
+							formatOptions: {showMeasure: true}
+						}" state="Success"
+						unit="{ui>CurrencyCode}" />
+                    </table:template>
+                </table:Column>
+                 <table:Column id="qdColOtherAdjustment" width="14rem" >
+                    <table:multiLabels>
+                        <Label id="qdColOtherAdjustmentGroupLabel" text="{i18n>qdGrpStandardCost}" textAlign="Center" width="100%"/>
+                        <Label id="qdColOtherAdjustmentLabel" text="{i18n>qdColOtherAdjustment}"/>
+                    </table:multiLabels>
+                    <table:template>
+                       <Input id="qdColOtherAdjustmentInput" value="{ui>OtherAdjustment}" width="100%" type="Number" />
+                    </table:template>
+                </table:Column>
+                   <table:Column id="qdColSTTotal" width="8rem" >
+                    <table:multiLabels>
+                        <Label id="qdColSTTotalGroupLabel" text="{i18n>qdGrpStandardCost}" textAlign="Center" width="100%"/>
+                        <Label id="qdColSTTotalLabel" text="{i18n>qdColSTTotal}"/>
+                    </table:multiLabels>
+                    <table:template>
+                      <ObjectNumber id="qdColSTTotalText" number="{
+							parts:[{path:'ui>STTotal'},{path:'ui>CurrencyCode'}],
+							type: 'sap.ui.model.type.Currency', 
+							formatOptions: {showMeasure: true}
+						}" state="Success"
+						unit="{ui>CurrencyCode}" />
+                    </table:template>
+                </table:Column>
+
+
+                <table:Column id="qdColSalesPriceFood" width="12rem" headerSpan="16,1">
+                    <table:multiLabels>
+                        <Label id="qdColSalesPriceFoodGroupLabel" text="{i18n>qdGrpActualSalesPrice}" textAlign="Center" width="100%"/>
+                        <Label id="qdColSalesPriceFoodLabel" text="{i18n>qdColSalesPriceFood}"/>
+                    </table:multiLabels>
+                    <table:template>
+                      <ObjectNumber id="qdColSalesPriceFoodText" number="{
+							parts:[{path:'ui>SalesPriceFood'},{path:'ui>CurrencyCode'}],
+							type: 'sap.ui.model.type.Currency', 
+							formatOptions: {showMeasure: true}
+						}" state="Information"
+						unit="{ui>CurrencyCode}" />
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColSalesPriceLabour" width="10rem" >
+                    <table:multiLabels>
+                        <Label id="qdColSalesPriceLabourGroupLabel" text="{i18n>qdGrpActualSalesPrice}" textAlign="Center" width="100%"/>
+                        <Label id="qdColSalesPriceLabourLabel" text="{i18n>qdColSalesPriceLabour}"/>
+                    </table:multiLabels>
+                    <table:template>
+                      <ObjectNumber id="qdColSalesPriceLabourText" number="{
+							parts:[{path:'ui>SalesPriceLabour'},{path:'ui>CurrencyCode'}],
+							type: 'sap.ui.model.type.Currency', 
+							formatOptions: {showMeasure: true}
+						}" state="Information"
+						unit="{ui>CurrencyCode}" />
+                    </table:template>
+                </table:Column>
+                   <table:Column id="qdColSalesPriceOverhead" width="11rem" >
+                    <table:multiLabels>
+                        <Label id="qdColSalesPriceOverheadGroupLabel" text="{i18n>qdGrpActualSalesPrice}" textAlign="Center" width="100%"/>
+                        <Label id="qdColSalesPriceOverheadLabel" text="{i18n>qdColSalesPriceOverhead}"/>
+                    </table:multiLabels>
+                    <table:template>
+                      <ObjectNumber id="qdColSalesPriceOverheadText" number="{
+							parts:[{path:'ui>SalesPriceOverhead'},{path:'ui>CurrencyCode'}],
+							type: 'sap.ui.model.type.Currency', 
+							formatOptions: {showMeasure: true}
+						}" state="Information"
+						unit="{ui>CurrencyCode}" />
+                    </table:template>
+                </table:Column>
+                    <table:Column id="qdColTotalSellingPrice" width="10rem" >
+                    <table:multiLabels>
+                        <Label id="qdColTotalSellingPriceGroupLabel" text="{i18n>qdGrpActualSalesPrice}" textAlign="Center" width="100%"/>
+                        <Label id="qdColTotalSellingPriceLabel" text="{i18n>qdColTotalSellingPrice}"/>
+                    </table:multiLabels>
+                    <table:template>
+                      <Input id="qdColTotalSellingPriceInput" value="{ui>TotalSellingPrice}" width="100%" type="Number" />
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColFreeofCharge" width="8rem">
+                 <table:multiLabels>
+                        <Label id="qdColFreeofChargeGroupLabel" text="{i18n>qdGrpActualSalesPrice}" textAlign="Center" width="100%"/>
+                        <Label id="qdColFreeofChargeLabel" text="{i18n>qdColFreeofCharge}"/>
+                    </table:multiLabels>
+                    <table:template>
+                        <CheckBox id="qdColFreeofChargeCheckBox" selected="{ui>FreeofCharge}"/>
+                    </table:template>
+                </table:Column>
+               <table:Column id="qdColGrossProfit" width="8rem" >
+                    <table:multiLabels>
+                        <Label id="qdColGrossProfitGroupLabel" text="{i18n>qdGrpActualSalesPrice}" textAlign="Center" width="100%"/>
+                        <Label id="qdColGrossProfitLabel" text="{i18n>qdColGrossProfit}"/>
+                    </table:multiLabels>
+                    <table:template>
+                      <ObjectNumber id="qdColGrossProfitText" number="{
+							parts:[{path:'ui>GrossProfit'},{path:'ui>CurrencyCode'}],
+							type: 'sap.ui.model.type.Currency', 
+							formatOptions: {showMeasure: true}
+						}" state="Information"
+						unit="{ui>CurrencyCode}" />
+                    </table:template>
+                </table:Column>
+                 <table:Column id="qdColGrossProfitPercent" width="10rem">
+                    <table:multiLabels>
+                        <Label id="qdColGrossProfitPercentGroupLabel" text="{i18n>qdColFreeofCharge}"/>
+                        <Label id="qdColGrossProfitPercentLabel" text="{i18n>qdColGrossProfitPercent}"/>
+                    </table:multiLabels>
+                    <table:template>
+                    	<ProgressIndicator
+                            id="qdColGrossProfitPercentText"
+                            width="100%"
+                            showValue="true"
+                            percentValue="{path:'ui>GrossProfitPercent', formatter:'._formatPercentIndicatorValue'}"
+                            displayValue="{path:'ui>GrossProfitPercent', formatter:'._formatPercentDisplayValue'}"
+                            state="Information"
+                        />
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColNetMargin" width="12rem" >
+                    <table:multiLabels>
+                        <Label id="qdColNetMarginGroupLabel" text="{i18n>qdGrpActualSalesPrice}" textAlign="Center" width="100%"/>
+                        <Label id="qdColNetMarginLabel" text="{i18n>qdColNetMargin}"/>
+                    </table:multiLabels>
+                    <table:template>
+                      <ObjectNumber id="qdColNetMarginText" number="{
+							parts:[{path:'ui>NetMargin'},{path:'ui>CurrencyCode'}],
+							type: 'sap.ui.model.type.Currency', 
+							formatOptions: {showMeasure: true}
+						}" state="Information"
+						unit="{ui>CurrencyCode}" />
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColNetMarginPercent" width="10rem">
+                    <table:multiLabels>
+                        <Label id="qdColNetMarginPercentGroupLabel" text="{i18n>qdColFreeofCharge}"/>
+                        <Label id="qdColNetMarginPercentLabel" text="{i18n>qdColNetMarginPercent}"/>
+                    </table:multiLabels>
+                    <table:template>
+                    	<ProgressIndicator
+                            id="qdColNetMarginPercentText"
+                            width="100%"
+                            showValue="true"
+                            percentValue="{path:'ui>NetMarginPercent', formatter:'._formatPercentIndicatorValue'}"
+                            displayValue="{path:'ui>NetMarginPercent', formatter:'._formatPercentDisplayValue'}"
+                            state="Information"
+                        />
+                    </table:template>
+                </table:Column>
+               <table:Column id="qdColQuotedPrice" width="8rem" >
+                    <table:multiLabels>
+                        <Label id="qdColQuotedPriceGroupLabel" text="{i18n>qdGrpActualSalesPrice}" textAlign="Center" width="100%"/>
+                        <Label id="qdColQuotedPriceLabel" text="{i18n>qdColQuotedPrice}"/>
+                    </table:multiLabels>
+                    <table:template>
+                        <Input id="qdColQuotedPriceInput" value="{ui>QuotedPrice}" width="100%" type="Number" />
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColIncrementPercent" width="8rem" >
+                    <table:multiLabels>
+                        <Label id="qdColIncrementPercentGroupLabel" text="{i18n>qdGrpStandardCost}" textAlign="Center" width="100%"/>
+                        <Label id="qdColIncrementPercentLabel" text="{i18n>qdColIncrementPercent}"/>
+                    </table:multiLabels>
+                    <table:template>
+                       <Input id="qdColIncrementPercentInput" value="{ui>IncrementPercent}" width="100%" type="Number" />
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColProposedNewPrice" width="10rem" >
+                    <table:multiLabels>
+                        <Label id="qdColProposedNewPriceGroupLabel" text="{i18n>qdGrpActualSalesPrice}" textAlign="Center" width="100%"/>
+                        <Label id="qdColProposedNewPriceLabel" text="{i18n>qdColProposedNewPrice}"/>
+                    </table:multiLabels>
+                    <table:template>
+                      <ObjectNumber id="qdColProposedNewPriceText" number="{
+							parts:[{path:'ui>ProposedNewPrice'},{path:'ui>CurrencyCode'}],
+							type: 'sap.ui.model.type.Currency', 
+							formatOptions: {showMeasure: true}
+						}" state="Information"
+						unit="{ui>CurrencyCode}" />
+                    </table:template>
+                </table:Column>
+                 <table:Column id="qdColPrecedingQT" width="10rem">
+                   <table:multiLabels>
+                        <Label id="qdColPrecedingQTGroupLabel" text="{i18n>qdGrpActualSalesPrice}" textAlign="Center" width="100%"/>
+                        <Label id="qdColPrecedingQTLabel" text="{i18n>qdColPrecedingQT}"/>
+                    </table:multiLabels>
+                    <table:template>
+                        <CheckBox id="qdColPrecedingQTCheckBox" selected="{ui>PrecedingQT}" editable="false"/>
+                    </table:template>
+                </table:Column>
+              <table:Column id="qdColValidFrom" width="12rem">
+                   <table:multiLabels>
+                        <Label id="qdColValidFromGroupLabel" text="{i18n>qdGrpActualSalesPrice}" textAlign="Center" width="100%"/>
+                        <Label id="qdColValidFromLabel" text="{i18n>qdColValidFrom}"/>
+                    </table:multiLabels>
+                    <table:template>
+                    <DatePicker
+                        id="qdColValidFormDP"
+                        width="100%"
+                        value="{path:'ui>ValidFrom',type:'sap.ui.model.type.Date',formatOptions:{source:{pattern:'yyyy-MM-dd',UTC:true},UTC:'true'}}"
+                    />
+                    </table:template>
+                </table:Column>
+                    <table:Column id="qdColValidTo" width="12rem">
+                   <table:multiLabels>
+                        <Label id="qdColValidToGroupLabel" text="{i18n>qdGrpActualSalesPrice}" textAlign="Center" width="100%"/>
+                        <Label id="qdColValidToLabel" text="{i18n>qdColValidTo}"/>
+                    </table:multiLabels>
+                    <table:template>
+                    <DatePicker
+                        id="qdColValidToDP"
+                        width="100%"
+                       value="{path:'ui>ValidTo',type:'sap.ui.model.type.Date',formatOptions:{source:{pattern:'yyyy-MM-dd',UTC:true},UTC:'true'}}"
+                    />
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColDiffPrevQTPrice" width="10rem" >
+                    <table:multiLabels>
+                        <Label id="qdColDiffPrevQTPriceGroupLabel" text="{i18n>qdGrpActualSalesPrice}" textAlign="Center" width="100%"/>
+                        <Label id="qdColDiffPrevQTPriceLabel" text="{i18n>qdColDiffPrevQTPrice}"/>
+                    </table:multiLabels>
+                    <table:template>
+                      <ObjectNumber id="qdColDiffPrevQTPriceText" number="{ui>DiffPrevQTPrice}" state="Information" />
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColPrevQT" width="6rem" headerSpan="8,1">
+                    <table:multiLabels>
+                        <Label id="qdColPrevQTGroupLabel" text="{i18n>qdGrpPreviousPrice}" textAlign="Center" width="100%"/>
+                        <Label id="qdColPrevQTLabel" text="{i18n>qdColPrevQT}"/>
+                    </table:multiLabels>
+                    <table:template>
+                      <Text id="qdColPrevQTText" text="{ui>PrevQT}"/>
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColPrevQTItem" width="10rem">
+                    <table:multiLabels>
+                        <Label id="qdColPrevQTItemGroupLabel" text="{i18n>qdGrpPreviousPrice}"/>
+                        <Label id="qdColPrevQTItemLabel" text="{i18n>qdColPrevQTItem}"/>
+                    </table:multiLabels>
+                    <table:template>
+                    <Text id="qdColPrevQTItemtText" text="{ui>PrevQTItem}"/>
+                    </table:template>
+                </table:Column>
+                 <table:Column id="qdColPreQTPrice" width="10rem">
+                    <table:multiLabels>
+                        <Label id="qdColPreQTPriceGroupLabel" text="{i18n>qdGrpPreviousPrice}"/>
+                        <Label id="qdColPreQTPriceLabel" text="{i18n>qdColPreQTPrice}"/>
+                    </table:multiLabels>
+                    <table:template>
+                    	<ObjectNumber id="qdColPreQTPriceText" number="{
+							parts:[{path:'ui>PreQTPrice'},{path:'ui>CurrencyCode'}],
+							type: 'sap.ui.model.type.Currency', 
+							formatOptions: {showMeasure: true}
+						}" state="None"
+						unit="{ui>CurrencyCode}" />
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColPrevQTCost" width="10rem">
+                    <table:multiLabels>
+                        <Label id="qdColPrevQTCostGroupLabel" text="{i18n>qdGrpPreviousPrice}"/>
+                        <Label id="qdColPrevQTCostLabel" text="{i18n>qdColPrevQTCost}"/>
+                    </table:multiLabels>
+                    <table:template>
+                    	<ObjectNumber id="qdColPrevQTCostText" number="{
+							parts:[{path:'ui>PrevQTCost'},{path:'ui>CurrencyCode'}],
+							type: 'sap.ui.model.type.Currency', 
+							formatOptions: {showMeasure: true}
+						}" state="None"
+						unit="{ui>CurrencyCode}" />
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColMargin" width="6rem">
+                    <table:multiLabels>
+                        <Label id="qdColMarginGroupLabel" text="{i18n>qdGrpPreviousPrice}"/>
+                        <Label id="qdColMarginLabel" text="{i18n>qdColMargin}"/>
+                    </table:multiLabels>
+                    <table:template>
+                    	<ObjectNumber id="qdColMarginText" number="{
+							parts:[{path:'ui>Margin'},{path:'ui>CurrencyCode'}],
+							type: 'sap.ui.model.type.Currency', 
+							formatOptions: {showMeasure: true}
+						}" state="None"
+						unit="{ui>CurrencyCode}" />
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColMarginPercnt" width="8rem">
+                    <table:multiLabels>
+                        <Label id="qdColMarginPercntGroupLabel" text="{i18n>qdGrpPreviousPrice}"/>
+                        <Label id="qdColMarginPercntLabel" text="{i18n>qdColMarginPercnt}"/>
+                    </table:multiLabels>
+                    <table:template>
+                    	<ProgressIndicator
+                            id="qdColMarginPercntText"
+                            width="100%"
+                            showValue="true"
+                            percentValue="{path:'ui>MarginPercnt', formatter:'._formatPercentIndicatorValue'}"
+                            displayValue="{path:'ui>MarginPercnt', formatter:'._formatPercentDisplayValue'}"
+                            state="None"
+                        />
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColPrevValidFrom" width="8rem">
+                     <table:multiLabels>
+                        <Label id="qdColPrevValidFromGroupLabel" text="{i18n>qdGrpPreviousPrice}"/>
+                        <Label id="qdColPrevValidFromLabel" text="{i18n>qdColPrevValidFrom}"/>
+                    </table:multiLabels>
+                    <table:template>
+                      <ObjectStatus id="qdColPrevValidFromObjectStatus" text="{path:'ui>PrevValidFrom',type:'sap.ui.model.type.Date',formatOptions:{source:{pattern:'yyyy-MM-dd',UTC:true},UTC:'true'}}" state="None" />
+                    </table:template>
+                </table:Column>
+                <table:Column id="qdColPrevValidTo" width="8rem">
+                     <table:multiLabels>
+                        <Label id="qdColPrevValidToGroupLabel" text="{i18n>qdGrpPreviousPrice}"/>
+                        <Label id="qdColPrevValidToLabel" text="{i18n>qdColPrevValidTo}"/>
+                    </table:multiLabels>
+                    <table:template>
+                     <ObjectStatus id="qdColPrevValidToObjectStatus" text="{path:'ui>PrevValidTo',type:'sap.ui.model.type.Date',formatOptions:{source:{pattern:'yyyy-MM-dd',UTC:true},UTC:'true'}}" state="None" />
+                    </table:template>
+                </table:Column>
+                    <table:Column id="qdColMessage" width="50rem">
+                    <Label id="qdColMessageLabel" text="{i18n>qdColMessage}"/>
+                    <table:template>
+                    	<ObjectStatus id="qdColMessageObjectStatus"
+						class="sapUiSmallMarginBottom"
+						text="{ui>Message}"
+						icon="sap-icon://message-popup"
+						state="{path:'ui>Type', formatter:'._formatMessageState'}" />
+                    </table:template>
+                </table:Column>
+        </table:Table>
+    </VBox>
+</core:FragmentDefinition>

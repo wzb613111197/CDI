@@ -1,0 +1,150 @@
+<mvc:View controllerName="com.cathaydining.zsde005.home.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:cards="sap.f.cards">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <f:GridContainer id="homeGrid" class="sapUiSmallMargin zsdOverviewGrid" snapToRow="true">
+                <f:layout>
+                    <f:GridContainerSettings id="homeGridSettings" rowSize="7rem" columnSize="22rem" gap="1rem" />
+                </f:layout>
+
+                <f:Card id="cardInterface" class="zsdOverviewCard" width="100%">
+                    <f:header>
+                        <cards:Header id="hdrInterface" title="{i18n>homeCardInterfaceTitle}" />
+                    </f:header>
+                    <f:content>
+                        <List id="listInterface" class="zsdCardList">
+                            <items>
+                                <StandardListItem id="itemInterfaceSendSpec" title="{i18n>homeMenuSendSpecification}" type="Navigation" press="onMenuPress">
+                                    <customData>
+                                        <core:CustomData key="semanticObject" value="ZSendSpec" />
+                                        <core:CustomData key="action" value="manage" />
+                                    </customData>
+                                </StandardListItem>
+                                <StandardListItem id="itemInterfaceReceiveSpecStatus" title="{i18n>homeMenuReceiveSpecificationStatus}" type="Navigation" press="onMenuPress">
+                                    <customData>
+                                        <core:CustomData key="semanticObject" value="ZSD_SPEC" />
+                                        <core:CustomData key="action" value="receiveStatus" />
+                                    </customData>
+                                </StandardListItem>
+                                <StandardListItem id="itemInterfaceSendQuot" title="{i18n>homeMenuSendQuotation}" type="Navigation" press="onMenuPress">
+                                    <customData>
+                                        <core:CustomData key="semanticObject" value="ZSpecQuotation" />
+                                        <core:CustomData key="action" value="manage" />
+                                    </customData>
+                                </StandardListItem>
+                                <StandardListItem id="itemInterfaceReceiveQuotStatus" title="{i18n>homeMenuReceiveQuotationStatus}" type="Navigation" press="onMenuPress">
+                                    <customData>
+                                        <core:CustomData key="semanticObject" value="ZSD_QUOT" />
+                                        <core:CustomData key="action" value="receiveStatus" />
+                                    </customData>
+                                </StandardListItem>
+                                <StandardListItem id="itemInterfaceLog" title="{i18n>homeMenuInterfaceLog}" type="Navigation" press="onMenuPress">
+                                    <customData>
+                                        <core:CustomData key="semanticObject" value="ZSD_IF" />
+                                        <core:CustomData key="action" value="log" />
+                                    </customData>
+                                </StandardListItem>
+                            </items>
+                        </List>
+                    </f:content>
+                </f:Card>
+
+                <f:Card id="cardPricing" class="zsdOverviewCard" width="100%">
+                    <f:header>
+                        <cards:Header id="hdrPricing" title="{i18n>homeCardPricingTitle}" />
+                    </f:header>
+                    <f:content>
+                        <List id="listPricing" class="zsdCardList">
+                            <items>
+                                <StandardListItem id="itemPricingCreate" title="{i18n>homeMenuCreateNewQuotation}" type="Navigation" press="onMenuPress">
+                                    <customData>
+                                        <core:CustomData key="semanticObject" value="ZCreateQuotation" />
+                                        <core:CustomData key="action" value="create" />
+                                    </customData>
+                                </StandardListItem>
+                                <StandardListItem id="itemPricingUploadNew" title="{i18n>homeMenuUploadNewQuotation}" type="Navigation" press="onMenuPress">
+                                    <customData>
+                                        <core:CustomData key="semanticObject" value="ZUploadNewQuotation" />
+                                        <core:CustomData key="action" value="create" />
+                                    </customData>
+                                </StandardListItem>
+                                <StandardListItem id="itemPricingUploadExisting" title="{i18n>homeMenuUploadExistingQuotation}" type="Navigation" press="onMenuPress">
+                                    <customData>
+                                        <core:CustomData key="semanticObject" value="ZUploadUptQuotation" />
+                                        <core:CustomData key="action" value="change" />
+                                    </customData>
+                                </StandardListItem>
+                                <StandardListItem id="itemPricingChange" title="{i18n>homeMenuChangeExistingQuotation}" type="Navigation" press="onMenuPress">
+                                    <customData>
+                                        <core:CustomData key="semanticObject" value="ZChangeQuotation" />
+                                        <core:CustomData key="action" value="change" />
+                                    </customData>
+                                </StandardListItem>
+                                <StandardListItem id="itemPricingCopy" title="{i18n>homeMenuCopyExistingQuotation}" type="Navigation" press="onMenuPress">
+                                    <customData>
+                                        <core:CustomData key="semanticObject" value="ZCopyQuotation" />
+                                        <core:CustomData key="action" value="create" />
+                                    </customData>
+                                </StandardListItem>
+                                 <StandardListItem id="itemMassUploadPrice" title="{i18n>homeMenuMassUploadPrice}" type="Navigation" press="onMenuPress">
+                                    <customData>
+                                        <core:CustomData key="semanticObject" value="ZMassUploadPrice" />
+                                        <core:CustomData key="action" value="maintain" />
+                                    </customData>
+                                </StandardListItem>
+                            </items>
+                        </List>
+                    </f:content>
+                </f:Card>
+
+                <f:Card id="cardReport" class="zsdOverviewCard" width="100%">
+                    <f:header>
+                        <cards:Header id="hdrReport" title="{i18n>homeCardReportTitle}" />
+                    </f:header>
+                    <f:content>
+                        <List id="listReport" class="zsdCardList">
+                            <items>
+                                <StandardListItem id="itemReportQuotation" title="{i18n>homeMenuQuotationReport}" type="Navigation" press="onMenuPress">
+                                    <customData>
+                                        <core:CustomData key="semanticObject" value="ZQTReport" />
+                                        <core:CustomData key="action" value="display" />
+                                    </customData>
+                                </StandardListItem>
+                            </items>
+                        </List>
+                    </f:content>
+                </f:Card>
+
+                
+                <f:Card id="cardPrintOut" class="zsdOverviewCard" width="100%">
+                    <f:header>
+                        <cards:Header id="hdrPrintOut" title="{i18n>homeCardPrintOutTitle}" />
+                    </f:header>
+                    <f:content>
+                        <List id="listPrintOut" class="zsdCardList">
+                            <items>
+                                <StandardListItem id="itemPrintOut" title="{i18n>homeMenuAviQtTemp}" type="Navigation" press="onMenuPress">
+                                    <customData>
+                                        <core:CustomData key="semanticObject" value="ZAviQtTemp" />
+                                        <core:CustomData key="action" value="maintain" />
+                                    </customData>
+                                </StandardListItem>
+
+                                 <StandardListItem id="itemAviationQuotationTemplate" title="{i18n>homeMenuAviationQuotationTemplate}" type="Navigation" press="onMenuPress">
+                                    <customData>
+                                        <core:CustomData key="semanticObject" value="ZNAviQtTemp" />
+                                        <core:CustomData key="action" value="maintain" />
+                                    </customData>
+                                </StandardListItem>
+                            </items>
+                        </List>
+                    </f:content>
+                </f:Card>
+            </f:GridContainer>
+        </content>
+    </Page>
+</mvc:View>

@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="SAP__aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="SAP__capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HIERARCHY',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Hierarchy.v1" Alias="SAP__hierarchy"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_HTML5',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.HTML5.v1" Alias="SAP__HTML5"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="SAP__measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ODM',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.ODM.v1" Alias="SAP__ODM"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_SESSION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.Session.v1" Alias="SAP__session"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="SAP__UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="SAP__validation"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="com.sap.gateway.srvd.zsd_ewm_bdir_print.v0001" Alias="SAP__self">
+            <Annotation Term="SAP__core.SchemaVersion" String="1.0.0"/>
+            <EntityType Name="ZI_EWM_BOND_DAILY_ISSUE_REPORTType">
+                <Key>
+                    <PropertyRef Name="STONo"/>
+                    <PropertyRef Name="LTONo"/>
+                    <PropertyRef Name="ReportType"/>
+                    <PropertyRef Name="ZDate"/>
+                    <PropertyRef Name="Airline"/>
+                    <PropertyRef Name="Item"/>
+                    <PropertyRef Name="DutyStatus"/>
+                </Key>
+                <Property Name="STONo" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="LTONo" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="ReportType" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="ZDate" Type="Edm.Date" Nullable="false"/>
+                <Property Name="Airline" Type="Edm.String" Nullable="false" MaxLength="70"/>
+                <Property Name="Item" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="DutyStatus" Type="Edm.String" Nullable="false" MaxLength="70"/>
+                <Property Name="ST" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="CodeNo" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="CustomCode" Type="Edm.String" Nullable="false" MaxLength="70"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="40"/>
+                <Property Name="Packing" Type="Edm.String" Nullable="false" MaxLength="32"/>
+                <Property Name="Unit" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="Carton" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="ZPartial" Type="Edm.String" Nullable="false" MaxLength="1"/>
+                <Property Name="TTL_QTY" Type="Edm.Decimal" Nullable="false" Precision="13" Scale="3"/>
+                <Property Name="DUTYSTATUSTEXT" Type="Edm.String" Nullable="false" MaxLength="70"/>
+                <Property Name="GRUND" Type="Edm.String" Nullable="false" MaxLength="3"/>
+                <Property Name="RESLO" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="LGORT" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="SaleableType" Type="Edm.String" Nullable="false" MaxLength="70"/>
+                <Property Name="__OperationControl" Type="com.sap.gateway.srvd.zsd_ewm_bdir_print.v0001.ZI_EWM_BOND_DAILY_ISSUE_REPORTOperationControl"/>
+                <Property Name="SAP__Messages" Type="Collection(com.sap.gateway.srvd.zsd_ewm_bdir_print.v0001.SAP__Message)" Nullable="false"/>
+            </EntityType>
+            <ComplexType Name="ZI_EWM_BOND_DAILY_ISSUE_REPORTOperationControl">
+                <Property Name="print" Type="Edm.Boolean" Nullable="false"/>
+            </ComplexType>
+            <ComplexType Name="ZA_EWM_BDIR_RESULT">
+                <Property Name="filename" Type="Edm.String" Nullable="false" MaxLength="200"/>
+                <Property Name="form" Type="Edm.Binary" Nullable="false"/>
+                <Property Name="mimetype" Type="Edm.String" Nullable="false" MaxLength="128"/>
+            </ComplexType>
+            <ComplexType Name="SAP__Message">
+                <Property Name="code" Type="Edm.String" Nullable="false"/>
+                <Property Name="message" Type="Edm.String" Nullable="false"/>
+                <Property Name="target" Type="Edm.String"/>
+                <Property Name="additionalTargets" Type="Collection(Edm.String)" Nullable="false"/>
+                <Property Name="transition" Type="Edm.Boolean" Nullable="false"/>
+                <Property Name="numericSeverity" Type="Edm.Byte" Nullable="false"/>
+                <Property Name="longtextUrl" Type="Edm.String"/>
+            </ComplexType>
+            <Action Name="print" IsBound="true">
+                <Parameter Name="_it" Type="com.sap.gateway.srvd.zsd_ewm_bdir_print.v0001.ZI_EWM_BOND_DAILY_ISSUE_REPORTType" Nullable="false"/>
+                <Parameter Name="IsPreview" Type="Edm.Boolean" Nullable="false"/>
+                <ReturnType Type="com.sap.gateway.srvd.zsd_ewm_bdir_print.v0001.ZA_EWM_BDIR_RESULT" Nullable="true"/>
+            </Action>
+            <EntityContainer Name="Container">
+                <EntitySet Name="ZI_EWM_BOND_DAILY_ISSUE_REPORT" EntityType="com.sap.gateway.srvd.zsd_ewm_bdir_print.v0001.ZI_EWM_BOND_DAILY_ISSUE_REPORTType"/>
+            </EntityContainer>
+            <Annotations Target="SAP__self.ZA_EWM_BDIR_RESULT/filename">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="File Name"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZA_EWM_BDIR_RESULT/mimetype">
+                <Annotation Term="SAP__core.IsMediaType"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Label" String="Mime Type"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_ISSUE_REPORTType/STONo">
+                <Annotation Term="SAP__common.Label" String="M.O.no."/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Pur. Doc."/>
+                <Annotation Term="SAP__common.QuickInfo" String="Purchasing Document Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=EBELN"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_ISSUE_REPORTType/LTONo">
+                <Annotation Term="SAP__common.Label" String="LTO_NO"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Batch"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Batch Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=CHARG_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_ISSUE_REPORTType/ReportType">
+                <Annotation Term="SAP__common.Label" String="Report Type"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_ewm_reporttype_vh/0001;ps='srvd-zsd_ewm_bdir_print-0001';va='com.sap.gateway.srvd.zsd_ewm_bdir_print.v0001.et-zi_ewm_bond_daily_issue_report.reporttype'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_ISSUE_REPORTType/ZDate">
+                <Annotation Term="SAP__common.Label" String="Date"/>
+                <Annotation Term="SAP__common.Heading" String="Pstng Date"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Posting Date in the Document"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BUDAT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_ISSUE_REPORTType/Airline">
+                <Annotation Term="SAP__common.Label" String="Airline"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_ewm_airline_vh/0001;ps='srvd-zsd_ewm_bdir_print-0001';va='com.sap.gateway.srvd.zsd_ewm_bdir_print.v0001.et-zi_ewm_bond_daily_issue_report.airline'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="Characteristic Value"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Characteristic Value"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ATWRT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_ISSUE_REPORTType/Item">
+                <Annotation Term="SAP__common.Label" String="Item"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/i_materialvh/0001;ps='srvd-zsd_ewm_bdir_print-0001';va='com.sap.gateway.srvd.zsd_ewm_bdir_print.v0001.et-zi_ewm_bond_daily_issue_report.item'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="Material"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_ISSUE_REPORTType/DutyStatus">
+                <Annotation Term="SAP__common.Label" String="Duty Status"/>
+                <Annotation Term="SAP__common.ValueListForValidation" String=""/>
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Collection>
+                        <String>../../../../srvd_f4/sap/zi_ewm_dutystatus_vh/0001;ps='srvd-zsd_ewm_bdir_print-0001';va='com.sap.gateway.srvd.zsd_ewm_bdir_print.v0001.et-zi_ewm_bond_daily_issue_report.dutystatus'/$metadata</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Heading" String="Characteristic Value"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Characteristic Value"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ATWRT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_ISSUE_REPORTType/ST">
+                <Annotation Term="SAP__common.Label" String="ST"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_ISSUE_REPORTType/CodeNo">
+                <Annotation Term="SAP__common.Label" String="CODE_NO"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Material"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Number"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MATNR"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_ISSUE_REPORTType/CustomCode">
+                <Annotation Term="SAP__common.Label" String="CUSTOM_CODE"/>
+                <Annotation Term="SAP__common.Heading" String="Characteristic Value"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Characteristic Value"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ATWRT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_ISSUE_REPORTType/Description">
+                <Annotation Term="SAP__common.Label" String="DESCRIPTION"/>
+                <Annotation Term="SAP__common.Heading" String="Material Description"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Material Description"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MAKTX"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_ISSUE_REPORTType/Packing">
+                <Annotation Term="SAP__common.Label" String="PACKING"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__common.Heading" String="Size/dimensions"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Size/dimensions"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=GROES"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_ISSUE_REPORTType/Unit">
+                <Annotation Term="SAP__common.IsUnit"/>
+                <Annotation Term="SAP__common.Label" String="UNIT"/>
+                <Annotation Term="SAP__common.Heading" String="BUn"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Base Unit of Measure"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=MEINS"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_ISSUE_REPORTType/Carton">
+                <Annotation Term="SAP__common.Label" String="CARTON"/>
+                <Annotation Term="SAP__measures.Unit" Path="Unit"/>
+                <Annotation Term="SAP__common.Heading" String="PO Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Purchase Order Quantity"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BSTMG"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_ISSUE_REPORTType/ZPartial">
+                <Annotation Term="SAP__common.Label" String="PARTIAL"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_ISSUE_REPORTType/TTL_QTY">
+                <Annotation Term="SAP__common.Label" String="TTL_QTY"/>
+                <Annotation Term="SAP__measures.Unit" Path="Unit"/>
+                <Annotation Term="SAP__common.Heading" String="PO Quantity"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Purchase Order Quantity"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=BSTMG"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_ISSUE_REPORTType/GRUND">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__common.Label" String="Reason for Man. Val."/>
+                <Annotation Term="SAP__common.Heading" String="Rsn"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Reason for Manual Valuation of Net Assets"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=GRUND"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_ISSUE_REPORTType/RESLO">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__common.Label" String="Issuing Storage Loc."/>
+                <Annotation Term="SAP__common.Heading" String="IStLoc"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Issuing Storage Location for Stock Transport Order"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=RESLO"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_ISSUE_REPORTType/LGORT">
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__common.Label" String="Storage Location"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=LGORT_D"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_ISSUE_REPORTType/__OperationControl">
+                <Annotation Term="SAP__core.Computed"/>
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__UI.Hidden"/>
+            </Annotations>
+            <Annotations Target="SAP__self.print(SAP__self.ZI_EWM_BOND_DAILY_ISSUE_REPORTType)/IsPreview">
+                <Annotation Term="SAP__common.Label" String="Preview Mode"/>
+                <Annotation Term="SAP__common.IsUpperCase"/>
+                <Annotation Term="SAP__UI.ParameterDefaultValue" Bool="true"/>
+                <Annotation Term="SAP__common.Heading" String="Truth Value"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Truth Value: True/False"/>
+            </Annotations>
+            <Annotations Target="SAP__self.print(SAP__self.ZI_EWM_BOND_DAILY_ISSUE_REPORTType)">
+                <Annotation Term="SAP__core.OperationAvailable" Path="_it/__OperationControl/print"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_ISSUE_REPORTType">
+                <Annotation Term="SAP__common.Label" String="Custom View for Bond Daily Issue Report"/>
+                <Annotation Term="SAP__UI.HeaderInfo">
+                    <Annotation Term="SAP__core.Messages">
+                        <Collection>
+                            <Record>
+                                <PropertyValue Property="message" String="UI.HEADERINFO: TypeNamePlural is mandatory"/>
+                                <PropertyValue Property="severity" String="error"/>
+                            </Record>
+                        </Collection>
+                    </Annotation>
+                    <Record>
+                        <PropertyValue Property="TypeName" String="Daily Receiving List"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="SAP__UI.DataField">
+                                <PropertyValue Property="Value" Path="STONo"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__UI.LineItem">
+                    <Collection>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="STONo"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ST"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="LTONo"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CodeNo"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="CustomCode"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Description"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Packing"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Unit"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Carton"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ZPartial"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="TTL_QTY"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataFieldForAction">
+                            <PropertyValue Property="Label" String="Print"/>
+                            <PropertyValue Property="Action" String="com.sap.gateway.srvd.zsd_ewm_bdir_print.v0001.print(com.sap.gateway.srvd.zsd_ewm_bdir_print.v0001.ZI_EWM_BOND_DAILY_ISSUE_REPORTType)"/>
+                            <PropertyValue Property="InvocationGrouping" EnumMember="SAP__UI.OperationGroupingType/ChangeSet"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ReportType"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="ZDate"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Airline"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="Item"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="DutyStatus"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="DUTYSTATUSTEXT"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="GRUND"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="RESLO"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="LGORT"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                        <Record Type="SAP__UI.DataField">
+                            <PropertyValue Property="Value" Path="SaleableType"/>
+                            <Annotation Term="SAP__UI.Hidden"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>ReportType</PropertyPath>
+                        <PropertyPath>ZDate</PropertyPath>
+                        <PropertyPath>Airline</PropertyPath>
+                        <PropertyPath>Item</PropertyPath>
+                        <PropertyPath>DutyStatus</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__common.Messages" Path="SAP__Messages"/>
+            </Annotations>
+            <Annotations Target="SAP__self.Container/ZI_EWM_BOND_DAILY_ISSUE_REPORT">
+                <Annotation Term="SAP__capabilities.SearchRestrictions">
+                    <Record>
+                        <PropertyValue Property="Searchable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="Filterable" Bool="true"/>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="ReportType"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="ZDate"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Airline"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Item"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="DutyStatus"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="RequiredProperties">
+                            <Collection>
+                                <PropertyPath>ReportType</PropertyPath>
+                                <PropertyPath>ZDate</PropertyPath>
+                                <PropertyPath>Airline</PropertyPath>
+                                <PropertyPath>Item</PropertyPath>
+                                <PropertyPath>DutyStatus</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>__OperationControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>__OperationControl</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="SAP__self.Container">
+                <Annotation Term="SAP__CodeList.UnitsOfMeasure">
+                    <Record>
+                        <PropertyValue Property="Url" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="UnitsOfMeasure"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="SAP__capabilities.FilterFunctions">
+                    <Collection>
+                        <String>eq</String>
+                        <String>ne</String>
+                        <String>gt</String>
+                        <String>ge</String>
+                        <String>lt</String>
+                        <String>le</String>
+                        <String>and</String>
+                        <String>or</String>
+                        <String>contains</String>
+                        <String>startswith</String>
+                        <String>endswith</String>
+                        <String>any</String>
+                        <String>all</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.SupportedFormats">
+                    <Collection>
+                        <String>application/json</String>
+                        <String>application/pdf</String>
+                    </Collection>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="../../../../default/iwbep/common/0001/$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="Border" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="FitToPage" Bool="true"/>
+                        <PropertyValue Property="FontName" Bool="true"/>
+                        <PropertyValue Property="FontSize" Bool="true"/>
+                        <PropertyValue Property="HeaderFooter" Bool="true"/>
+                        <PropertyValue Property="IANATimezoneFormat" Bool="true"/>
+                        <PropertyValue Property="Margin" Bool="true"/>
+                        <PropertyValue Property="Padding" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="20000"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="TextDirectionLayout" Bool="true"/>
+                        <PropertyValue Property="Treeview" Bool="true"/>
+                        <PropertyValue Property="UploadToFileShare" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilities.KeyAsSegmentSupported"/>
+                <Annotation Term="SAP__capabilities.AsynchronousRequestsSupported"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_ISSUE_REPORTType/DUTYSTATUSTEXT">
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__common.Label" String="Characteristic Value"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ATWRT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_ISSUE_REPORTType/SaleableType">
+                <Annotation Term="SAP__UI.HiddenFilter"/>
+                <Annotation Term="SAP__common.Label" String="Characteristic Value"/>
+                <Annotation Term="SAP__common.DocumentationRef" String="urn:sap-com:documentation:key?=type=DE&amp;id=ATWRT"/>
+            </Annotations>
+            <Annotations Target="SAP__self.ZI_EWM_BOND_DAILY_ISSUE_REPORTOperationControl/print">
+                <Annotation Term="SAP__common.Label" String="Dyn. Action Control"/>
+                <Annotation Term="SAP__common.Heading" String="Dynamic Action Control"/>
+                <Annotation Term="SAP__common.QuickInfo" String="Dynamic Action Property"/>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

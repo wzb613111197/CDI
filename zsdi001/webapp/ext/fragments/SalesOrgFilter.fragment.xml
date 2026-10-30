@@ -1,0 +1,10 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <Input
+        id="salesOrgFilterInput"
+        width="100%"
+        editable="false"
+        core:require="{
+            Value: 'sap/fe/macros/filter/type/Value'
+        }"
+        value="{path: 'filterValues>', type: 'Value'}"/>
+</core:FragmentDefinition>

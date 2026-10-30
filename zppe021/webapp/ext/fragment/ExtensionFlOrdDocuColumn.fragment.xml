@@ -1,0 +1,8 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
+    <Button
+        id="flOrdDocuAttachmentButton"
+        icon="sap-icon://attachment"
+        type="Transparent"
+        press=".extension.com.cathaydining.zppe021.ext.controller.ObjectPageExtension.onOpenAttachment"
+        tooltip="{i18n>Attachments}" />
+</core:FragmentDefinition>

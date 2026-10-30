@@ -1,0 +1,14 @@
+<core:FragmentDefinition
+	xmlns:core="sap.ui.core"
+	xmlns="sap.m"
+	xmlns:macros="sap.fe.macros">
+	<!-- Frontend FieldControl: required *; read-only when _Val exists (see onConTypeOptContextChange) -->
+	<HBox
+		width="100%"
+		alignItems="Center"
+		renderType="Bare"
+		class="conTypeOptField"
+		modelContextChange=".extension.com.cathaydining.zppe024.ext.controller.ObjectPageExtension.onConTypeOptContextChange">
+		<macros:Field metaPath="ConType" />
+	</HBox>
+</core:FragmentDefinition>
